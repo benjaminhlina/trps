@@ -4,14 +4,7 @@
 \alias{one_source_priors}
 \title{Bayesian priors - One Source Trophic Position}
 \usage{
-one_source_priors(n1 = NULL, n1_sigma = NULL)
-}
-\arguments{
-\item{n1}{mean prior value for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
-Defaults to 9.}
-
-\item{n1_sigma}{variance of n1 prior value for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
-Defaults to 1.}
+one_source_priors()
 }
 \description{
 Create priors for one source trophic position model derived from
