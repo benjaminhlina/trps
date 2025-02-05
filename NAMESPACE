@@ -2,4 +2,5 @@
 
 export(one_source_model)
 export(one_source_priors)
+export(one_source_priors_prams)
 import(brms)
