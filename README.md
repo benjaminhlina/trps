@@ -18,6 +18,6 @@ stable isotope data.
 You can install the development version of {trps} using the following:
 
 ``` r
-remotes::install_github("benjaminhlina/trps")
+devtools::install_github("benjaminhlina/trps")
 library(trps)
 ```
