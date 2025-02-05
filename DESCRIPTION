@@ -15,6 +15,7 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     brms,
+    cli,
     dplyr
 Suggests: 
     testthat (>= 3.0.0)
