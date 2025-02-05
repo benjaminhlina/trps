@@ -46,14 +46,14 @@ one_source_priors <- function(
   #  set priors
   priors <- c(
     # Baseline δ15N (n1)
-    brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept", nlpar = "n1"),
+    brms::prior(normal(9, 1), class = "b", coef = "Intercept", nlpar = "n1"),
     # Trophic enrichment factor (ΔN)
     brms::prior(normal(3.4, 0.5), class = "b", coef = "Intercept", nlpar = "dn"),
     # Trophic Position (tp)
     brms::prior(uniform(2, 10), class = "b", nlpar = "tp",
           lb = 2, ub = 10),
     # Standard deviation prior
-    brms::prior(uniform(0, 10), class = "sigma", ub = 10),
+    brms::prior(uniform(0, 10), class = "sigma", ub = 10)
   )
 
   return(priors)
