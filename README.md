@@ -6,9 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-{trps} (pronounced trips) is a package that leverages {brms} to use a
-Bayesian framework to estimate trophic position of different species
-using stable isotope data.
+{trps} (pronounced trips) is a package that leverages {brms} to create a
+Bayesian estimates of trophic position for different species using
+stable isotope data.
 
 ## Installation
 
