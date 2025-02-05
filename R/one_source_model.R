@@ -6,7 +6,7 @@
 #' @export
 
 one_source_model <- function() {
-  bmrs::bf(
+  brms::bf(
     # Likelihood function
     d15n ~ n1 + dn * (tp - l),
     # Baseline δ15N (to be estimated)
