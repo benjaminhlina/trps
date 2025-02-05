@@ -13,6 +13,7 @@ test_that("test one-source priors", {
 
   results <- pri$prior
 
+
   expect_equal(results, expected)
 }
 
