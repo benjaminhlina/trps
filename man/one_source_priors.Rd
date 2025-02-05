@@ -7,10 +7,10 @@
 one_source_priors(n1 = NULL, n1_sigma = NULL)
 }
 \arguments{
-\item{n1}{mean prior value for \equ(delta)^15 N for baseline used in the model.
+\item{n1}{mean prior value for \eqn{\delta}^15 N for baseline used in the model.
 Defaults to 9.}
 
-\item{n1_sigma}{variance of n1 prior value for \equ(delta)^15 N for baseline used in the model.
+\item{n1_sigma}{variance of n1 prior value for \eqn{\delta}^15 N for baseline used in the model.
 Defaults to 1.}
 }
 \description{
