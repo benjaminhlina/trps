@@ -2,9 +2,9 @@
 #'
 #' Create priors for one source trophic position model derived from [Post 2002]()
 #'
-#' @param n1 mean prior value for \equ(delta)^15 N for baseline used in the model.
+#' @param n1 mean prior value for \eqn{\delta}^15 N for baseline used in the model.
 #' Defaults to 9.
-#' @param n1_sigma variance of n1 prior value for \equ(delta)^15 N for baseline used in the model.
+#' @param n1_sigma variance of n1 prior value for \eqn{\delta}^15 N for baseline used in the model.
 #' Defaults to 1.
 #'
 #' @import brms
