@@ -7,12 +7,13 @@
 one_source_priors(n1 = NULL, n1_sigma = NULL)
 }
 \arguments{
-\item{n1}{mean prior value for \eqn{\delta}^15 N for baseline used in the model.
+\item{n1}{mean prior value for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
 Defaults to 9.}
 
-\item{n1_sigma}{variance of n1 prior value for \eqn{\delta}^15 N for baseline used in the model.
+\item{n1_sigma}{variance of n1 prior value for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
 Defaults to 1.}
 }
 \description{
-Create priors for one source trophic position model derived from [Post 2002]()
+Create priors for one source trophic position model derived from
+[Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 }
