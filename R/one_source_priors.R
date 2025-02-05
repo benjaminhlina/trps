@@ -2,10 +2,18 @@
 #'
 #' Create priors for one source trophic position model derived from [Post 2002]()
 #'
+#' @param n1 mean prior value for \equ(delta)^15 N for baseline used in the model.
+#' Defaults to 9.
+#' @param n1_sigma variance of n1 prior value for \equ(delta)^15 N for baseline used in the model.
+#' Defaults to 1.
+#'
 #' @import brms
 #' @export
 
-one_source_priors <- function(n1 = NULL) {
+one_source_priors <- function(
+    n1 = NULL,
+    n1_sigma = NULL
+    ) {
 
   # set n1 to 9
   if (is.null(n1)) {
@@ -20,12 +28,24 @@ one_source_priors <- function(n1 = NULL) {
     ))
   }
 
+  # set n1_sigma to 9
+  if (is.null(n1_sigma)) {
+    n1_sigma <- 1
+  }
+  # create error message for n1 priros
+  if  (!is.numeric(n1_sigma)) {
+    cli::cli_abort(c(
+      "`n1_sigma` argument must be a numerical value",
+      "i" = "Please provide a numerical value for n1_sigma"
+    ))
+  }
+
 
 
   #  set priors
   priors <- c(
     # Baseline δ15N (n1)
-    brms::prior(normal(n1, 1), class = "b", coef = "Intercept", nlpar = "n1"),
+    brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept", nlpar = "n1"),
     # Trophic enrichment factor (ΔN)
     brms::prior(normal(3.4, 0.5), class = "b", coef = "Intercept", nlpar = "dn"),
     # Trophic Position (TP)
