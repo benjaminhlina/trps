@@ -1,0 +1,28 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# trps
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+{trps} (pronounced trips) is a package that leverages {brms} to use a Bayesian framework to estimate trophic position  of different species using stable isotope data. 
+
+## Installation
+
+You can install the development version of {trps} using the following:
+
+``` r
+```
