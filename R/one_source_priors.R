@@ -28,11 +28,11 @@ one_source_priors <- function(
     ))
   }
 
-  # set n1_sigma to 9
+  # set n1_sigma to 1
   if (is.null(n1_sigma)) {
     n1_sigma <- 1
   }
-  # create error message for n1 priros
+  # create error message for n1 priors
   if  (!is.numeric(n1_sigma)) {
     cli::cli_abort(c(
       "`n1_sigma` argument must be a numerical value",
@@ -48,7 +48,7 @@ one_source_priors <- function(
     brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept", nlpar = "n1"),
     # Trophic enrichment factor (ΔN)
     brms::prior(normal(3.4, 0.5), class = "b", coef = "Intercept", nlpar = "dn"),
-    # Trophic Position (TP)
+    # Trophic Position (tp)
     brms::prior(uniform(2, 10), class = "b", nlpar = "tp",
           lb = 2, ub = 10),
     # Standard deviation prior
