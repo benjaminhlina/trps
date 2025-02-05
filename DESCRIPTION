@@ -1,16 +1,21 @@
 Package: trps
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Bayesian estimates of trophic position 
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Benjamin L.", "Hlina",
+      email = "benjamin.hlina@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Bayesian estimates of trophic position leveraging 'brms' using stable isotope data. Trophic position modeles are created using equations from Post 2002, Guzzo et al. 2011, and Huevel et al. 2024. 
+License: CC0
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    brms,
+    dplyr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
