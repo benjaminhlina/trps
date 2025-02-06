@@ -21,7 +21,7 @@ tp is trophic position, and \eqn{\lambda} is the trophic level of baselines whic
 Posterior distributions of of n1, dn, and tp will be estimated.
 
 The data supplied to \code{brms()} needs to have the following variables, \code{d15n}
-which is the eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
+which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
 \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1, and
 \code{lambda} which is usually \code{2 }otherwise \code{brms()} will error.
 }

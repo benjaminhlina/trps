@@ -14,7 +14,7 @@
 #'
 #' @details
 #' The data supplied to `brms()` needs to have the following variables, `d15n`
-#' which is the eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, `n1` which is
+#' which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, `n1` which is
 #' \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1, and
 #' `lambda` which is usually `2 `otherwise `brms()` will error.
 #'
