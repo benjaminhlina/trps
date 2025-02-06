@@ -8,7 +8,7 @@ one_source_model()
 }
 \description{
 Bayesian model for trophic position using a one source model derived from
-[Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
 \eqn{\delta}\eqn{^1}\eqn{^5}N = n1 + dn * (tp - \eqn{\lambda})
