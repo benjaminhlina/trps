@@ -14,7 +14,7 @@
 #' You can adjust the prior mean and variance for \eqn{\delta}\eqn{^1}\eqn{^5}N by supplying `n1` and `n1_sigma` with a numerical value.
 #'
 #' @import brms
-#' @seealso [one_source_pirors()] and [one_source_model()]
+#' @seealso [one_source_priors()] and [one_source_model()]
 #' @export
 
 one_source_priors_prams <- function(
