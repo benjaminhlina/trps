@@ -14,9 +14,17 @@ Bayesian model for trophic position using a one source model derived from
 \eqn{\delta}\eqn{^1}\eqn{^5}N = n1 + dn * (tp - \eqn{\lambda})
 
 \eqn{\delta}\eqn{^1}\eqn{^5}N are values from the consumer,
-n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N  values of baseline 1,
+n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
 tp is trophic position, and \eqn{\lambda} is the trophic level of baselines which are often a primary consumer (e.g., 2).
 
 Posterior distributions of of n1, dn, and tp will be estimated.
+
+The data supplied to \code{brms()} needs to have the following variables, \code{d15n}
+which is the eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
+\eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1, and
+\code{lambda} which is usually \code{2 }otherwise \code{brms()} will error.
+}
+\seealso{
+\code{\link[brms:brms-package]{brms::brms()}}
 }
