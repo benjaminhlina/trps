@@ -10,4 +10,9 @@ utils::globalVariables(c("n1",
                          "max_alpha",
                          "d13c",
                          "c1",
-                         "c2"))
+                         "c2",
+                         "dn",
+                         "dn_sigma",
+                         "sigma_lb",
+                         "sigma_ub", "tp_lb",
+                         "tp_ub"))
