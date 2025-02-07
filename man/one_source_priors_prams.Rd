@@ -4,24 +4,58 @@
 \alias{one_source_priors_prams}
 \title{Adjust Bayesian priors - One Source Trophic Position}
 \usage{
-one_source_priors_prams(n1 = NULL, n1_sigma = NULL)
+one_source_priors_prams(
+  n1 = NULL,
+  n1_sigma = NULL,
+  dn = 3.4,
+  dn_sigma = 0.5,
+  tp_lb = NULL,
+  tp_ub = NULL,
+  sigma_lb = NULL,
+  sigma_ub = NULL
+)
 }
 \arguments{
-\item{n1}{mean prior value for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
+\item{n1}{mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
 Defaults to 9.}
 
-\item{n1_sigma}{variance for n1 priors that are \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline used in the model.
+\item{n1_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
 Defaults to 1.}
+
+\item{dn}{mean prior value for \eqn{\Delta}N. Defaults to 3.4.}
+
+\item{dn_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N. Defaults to 0.5.}
+
+\item{tp_lb}{lower bound prior for trophic position. Defaults to 2.}
+
+\item{tp_ub}{upper bound prior for trophic position. Defaults to 10.}
+
+\item{sigma_lb}{lower bound prior for \eqn{\sigma}. Defaults to 0.}
+
+\item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to 10.}
 }
 \description{
 Adjust priors for one source trophic position model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-This function allows the user to adjust the prior mean and variance for \eqn{\delta}\eqn{^1}\eqn{^5}N for baseline.
-To be used with \code{one_source_priors} and \code{one_source_model}.
+\eqn{\delta}\eqn{^1}\eqn{^5}N = n1 + dn * (tp - \eqn{\lambda})
 
-You can adjust the prior mean and variance for \eqn{\delta}\eqn{^1}\eqn{^5}N by supplying \code{n1} and \code{n1_sigma} with a numerical value.
+Please read @details for more information about setting priors.
+
+This function allows the user to adjust the priors for the following variables
+in the equation above:
+
+\itemize{
+\item The mean (\code{n1}) and variance (\code{n1_sigma}) of \eqn{\delta}\eqn{^1}\eqn{^5}N
+for a given baseline. This prior assumes a normal distributions.
+\item The mean (\code{dn}) and variance (\code{dn_sigma}) of \eqn{\Delta}N (i.e, trophic enrichment
+factor;). This prior assumes a normal distributions.
+\item The lower (\code{tp_lb}) and upper (\code{tp_up}) of trophic position.
+This prior assumes a uniform distributions.
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) variance (\eqn{\sgima}).
+This prior assumes a uniform distributions.
+}
 }
 \seealso{
 \code{\link[=one_source_priors]{one_source_priors()}} and \code{\link[=one_source_model]{one_source_model()}}
