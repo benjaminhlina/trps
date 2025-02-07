@@ -114,7 +114,7 @@ one_source_priors_prams <- function(
   }
 
   if (is.null(tp_ub)) {
-    tp_lb <- 2
+    tp_ub <- 10
   }
 
   # create error message for n1 priors
