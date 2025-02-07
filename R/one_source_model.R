@@ -8,7 +8,8 @@
 #' \eqn{\delta}\eqn{^1}\eqn{^5}N are values from the consumer,
 #' n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
-#' tp is trophic position, and \eqn{\lambda} is the trophic level of baselines which are often a primary consumer (e.g., 2).
+#' tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
+#' which are often a primary consumer (e.g., 2).
 #'
 #' Posterior distributions of of n1, dn, and tp will be estimated.
 #'
