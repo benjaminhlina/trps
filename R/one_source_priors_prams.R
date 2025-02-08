@@ -7,6 +7,10 @@
 #'
 #' Please read @details for more information about setting priors.
 #'
+#' @param bp logical value that controls whether  priors are
+#' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+#' `FALSE` meaning the model will not be supplied priors, however, the supplied
+#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
 #' @param n1 mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
 #' Defaults to 9.
 #' @param n1_sigma variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
@@ -40,14 +44,22 @@
 one_source_priors_prams <- function(
     n1 = NULL,
     n1_sigma = NULL,
-    dn = 3.4,
-    dn_sigma = 0.5,
+    dn = NULL,
+    dn_sigma = NULL,
     tp_lb = NULL,
     tp_ub = NULL,
     sigma_lb = NULL,
-    sigma_ub = NULL
+    sigma_ub = NULL,
+    bp = FALSE
 ) {
 
+  if (!(is.logical(bp))) {
+
+    cli::cli_abort(c(
+      "`bp` argument must be a logical value",
+      "i" = "Please provide TRUE or FALSE"
+    ))
+  }
 
   # ----- n1 -----
 
@@ -55,7 +67,6 @@ one_source_priors_prams <- function(
   if (is.null(n1)) {
     n1 <- 9
   }
-
 
   # create error message for n1 priros
   if  (!is.numeric(n1)) {
