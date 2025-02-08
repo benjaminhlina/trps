@@ -5,8 +5,6 @@
 \title{Adjust Bayesian priors - One Source Trophic Position}
 \usage{
 one_source_priors_prams(
-  n1 = NULL,
-  n1_sigma = NULL,
   dn = 3.4,
   dn_sigma = 0.5,
   tp_lb = NULL,
@@ -16,12 +14,6 @@ one_source_priors_prams(
 )
 }
 \arguments{
-\item{n1}{mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
-Defaults to 9.}
-
-\item{n1_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
-Defaults to 1.}
-
 \item{dn}{mean prior value for \eqn{\Delta}N. Defaults to 3.4.}
 
 \item{dn_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N. Defaults to 0.5.}
@@ -33,6 +25,12 @@ Defaults to 1.}
 \item{sigma_lb}{lower bound prior for \eqn{\sigma}. Defaults to 0.}
 
 \item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to 10.}
+
+\item{n1}{mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+Defaults to 9.}
+
+\item{n1_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
+Defaults to 1.}
 }
 \description{
 Adjust priors for one source trophic position model derived from
