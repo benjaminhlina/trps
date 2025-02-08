@@ -3,7 +3,7 @@
 # tests for the one_source_priors
 test_that("test one-source priors", {
 
-  pri <- one_source_priors()
+  pri <- one_source_priors(bp = TRUE)
 
   expected <- c("normal(n1, n1_sigma)",
                 "normal(dn, dn_sigma)",
