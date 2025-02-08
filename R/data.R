@@ -6,7 +6,7 @@
 #'
 #' @format `data.frame` containing 87 rows and 5 variables
 #'  \describe{
-#'    \item{common_name}{name of the spcies (i.e., lake trout)}
+#'    \item{common_name}{name of the spcies (i.e., Lake Trout)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
 #'    \item{d13c}{observed values for \eqn{\delta}\eqn{^1}\eqn{^3}C}
 #'    \item{d15n}{observed values for \eqn{\delta}\eqn{^1}\eqn{^5}N}
@@ -14,3 +14,24 @@
 #' }
 #'
 "example_data_os"
+
+#' Stable isotope data for lake trout and dreissenids (baseline) used in
+#' a one source model
+#'
+#' Stable isotope data (SIA) for \eqn{\delta}\eqn{^1}\eqn{^3}C and
+#' \eqn{\delta}\eqn{^1}\eqn{^5}N for lake trout collected from an ecoregion in
+#' Lake Ontario. An additional column has been added (`n1`), which is
+#' \eqn{\delta}\eqn{^1}\eqn{^5}N dreissenidssamples from the same ecoregion.
+#'
+#'
+#' @format `data.frame` containing 87 rows and 6 variables
+#'  \describe{
+#'    \item{common_name}{name of the spcies (i.e., Lake Trout)}
+#'    \item{ecoregion}{ecoregion where samples were collected}
+#'    \item{d13c}{observed values for \eqn{\delta}\eqn{^1}\eqn{^3}C}
+#'    \item{d15n}{observed values for \eqn{\delta}\eqn{^1}\eqn{^5}N}
+#'    \item{lambda}{trophic position of baseline used in this data (i.e., 2)}
+#'    \item{n1}{\eqn{\delta}\eqn{^1}\eqn{^5}N for baseline samples}
+#' }
+#'
+"example_data_osn"
