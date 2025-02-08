@@ -21,7 +21,11 @@ two_source_model <- function() {
     d15n ~ dn * (tp - (lambda_p * (1 - alpha) + lambda_b * alpha) + n1 * alpha + n2 * (1 - alpha)),
     # Estimate alpha
     alpha ~ 1,
+    # estimate
+    n1 ~ 1,
+    n2 ~ 1,
     # Estimate trophic position
+
     tp ~ 1,
     # Estimate delta_n
     dn ~ 1,
