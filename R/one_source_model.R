@@ -11,32 +11,62 @@
 #' tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
 #' which are often a primary consumer (e.g., 2).
 #'
-#' Posterior distributions of of n1, dn, and tp will be estimated.
+#' @param bp logical value that controls whether  priors are
+#' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+#' `FALSE` meaning the model will not be supplied priors, however, the supplied
+#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+#'
 #'
 #' @details
 #' The data supplied to `brms()` needs to have the following variables, `d15n`
 #' which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, `n1` which is
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1, and
-#' `lambda` which is usually `2 `otherwise `brms()` will error.
+#' \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1 (only needed if priors
+#' aren't being supplied), and `lambda` which is usually `2 `
+#' otherwise `brms()` will error.
 #'
 #' @import brms
 #' @seealso [brms::brms()]
 #' @export
 
-one_source_model <- function() {
+one_source_model <- function(bp = FALSE) {
 
-  model <- brms::bf(
-    # Likelihood function
-    d15n ~ n1 + dn * (tp - lambda),
-    # Baseline δ15N (to be estimated)
-    n1 ~ 1,
-    # Trophic enrichment factor (ΔN)
-    dn ~ 1,
-    # Trophic Position (TP to be estimated)
-    tp ~ 1,
-    # Nonlinear model specification
-    nl = TRUE
-  )
+  if (!(is.logical(bp))) {
+
+    cli::cli_abort(c(
+      "`bp` argument must be a logical value",
+      "i" = "Please provide TRUE or FALSE"
+    ))
+  }
+
+  if (isFALSE(bp)) {
+    model <- brms::bf(
+      # Likelihood function
+      d15n ~ n1 + dn * (tp - lambda),
+      # Trophic enrichment factor (ΔN)
+      dn ~ 1,
+      # Trophic Position (TP to be estimated)
+      tp ~ 1,
+      # Nonlinear model specification
+      nl = TRUE
+    )
+
+  }
+
+  if (isTRUE(bp)) {
+    model <- brms::bf(
+      # Likelihood function
+      d15n ~ n1 + dn * (tp - lambda),
+      # Baseline δ15N (to be estimated)
+      n1 ~ 1,
+      # Trophic enrichment factor (ΔN)
+      dn ~ 1,
+      # Trophic Position (TP to be estimated)
+      tp ~ 1,
+      # Nonlinear model specification
+      nl = TRUE
+    )
+  }
+
   return(model)
 }
 
