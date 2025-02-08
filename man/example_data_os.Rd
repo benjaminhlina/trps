@@ -7,7 +7,7 @@
 \format{
 \code{data.frame} containing 87 rows and 5 variables
 \describe{
-\item{common_name}{name of the spcies (i.e., lake trout)}
+\item{common_name}{name of the spcies (i.e., Lake Trout)}
 \item{ecoregion}{ecoregion where samples were collected}
 \item{d13c}{observed values for \eqn{\delta}\eqn{^1}\eqn{^3}C}
 \item{d15n}{observed values for \eqn{\delta}\eqn{^1}\eqn{^5}N}
