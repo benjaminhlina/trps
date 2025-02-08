@@ -87,12 +87,13 @@ one_source_priors_prams <- function(
       "i" = "Please provide a numerical value as a piror"
     ))
   }
-
-
-  # ----- dn -----
-
-
   # create error message for dn priros
+
+
+  if (is.null(dn)) {
+    dn <- 3.4
+  }
+
   if  (!is.numeric(dn)) {
     cli::cli_abort(c(
       "`dn` argument must be a numerical value",
@@ -100,7 +101,11 @@ one_source_priors_prams <- function(
     ))
   }
 
-  # create error message for n1 priors
+  # create error message for dn priors
+  if (is.null(dn_sigma)) {
+    dn_sigma <- 0.5
+  }
+
   if  (!is.numeric(dn_sigma)) {
     cli::cli_abort(c(
       "`dn_sigma` argument must be a numerical value",
