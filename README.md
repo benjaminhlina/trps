@@ -11,9 +11,9 @@ test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
-{trps} (pronounced trips) is a package that leverages {brms} to create
-Bayesian estimates of trophic position for different species using
-stable isotope data.
+{trps} (pronounced trips) leverages {brms} to use a Bayesian framework
+to estimates of trophic position for different species using stable
+isotope data.
 
 ## Installation
 
