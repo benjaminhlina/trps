@@ -168,16 +168,34 @@ one_source_priors_prams <- function(
     ))
   }
 
-  # ----- set prirors -----
 
-  priors_params <- brms::stanvar(n1, name = 'n1') +
-    brms::stanvar(n1_sigma, 'n1_sigma') +
-    brms::stanvar(dn, 'dn') +
-    brms::stanvar(dn_sigma, 'dn_sigma') +
-    brms::stanvar(tp_lb, 'tp_lb') +
-    brms::stanvar(tp_ub, 'tp_ub') +
-    brms::stanvar(sigma_lb, 'sigma_lb') +
-    brms::stanvar(sigma_ub, 'sigma_ub')
+  if (isTRUE(bp)) {
+
+    priors_params <- brms::stanvar(n1, name = 'n1') +
+      brms::stanvar(n1_sigma, 'n1_sigma') +
+      brms::stanvar(dn, 'dn') +
+      brms::stanvar(dn_sigma, 'dn_sigma') +
+      brms::stanvar(tp_lb, 'tp_lb') +
+      brms::stanvar(tp_ub, 'tp_ub') +
+      brms::stanvar(sigma_lb, 'sigma_lb') +
+      brms::stanvar(sigma_ub, 'sigma_ub')
+
+  }
+
+
+  # ----- dn -----
+
+  if (isFALSE(bp)) {
+
+    # ----- set prirors -----
+
+    priors_params <- brms::stanvar(dn, 'dn') +
+      brms::stanvar(dn_sigma, 'dn_sigma') +
+      brms::stanvar(tp_lb, 'tp_lb') +
+      brms::stanvar(tp_ub, 'tp_ub') +
+      brms::stanvar(sigma_lb, 'sigma_lb') +
+      brms::stanvar(sigma_ub, 'sigma_ub')
+  }
 
   return(priors_params)
 
