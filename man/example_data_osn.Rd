@@ -6,8 +6,9 @@
 \title{Stable isotope data for lake trout and dreissenids (baseline) used in
 a one source model}
 \format{
-\code{data.frame} containing 87 rows and 6 variables
+\code{data.frame} containing 87 rows and 7 variables
 \describe{
+\item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Lake Trout)}
 \item{ecoregion}{ecoregion where samples were collected}
 \item{d13c}{observed values for \eqn{\delta}\eqn{^1}\eqn{^3}C}
