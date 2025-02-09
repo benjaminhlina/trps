@@ -4,7 +4,13 @@
 \alias{one_source_model}
 \title{Bayesian model - One Source Trophic Position}
 \usage{
-one_source_model()
+one_source_model(bp = FALSE)
+}
+\arguments{
+\item{bp}{logical value that controls whether  priors are
+supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+\code{FALSE} meaning the model will not be supplied priors, however, the supplied
+\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
 }
 \description{
 Bayesian model for trophic position using a one source model derived from
@@ -19,12 +25,11 @@ n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1,
 tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
 which are often a primary consumer (e.g., 2).
 
-Posterior distributions of of n1, dn, and tp will be estimated.
-
 The data supplied to \code{brms()} needs to have the following variables, \code{d15n}
 which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
-\eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1, and
-\code{lambda} which is usually \code{2 }otherwise \code{brms()} will error.
+\eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1 (only needed if priors
+aren't being supplied), and \code{lambda} which is usually \code{2 }
+otherwise \code{brms()} will error.
 }
 \seealso{
 \code{\link[brms:brms-package]{brms::brms()}}
