@@ -5,15 +5,24 @@
 \title{Adjust Bayesian priors - One Source Trophic Position}
 \usage{
 one_source_priors_prams(
-  dn = 3.4,
-  dn_sigma = 0.5,
+  n1 = NULL,
+  n1_sigma = NULL,
+  dn = NULL,
+  dn_sigma = NULL,
   tp_lb = NULL,
   tp_ub = NULL,
   sigma_lb = NULL,
-  sigma_ub = NULL
+  sigma_ub = NULL,
+  bp = FALSE
 )
 }
 \arguments{
+\item{n1}{mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+Defaults to 9.}
+
+\item{n1_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
+Defaults to 1.}
+
 \item{dn}{mean prior value for \eqn{\Delta}N. Defaults to 3.4.}
 
 \item{dn_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N. Defaults to 0.5.}
@@ -26,11 +35,10 @@ one_source_priors_prams(
 
 \item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to 10.}
 
-\item{n1}{mean prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
-Defaults to 9.}
-
-\item{n1_sigma}{variance for  \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline.
-Defaults to 1.}
+\item{bp}{logical value that controls whether  priors are
+supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+\code{FALSE} meaning the model will not be supplied priors, however, the supplied
+\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
 }
 \description{
 Adjust priors for one source trophic position model derived from
