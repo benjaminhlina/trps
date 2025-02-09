@@ -10,7 +10,7 @@ Authors@R: c(
     )
   )
 Description: Bayesian estimates of trophic position leveraging 'brms' using 
-             stable isotope data.Trophic position modeles are created using 
+             stable isotope data. Trophic position modeles are created using 
              equations from 
              Post (2002) <doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2>, 
              and 
