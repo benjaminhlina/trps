@@ -69,8 +69,3 @@ one_source_model <- function(bp = FALSE) {
 
   return(model)
 }
-
-
-
-
-
