@@ -38,7 +38,7 @@ test_that("test one-source priors without baseline", {
 test_that("test one-source priors fail if given not logical", {
 
   expect_error(
-    one_source_priors(bp = TRU),
+    one_source_priors(bp = "TRU"),
     regexp = "`bp` argument must be a logical value"
   )
 }
