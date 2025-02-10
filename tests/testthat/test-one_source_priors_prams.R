@@ -214,3 +214,13 @@ test_that("test priors fails sigma_ub ", {
 }
 
 )
+
+test_that("test priors fails test bp fails ", {
+
+  expect_error(one_source_priors_prams(bp = "TRUE"),
+               regexp = "`bp` argument must be a logical value"
+  )
+}
+  )
+
+
