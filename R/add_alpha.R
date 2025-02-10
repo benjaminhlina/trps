@@ -32,7 +32,7 @@ add_alpha <- function(
     mv <- setdiff(rv, names(data))
 
     cli::cli_abort(c(
-      "The dataframe is missing: {mv}",
+      "The data.frame is missing: {mv}",
       "i" = "Please provide {mv}"
     ))
 
