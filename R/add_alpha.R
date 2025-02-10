@@ -16,6 +16,29 @@ add_alpha <- function(
     data
 ) {
 
+  if (!(inherits(data, c("data.frame", "tibble",
+                         "data.table")))) {
+    cli::cli_abort(c(
+      "`data` must be a data.frame, tibble, or data.table",
+      "i" = "Please provide data.frame"
+    ))
+
+  }
+
+  rv <- c("d13c", "c1", "c2")
+
+  if(!all(rv %in% names(data))) {
+
+    mv <- setdiff(rv, names(data))
+
+    cli::cli_abort(c(
+      "The dataframe is missing: {mv}",
+      "i" = "Please provide {mv}"
+    ))
+
+  }
+
+
   dat <- data |>
     dplyr::mutate(
       alpha = (d13c - c2) / (c1 - c2),
@@ -23,13 +46,6 @@ add_alpha <- function(
       max_alpha = max(alpha)
     )
 
-  # if (isTRUE(min_max)) {
-  #   dat <- dat |>
-  #     dplyr::mutate(
-  #       min_alpha = min(alpha),
-  #       max_alpha = max(alpha)
-  #     )
-  #
-  # }
+
   return(dat)
 }
