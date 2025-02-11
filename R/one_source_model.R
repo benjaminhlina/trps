@@ -24,6 +24,11 @@
 #' aren't being supplied), and `lambda` which is usually `2 `
 #' otherwise `brms()` will error.
 #'
+#' @return returns model structure for one source model to be used in a
+#' `brms()` call.
+#' @examples
+#' one_source_model()
+#'
 #' @import brms
 #' @seealso [brms::brms()]
 #' @export

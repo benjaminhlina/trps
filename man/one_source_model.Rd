@@ -12,6 +12,10 @@ supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 \code{FALSE} meaning the model will not be supplied priors, however, the supplied
 \code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
 }
+\value{
+returns model structure for one source model to be used in a
+\code{brms()} call.
+}
 \description{
 Bayesian model for trophic position using a one source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
@@ -30,6 +34,10 @@ which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
 \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1 (only needed if priors
 aren't being supplied), and \code{lambda} which is usually \code{2 }
 otherwise \code{brms()} will error.
+}
+\examples{
+one_source_model()
+
 }
 \seealso{
 \code{\link[brms:brms-package]{brms::brms()}}
