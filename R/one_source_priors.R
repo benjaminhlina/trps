@@ -8,6 +8,12 @@
 #' `FALSE` meaning the model will not be supplied priors, however, the supplied
 #' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
 #'
+#' @return returns priors for one source model to be used in a `brms()` call.
+#'
+#' @seealso [brms::brms()]
+#' @examples
+#' one_source_priors()
+#'
 #' @import brms
 #' @export
 
@@ -43,7 +49,8 @@ one_source_priors <- function(bp = FALSE) {
     #  set priors
     priors <- c(
       # Baseline δ15N (n1)
-      brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept", nlpar = "n1"),
+      brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept",
+                   nlpar = "n1"),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), class = "b",
                   # coef = "Intercept",

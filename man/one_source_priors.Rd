@@ -12,7 +12,17 @@ supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 \code{FALSE} meaning the model will not be supplied priors, however, the supplied
 \code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
 }
+\value{
+returns priors for one source model to be used in a \code{brms()} call.
+}
 \description{
 Create priors for one source trophic position model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+}
+\examples{
+one_source_priors()
+
+}
+\seealso{
+\code{\link[brms:brms-package]{brms::brms()}}
 }
