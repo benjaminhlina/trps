@@ -38,7 +38,7 @@
 #'   }
 #'
 #' @return `stanvars` object to be used with `brms()` call.
-#' @exampls
+#' @examples
 #' one_source_priors_prams()
 #' @import brms
 #' @seealso [one_source_priors()], [one_source_model()], and [brms::brms()]

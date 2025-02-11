@@ -66,6 +66,9 @@ This prior assumes a uniform distributions.
 This prior assumes a uniform distributions.
 }
 }
+\examples{
+one_source_priors_prams()
+}
 \seealso{
 \code{\link[=one_source_priors]{one_source_priors()}}, \code{\link[=one_source_model]{one_source_model()}}, and \code{\link[brms:brms-package]{brms::brms()}}
 }
