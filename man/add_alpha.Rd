@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_alpha.R
 \name{add_alpha}
 \alias{add_alpha}
-\title{Calculate and add alpha}
+\title{Calculate and add \eqn{\alpha}}
 \usage{
 add_alpha(data)
 }
@@ -11,10 +11,25 @@ add_alpha(data)
 baselines. For aquatic ecosystems, baseline two needs to come
 from a pelagic source, while baseline one needs to come from a
 benthic source. Baseline \eqn{\delta}\eqn{^1}\eqn{^3}C columns
-need to be named \code{c1} and \code{c2}, with the consumer's column named
-\code{d13c}.}
+need to be named \code{c1} and \code{c2}, with the consumer's column named \code{d13c}.}
+}
+\value{
+a \code{data.frame} that has \code{alpha}, \code{min_alpha}, and \code{max_alpha} added.
 }
 \description{
-Calculate alpha for a two source trophic position model derived from
-\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+Calculate \eqn{\alpha} for a two source trophic position model using
+equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+}
+\details{
+\eqn{\alpha} = (\eqn{\delta}\eqn{^1}\eqn{^3}C\link{c} - \eqn{\delta}\eqn{^1}\eqn{^3}C\link{p}) /
+(\eqn{\delta}\eqn{^1}\eqn{^3}C\link{b} - \eqn{\delta}\eqn{^1}\eqn{^3}C\link{p})
+
+where \eqn{\delta}\eqn{^1}\eqn{^3}C\link{c} is the isotopic value for consumer,
+\eqn{\delta}\eqn{^1}\eqn{^3}C\link{p} is the mean isotopic value for pelagic
+baseline, and \eqn{\delta}\eqn{^1}\eqn{^3}C\link{b} is the mean isotopic value
+for benthic baseline.
+}
+\examples{
+example_iso_tsn |>
+  add_alpha()
 }
