@@ -10,7 +10,7 @@ add_alpha(data)
 \item{data}{data.frame of stable isotope samples with mean values for two
 baselines. For aquatic ecosystems, baseline two needs to come
 from a pelagic source, while baseline one needs to come from a
-benthic source. Baseline \eqn{\delta}\eqn{^1}\eqn{^3}C columns
+benthic source. Baseline \eqn{\delta^1^3 Cc} columns
 need to be named \code{c1} and \code{c2}, with the consumer's column named \code{d13c}.}
 }
 \value{
@@ -21,12 +21,12 @@ Calculate \eqn{\alpha} for a two source trophic position model using
 equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\eqn{\alpha} = (\eqn{\delta}\eqn{^1}\eqn{^3}C\link{c} - \eqn{\delta}\eqn{^1}\eqn{^3}C\link{p}) /
-(\eqn{\delta}\eqn{^1}\eqn{^3}C\link{b} - \eqn{\delta}\eqn{^1}\eqn{^3}C\link{p})
+\deqn{\alpha = (\delta^1^3 Cc - \delta ^1^3Cp) /
+(\delta ^1^3Cb - \delta ^1^3Cb)}
 
-where \eqn{\delta}\eqn{^1}\eqn{^3}C\link{c} is the isotopic value for consumer,
-\eqn{\delta}\eqn{^1}\eqn{^3}C\link{p} is the mean isotopic value for pelagic
-baseline, and \eqn{\delta}\eqn{^1}\eqn{^3}C\link{b} is the mean isotopic value
+where \eqn{\delta^1^3 Cc} is the isotopic value for consumer,
+\eqn{\delta^1^3 Cp} is the mean isotopic value for pelagic
+baseline, and \eqn{\delta^1^3 Cb} is the mean isotopic value
 for benthic baseline.
 }
 \examples{
