@@ -4,19 +4,42 @@
 \alias{two_source_model}
 \title{Bayesian model - Two Source Trophic Position}
 \usage{
-two_source_model()
+two_source_model(bp = FALSE)
+}
+\arguments{
+\item{bp}{logical value that controls whether  priors are
+supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N pelagic and benthic
+baselines. Default is \code{FALSE} meaning the model will not be supplied priors,
+however, the supplied \code{data.frame} needs values for
+\eqn{\delta}\eqn{^1}\eqn{^5}N each baseline (\code{n1} and \code{n2}).}
+}
+\value{
+returns model structure for two source model to be used in a
+\code{brms()} call.
 }
 \description{
 Bayesian model for trophic position using a two source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\eqn{\delta}\eqn{^1}\eqn{^5}N = n1 * alpha + n2 * (1 - alpha) + dn * (tp - (\eqn{\lambda} * alpha + \eqn{\lambda} * (1 - alpha))
+\deqn{\delta ^1^5N = dn * (tp - \lambda + n1 * \alpha + n2 * (1 - \alpha))}
 
 \eqn{\delta}\eqn{^1}\eqn{^5}N are values from the consumer,
 n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N  values of baseline 1,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
 tp is trophic position, and \eqn{\lambda} is the trophic level of baselines which are often a primary consumer (e.g., 2).
 
-Posterior distributions of of n1, dn, and tp will be estimated.
+The data supplied to \code{brms()} needs to have the following variables, \code{d15n}
+which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
+\eqn{\delta}\eqn{^1}\eqn{^5}N mean of baseline 1 (only needed if priors
+aren't being supplied), \code{n2} which is \eqn{\delta}\eqn{^1}\eqn{^5}N
+mean of baseline 2 (only needed if priors aren't being supplied), and
+\code{lambda} which is usually \code{2 }otherwise \code{brms()} will error.
+}
+\examples{
+two_source_model()
+
+}
+\seealso{
+\code{\link[brms:brms-package]{brms::brms()}}
 }
