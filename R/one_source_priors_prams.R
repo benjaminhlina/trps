@@ -37,8 +37,11 @@
 #'   This prior assumes a uniform distributions.
 #'   }
 #'
+#' @return `stanvars` object to be used with `brms()` call.
+#' @exampls
+#' one_source_priors_prams()
 #' @import brms
-#' @seealso [one_source_priors()] and [one_source_model()]
+#' @seealso [one_source_priors()], [one_source_model()], and [brms::brms()]
 #' @export
 
 one_source_priors_prams <- function(

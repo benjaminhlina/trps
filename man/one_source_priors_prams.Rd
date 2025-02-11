@@ -40,6 +40,9 @@ supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 \code{FALSE} meaning the model will not be supplied priors, however, the supplied
 \code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
 }
+\value{
+\code{stanvars} object to be used with \code{brms()} call.
+}
 \description{
 Adjust priors for one source trophic position model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
@@ -64,5 +67,5 @@ This prior assumes a uniform distributions.
 }
 }
 \seealso{
-\code{\link[=one_source_priors]{one_source_priors()}} and \code{\link[=one_source_model]{one_source_model()}}
+\code{\link[=one_source_priors]{one_source_priors()}}, \code{\link[=one_source_model]{one_source_model()}}, and \code{\link[brms:brms-package]{brms::brms()}}
 }
