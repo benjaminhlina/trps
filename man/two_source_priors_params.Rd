@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_priors_params.R
 \name{two_source_priors_params}
 \alias{two_source_priors_params}
-\title{Adjust Bayesian priors - two Source Trophic Position}
+\title{Adjust Bayesian priors - Two Source Trophic Position}
 \usage{
 two_source_priors_params(
   n1 = NULL,
