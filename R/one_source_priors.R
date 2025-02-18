@@ -6,7 +6,7 @@
 #' @param bp logical value that controls whether informed priors are
 #' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 #' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (`n1`).
 #'
 #' @return returns priors for one source model to be used in a `brms()` call.
 #'
