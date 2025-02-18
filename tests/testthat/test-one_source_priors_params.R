@@ -1,9 +1,9 @@
-#  tests for the one_source_priors_prams
+#  tests for the one_source_priors_params
 
 
 test_that("test one-source priors n1", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_n1 <- 9
 
   results_n1 <- pri_pram$n1$sdata
@@ -13,12 +13,12 @@ test_that("test one-source priors n1", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors fails n1", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        n1 = "test"),
                regexp = "`n1` argument must be a numerical value")
 
@@ -29,7 +29,7 @@ test_that("test one-source priors fails n1", {
 
 test_that("test one-source priors sigma", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_n1_sigma <- 1
 
   results_n1_sigma <- pri_pram$n1_sigma$sdata
@@ -42,7 +42,7 @@ test_that("test one-source priors sigma", {
 
 test_that("test priors fails n1_sigam ", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        n1_sigma = "test"),
                regexp = "`n1_sigma` argument must be a numerical value"
   )
@@ -52,12 +52,12 @@ test_that("test priors fails n1_sigam ", {
 }
 
 )
-#  tests for the one_source_priors_prams
+#  tests for the one_source_priors_params
 
 
 test_that("test one-source priors dn", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_dn <- 3.4
 
   results_dn <- pri_pram$dn$sdata
@@ -67,12 +67,12 @@ test_that("test one-source priors dn", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors fails dn", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        dn = "test"),
                regexp = "`dn` argument must be a numerical value")
 
@@ -84,7 +84,7 @@ test_that("test one-source priors fails dn", {
 
 test_that("test one-source priors dn_sigma", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_dn_sigma <- 0.5
 
   results_dn_sigma <- pri_pram$dn_sigma$sdata
@@ -97,7 +97,7 @@ test_that("test one-source priors dn_sigma", {
 
 test_that("test priors fails dn_sigam ", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        dn_sigma = "test"),
                regexp = "`dn_sigma` argument must be a numerical value"
   )
@@ -112,7 +112,7 @@ test_that("test priors fails dn_sigam ", {
 
 test_that("test one-source priors tp_lb", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_tp_lb <- 2
 
   results_tp_lb <- pri_pram$tp_lb$sdata
@@ -122,12 +122,12 @@ test_that("test one-source priors tp_lb", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors tp_lb", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        tp_lb = "test"),
                regexp = "`tp_lb` argument must be a numerical value")
 
@@ -139,7 +139,7 @@ test_that("test one-source priors tp_lb", {
 
 test_that("test one-source priors tp_ub", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_tp_ub <- 10
 
   results_tp_ub <- pri_pram$tp_ub$sdata
@@ -152,7 +152,7 @@ test_that("test one-source priors tp_ub", {
 
 test_that("test priors fails tp_ub ", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        tp_ub = "test"),
                regexp = "`tp_ub` argument must be a numerical value"
   )
@@ -164,7 +164,7 @@ test_that("test priors fails tp_ub ", {
 )
 test_that("test one-source priors sigma_lb", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_sigma_lb <- 0
 
   results_sigma_lb <- pri_pram$sigma_lb$sdata
@@ -174,12 +174,12 @@ test_that("test one-source priors sigma_lb", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors sigma_lb", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        sigma_lb = "test"),
                regexp = "`sigma_lb` argument must be a numerical value")
 
@@ -191,7 +191,7 @@ test_that("test one-source priors sigma_lb", {
 
 test_that("test one-source priors sigma_ub", {
 
-  pri_pram <- one_source_priors_prams(bp = TRUE)
+  pri_pram <- one_source_priors_params(bp = TRUE)
   expected_sigma_ub <- 10
 
   results_sigma_ub <- pri_pram$sigma_ub$sdata
@@ -204,7 +204,7 @@ test_that("test one-source priors sigma_ub", {
 
 test_that("test priors fails sigma_ub ", {
 
-  expect_error(one_source_priors_prams(bp = TRUE,
+  expect_error(one_source_priors_params(bp = TRUE,
                                        sigma_ub = "test"),
                regexp = "`sigma_ub` argument must be a numerical value"
   )
@@ -217,7 +217,7 @@ test_that("test priors fails sigma_ub ", {
 
 test_that("test priors fails test bp fails ", {
 
-  expect_error(one_source_priors_prams(bp = "TRUE"),
+  expect_error(one_source_priors_params(bp = "TRUE"),
                regexp = "`bp` argument must be a logical value"
   )
 }
@@ -226,7 +226,7 @@ test_that("test priors fails test bp fails ", {
 
 test_that("test one-source priors dn", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_dn <- 3.4
 
   results_dn <- pri_pram$dn$sdata
@@ -236,12 +236,12 @@ test_that("test one-source priors dn", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors fails dn", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        dn = "test"),
                regexp = "`dn` argument must be a numerical value")
 
@@ -253,7 +253,7 @@ test_that("test one-source priors fails dn", {
 
 test_that("test one-source priors dn_sigma", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_dn_sigma <- 0.5
 
   results_dn_sigma <- pri_pram$dn_sigma$sdata
@@ -266,7 +266,7 @@ test_that("test one-source priors dn_sigma", {
 
 test_that("test priors fails dn_sigam ", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        dn_sigma = "test"),
                regexp = "`dn_sigma` argument must be a numerical value"
   )
@@ -281,7 +281,7 @@ test_that("test priors fails dn_sigam ", {
 
 test_that("test one-source priors tp_lb", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_tp_lb <- 2
 
   results_tp_lb <- pri_pram$tp_lb$sdata
@@ -291,12 +291,12 @@ test_that("test one-source priors tp_lb", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors tp_lb", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        tp_lb = "test"),
                regexp = "`tp_lb` argument must be a numerical value")
 
@@ -308,7 +308,7 @@ test_that("test one-source priors tp_lb", {
 
 test_that("test one-source priors tp_ub", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_tp_ub <- 10
 
   results_tp_ub <- pri_pram$tp_ub$sdata
@@ -321,7 +321,7 @@ test_that("test one-source priors tp_ub", {
 
 test_that("test priors fails tp_ub ", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        tp_ub = "test"),
                regexp = "`tp_ub` argument must be a numerical value"
   )
@@ -333,7 +333,7 @@ test_that("test priors fails tp_ub ", {
 )
 test_that("test one-source priors sigma_lb", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_sigma_lb <- 0
 
   results_sigma_lb <- pri_pram$sigma_lb$sdata
@@ -343,12 +343,12 @@ test_that("test one-source priors sigma_lb", {
 }
 )
 
-#  tests for the one_source_priors_prams fails when given not. a numeric
+#  tests for the one_source_priors_params fails when given not. a numeric
 
 
 test_that("test one-source priors sigma_lb", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        sigma_lb = "test"),
                regexp = "`sigma_lb` argument must be a numerical value")
 
@@ -360,7 +360,7 @@ test_that("test one-source priors sigma_lb", {
 
 test_that("test one-source priors sigma_ub", {
 
-  pri_pram <- one_source_priors_prams()
+  pri_pram <- one_source_priors_params()
   expected_sigma_ub <- 10
 
   results_sigma_ub <- pri_pram$sigma_ub$sdata
@@ -373,7 +373,7 @@ test_that("test one-source priors sigma_ub", {
 
 test_that("test priors fails sigma_ub ", {
 
-  expect_error(one_source_priors_prams(,
+  expect_error(one_source_priors_params(,
                                        sigma_ub = "test"),
                regexp = "`sigma_ub` argument must be a numerical value"
   )
