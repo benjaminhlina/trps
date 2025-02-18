@@ -36,12 +36,12 @@
 #'
 #' @return `stanvars` object to be used with `brms()` call.
 #' @examples
-#' one_source_priors_prams()
+#' one_source_priors_params()
 #' @import brms
 #' @seealso [one_source_priors()], [one_source_model()], and [brms::brms()]
 #' @export
 
-one_source_priors_prams <- function(
+one_source_priors_params <- function(
     n1 = NULL,
     n1_sigma = NULL,
     dn = NULL,
