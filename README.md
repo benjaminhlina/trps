@@ -19,7 +19,7 @@ al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
 for different species using stable isotope data.
 
 {trps} is currently in active development with a one-source model
-implemented and a two-source model but not priors, or prior parameters
+implemented and a two-source model and priors, but not prior parameters
 currently implemented.
 
 ## Installation
