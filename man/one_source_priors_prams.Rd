@@ -44,13 +44,10 @@ supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 \code{stanvars} object to be used with \code{brms()} call.
 }
 \description{
-Adjust priors for one source trophic position model derived from
-\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+Adjust priors for one source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
 \eqn{\delta}\eqn{^1}\eqn{^5}N = n1 + dn * (tp - \eqn{\lambda})
-
-Please read @details for more information about setting priors.
 
 This function allows the user to adjust the priors for the following variables
 in the equation above:
@@ -62,7 +59,7 @@ for a given baseline. This prior assumes a normal distributions.
 factor;). This prior assumes a normal distributions.
 \item The lower (\code{tp_lb}) and upper (\code{tp_up}) of trophic position.
 This prior assumes a uniform distributions.
-\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) variance (\eqn{\sgima}).
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) variance (\eqn{\sigma}).
 This prior assumes a uniform distributions.
 }
 }
