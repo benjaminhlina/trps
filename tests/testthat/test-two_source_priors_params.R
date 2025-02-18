@@ -27,7 +27,7 @@ test_that("test two-source priors fails n1", {
 )
 
 
-test_that("test two-source priors n1", {
+test_that("test two-source priors n2", {
 
   pri_pram <- two_source_priors_params(bp = TRUE)
   expected_n2 <- 9
@@ -71,6 +71,31 @@ test_that("test priors fails n2_sigam ", {
   expect_error(two_source_priors_params(bp = TRUE,
                                        n2_sigma = "test"),
                regexp = "`n2_sigma` argument must be a numerical value"
+  )
+
+
+
+}
+
+)
+test_that("test two-source priors sigma", {
+
+  pri_pram <- two_source_priors_params(bp = TRUE)
+  expected_n1_sigma <- 1
+
+  results_n1_sigma <- pri_pram$n1_sigma$sdata
+
+  expect_equal(results_n1_sigma, expected_n1_sigma)
+
+}
+)
+
+
+test_that("test priors fails n1_sigam ", {
+
+  expect_error(two_source_priors_params(bp = TRUE,
+                                       n1_sigma = "test"),
+               regexp = "`n1_sigma` argument must be a numerical value"
   )
 
 
