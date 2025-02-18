@@ -11,16 +11,34 @@ test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
-{trps} leverages {brms} to use Bayesian frameworks to estimate trophic
-position using equations found in [Post
+{trps} leverages [{brms}](https://paulbuerkner.com/brms/) to use
+Bayesian frameworks to estimate trophic position using equations found
+in [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 and [Heuvel et
 al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
 for different species using stable isotope data.
 
-{trps} is currently in active development with a one-source model
-implemented and a two-source model and priors, but not prior parameters
-currently implemented.
+{trps} is currently in active development with the following progress:
+
+- [x] a one-source model
+  - [x] priors for a one-source model  
+  - [x] parameters for priors for a one-source model  
+- [x] a two-source model without different lambda
+  - [x] priors for a two-source model without different lambda
+  - [x] parameters for priors for a two-source model without different
+    lambda
+- \[\] a two-source model with different lambda
+  - \[\] priors for a two-source model with different lambda
+  - \[\] parameters for priors for a two-source model with different
+    lambda
+- \[\] a two-source carbon fractionation model
+  - \[\] priors and parameters for priors
+- \[\] a two-source model with different lambdas and alpha corrected
+  using [Heuvel et
+  al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466).
+  - \[\] priors and parameters for priors
+- \[\] vignettes for each model type
 
 ## Installation
 
