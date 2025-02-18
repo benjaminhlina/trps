@@ -9,7 +9,7 @@
 #' the supplied `data.frame` needs values for both \eqn{\delta}\eqn{^1}\eqn{^5}N
 #' baseline (`n1` and `n2`).
 #'
-#' @return returns priors for one source model to be used in a `brms()` call.
+#' @return returns priors for two source model to be used in a `brms()` call.
 #'
 #' @seealso [brms::brms()]
 #' @examples

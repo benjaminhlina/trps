@@ -14,7 +14,7 @@ the supplied \code{data.frame} needs values for both \eqn{\delta}\eqn{^1}\eqn{^5
 baseline (\code{n1} and \code{n2}).}
 }
 \value{
-returns priors for one source model to be used in a \code{brms()} call.
+returns priors for two source model to be used in a \code{brms()} call.
 }
 \description{
 Create priors for two source trophic position model derived from
