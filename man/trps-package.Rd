@@ -6,7 +6,7 @@
 \alias{trps-package}
 \title{trps: Bayesian estimates of trophic position}
 \description{
-Bayesian estimates of trophic position leveraging 'brms' using stable isotope data. Trophic position modeles are created using equations from Post (2002) \doi{10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2}, and Huevel et al. (2024) \doi{10.1139/cjfas-2024-0028}.
+Bayesian estimates of trophic position leveraging 'brms' and using stable isotope data. Trophic position modeles are created using equations from Post (2002) \doi{10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2}, and Huevel et al. (2024) \doi{10.1139/cjfas-2024-0028}.
 }
 \author{
 \strong{Maintainer}: Benjamin L. Hlina \email{benjamin.hlina@gmail.com}
