@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# trps <a href=""><img src="man/figures/logo.png" align="right" height="138" alt="trps website" /></a>
+# trps <a href="https://benjaminhlina.github.io/trps/"><img src="man/figures/logo.png" align="right" height="138" alt="trps website" /></a>
 
 <!-- badges: start -->
 
