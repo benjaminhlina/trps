@@ -14,7 +14,7 @@
 #' @param bp logical value that controls whether  priors are
 #' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 #' `FALSE` meaning the model will not be supplied priors, however, the supplied
-#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (`n1`).
 #'
 #'
 #' @details

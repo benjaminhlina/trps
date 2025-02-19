@@ -10,7 +10,7 @@ one_source_model(bp = FALSE)
 \item{bp}{logical value that controls whether  priors are
 supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 \code{FALSE} meaning the model will not be supplied priors, however, the supplied
-\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.}
+\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (\code{n1}).}
 }
 \value{
 returns model structure for one source model to be used in a
