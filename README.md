@@ -11,9 +11,9 @@ test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
-{trps} leverages [{brms}](https://paulbuerkner.com/brms/) to use
-Bayesian frameworks to estimate trophic position using equations found
-in [Post
+{trps} trophic position models using stan via
+[{brms}](https://paulbuerkner.com/brms/) that leverages Bayesian
+frameworks to estimate trophic position. using equations found in [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 and [Heuvel et
 al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
