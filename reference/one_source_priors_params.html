@@ -54,44 +54,45 @@
 
 
 <dl><dt id="arg-n-">n1<a class="anchor" aria-label="anchor" href="#arg-n-"></a></dt>
-<dd><p>mean prior for \(\delta\)\(^1\)\(^5\)N baseline.
-Defaults to 9.</p></dd>
+<dd><p>mean (\(\mu\)) prior for \(\delta\)\(^1\)\(^5\)N baseline.
+Defaults to <code>9</code>.</p></dd>
 
 
 <dt id="arg-n-sigma">n1_sigma<a class="anchor" aria-label="anchor" href="#arg-n-sigma"></a></dt>
-<dd><p>variance for  \(\delta\)\(^1\)\(^5\)N  baseline.
-Defaults to 1.</p></dd>
+<dd><p>variance (\(\sigma\)) for \(\delta\)\(^1\)\(^5\)N
+baseline. Defaults to <code>1</code>.</p></dd>
 
 
 <dt id="arg-dn">dn<a class="anchor" aria-label="anchor" href="#arg-dn"></a></dt>
-<dd><p>mean prior value for \(\Delta\)N. Defaults to 3.4.</p></dd>
+<dd><p>mean (\(\mu\)) prior value for \(\Delta\)N. Defaults to <code>3.4</code>.</p></dd>
 
 
 <dt id="arg-dn-sigma">dn_sigma<a class="anchor" aria-label="anchor" href="#arg-dn-sigma"></a></dt>
-<dd><p>variance for  \(\delta\)\(^1\)\(^5\)N. Defaults to 0.5.</p></dd>
+<dd><p>variance (\(\sigma\)) for \(\delta\)\(^1\)\(^5\)N.
+Defaults to <code>0.5</code>.</p></dd>
 
 
 <dt id="arg-tp-lb">tp_lb<a class="anchor" aria-label="anchor" href="#arg-tp-lb"></a></dt>
-<dd><p>lower bound prior for trophic position. Defaults to 2.</p></dd>
+<dd><p>lower bound prior for trophic position. Defaults to <code>2</code>.</p></dd>
 
 
 <dt id="arg-tp-ub">tp_ub<a class="anchor" aria-label="anchor" href="#arg-tp-ub"></a></dt>
-<dd><p>upper bound prior for trophic position. Defaults to 10.</p></dd>
+<dd><p>upper bound prior for trophic position. Defaults to <code>10</code>.</p></dd>
 
 
 <dt id="arg-sigma-lb">sigma_lb<a class="anchor" aria-label="anchor" href="#arg-sigma-lb"></a></dt>
-<dd><p>lower bound prior for \(\sigma\). Defaults to 0.</p></dd>
+<dd><p>lower bound prior for \(\sigma\). Defaults to <code>0</code>.</p></dd>
 
 
 <dt id="arg-sigma-ub">sigma_ub<a class="anchor" aria-label="anchor" href="#arg-sigma-ub"></a></dt>
-<dd><p>upper bound prior for \(\sigma\). Defaults to 10.</p></dd>
+<dd><p>upper bound prior for \(\sigma\). Defaults to <code>10</code>.</p></dd>
 
 
 <dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
-<dd><p>logical value that controls whether  priors are
+<dd><p>logical value that controls whether informed priors are
 supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
-<code>FALSE</code> meaning the model will not be supplied priors, however, the supplied
-<code>data.frame</code> needs values for \(\delta\)\(^1\)\(^5\)N baseline.</p></dd>
+<code>FALSE</code> meaning the model will use uninformed priors, however, the supplied
+<code>data.frame</code> needs values for \(\delta\)\(^1\)\(^5\)N baseline (<code>n1</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -100,7 +101,7 @@ supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>\(\delta\)\(^1\)\(^5\)N = n1 + dn * (tp - \(\lambda\))</p>
+    <p>$$\delta^1^5N = n1 + dn * (tp - \lambda)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
 <ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of \(\delta\)\(^1\)\(^5\)N
