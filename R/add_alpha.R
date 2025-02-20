@@ -42,7 +42,7 @@ add_alpha <- function(
 
   }
 
-  rv <- c("d13c", "c1", "c2")
+  rv <- c("d13c", "c1_mean", "c2_mean")
 
   if(!all(rv %in% names(data))) {
 
@@ -58,7 +58,7 @@ add_alpha <- function(
 
   dat <- data |>
     dplyr::mutate(
-      alpha = (d13c - c2) / (c1 - c2),
+      alpha = (d13c - c2_mean) / (c1_mean - c2_mean),
       min_alpha = min(alpha, na.rm = TRUE),
       max_alpha = max(alpha, na.rm = TRUE)
     )
