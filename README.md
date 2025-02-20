@@ -19,6 +19,8 @@ and [Heuvel et
 al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
 and are to be used with stable isotope data for different species.
 
+## Progress
+
 {trps} is currently in active development with the following progress:
 
 - [x] a one-source model
