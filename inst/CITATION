@@ -1,0 +1,32 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "Using stable isotopes to estimate trophic position: Models, methods, and assumptions",
+  author   = c("David M. Post"),
+  journal  = "Ecology",
+  year     = "2002",
+  volume   = "83",
+  number   = "3",
+  pages    = "703-718",
+  doi      = "10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2",
+  url      = "https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2"
+)
+bibentry(
+  bibtype  = "Article",
+  title    = "Food web structure across basins in Lake Erie, a large freshwater ecosystem",
+  author   = c("C.E. Heuvel", "Y.-M. Zhao", "A.T. Fisk"),
+  journal  = "Canadian Journal of Fisheries and Aquatic Sciences",
+  year     = "2025",
+  volume   = "82",
+  pages    = "1-16",
+  doi      = "10.1139/cjfas-2024-0028",
+  url      = "https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028"
+)
+
+bibentry(
+  bibtype  = "Manual",
+  title    = "trps: Bayesian trophic position models using stan",
+  author   =  c("Benjamin L. Hlina"),
+  year     = "2025",
+  note     = "R package version 0.1.0",
+  url      = "https://benjaminhlina.github.io/trps/"
+)
