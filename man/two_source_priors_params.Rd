@@ -57,6 +57,16 @@ supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 Adjust priors for two source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
+When \code{lambda} is set to \code{1}
+
+\deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+
+or
+
+When \code{lambda} is set to \code{2}
+
+\deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+
 This function allows the user to adjust the priors for the following variables
 in the equation above:
 

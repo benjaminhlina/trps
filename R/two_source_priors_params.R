@@ -25,6 +25,19 @@
 #' @param sigma_ub upper bound prior for \eqn{\sigma}. Defaults to `10`.
 #'
 #' @details
+#'
+#' When `lambda` is set to `1`
+#'
+#' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#'
+#' or
+#'
+#' When `lambda` is set to `2`
+#'
+#' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#'
+#'
+#'
 #' This function allows the user to adjust the priors for the following variables
 #' in the equation above:
 #'
