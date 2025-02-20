@@ -61,7 +61,7 @@ two_source_model <- function(bp = FALSE,
     lambda <- 1
   }
 
-  if (!(is.numeric(lambda) || !(lambda %in% c(1, 2)))) {
+  if (!(is.numeric(lambda)) || !(lambda %in% c(1, 2))) {
     cli::cli_abort(c(
       "`lambda` argument must be a numeric value and either `1` or `2`",
       "i" = "Please provide `1` or `2`"
