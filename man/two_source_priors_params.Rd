@@ -5,6 +5,8 @@
 \title{Adjust Bayesian priors - Two Source Trophic Position}
 \usage{
 two_source_priors_params(
+  a = NULL,
+  b = NULL,
   n1 = NULL,
   n1_sigma = NULL,
   n2 = NULL,
@@ -19,6 +21,12 @@ two_source_priors_params(
 )
 }
 \arguments{
+\item{a}{(\eqn{\alpha}) exponent of the random variable for beta distribution.
+Defaults to \code{1}. See beta distribution for more information.}
+
+\item{b}{(\eqn{\alpha}) shape parameter for beta distribution.
+Defaults to \code{1}. See beta distribution for more information.}
+
 \item{n1}{mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
 baseline. Defaults to \code{9}.}
 
@@ -48,7 +56,7 @@ Defaults to \code{0.5}.}
 supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 \code{FALSE} meaning the model will use uninformed priors, however, the supplied
 \code{data.frame} needs values for both \eqn{\delta^{15}}N baseline
-(\code{n1} and \code{n2}).}
+(\code{n1} and \code{n2})}
 }
 \value{
 \code{stanvars} object to be used with \code{brms()} call.

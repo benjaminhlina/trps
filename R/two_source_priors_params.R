@@ -2,12 +2,12 @@
 #'
 #' Adjust priors for two source trophic position model derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
-#'
-#' @param bp logical value that controls whether informed baseline priors are
-#' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
-#' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs values for both \eqn{\delta^{15}}N baseline
-#' (`n1` and `n2`).
+#' @param a (\eqn{\alpha}) exponent of the random variable for beta distribution.
+#' Defaults to `1`. See beta distribution for more information.
+#' @param b (\eqn{\alpha}) shape parameter for beta distribution.
+#' Defaults to `1`. See beta distribution for more information.
+#' @param n1_sigma variance (\eqn{\sigma})for first
+#' \eqn{\delta^{15}}N baseline. Defaults to `1`.
 #' @param n1 mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
 #' baseline. Defaults to `9`.
 #' @param n1_sigma variance (\eqn{\sigma})for first
@@ -23,6 +23,11 @@
 #' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
 #' @param sigma_lb lower bound prior for \eqn{\sigma}. Defaults to `0`.
 #' @param sigma_ub upper bound prior for \eqn{\sigma}. Defaults to `10`.
+#' @param bp logical value that controls whether informed baseline priors are
+#' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
+#' `FALSE` meaning the model will use uninformed priors, however, the supplied
+#' `data.frame` needs values for both \eqn{\delta^{15}}N baseline
+#' (`n1` and `n2`)
 #'
 #' @details
 #'
