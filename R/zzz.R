@@ -18,4 +18,6 @@ utils::globalVariables(c("n1",
                          "tp_ub",
                          "c1_mean",
                          "c2_mean", "n2",
-                         "n2_sigma"))
+                         "n2_sigma",
+                         "a",
+                         "b"))
