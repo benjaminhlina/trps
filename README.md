@@ -12,7 +12,7 @@ coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app
 <!-- badges: end -->
 
 Bayesian trophic position models using stan
-([{trps}](https://benjaminhlina.github.io/trps/)) through
+([{trps}](https://benjaminhlina.github.io/trps/)) by leveraging
 [{brms}](https://paulbuerkner.com/brms/). Equations for trophic position
 models are derived from [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
@@ -50,3 +50,20 @@ You can install the development version of {trps} using the following:
 devtools::install_github("benjaminhlina/trps")
 library(trps)
 ```
+
+## Vignettes
+
+Info to come
+
+## Citations
+
+To cite this package please cite the following publications
+
+- Post, D.M. 2002. Using Stable Isotopes to Estimate Trophic Position:
+  Models, Methods, and Assumptions. Ecology 83(3): 703-718. doi:
+  [10.2307/3071875](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+
+- Heuvel, C., Zhao, Y., and Fisk, A.T. 2025. Food web structure across
+  basins in Lake Erie, a large freshwater ecosystem. Canadian Journal of
+  Fisheries and Aquatic Sciences 82:1-16. doi:
+  [10.1139/cjfas-2024-0028](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
