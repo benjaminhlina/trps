@@ -19,21 +19,21 @@ two_source_priors_params(
 )
 }
 \arguments{
-\item{n1}{mean (\eqn{\mu}) prior for first \eqn{\delta}\eqn{^1}\eqn{^5}N
+\item{n1}{mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
 baseline. Defaults to \code{9}.}
 
 \item{n1_sigma}{variance (\eqn{\sigma})for first
-\eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Defaults to \code{1}.}
+\eqn{\delta^{15}}N baseline. Defaults to \code{1}.}
 
-\item{n2}{mean (\eqn{\mu}) prior for second \eqn{\delta}\eqn{^1}\eqn{^5}N
+\item{n2}{mean (\eqn{\mu}) prior for second \eqn{\delta^{15}}N
 baseline. Defaults to \code{9}.}
 
 \item{n2_sigma}{variance (\eqn{\sigma}) for second
-\eqn{\delta}\eqn{^1}\eqn{^5}N  baseline. Defaults to \code{1}.}
+\eqn{\delta^{15}}N  baseline. Defaults to \code{1}.}
 
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
 
-\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N.
+\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 Defaults to \code{0.5}.}
 
 \item{tp_lb}{lower bound prior for trophic position. Defaults to \code{2}.}
@@ -45,9 +45,9 @@ Defaults to \code{0.5}.}
 \item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to \code{10}.}
 
 \item{bp}{logical value that controls whether informed baseline priors are
-supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baselines. Default is
+supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 \code{FALSE} meaning the model will use uninformed priors, however, the supplied
-\code{data.frame} needs values for both \eqn{\delta}\eqn{^1}\eqn{^5}N baseline
+\code{data.frame} needs values for both \eqn{\delta^{15}}N baseline
 (\code{n1} and \code{n2}).}
 }
 \value{

@@ -4,20 +4,20 @@
 #'
 #'
 #' @param bp logical value that controls whether informed baseline priors are
-#' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baselines. Default is
+#' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 #' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs values for both \eqn{\delta}\eqn{^1}\eqn{^5}N baseline
+#' `data.frame` needs values for both \eqn{\delta^{15}}N baseline
 #' (`n1` and `n2`).
-#' @param n1 mean (\eqn{\mu}) prior for first \eqn{\delta}\eqn{^1}\eqn{^5}N
+#' @param n1 mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
 #' baseline. Defaults to `9`.
 #' @param n1_sigma variance (\eqn{\sigma})for first
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Defaults to `1`.
-#' @param n2 mean (\eqn{\mu}) prior for second \eqn{\delta}\eqn{^1}\eqn{^5}N
+#' \eqn{\delta^{15}}N baseline. Defaults to `1`.
+#' @param n2 mean (\eqn{\mu}) prior for second \eqn{\delta^{15}}N
 #' baseline. Defaults to `9`.
 #' @param n2_sigma variance (\eqn{\sigma}) for second
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N  baseline. Defaults to `1`.
+#' \eqn{\delta^{15}}N  baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
-#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N.
+#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 #' Defaults to `0.5`.
 #' @param tp_lb lower bound prior for trophic position. Defaults to `2`.
 #' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
