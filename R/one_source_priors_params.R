@@ -2,18 +2,16 @@
 #'
 #' Adjust priors for one source trophic position model derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
-#' \deqn{\delta^1^5N = n1 + dn * (tp - \lambda)}
-#'
 #' @param bp logical value that controls whether informed priors are
-#' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+#' supplied to the model for \eqn{\delta^{15}}N baseline. Default is
 #' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (`n1`).
-#' @param n1 mean (\eqn{\mu}) prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+#' `data.frame` needs values for \eqn{\delta^{15}}N baseline (`n1`).
+#' @param n1 mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
 #' Defaults to `9`.
-#' @param n1_sigma variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N
+#' @param n1_sigma variance (\eqn{\sigma}) for\eqn{\delta^{15}}N
 #' baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
-#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N.
+#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
 #' Defaults to `0.5`.
 #' @param tp_lb lower bound prior for trophic position. Defaults to `2`.
 #' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
@@ -21,11 +19,14 @@
 #' @param sigma_ub upper bound prior for \eqn{\sigma}. Defaults to `10`.
 #'
 #' @details
+#'
+#' \deqn{\delta^{15}N = n1 + dn * (tp - \lambda)}
+#'
 #' This function allows the user to adjust the priors for the following variables
 #' in the equation above:
 #'
 #' \itemize{
-#'   \item The mean (`n1`) and variance (`n1_sigma`) of \eqn{\delta}\eqn{^1}\eqn{^5}N
+#'   \item The mean (`n1`) and variance (`n1_sigma`) of \eqn{\delta^{15}}N
 #'   for a given baseline. This prior assumes a normal distributions.
 #'   \item The mean (`dn`) and variance (`dn_sigma`) of \eqn{\Delta}N (i.e, trophic enrichment
 #'   factor;). This prior assumes a normal distributions.

@@ -17,15 +17,15 @@ one_source_priors_params(
 )
 }
 \arguments{
-\item{n1}{mean (\eqn{\mu}) prior for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline.
+\item{n1}{mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
 Defaults to \code{9}.}
 
-\item{n1_sigma}{variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N
+\item{n1_sigma}{variance (\eqn{\sigma}) for\eqn{\delta^{15}}N
 baseline. Defaults to \code{1}.}
 
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
 
-\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta}\eqn{^1}\eqn{^5}N.
+\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
 Defaults to \code{0.5}.}
 
 \item{tp_lb}{lower bound prior for trophic position. Defaults to \code{2}.}
@@ -37,9 +37,9 @@ Defaults to \code{0.5}.}
 \item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to \code{10}.}
 
 \item{bp}{logical value that controls whether informed priors are
-supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+supplied to the model for \eqn{\delta^{15}}N baseline. Default is
 \code{FALSE} meaning the model will use uninformed priors, however, the supplied
-\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (\code{n1}).}
+\code{data.frame} needs values for \eqn{\delta^{15}}N baseline (\code{n1}).}
 }
 \value{
 \code{stanvars} object to be used with \code{brms()} call.
@@ -48,13 +48,13 @@ supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
 Adjust priors for one source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\deqn{\delta^1^5N = n1 + dn * (tp - \lambda)}
+\deqn{\delta^{15}N = n1 + dn * (tp - \lambda)}
 
 This function allows the user to adjust the priors for the following variables
 in the equation above:
 
 \itemize{
-\item The mean (\code{n1}) and variance (\code{n1_sigma}) of \eqn{\delta}\eqn{^1}\eqn{^5}N
+\item The mean (\code{n1}) and variance (\code{n1_sigma}) of \eqn{\delta^{15}}N
 for a given baseline. This prior assumes a normal distributions.
 \item The mean (\code{dn}) and variance (\code{dn_sigma}) of \eqn{\Delta}N (i.e, trophic enrichment
 factor;). This prior assumes a normal distributions.
