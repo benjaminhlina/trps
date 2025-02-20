@@ -28,24 +28,26 @@ Bayesian model for trophic position using a two source model derived from
 \details{
 When \code{lambda} is set to \code{1}
 
-\deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+\deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 or
 
 When \code{lambda} is set to \code{2}
 
-\deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+\deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 \eqn{\delta^{15}N} are values from the consumer,
-\eqn{n_1} is \eqn{\delta^{15}N} values of baseline 1, \eqn{n_2} is
-\eqn{\delta^{15}N} values of baseline 2,
+\eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
+\eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
 tp is trophic position, and \eqn{\lambda} is the trophic level of
 baselines which are often a primary consumer (e.g., \code{2}).
 
 The data supplied to \code{brms()} when using baselines at the same trophic level
 (\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},
-\code{n1}, \code{n2}, \code{l} (\eqn{\lambda}) which is usually \code{2 }. If using baselines that are at
+\code{n1}, \code{n2}, \code{l} (\eqn{\lambda}) which is usually \code{2}.
+
+If using baselines at
 different trophic levels (\code{lambda} argument set to \code{2}) the dataframe needs
 to have \code{l1} and \code{l2} with a numerical value for each trophic level (e.g.,
 \code{2} and \code{2.5}).

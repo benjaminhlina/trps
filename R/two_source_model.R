@@ -16,24 +16,26 @@
 #'
 #' When `lambda` is set to `1`
 #'
-#' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+#' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
 #' When `lambda` is set to `2`
 #'
-#' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+#' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' \eqn{\delta^{15}N} are values from the consumer,
-#' \eqn{n_1} is \eqn{\delta^{15}N} values of baseline 1, \eqn{n_2} is
-#' \eqn{\delta^{15}N} values of baseline 2,
+#' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
+#' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
 #' tp is trophic position, and \eqn{\lambda} is the trophic level of
 #' baselines which are often a primary consumer (e.g., `2`).
 #'
 #' The data supplied to `brms()` when using baselines at the same trophic level
 #' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,
-#' `n1`, `n2`, `l` (\eqn{\lambda}) which is usually `2 `. If using baselines that are at
+#' `n1`, `n2`, `l` (\eqn{\lambda}) which is usually `2`.
+#'
+#' If using baselines at
 #' different trophic levels (`lambda` argument set to `2`) the dataframe needs
 #' to have `l1` and `l2` with a numerical value for each trophic level (e.g.,
 #' `2` and `2.5`).
