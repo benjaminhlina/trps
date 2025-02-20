@@ -22,7 +22,7 @@
 #' Lake Ontario.
 #'
 #' @format `data.frame` containing 12 rows and 5 variables
-##'  \describe{
+#'  \describe{
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Dreissenids)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
@@ -39,7 +39,7 @@
 #' Lake Ontario.
 #'
 #' @format `data.frame` containing 14 rows and 5 variables
-##'  \describe{
+#'  \describe{
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Amphipoda)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
@@ -60,8 +60,8 @@
 #' `c2` and `n2`) with the means for each calcualted (`c1_mean`, `c2_mean`,
 #' `n1_mean`, `n2_mean`).
 #'
-#'#' @format `data.frame` containing 30 rows and 13 variables
-##'  \describe{
+#' @format `data.frame` containing 30 rows and 13 variables
+#'  \describe{
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Amphipoda)}
 #'    \item{ecoregion}{ecoregion where samples were collected}

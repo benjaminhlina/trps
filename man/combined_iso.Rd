@@ -6,22 +6,7 @@
 \title{Stable isotope data for lake trout, dreissenids (pelagic baseline), and
 amphipods (benthic baseline)}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 30 rows and 13 columns.
-}
-\usage{
-combined_iso
-}
-\description{
-Stable isotope data (SIA) for \eqn{\delta^{13}}C and
-\eqn{\delta ^{15}}N for lake trout collected from an ecoregion in
-Lake Ontario. Values of \eqn{\delta ^{13}} C and
-\eqn{\delta ^{1}}N for a pelagic baseline
-(dreissenids; \code{c1} and \code{n1}) and a benthic baseline (amphipods;
-\code{c2} and \code{n2}) with the means for each calcualted (\code{c1_mean}, \code{c2_mean},
-\code{n1_mean}, \code{n2_mean}).
-}
-\details{
-#' @format \code{data.frame} containing 30 rows and 13 variables
+\code{data.frame} containing 30 rows and 13 variables
 \describe{
 \item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Amphipoda)}
@@ -38,5 +23,17 @@ Lake Ontario. Values of \eqn{\delta ^{13}} C and
 \item{n2_mean}{mean values for \eqn{\delta^{15}}N of baseline 2}
 
 }
+}
+\usage{
+combined_iso
+}
+\description{
+Stable isotope data (SIA) for \eqn{\delta^{13}}C and
+\eqn{\delta ^{15}}N for lake trout collected from an ecoregion in
+Lake Ontario. Values of \eqn{\delta ^{13}} C and
+\eqn{\delta ^{1}}N for a pelagic baseline
+(dreissenids; \code{c1} and \code{n1}) and a benthic baseline (amphipods;
+\code{c2} and \code{n2}) with the means for each calcualted (\code{c1_mean}, \code{c2_mean},
+\code{n1_mean}, \code{n2_mean}).
 }
 \keyword{datasets}
