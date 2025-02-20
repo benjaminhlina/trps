@@ -114,7 +114,12 @@ supplied to the model for \(\delta^{15}\)N baselines. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>This function allows the user to adjust the priors for the following variables
+    <p>When <code>lambda</code> is set to <code>1</code></p>
+<p>$$\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+<p>or</p>
+<p>When <code>lambda</code> is set to <code>2</code></p>
+<p>$$\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+<p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
 <ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of the first
 \(\delta\)\(^1\)\(^5\)N for a given baseline.
