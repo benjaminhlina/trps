@@ -3,28 +3,40 @@
 #' Bayesian model for trophic position using a two source model derived from
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
-#' \deqn{\delta ^1^5N = dn * (tp - \lambda + n1 * \alpha + n2 * (1 - \alpha))}
-#'
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N are values from the consumer,
-#' n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N  values of baseline 1, n2 is
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N  values of baseline 2,
-#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
-#' tp is trophic position, and \eqn{\lambda} is the trophic level of
-#' baselines which are often a primary consumer (e.g., 2).
-#'
 #' @param bp logical value that controls whether  priors are
 #' supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N pelagic and benthic
 #' baselines. Default is `FALSE` meaning the model will not be supplied priors,
 #' however, the supplied `data.frame` needs values for
 #' \eqn{\delta}\eqn{^1}\eqn{^5}N each baseline (`n1` and `n2`).
+#' @param lambda numerical value, `1` or `2`, that controls whether one or
+#' two lambdas are used. See details for equations and when to use `1` or `2`.
+#' Defaults to `1`.
 #'
 #' @details
-#' The data supplied to `brms()` needs to have the following variables, `d15n`
-#' which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, `n1` which is
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N mean of baseline 1 (only needed if priors
-#' aren't being supplied), `n2` which is \eqn{\delta}\eqn{^1}\eqn{^5}N
-#' mean of baseline 2 (only needed if priors aren't being supplied), and
-#' `lambda` which is usually `2 `otherwise `brms()` will error.
+#'
+#' When `lambda` is set to `1`
+#'
+#' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+#'
+#' or
+#'
+#' When `lambda` is set to `2`
+#'
+#' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha))}
+#'
+#' \eqn{\delta^{15}N} are values from the consumer,
+#' \eqn{n_1} is \eqn{\delta^{15}N} values of baseline 1, \eqn{n_2} is
+#' \eqn{\delta^{15}N} values of baseline 2,
+#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
+#' tp is trophic position, and \eqn{\lambda} is the trophic level of
+#' baselines which are often a primary consumer (e.g., `2`).
+#'
+#' The data supplied to `brms()` when using baselines at the same trophic level
+#' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,
+#' `n1`, `n2`, `l` (\eqn{\lambda}) which is usually `2 `. If using baselines that are at
+#' different trophic levels (`lambda` argument set to `2`) the dataframe needs
+#' to have `l1` and `l2` with a numerical value for each trophic level (e.g.,
+#' `2` and `2.5`).
 #'
 #' @return returns model structure for two source model to be used in a
 #' `brms()` call.
