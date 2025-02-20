@@ -10,8 +10,8 @@
 \item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Lake Trout)}
 \item{ecoregion}{ecoregion where samples were collected}
-\item{d13c}{observed values for \eqn{\delta^{13}C}}
-\item{d15n}{observed values for \eqn{\delta^{15}N}}
+\item{d13c}{observed values for \eqn{\delta^{13}}C}
+\item{d15n}{observed values for \eqn{\delta^{15}}N}
 }
 }
 \usage{
