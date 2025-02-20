@@ -39,7 +39,7 @@ Post 2002."><meta property="og:image" content="https://benjaminhlina.github.io/t
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">two_source_model</span><span class="op">(</span>bp <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">two_source_model</span><span class="op">(</span>bp <span class="op">=</span> <span class="cn">FALSE</span>, lambda <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -53,6 +53,12 @@ baselines. Default is <code>FALSE</code> meaning the model will not be supplied 
 however, the supplied <code>data.frame</code> needs values for
 \(\delta\)\(^1\)\(^5\)N each baseline (<code>n1</code> and <code>n2</code>).</p></dd>
 
+
+<dt id="arg-lambda">lambda<a class="anchor" aria-label="anchor" href="#arg-lambda"></a></dt>
+<dd><p>numerical value, <code>1</code> or <code>2</code>, that controls whether one or
+two lambdas are used. See details for equations and when to use <code>1</code> or <code>2</code>.
+Defaults to <code>1</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -61,19 +67,23 @@ however, the supplied <code>data.frame</code> needs values for
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\delta ^1^5N = dn * (tp - \lambda + n1 * \alpha + n2 * (1 - \alpha))$$</p>
-<p>\(\delta\)\(^1\)\(^5\)N are values from the consumer,
-n1 is \(\delta\)\(^1\)\(^5\)N  values of baseline 1, n2 is
-\(\delta\)\(^1\)\(^5\)N  values of baseline 2,
-\(\Delta\)N is the trophic discrimination factor for N (i.e., mean of 3.4),
+    <p>When <code>lambda</code> is set to <code>1</code></p>
+<p>$$\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha))$$</p>
+<p>or</p>
+<p>When <code>lambda</code> is set to <code>2</code></p>
+<p>$$\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha))$$</p>
+<p>\(\delta^{15}N\) are values from the consumer,
+\(n_1\) is \(\delta^{15}N\) values of baseline 1, \(n_2\) is
+\(\delta^{15}N\) values of baseline 2,
+\(\Delta\)N is the trophic discrimination factor for N (i.e., mean of <code>3.4</code>),
 tp is trophic position, and \(\lambda\) is the trophic level of
-baselines which are often a primary consumer (e.g., 2).</p>
-<p>The data supplied to <code>brms()</code> needs to have the following variables, <code>d15n</code>
-which is the \(\delta\)\(^1\)\(^5\)N of the consumers, <code>n1</code> which is
-\(\delta\)\(^1\)\(^5\)N mean of baseline 1 (only needed if priors
-aren't being supplied), <code>n2</code> which is \(\delta\)\(^1\)\(^5\)N
-mean of baseline 2 (only needed if priors aren't being supplied), and
-<code>lambda</code> which is usually <code>2 </code>otherwise <code>brms()</code> will error.</p>
+baselines which are often a primary consumer (e.g., <code>2</code>).</p>
+<p>The data supplied to <code>brms()</code> when using baselines at the same trophic level
+(<code>lambda</code> argument set to <code>1</code>) needs to have the following variables, <code>d15n</code>,
+<code>n1</code>, <code>n2</code>, <code>l</code> (\(\lambda\)) which is usually <code>2 </code>. If using baselines that are at
+different trophic levels (<code>lambda</code> argument set to <code>2</code>) the dataframe needs
+to have <code>l1</code> and <code>l2</code> with a numerical value for each trophic level (e.g.,
+<code>2</code> and <code>2.5</code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -83,7 +93,7 @@ mean of baseline 2 (only needed if priors aren't being supplied), and
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">two_source_model</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - lambda) + n1 * alpha + n2 * (1 - alpha) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - l) + n1 * alpha + n2 * (1 - alpha) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alpha ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tp ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dn ~ 1</span>
