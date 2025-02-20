@@ -33,6 +33,9 @@ two_source_priors <- function(bp = FALSE) {
 
     #  set priors
     priors <- c(
+
+      # alpha priors
+      brms::prior(beta(a, b), lb = 0, ub = 1, nlpar = "alpha"),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma),
                   class = "b",
@@ -49,6 +52,8 @@ two_source_priors <- function(bp = FALSE) {
   if (isTRUE(bp)) {
     #  set priors
     priors <- c(
+      # alpha priors
+       brms::prior(beta(a, b), lb = 0, ub = 1, nlpar = "alpha"),
       # Baseline 1 δ15N (n1)
       brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept",
                   nlpar = "n1"),
