@@ -1,6 +1,113 @@
 #  tests for the two_source_priors_params
 
 
+test_that("test two-source priors a", {
+
+  pri_pram <- two_source_priors_params(bp = TRUE)
+  expected_a <- 1
+
+  results_a <- pri_pram$a$sdata
+
+  expect_equal(results_a, expected_a)
+
+}
+)
+
+#  tests for the two_source_priors_params fails when given not. a numeric
+
+
+test_that("test two-source priors fails a", {
+
+  expect_error(two_source_priors_params(bp = TRUE,
+                                       a = "test"),
+               regexp = "`a` argument must be a numerical value")
+
+
+}
+)
+#  tests for the two_source_priors_params
+
+
+test_that("test two-source priors b", {
+
+  pri_pram <- two_source_priors_params(bp = TRUE)
+  expected_b <- 1
+
+  results_b <- pri_pram$b$sdata
+
+  expect_equal(results_b, expected_b)
+
+}
+)
+
+#  tests for the two_source_priors_params fails when given not. a numeric
+
+
+test_that("test two-source priors fails b", {
+
+  expect_error(two_source_priors_params(bp = TRUE,
+                                       b = "test"),
+               regexp = "`b` argument must be a numerical value")
+
+
+}
+)
+#  tests for the two_source_priors_params
+
+
+test_that("test two-source priors a", {
+
+  pri_pram <- two_source_priors_params()
+  expected_a <- 1
+
+  results_a <- pri_pram$a$sdata
+
+  expect_equal(results_a, expected_a)
+
+}
+)
+
+#  tests for the two_source_priors_params fails when given not. a numeric
+
+
+test_that("test two-source priors fails a", {
+
+  expect_error(two_source_priors_params(
+                                       a = "test"),
+               regexp = "`a` argument must be a numerical value")
+
+
+}
+)
+#  tests for the two_source_priors_params
+
+
+test_that("test two-source priors b", {
+
+  pri_pram <- two_source_priors_params(bp = TRUE)
+  expected_b <- 1
+
+  results_b <- pri_pram$b$sdata
+
+  expect_equal(results_b, expected_b)
+
+}
+)
+
+#  tests for the two_source_priors_params fails when given not. a numeric
+
+
+test_that("test two-source priors fails b", {
+
+  expect_error(two_source_priors_params(b = "test"),
+               regexp = "`b` argument must be a numerical value")
+
+
+}
+)
+#  tests for the two_source_priors_params
+
+
 test_that("test two-source priors n1", {
 
   pri_pram <- two_source_priors_params(bp = TRUE)
