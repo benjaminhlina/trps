@@ -52,12 +52,14 @@
 #' Stable isotope data for lake trout, dreissenids (pelagic baseline), and
 #' amphipods (benthic baseline) used in two source model
 #'
-#' Stable isotope data (SIA) for \eqn{\delta}\eqn{^1}\eqn{^3}C and
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N for lake trout collected from an ecoregion in
-#' Lake Ontario. Values of \eqn{\delta}\eqn{^1}\eqn{^3}C and
-#' \eqn{\delta}\eqn{^1}\eqn{^5}N for a pelagic baseline
+#' Stable isotope data (SIA) for \eqn{\delta^{13}}C and
+#' \eqn{\delta ^{15}}N for lake trout collected from an ecoregion in
+#' Lake Ontario. Values of \eqn{\delta ^{13}} C and
+#' \eqn{\delta ^{1}}N for a pelagic baseline
 #' (dreissenids; `c1` and `n1`) and a benthic baseline (amphipods;
-#' `c2` and `n2`).
+#' `c2` and `n2`) with the means for each calcualted (`c1_mean`, `c2_mean`,
+#' `n1_mean`, `n2_mean`).
 #'
-"baseline_2_iso"
+"combined_iso"
+
 
