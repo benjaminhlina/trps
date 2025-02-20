@@ -8,9 +8,9 @@ one_source_model(bp = FALSE)
 }
 \arguments{
 \item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline. Default is
+supplied to the model for \eqn{\delta^{15}}N baseline. Default is
 \code{FALSE} meaning the model will not be supplied priors, however, the supplied
-\code{data.frame} needs values for \eqn{\delta}\eqn{^1}\eqn{^5}N baseline (\code{n1}).}
+\code{data.frame} needs values for \eqn{\delta^{15}}N baseline (\code{n1}).}
 }
 \value{
 returns model structure for one source model to be used in a
@@ -21,19 +21,16 @@ Bayesian model for trophic position using a one source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\eqn{\delta}\eqn{^1}\eqn{^5}N = n1 + dn * (tp - \eqn{\lambda})
+\deqn{\delta^{15}N = n1 + dn * (tp - \eqn{\lambda})}
 
-\eqn{\delta}\eqn{^1}\eqn{^5}N are values from the consumer,
-n1 is \eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1,
+\eqn{\delta^{15}}N are values from the consumer,
+n1 is \eqn{\delta^{15}}N values of baseline 1,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
 tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
 which are often a primary consumer (e.g., 2).
 
-The data supplied to \code{brms()} needs to have the following variables, \code{d15n}
-which is the \eqn{\delta}\eqn{^1}\eqn{^5}N of the consumers, \code{n1} which is
-\eqn{\delta}\eqn{^1}\eqn{^5}N values of baseline 1 (only needed if priors
-aren't being supplied), and \code{lambda} which is usually \code{2 }
-otherwise \code{brms()} will error.
+The data supplied to \code{brms()} needs to have the following variables \code{d15n},
+\code{n1}, and \code{lambda} which is usually \code{2}.
 }
 \examples{
 one_source_model()
