@@ -24,7 +24,7 @@
 #' @returns a `data.frame` that has `alpha`, `min_alpha`, and `max_alpha` added.
 #'
 #' @examples
-#' example_iso_tsn |>
+#' combined_iso |>
 #'   add_alpha()
 #' @import dplyr
 #' @export

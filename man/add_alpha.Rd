@@ -31,6 +31,6 @@ baseline, and \eqn{\delta^{13} C_b} is the mean isotopic value
 for benthic baseline.
 }
 \examples{
-example_iso_tsn |>
+combined_iso |>
   add_alpha()
 }
