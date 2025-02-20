@@ -1,32 +1,32 @@
 library(dplyr)
-example_iso_tsn <- consumer_iso %>%
-    left_join(baseline_1_iso %>%
-                select(-common_name)) %>%
-    left_join(baseline_2_iso %>%
-                select(-common_name))  %>%
-    left_join(
-      baseline_1_iso %>%
-        group_by(ecoregion) %>%
-        summarise(
-          c1_mean = mean(c1),
-          n1_mean = mean(n1),
-        ) %>%
-        ungroup()
-    ) %>%
-    left_join(
-      baseline_2_iso %>%
-        group_by(ecoregion) %>%
-        summarise(
-          c2_mean = mean(c2),
-          n2_mean = mean(n2),
-        ) %>%
-        ungroup()
-    )
+# example_iso_tsn <- consumer_iso %>%
+#     left_join(baseline_1_iso %>%
+#                 select(-common_name)) %>%
+#     left_join(baseline_2_iso %>%
+#                 select(-common_name))  %>%
+#     left_join(
+#       baseline_1_iso %>%
+#         group_by(ecoregion) %>%
+#         summarise(
+#           c1_mean = mean(c1),
+#           n1_mean = mean(n1),
+#         ) %>%
+#         ungroup()
+#     ) %>%
+#     left_join(
+#       baseline_2_iso %>%
+#         group_by(ecoregion) %>%
+#         summarise(
+#           c2_mean = mean(c2),
+#           n2_mean = mean(n2),
+#         ) %>%
+#         ungroup()
+#     )
 test_that("test adding estimates of alpha ", {
 
 
 
-  dats <- example_iso_tsn |>
+  dats <- combined_iso |>
     add_alpha()
 
 
@@ -37,7 +37,7 @@ test_that("test adding estimates of alpha ", {
 test_that("test adding estimates of alpha_min ", {
 
 
-  dats <- example_iso_tsn |>
+  dats <- combined_iso |>
     add_alpha()
 
 
@@ -48,7 +48,7 @@ test_that("test adding estimates of alpha_min ", {
 test_that("test adding estimates of max_alpha ", {
 
 
-  dats <- example_iso_tsn |>
+  dats <- combined_iso |>
     add_alpha()
 
 
@@ -69,7 +69,7 @@ test_that("test check if alpha errors ", {
 
 
   expect_error(
-    add_alpha(data = example_iso_tsn[-c(4, 10, 12)]),
+    add_alpha(data = combined_iso[-c(4, 10, 12)]),
     "The data.frame is missing: d13c, c1_mean, and c2_mean"
   )
 }
