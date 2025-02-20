@@ -37,6 +37,8 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">two_source_priors_params</span><span class="op">(</span></span>
+<span>  a <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  b <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n1 <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n1_sigma <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n2 <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -55,7 +57,17 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-n-">n1<a class="anchor" aria-label="anchor" href="#arg-n-"></a></dt>
+<dl><dt id="arg-a">a<a class="anchor" aria-label="anchor" href="#arg-a"></a></dt>
+<dd><p>(\(\alpha\)) exponent of the random variable for beta distribution.
+Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
+
+
+<dt id="arg-b">b<a class="anchor" aria-label="anchor" href="#arg-b"></a></dt>
+<dd><p>(\(\alpha\)) shape parameter for beta distribution.
+Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
+
+
+<dt id="arg-n-">n1<a class="anchor" aria-label="anchor" href="#arg-n-"></a></dt>
 <dd><p>mean (\(\mu\)) prior for first \(\delta^{15}\)N
 baseline. Defaults to <code>9</code>.</p></dd>
 
@@ -105,7 +117,7 @@ Defaults to <code>0.5</code>.</p></dd>
 supplied to the model for \(\delta^{15}\)N baselines. Default is
 <code>FALSE</code> meaning the model will use uninformed priors, however, the supplied
 <code>data.frame</code> needs values for both \(\delta^{15}\)N baseline
-(<code>n1</code> and <code>n2</code>).</p></dd>
+(<code>n1</code> and <code>n2</code>)</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -142,6 +154,46 @@ This prior assumes a uniform distributions.</p></li>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">two_source_priors_params</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$sdata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$scode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "real a;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$block</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$position</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "start"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $a$pll_args</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data real a"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$sdata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$scode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "real b;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$block</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$position</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "start"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $b$pll_args</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data real b"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $dn</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $dn$name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "dn"</span>
