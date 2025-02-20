@@ -50,8 +50,9 @@ equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.
 <dd><p>data.frame of stable isotope samples with mean values for two
 baselines. For aquatic ecosystems, baseline two needs to come
 from a pelagic source, while baseline one needs to come from a
-benthic source. Baseline \(\delta^1^3 Cc\) columns
-need to be named <code>c1</code> and <code>c2</code>, with the consumer's column named <code>d13c</code>.</p></dd>
+benthic source. Baseline \(\delta^{13} C_c\) columns
+need to be named <code>c1_mean</code> and <code>c2_mean</code>, with the consumer's column named
+<code>d13c</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -60,11 +61,11 @@ need to be named <code>c1</code> and <code>c2</code>, with the consumer's column
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\alpha = (\delta^1^3 Cc - \delta ^1^3Cp) /
-(\delta ^1^3Cb - \delta ^1^3Cb)$$</p>
-<p>where \(\delta^1^3 Cc\) is the isotopic value for consumer,
-\(\delta^1^3 Cp\) is the mean isotopic value for pelagic
-baseline, and \(\delta^1^3 Cb\) is the mean isotopic value
+    <p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_p) /
+(\delta ^{13}C_b - \delta ^{13}C_b)$$</p>
+<p>where \(\delta^{13}C_c\) is the isotopic value for consumer,
+\(\delta^{13}C_p\) is the mean isotopic value for pelagic
+baseline, and \(\delta^{13} C_b\) is the mean isotopic value
 for benthic baseline.</p>
     </div>
 

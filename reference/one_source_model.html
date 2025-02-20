@@ -48,9 +48,9 @@ Post 2002."><meta property="og:image" content="https://benjaminhlina.github.io/t
 
 <dl><dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
 <dd><p>logical value that controls whether  priors are
-supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
+supplied to the model for \(\delta^{15}\)N baseline. Default is
 <code>FALSE</code> meaning the model will not be supplied priors, however, the supplied
-<code>data.frame</code> needs values for \(\delta\)\(^1\)\(^5\)N baseline (<code>n1</code>).</p></dd>
+<code>data.frame</code> needs values for \(\delta^{15}\)N baseline (<code>n1</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -60,17 +60,14 @@ supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>\(\delta\)\(^1\)\(^5\)N = n1 + dn * (tp - \(\lambda\))</p>
-<p>\(\delta\)\(^1\)\(^5\)N are values from the consumer,
-n1 is \(\delta\)\(^1\)\(^5\)N values of baseline 1,
+    <p>$$\delta^{15}N = n1 + dn * (tp - \eqn{\lambda})$$</p>
+<p>\(\delta^{15}\)N are values from the consumer,
+n1 is \(\delta^{15}\)N values of baseline 1,
 \(\Delta\)N is the trophic discrimination factor for N (i.e., mean of 3.4),
 tp is trophic position, and \(\lambda\) is the trophic level of baselines
 which are often a primary consumer (e.g., 2).</p>
-<p>The data supplied to <code>brms()</code> needs to have the following variables, <code>d15n</code>
-which is the \(\delta\)\(^1\)\(^5\)N of the consumers, <code>n1</code> which is
-\(\delta\)\(^1\)\(^5\)N values of baseline 1 (only needed if priors
-aren't being supplied), and <code>lambda</code> which is usually <code>2 </code>
-otherwise <code>brms()</code> will error.</p>
+<p>The data supplied to <code>brms()</code> needs to have the following variables <code>d15n</code>,
+<code>n1</code>, and <code>lambda</code> which is usually <code>2</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
