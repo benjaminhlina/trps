@@ -4,9 +4,9 @@
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
 #' @param bp logical value that controls whether informed priors are
-#' supplied to the model for both \eqn{\delta}\eqn{^1}\eqn{^5}N baselines.
+#' supplied to the model for both \eqn{\delta^{15}}N baselines.
 #' Default is `FALSE` meaning the model will use uninformed priors, however,
-#' the supplied `data.frame` needs values for both \eqn{\delta}\eqn{^1}\eqn{^5}N
+#' the supplied `data.frame` needs values for both \eqn{\delta^{15}}N
 #' baseline (`n1` and `n2`).
 #'
 #' @return returns priors for two source model to be used in a `brms()` call.

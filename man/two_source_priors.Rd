@@ -8,9 +8,9 @@ two_source_priors(bp = FALSE)
 }
 \arguments{
 \item{bp}{logical value that controls whether informed priors are
-supplied to the model for both \eqn{\delta}\eqn{^1}\eqn{^5}N baselines.
+supplied to the model for both \eqn{\delta^{15}}N baselines.
 Default is \code{FALSE} meaning the model will use uninformed priors, however,
-the supplied \code{data.frame} needs values for both \eqn{\delta}\eqn{^1}\eqn{^5}N
+the supplied \code{data.frame} needs values for both \eqn{\delta^{15}}N
 baseline (\code{n1} and \code{n2}).}
 }
 \value{
