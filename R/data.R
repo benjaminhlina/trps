@@ -9,8 +9,8 @@
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Lake Trout)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
-#'    \item{d13c}{observed values for \eqn{\delta^{13}C}}
-#'    \item{d15n}{observed values for \eqn{\delta^{15}N}}
+#'    \item{d13c}{observed values for \eqn{\delta^{13}}C}
+#'    \item{d15n}{observed values for \eqn{\delta^{15}}N}
 #' }
 #'
 "consumer_iso"
@@ -26,8 +26,8 @@
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Dreissenids)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
-#'    \item{c1}{observed values for \eqn{\delta^{13}C}}
-#'    \item{n1}{observed values for \eqn{\delta^{13}C}}
+#'    \item{c1}{observed values for \eqn{\delta^{13}}C}
+#'    \item{n1}{observed values for \eqn{\delta^{15}}N}
 #' }
 #'
 "baseline_1_iso"

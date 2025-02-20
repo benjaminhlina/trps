@@ -4,7 +4,7 @@
 \name{combined_iso}
 \alias{combined_iso}
 \title{Stable isotope data for lake trout, dreissenids (pelagic baseline), and
-amphipods (benthic baseline) used in two source model}
+amphipods (benthic baseline)}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 30 rows and 13 columns.
 }
@@ -19,5 +19,24 @@ Lake Ontario. Values of \eqn{\delta ^{13}} C and
 (dreissenids; \code{c1} and \code{n1}) and a benthic baseline (amphipods;
 \code{c2} and \code{n2}) with the means for each calcualted (\code{c1_mean}, \code{c2_mean},
 \code{n1_mean}, \code{n2_mean}).
+}
+\details{
+#' @format \code{data.frame} containing 30 rows and 13 variables
+\describe{
+\item{id}{row id number}
+\item{common_name}{name of the spcies (i.e., Amphipoda)}
+\item{ecoregion}{ecoregion where samples were collected}
+\item{d13c}{observed values for \eqn{\delta^{13}}C of consumer}
+\item{d15n}{observed values for \eqn{\delta^{15}}N of consumer}
+\item{c1}{observed values for \eqn{\delta^{13}}C of baseline 1}
+\item{n1}{observed values for \eqn{\delta^{15}}N of baseline 2}
+\item{c2}{observed values for \eqn{\delta^{13}}C of baseline 2}
+\item{n2}{observed values for \eqn{\delta^{15}}N of baseline 2}
+\item{c1_mean}{mean values for \eqn{\delta^{13}}C of baseline 1}
+\item{n1_mean}{mean values for \eqn{\delta^{15}}N of baseline 1}
+\item{c2_mean}{mean values for \eqn{\delta^{13}}C of baseline 2}
+\item{n2_mean}{mean values for \eqn{\delta^{15}}N of baseline 2}
+
+}
 }
 \keyword{datasets}

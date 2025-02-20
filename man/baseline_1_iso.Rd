@@ -10,8 +10,8 @@
 \item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Dreissenids)}
 \item{ecoregion}{ecoregion where samples were collected}
-\item{c1}{observed values for \eqn{\delta^{13}C}}
-\item{n1}{observed values for \eqn{\delta^{13}C}}
+\item{c1}{observed values for \eqn{\delta^{13}}C}
+\item{n1}{observed values for \eqn{\delta^{15}}N}
 }
 }
 \usage{
