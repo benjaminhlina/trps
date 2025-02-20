@@ -11,9 +11,10 @@ test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
-{trps} trophic position models using stan through
-[{brms}](https://paulbuerkner.com/brms/) to use Bayesian frameworks.
-Equations for trophic position models are derived from [Post
+Bayesian trophic position models using stan
+([{trps}](https://benjaminhlina.github.io/trps/)) through
+[{brms}](https://paulbuerkner.com/brms/). Equations for trophic position
+models are derived from [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 and [Heuvel et
 al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
@@ -28,10 +29,11 @@ and are to be used with stable isotope data for different species.
   - [x] priors for a two-source model without different lambda
   - [x] parameters for priors for a two-source model without different
     lambda
-- \[\] a two-source model with different lambda
-  - \[\] priors for a two-source model with different lambda
-  - \[\] parameters for priors for a two-source model with different
-    lambda
+- [x] a two-source model with different lambda
+  - [x] priors for two-source model w/ different lambda (priors are the
+    same as a two-source)
+  - [x] parameters for priors for a two-source model w/ different lambda
+    (priors are the same as a two-source)
 - \[\] a two-source carbon fractionation model
   - \[\] priors and parameters for priors
 - \[\] a two-source model with different lambdas and alpha corrected
