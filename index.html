@@ -53,7 +53,7 @@
 </div>
 <!-- badges: start -->
 
-<p>{trps} trophic position models using stan through <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a> to use Bayesian frameworks. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a> and <a href="https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466" class="external-link">Heuvel et al. 2024</a> and are to be used with stable isotope data for different species.</p>
+<p>Bayesian trophic position models using stan (<a href="https://benjaminhlina.github.io/trps/">{trps}</a>) through <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a> and <a href="https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466" class="external-link">Heuvel et al. 2024</a> and are to be used with stable isotope data for different species.</p>
 <p>{trps} is currently in active development with the following progress:</p>
 <ul>
 <li>
@@ -70,10 +70,11 @@
 <li><label><input type="checkbox" checked>parameters for priors for a two-source model without different lambda</label></li>
 </ul>
 </li>
-<li>[] a two-source model with different lambda
-<ul>
-<li>[] priors for a two-source model with different lambda</li>
-<li>[] parameters for priors for a two-source model with different lambda</li>
+<li>
+<label><input type="checkbox" checked>a two-source model with different lambda</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked>priors for two-source model w/ different lambda (priors are the same as a two-source)</label></li>
+<li><label><input type="checkbox" checked>parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)</label></li>
 </ul>
 </li>
 <li>[] a two-source carbon fractionation model
