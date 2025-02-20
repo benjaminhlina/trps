@@ -3,20 +3,23 @@
 \docType{data}
 \name{baseline_2_iso}
 \alias{baseline_2_iso}
-\title{Stable isotope data for lake trout, dreissenids (pelagic baseline), and
-amphipods (benthic baseline) used in two source model}
+\title{Stable isotope data for amphipods (baseline 2)}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 14 rows and 5 columns.
+\code{data.frame} containing 14 rows and 5 variables
+\describe{
+\item{id}{row id number}
+\item{common_name}{name of the spcies (i.e., Amphipoda)}
+\item{ecoregion}{ecoregion where samples were collected}
+\item{c2}{observed values for \eqn{\delta^{13}C}}
+\item{n2}{observed values for \eqn{\delta^{13}C}}
+}
 }
 \usage{
 baseline_2_iso
 }
 \description{
-Stable isotope data (SIA) for \eqn{\delta}\eqn{^1}\eqn{^3}C and
-\eqn{\delta}\eqn{^1}\eqn{^5}N for lake trout collected from an ecoregion in
-Lake Ontario. Values of \eqn{\delta}\eqn{^1}\eqn{^3}C and
-\eqn{\delta}\eqn{^1}\eqn{^5}N for a pelagic baseline
-(dreissenids; \code{c1} and \code{n1}) and a benthic baseline (amphipods;
-\code{c2} and \code{n2}).
+Stable isotope data (SIA) for \eqn{\delta^{13}}C and
+\eqn{\delta^{15}}N amphipods samples from an ecoregion in
+Lake Ontario.
 }
 \keyword{datasets}

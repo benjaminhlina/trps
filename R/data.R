@@ -47,7 +47,7 @@
 #'    \item{n2}{observed values for \eqn{\delta^{13}C}}
 #' }
 #'
-"baseline_1_iso"
+"baseline_2_iso"
 
 #' Stable isotope data for lake trout, dreissenids (pelagic baseline), and
 #' amphipods (benthic baseline) used in two source model
