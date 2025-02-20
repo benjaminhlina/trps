@@ -164,10 +164,11 @@ test_that("test two-source model with baseline prior", {
                ignore_attr = TRUE)
 }
 )
-test_that("test two-source lamba eorros", {
+test_that("test two-source lamba errros", {
 
   expect_error(
-    two_source_model(lambda = 3)
+    two_source_model(lambda = 3),
+    "`lambda` argument must be a numeric value and either `1` or `2`"
   )
 
 
