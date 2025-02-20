@@ -1,4 +1,4 @@
-#' A `data.frame` of stable isotope data for lake trout used
+#' Stable isotope data for lake trout (consumer)
 #'
 #' Stable isotope data (SIA) for \eqn{\delta^{13}}C and
 #' \eqn{\delta^ {15}}N for lake trout collected from an ecoregion in
@@ -9,8 +9,8 @@
 #'    \item{id}{row id number}
 #'    \item{common_name}{name of the spcies (i.e., Lake Trout)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
-#'    \item{d13c}{observed values for \eqn{\delta^{13}C}
-#'    \item{d15n}{observed values for \eqn{\delta^{15}N}
+#'    \item{d13c}{observed values for \eqn{\delta^{13}C}}
+#'    \item{d15n}{observed values for \eqn{\delta^{15}N}}
 #' }
 #'
 "consumer_iso"

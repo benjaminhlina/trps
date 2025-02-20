@@ -3,15 +3,15 @@
 \docType{data}
 \name{consumer_iso}
 \alias{consumer_iso}
-\title{A \code{data.frame} of stable isotope data for lake trout used}
+\title{Stable isotope data for lake trout (consumer)}
 \format{
 \code{data.frame} containing 30 rows and 6 variables
 \describe{
 \item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Lake Trout)}
 \item{ecoregion}{ecoregion where samples were collected}
-\item{d13c}{observed values for \eqn{\delta^{13}C}
-\item{d15n}{observed values for \eqn{\delta^{15}N}
+\item{d13c}{observed values for \eqn{\delta^{13}C}}
+\item{d15n}{observed values for \eqn{\delta^{15}N}}
 }
 }
 \usage{
