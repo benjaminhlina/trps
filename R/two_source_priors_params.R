@@ -69,17 +69,19 @@
 #' @export
 
 two_source_priors_params <- function(
-    n1 = NULL,
-    n1_sigma = NULL,
-    n2 = NULL,
-    n2_sigma = NULL,
-    dn = NULL,
-    dn_sigma = NULL,
-    tp_lb = NULL,
-    tp_ub = NULL,
-    sigma_lb = NULL,
-    sigma_ub = NULL,
-    bp = FALSE
+  a = NULL,
+  b = NULL,
+  n1 = NULL,
+  n1_sigma = NULL,
+  n2 = NULL,
+  n2_sigma = NULL,
+  dn = NULL,
+  dn_sigma = NULL,
+  tp_lb = NULL,
+  tp_ub = NULL,
+  sigma_lb = NULL,
+  sigma_ub = NULL,
+  bp = FALSE
 ) {
 
   if (!(is.logical(bp))) {
@@ -87,6 +89,33 @@ two_source_priors_params <- function(
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
+    ))
+  }
+
+  # ----- a -----
+
+  # set a to 1
+  if (is.null(a)) {
+    a <- 1
+  }
+
+  # create error message for a priros
+  if  (!is.numeric(a)) {
+    cli::cli_abort(c(
+      "`a` argument must be a numerical value.",
+      "i" = "Please provide a numerical value as a piror."
+    ))
+  }
+
+  # set b to 1
+  if (is.null(b)) {
+    b <- 1
+  }
+  # create error message for b priors
+  if  (!is.numeric(b)) {
+    cli::cli_abort(c(
+      "`b` argument must be a numerical value",
+      "i" = "Please provide a numerical value as a piror"
     ))
   }
 
@@ -226,7 +255,10 @@ two_source_priors_params <- function(
 
   if (isTRUE(bp)) {
 
-    priors_params <- brms::stanvar(n1, name = 'n1') +
+    priors_params <-
+      brms::stanvar(a, name = 'a') +
+      brms::stanvar(b, 'b') +
+      brms::stanvar(n1, name = 'n1') +
       brms::stanvar(n1_sigma, 'n1_sigma') +
       brms::stanvar(n2, name = 'n2') +
       brms::stanvar(n2_sigma, 'n2_sigma') +
@@ -246,7 +278,10 @@ two_source_priors_params <- function(
 
     # ----- set prirors -----
 
-    priors_params <- brms::stanvar(dn, 'dn') +
+    priors_params <-
+      brms::stanvar(a, name = 'a') +
+      brms::stanvar(b, 'b') +
+      brms::stanvar(dn, 'dn') +
       brms::stanvar(dn_sigma, 'dn_sigma') +
       brms::stanvar(tp_lb, 'tp_lb') +
       brms::stanvar(tp_ub, 'tp_ub') +
