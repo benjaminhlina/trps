@@ -67,3 +67,6 @@ To cite this package please cite the following publications
   basins in Lake Erie, a large freshwater ecosystem. Canadian Journal of
   Fisheries and Aquatic Sciences 82:1-16. doi:
   [10.1139/cjfas-2024-0028](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+
+- Hlina B.L. 2025. trps: Bayesian trophic position models using stan. R
+  package version 0.1.0. <https://benjaminhlina.github.io/trps/>
