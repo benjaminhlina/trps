@@ -54,12 +54,12 @@
 
 
 <dl><dt id="arg-n-">n1<a class="anchor" aria-label="anchor" href="#arg-n-"></a></dt>
-<dd><p>mean (\(\mu\)) prior for \(\delta\)\(^1\)\(^5\)N baseline.
+<dd><p>mean (\(\mu\)) prior for \(\delta^{15}\)N baseline.
 Defaults to <code>9</code>.</p></dd>
 
 
 <dt id="arg-n-sigma">n1_sigma<a class="anchor" aria-label="anchor" href="#arg-n-sigma"></a></dt>
-<dd><p>variance (\(\sigma\)) for \(\delta\)\(^1\)\(^5\)N
+<dd><p>variance (\(\sigma\)) for\(\delta^{15}\)N
 baseline. Defaults to <code>1</code>.</p></dd>
 
 
@@ -68,7 +68,7 @@ baseline. Defaults to <code>1</code>.</p></dd>
 
 
 <dt id="arg-dn-sigma">dn_sigma<a class="anchor" aria-label="anchor" href="#arg-dn-sigma"></a></dt>
-<dd><p>variance (\(\sigma\)) for \(\delta\)\(^1\)\(^5\)N.
+<dd><p>variance (\(\sigma\)) for \(\delta^{15}\)N
 Defaults to <code>0.5</code>.</p></dd>
 
 
@@ -90,9 +90,9 @@ Defaults to <code>0.5</code>.</p></dd>
 
 <dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
 <dd><p>logical value that controls whether informed priors are
-supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
+supplied to the model for \(\delta^{15}\)N baseline. Default is
 <code>FALSE</code> meaning the model will use uninformed priors, however, the supplied
-<code>data.frame</code> needs values for \(\delta\)\(^1\)\(^5\)N baseline (<code>n1</code>).</p></dd>
+<code>data.frame</code> needs values for \(\delta^{15}\)N baseline (<code>n1</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -101,10 +101,10 @@ supplied to the model for \(\delta\)\(^1\)\(^5\)N baseline. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\delta^1^5N = n1 + dn * (tp - \lambda)$$</p>
+    <p>$$\delta^{15}N = n1 + dn * (tp - \lambda)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
-<ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of \(\delta\)\(^1\)\(^5\)N
+<ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of \(\delta^{15}\)N
 for a given baseline. This prior assumes a normal distributions.</p></li>
 <li><p>The mean (<code>dn</code>) and variance (<code>dn_sigma</code>) of \(\Delta\)N (i.e, trophic enrichment
 factor;). This prior assumes a normal distributions.</p></li>
