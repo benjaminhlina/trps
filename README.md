@@ -11,10 +11,9 @@ test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
-Bayesian trophic position models using stan
-([{trps}](https://benjaminhlina.github.io/trps/)) by leveraging
-[{brms}](https://paulbuerkner.com/brms/). Equations for trophic position
-models are derived from [Post
+Bayesian trophic position models using stan (pronounced trips) by
+leveraging [{brms}](https://paulbuerkner.com/brms/). Equations for
+trophic position models are derived from [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 and [Heuvel et
 al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
