@@ -47,7 +47,8 @@
 #' @import brms
 #' @export
 
-two_source_model <- function(bp = FALSE) {
+two_source_model <- function(bp = FALSE,
+                             lambda = NULL) {
   if (!(is.logical(bp))) {
 
     cli::cli_abort(c(
@@ -56,42 +57,94 @@ two_source_model <- function(bp = FALSE) {
     ))
   }
 
-  if (isFALSE(bp)) {
-
-  model <- brms::bf(
-    # Likelihood function
-    d15n ~ dn * (tp - lambda) + n1 * alpha + n2 * (1 - alpha),
-    # Estimate alpha
-    alpha ~ 1,
-    # Estimate trophic position
-    tp ~ 1,
-    # Estimate delta_n
-    dn ~ 1,
-    # Non-linear model specification
-    nl = TRUE
-  )
-
+  if (is.null(lambda)) {
+    lambda <- 1
   }
 
-  if (isTRUE(bp)) {
+  if (!(is.numeric(lambda) || !(lambda %in% c(1, 2)))) {
+    cli::cli_abort(c(
+      "`lambda` argument must be a numeric value and either `1` or `2`",
+      "i" = "Please provide `1` or `2`"
+    ))
+  }
 
-  model <- brms::bf(
-    # Likelihood function
-    d15n ~ dn * (tp - lambda) + n1 * alpha + n2 * (1 - alpha),
-    # Estimate alpha
-    alpha ~ 1,
-    # estimate
-    n1 ~ 1,
-    n2 ~ 1,
-    # Estimate trophic position
+  if (lambda == 1) {
+    if (isFALSE(bp)) {
 
-    tp ~ 1,
-    # Estimate delta_n
-    dn ~ 1,
-    # Non-linear model specification
-    nl = TRUE
-  )
+      model <- brms::bf(
+        # Likelihood function
+        d15n ~ dn * (tp - l) + n1 * alpha + n2 * (1 - alpha),
+        # Estimate alpha
+        alpha ~ 1,
+        # Estimate trophic position
+        tp ~ 1,
+        # Estimate delta_n
+        dn ~ 1,
+        # Non-linear model specification
+        nl = TRUE
+      )
 
+    }
+
+    if (isTRUE(bp)) {
+
+      model <- brms::bf(
+        # Likelihood function
+        d15n ~ dn * (tp - l) + n1 * alpha + n2 * (1 - alpha),
+        # Estimate alpha
+        alpha ~ 1,
+        # estimate
+        n1 ~ 1,
+        n2 ~ 1,
+        # Estimate trophic position
+
+        tp ~ 1,
+        # Estimate delta_n
+        dn ~ 1,
+        # Non-linear model specification
+        nl = TRUE
+      )
+
+    }
+  }
+
+  if (lambda == 2) {
+    if (isFALSE(bp)) {
+
+      model <- brms::bf(
+        # Likelihood function
+        d15n ~ dn * (tp - (l1 * alpha + l2 * (1 - alpha))) + n1 * alpha + n2 * (1 - alpha),
+        # Estimate alpha
+        alpha ~ 1,
+        # Estimate trophic position
+        tp ~ 1,
+        # Estimate delta_n
+        dn ~ 1,
+        # Non-linear model specification
+        nl = TRUE
+      )
+
+    }
+
+    if (isTRUE(bp)) {
+
+      model <- brms::bf(
+        # Likelihood function
+        d15n ~ dn * (tp - (l1 * alpha + l2 * (1 - alpha))) + n1 * alpha + n2 * (1 - alpha),
+        # Estimate alpha
+        alpha ~ 1,
+        # estimate
+        n1 ~ 1,
+        n2 ~ 1,
+        # Estimate trophic position
+        tp ~ 1,
+        # Estimate delta_n
+        dn ~ 1,
+        # Non-linear model specification
+        nl = TRUE
+      )
+
+    }
   }
   return(model)
 }
