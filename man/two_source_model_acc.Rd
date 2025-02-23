@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_model_acc.R
 \name{two_source_model_acc}
 \alias{two_source_model_acc}
-\title{Bayesian model - Two Source Trophic Position with \eqn{\alpha_c} and carbon fractionation}
+\title{Bayesian model - Two Source Trophic Position with \eqn{\alpha_c} and carbon source}
 \usage{
 two_source_model_acc(bp = FALSE, lambda = NULL)
 }
@@ -22,7 +22,7 @@ returns model structure for two source model to be used in a
 \code{brms()} call.
 }
 \description{
-Bayesian model for trophic position using a two source model with \eqn{\alpha_c} and carbon fractionation derived from
+Bayesian model for trophic position using a two source model with \eqn{\alpha_c} and carbon source derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024}
 }
 \examples{

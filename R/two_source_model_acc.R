@@ -1,6 +1,6 @@
-#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_c} and carbon fractionation
+#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_c} and carbon source
 #'
-#' Bayesian model for trophic position using a two source model with \eqn{\alpha_c} and carbon fractionation derived from
+#' Bayesian model for trophic position using a two source model with \eqn{\alpha_c} and carbon source derived from
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
 #'
 #' @param bp logical value that controls whether  priors are
