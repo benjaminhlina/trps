@@ -71,17 +71,25 @@ for both \(\delta^{15}\)N and \(\delta^{15}\)C baseline
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="two_source_priors.html">two_source_priors</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        prior class      coef group resp dpar nlpar    lb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   beta(a, b)     b                           alpha     0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         normal(dn, dn_sigma)     b Intercept                    dn  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        uniform(tp_lb, tp_ub)     b                              tp tp_lb</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  uniform(sigma_lb, sigma_ub) sigma                                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        ub source</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         1   user</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;NA&gt;   user</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     tp_ub   user</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  sigma_ub   user</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">two_source_priors_ac</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        prior class coef group  resp dpar nlpar    lb       ub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   beta(a, b)     b            alpha         ac     0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   beta(a, b)     b             d13c         ac     0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   beta(a, b)     b             d15n         ac     0        1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         normal(dn, dn_sigma)     b             d15n         dn  &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        uniform(tp_lb, tp_ub)     b             d15n         tp tp_lb    tp_ub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  uniform(sigma_lb, sigma_ub) sigma            alpha             &lt;NA&gt; sigma_ub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  uniform(sigma_lb, sigma_ub) sigma             d13c             &lt;NA&gt; sigma_ub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  uniform(sigma_lb, sigma_ub) sigma             d15n             &lt;NA&gt; sigma_ub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    user</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
