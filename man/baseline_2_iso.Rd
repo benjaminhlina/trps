@@ -3,23 +3,22 @@
 \docType{data}
 \name{baseline_2_iso}
 \alias{baseline_2_iso}
-\title{Stable isotope data for amphipods (baseline 2)}
+\title{Stable isotope data for dreissenids (baseline 2)}
 \format{
-\code{data.frame} containing 14 rows and 5 variables
+\code{data.frame} containing 12 rows and 5 variables
 \describe{
-\item{id}{row id number}
-\item{common_name}{name of the spcies (i.e., Amphipoda)}
+\item{common_name}{name of the spcies (i.e., Dreissenids)}
 \item{ecoregion}{ecoregion where samples were collected}
-\item{c2}{observed values for \eqn{\delta^{13}}C}
-\item{n2}{observed values for \eqn{\delta^{15}}N}
+\item{c1}{observed values for \eqn{\delta^{13}}C}
+\item{n1}{observed values for \eqn{\delta^{15}}N}
 }
 }
 \usage{
 baseline_2_iso
 }
 \description{
-Stable isotope data (SIA) for \eqn{\delta^{13}}C and
-\eqn{\delta^{15}}N amphipods samples from an ecoregion in
+Stable isotope data (\eqn{\delta^{13}}C and
+\eqn{\delta^{15}}N) dreissenid samples from an ecoregion in
 Lake Ontario.
 }
 \keyword{datasets}
