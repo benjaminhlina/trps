@@ -77,7 +77,7 @@ Defaults to <code>1</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">two_source_model_ac</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alpha ~ ac * (max_alpha - min_alpha) + min_alpha </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d13c ~ ac * (c1 - c2) + c2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d13c ~ (c1 * ac) + (c2 * (1 - ac)) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>

@@ -41,7 +41,7 @@ equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_alpha</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_alpha</span><span class="op">(</span><span class="va">data</span>, abs <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -55,6 +55,12 @@ benthic source and baseline two needs to come
 from a pelagic source. Baseline \(\delta^{13}\)C columns
 need to be named <code>c1_mean</code> and <code>c2_mean</code>,
 with the consumer's \(\delta^{13}\)C column named <code>d13c</code>.</p></dd>
+
+
+<dt id="arg-abs">abs<a class="anchor" aria-label="anchor" href="#arg-abs"></a></dt>
+<dd><p>logical that controls whether the absolute value is taken for the
+numerator and denominator. Default is <code>FALSE</code> meaning that the absolute
+value is not taken.</p></dd>
 
 </dl></div>
     <div class="section level2">
