@@ -4,10 +4,10 @@
 #'
 #' @param n1 mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
 #' Defaults to `9`.
-#' @param n1_sigma variance (\eqn{\sigma}) for\eqn{\delta^{15}}N
+#' @param n1_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
 #' baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
-#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
+#' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 #' Defaults to `0.5`.
 #' @param tp_lb lower bound prior for trophic position. Defaults to `2`.
 #' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
@@ -26,14 +26,16 @@
 #' in the equation above:
 #'
 #' \itemize{
-#'   \item The mean (`n1`) and variance (`n1_sigma`) of \eqn{\delta^{15}}N
-#'   for a given baseline. This prior assumes a normal distributions.
-#'   \item The mean (`dn`) and variance (`dn_sigma`) of \eqn{\Delta}N (i.e, trophic enrichment
-#'   factor;). This prior assumes a normal distributions.
-#'   \item The lower (`tp_lb`) and upper (`tp_up`) of trophic position.
-#'   This prior assumes a uniform distributions.
-#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) variance (\eqn{\sigma}).
-#'   This prior assumes a uniform distributions.
+#'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
+#'   \eqn{\delta^{15}}N for a given baseline.
+#'   This prior assumes a normal distribution.
+#'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
+#'   \eqn{\Delta}N (i.e, trophic enrichment
+#'   factor). This prior assumes a normal distribution.
+#'   \item The lower (`tp_lb`) and upper (`tp_up`) bounds for trophic position.
+#'   This prior assumes a uniform distribution.
+#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) bounds for
+#'   variance (\eqn{\sigma}). This prior assumes a uniform distribution.
 #'   }
 #'
 #' @return `stanvars` object to be used with `brms()` call.

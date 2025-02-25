@@ -4,7 +4,7 @@
 #'
 #' @param a (\eqn{\alpha}) exponent of the random variable for beta distribution.
 #' Defaults to `1`. See beta distribution for more information.
-#' @param b (\eqn{\alpha}) shape parameter for beta distribution.
+#' @param b (\eqn{\beta}) shape parameter for beta distribution.
 #' Defaults to `1`. See beta distribution for more information.
 #' @param n1_sigma variance (\eqn{\sigma})for first
 #' \eqn{\delta^{15}}N baseline. Defaults to `1`.
@@ -19,10 +19,10 @@
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 #' Defaults to `0.5`.
-#' @param tp_lb lower bound prior for trophic position. Defaults to `2`.
-#' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
-#' @param sigma_lb lower bound prior for \eqn{\sigma}. Defaults to `0`.
-#' @param sigma_ub upper bound prior for \eqn{\sigma}. Defaults to `10`.
+#' @param tp_lb lower bound for priors for trophic position. Defaults to `2`.
+#' @param tp_ub upper bound for priors for  trophic position. Defaults to `10`.
+#' @param sigma_lb lower bound for priors for \eqn{\sigma}. Defaults to `0`.
+#' @param sigma_ub upper bound for priors for \eqn{\sigma}. Defaults to `10`.
 #' @param bp logical value that controls whether informed baseline priors are
 #' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 #' `FALSE` meaning the model will use uninformed priors, however, the supplied
@@ -47,18 +47,19 @@
 #' in the equation above:
 #'
 #' \itemize{
-#'   \item The mean (`n1`) and variance (`n1_sigma`) of the first
-#'   \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+#'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
+#'   the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 #'   This prior assumes a normal distributions.
-#'   \item The mean (`n2`) and variance (`n2_sigma`) of the second
-#'   \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+#'   \item The mean (`n2`;\eqn{\mu}) and variance (`n2_sigma`; \eqn{\sigma}) of
+#'   the second \eqn{\delta^{15}}N for a given baseline.
 #'   This prior assumes a normal distributions.
-#'   \item The mean (`dn`) and variance (`dn_sigma`) of \eqn{\Delta}N (i.e, trophic enrichment
-#'   factor;). This prior assumes a normal distributions.
-#'   \item The lower (`tp_lb`) and upper (`tp_up`) of trophic position.
-#'   This prior assumes a uniform distributions.
-#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) variance (\eqn{\sigma}).
-#'   This prior assumes a uniform distributions.
+#'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
+#'   \eqn{\Delta}N (i.e, trophic enrichment factor).
+#'   This prior assumes a normal distributions.
+#'   \item The lower (`tp_lb`) and upper (`tp_up`) bounds for priors for
+#'   trophic position. This prior assumes a uniform distributions.
+#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) bounds for
+#'   variance (\eqn{\sigma}). This prior assumes a uniform distributions.
 #'   }
 #'
 #' @return `stanvars` object to be used with `brms()` call.
