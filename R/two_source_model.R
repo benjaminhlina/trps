@@ -23,17 +23,15 @@
 #' and
 #'
 #'
-#' When `lambda` is set to `1`
+#' **When `lambda` is set to `1`**
 #'
 #' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
-#' When `lambda` is set to `2`
+#' **When `lambda` is set to `2`**
 #'
 #' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
-#'
-#'
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is

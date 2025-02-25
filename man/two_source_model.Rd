@@ -34,13 +34,13 @@ where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
 and
 
-When \code{lambda} is set to \code{1}
+\strong{When \code{lambda} is set to \code{1}}
 
 \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 or
 
-When \code{lambda} is set to \code{2}
+\strong{When \code{lambda} is set to \code{2}}
 
 \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
