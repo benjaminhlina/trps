@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_priors_ac.R
 \name{two_source_priors_ac}
 \alias{two_source_priors_ac}
-\title{Bayesian model - Two Source Trophic Position with \eqn{\alpha_c}}
+\title{Bayesian priors - Two Source Trophic Position with \eqn{\alpha_c}}
 \usage{
 two_source_priors_ac(bp = FALSE)
 }
