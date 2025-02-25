@@ -18,7 +18,7 @@ baseline_2_iso
 }
 \description{
 Stable isotope data (\eqn{\delta^{13}}C and
-\eqn{\delta^{15}}N) dreissenid samples from an ecoregion in
+\eqn{\delta^{15}}N) for dreissenid collected from an ecoregion in
 Lake Ontario.
 }
 \keyword{datasets}

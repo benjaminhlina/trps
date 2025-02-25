@@ -17,7 +17,7 @@
 #' Stable isotope data for amphipods (baseline 1)
 #'
 #' Stable isotope data (\eqn{\delta^{13}}C and
-#' \eqn{\delta^{15}}N) amphipods samples from an ecoregion in
+#' \eqn{\delta^{15}}N) for amphipods collected from an ecoregion in
 #' Lake Ontario.
 #'
 #' @format `data.frame` containing 14 rows and 5 variables
