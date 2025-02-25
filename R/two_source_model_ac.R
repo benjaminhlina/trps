@@ -53,7 +53,7 @@ two_source_model_ac <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ ac * (c1 - c2) + c2,
+          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
           ac ~ 1,
           nl = TRUE
         ) +
@@ -75,7 +75,7 @@ two_source_model_ac <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ ac * (c1 - c2) + c2,
+          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
           ac ~ 1,
           c1 ~ 1,
           c2 ~ 1,
@@ -105,7 +105,7 @@ two_source_model_ac <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ ac * (c1 - c2) + c2,
+          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
           ac ~ 1,
           nl = TRUE
         ) +
@@ -127,7 +127,7 @@ two_source_model_ac <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ ac * (c1 - c2) + c2,
+          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
           ac ~ 1,
           c1 ~ 1,
           c2 ~ 1,
