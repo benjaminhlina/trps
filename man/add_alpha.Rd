@@ -31,7 +31,7 @@ equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.189
 
 where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
-and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
+and \eqn{\delta^{13} C_2} is the mean isotopic value for baseline 1.
 }
 \examples{
 combined_iso |>
