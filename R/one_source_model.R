@@ -12,7 +12,7 @@
 #'
 #' @details
 #'
-#'  \deqn{\delta^{15}N = n1 + dn * (tp - \lambda)}
+#'  \deqn{\delta^{15}N = n1 + dn \times (tp - \lambda)}
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' n1 is \eqn{\delta^{15}}N values of baseline 1,
