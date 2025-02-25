@@ -186,7 +186,7 @@ test_that("test two-source model with baseline prior", {
 test_that("test two-source bp eorros", {
 
   expect_error(
-    two_source_model(bp = "TRU")
+    two_source_model_ac(bp = "TRU")
   )
 
 
@@ -278,7 +278,7 @@ test_that("test two-source model with baseline prior", {
 test_that("test two-source lamba errros", {
 
   expect_error(
-    two_source_model(lambda = 3),
+    two_source_model_ac(lambda = 3),
     "`lambda` argument must be a numeric value and either `1` or `2`"
   )
 
