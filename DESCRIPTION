@@ -30,4 +30,5 @@ RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
 Depends: 
     R (>= 3.5)
-URL: https://benjaminhlina.github.io/trps/
+URL: https://benjaminhlina.github.io/trps/, https://github.com/benjaminhlina/trps
+BugReports: https://github.com/benjaminhlina/trps/issues
