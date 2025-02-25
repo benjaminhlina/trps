@@ -3,7 +3,7 @@ test_that("test one-source model without baseline prior", {
   m <- one_source_model()
   # m$formula
   expected_wb <- formula(
-    d15n ~ n1 + dn * (tp - lambda)
+    d15n ~ n1 + dn * (tp - l)
   )
 
   # class(m$formula)
@@ -35,7 +35,7 @@ test_that("test one-source model with baseline prior", {
 
   m <- one_source_model(bp = TRUE)
 
-  el <- formula(d15n ~ n1 + dn * (tp - lambda))
+  el <- formula(d15n ~ n1 + dn * (tp - l))
 
 
 
