@@ -20,12 +20,12 @@ one_source_priors_params(
 \item{n1}{mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
 Defaults to \code{9}.}
 
-\item{n1_sigma}{variance (\eqn{\sigma}) for\eqn{\delta^{15}}N
+\item{n1_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
 baseline. Defaults to \code{1}.}
 
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
 
-\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
+\item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 Defaults to \code{0.5}.}
 
 \item{tp_lb}{lower bound prior for trophic position. Defaults to \code{2}.}
@@ -54,14 +54,16 @@ This function allows the user to adjust the priors for the following variables
 in the equation above:
 
 \itemize{
-\item The mean (\code{n1}) and variance (\code{n1_sigma}) of \eqn{\delta^{15}}N
-for a given baseline. This prior assumes a normal distributions.
-\item The mean (\code{dn}) and variance (\code{dn_sigma}) of \eqn{\Delta}N (i.e, trophic enrichment
-factor;). This prior assumes a normal distributions.
-\item The lower (\code{tp_lb}) and upper (\code{tp_up}) of trophic position.
-This prior assumes a uniform distributions.
-\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) variance (\eqn{\sigma}).
-This prior assumes a uniform distributions.
+\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
+\eqn{\delta^{15}}N for a given baseline.
+This prior assumes a normal distribution.
+\item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
+\eqn{\Delta}N (i.e, trophic enrichment
+factor). This prior assumes a normal distribution.
+\item The lower (\code{tp_lb}) and upper (\code{tp_up}) bounds for trophic position.
+This prior assumes a uniform distribution.
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) bounds for
+variance (\eqn{\sigma}). This prior assumes a uniform distribution.
 }
 }
 \examples{
