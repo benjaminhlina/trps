@@ -14,6 +14,8 @@ Bayesian trophic position models using stan by leveraging 'brms' for stable isot
 Useful links:
 \itemize{
   \item \url{https://benjaminhlina.github.io/trps/}
+  \item \url{https://github.com/benjaminhlina/trps}
+  \item Report bugs at \url{https://github.com/benjaminhlina/trps/issues}
 }
 
 }
