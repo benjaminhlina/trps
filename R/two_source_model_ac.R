@@ -16,7 +16,7 @@
 #'
 #' \enumerate{
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
-#'   (\delta ^{13}C_1 - \delta ^{13}C_1)}
+#'   (\delta ^{13}C_1 - \delta ^{13}C_2)}
 #'
 #'   \item \deqn{\alpha = \alpha_c * (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 #'
