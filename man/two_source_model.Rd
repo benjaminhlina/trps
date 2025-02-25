@@ -26,6 +26,13 @@ Bayesian model for trophic position using a two source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
+\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+(\delta ^{13}C_1 - \delta ^{13}C_1)}
+
+where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
+\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
+and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
+
 When \code{lambda} is set to \code{1}
 
 \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
@@ -40,9 +47,12 @@ When \code{lambda} is set to \code{2}
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
-tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
-\eqn{\lambda_2} are the trophic levels of
-baselines which are often a primary consumer (e.g., \code{2} or \code{2.5}).
+tp is trophic position, \eqn{\alpha} is carbon usage where \eqn{\delta^{13}C_c} is
+the isotopic value for consumer, \eqn{\delta^{13}C_2} is the mean
+isotopic value for baseline 2, and \eqn{\delta^{13} C_1} is the mean
+isotopic value for baseline 1. \eqn{\lambda} or \eqn{\lambda_1} and
+\eqn{\lambda_2} are the trophic levels of baselines which are often a
+primary consumer (e.g., \code{2} or \code{2.5}).
 
 The data supplied to \code{brms()} when using baselines at the same trophic level
 (\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},

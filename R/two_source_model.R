@@ -14,6 +14,13 @@
 #'
 #' @details
 #'
+#' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+#' (\delta ^{13}C_1 - \delta ^{13}C_1)}
+#'
+#' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
+#' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
+#' and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
+#'
 #' When `lambda` is set to `1`
 #'
 #' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
@@ -25,13 +32,18 @@
 #' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #'
+
+#'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 #' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
-#' tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
-#' \eqn{\lambda_2} are the trophic levels of
-#' baselines which are often a primary consumer (e.g., `2` or `2.5`).
+#' tp is trophic position, \eqn{\alpha} is carbon usage where \eqn{\delta^{13}C_c} is
+#' the isotopic value for consumer, \eqn{\delta^{13}C_2} is the mean
+#' isotopic value for baseline 2, and \eqn{\delta^{13} C_1} is the mean
+#' isotopic value for baseline 1. \eqn{\lambda} or \eqn{\lambda_1} and
+#' \eqn{\lambda_2} are the trophic levels of baselines which are often a
+#' primary consumer (e.g., `2` or `2.5`).
 #'
 #' The data supplied to `brms()` when using baselines at the same trophic level
 #' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,
