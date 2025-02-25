@@ -3,14 +3,14 @@
 #' Bayesian model for trophic position using a two source model derived from
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
-#' @param bp logical value that controls whether  priors are
-#' supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-#' baselines. Default is `FALSE` meaning the model will not be supplied priors,
-#' however, the supplied `data.frame` needs values for
-#' \eqn{\delta^{15}}N each baseline (`n1` and `n2`).
+#' @param bp logical value that controls whether informed priors are
+#' supplied to the model for both \eqn{\delta^{15}}N baselines.
+#' Default is `FALSE` meaning the model will use uninformed priors, however,
+#' the supplied `data.frame` needs values for both \eqn{\delta^{15}}N
+#' baseline (`n1` and `n2`).
 #' @param lambda numerical value, `1` or `2`, that controls whether one or
-#' two lambdas are used. See details for equations and when to use `1` or `2`.
-#' Defaults to `1`.
+#' two \eqn{\lambda}s are used. See details for equations and when to use
+#' `1` or `2`. Defaults to `1`.
 #'
 #' @details
 #'
@@ -24,12 +24,14 @@
 #'
 #' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
+#'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 #' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
-#' tp is trophic position, and \eqn{\lambda} is the trophic level of
-#' baselines which are often a primary consumer (e.g., `2`).
+#' tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
+#' \eqn{\lambda_2} are the trophic levels of
+#' baselines which are often a primary consumer (e.g., `2` or `2.5`).
 #'
 #' The data supplied to `brms()` when using baselines at the same trophic level
 #' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,

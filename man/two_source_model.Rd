@@ -7,15 +7,15 @@
 two_source_model(bp = FALSE, lambda = NULL)
 }
 \arguments{
-\item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-baselines. Default is \code{FALSE} meaning the model will not be supplied priors,
-however, the supplied \code{data.frame} needs values for
-\eqn{\delta^{15}}N each baseline (\code{n1} and \code{n2}).}
+\item{bp}{logical value that controls whether informed priors are
+supplied to the model for both \eqn{\delta^{15}}N baselines.
+Default is \code{FALSE} meaning the model will use uninformed priors, however,
+the supplied \code{data.frame} needs values for both \eqn{\delta^{15}}N
+baseline (\code{n1} and \code{n2}).}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
-two lambdas are used. See details for equations and when to use \code{1} or \code{2}.
-Defaults to \code{1}.}
+two \eqn{\lambda}s are used. See details for equations and when to use
+\code{1} or \code{2}. Defaults to \code{1}.}
 }
 \value{
 returns model structure for two source model to be used in a
@@ -40,8 +40,9 @@ When \code{lambda} is set to \code{2}
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
-tp is trophic position, and \eqn{\lambda} is the trophic level of
-baselines which are often a primary consumer (e.g., \code{2}).
+tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
+\eqn{\lambda_2} are the trophic levels of
+baselines which are often a primary consumer (e.g., \code{2} or \code{2.5}).
 
 The data supplied to \code{brms()} when using baselines at the same trophic level
 (\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},
