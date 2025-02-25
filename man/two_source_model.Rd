@@ -8,10 +8,10 @@ two_source_model(bp = FALSE, lambda = NULL)
 }
 \arguments{
 \item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta}\eqn{^1}\eqn{^5}N pelagic and benthic
+supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
 baselines. Default is \code{FALSE} meaning the model will not be supplied priors,
 however, the supplied \code{data.frame} needs values for
-\eqn{\delta}\eqn{^1}\eqn{^5}N each baseline (\code{n1} and \code{n2}).}
+\eqn{\delta^{15}}N each baseline (\code{n1} and \code{n2}).}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
 two lambdas are used. See details for equations and when to use \code{1} or \code{2}.
@@ -36,7 +36,7 @@ When \code{lambda} is set to \code{2}
 
 \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
-\eqn{\delta^{15}N} are values from the consumer,
+\eqn{\delta^{15}}N are values from the consumer,
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
