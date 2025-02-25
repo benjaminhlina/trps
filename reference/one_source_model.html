@@ -63,10 +63,10 @@ baseline (<code>n1</code>).</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\delta^{15}N = n1 + dn \times (tp - \lambda)$$</p>
+    <p>$$\delta^{15}N = n1 + \Delta N \times (tp - \lambda)$$</p>
 <p>\(\delta^{15}\)N are values from the consumer,
 n1 is \(\delta^{15}\)N values of baseline 1,
-\(\Delta\)N is the trophic discrimination factor for N (i.e., mean of 3.4),
+\(\Delta\)N is the trophic discrimination factor for N (i.e., <code>dn</code> mean of 3.4),
 tp is trophic position, and \(\lambda\) is the trophic level of baselines
 which are often a primary consumer (e.g., 2).</p>
 <p>The data supplied to <code>brms()</code> needs to have the following variables <code>d15n</code>,
