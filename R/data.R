@@ -33,7 +33,7 @@
 #' Stable isotope data for dreissenids (baseline 2)
 #'
 #' Stable isotope data (\eqn{\delta^{13}}C and
-#' \eqn{\delta^{15}}N) dreissenid samples from an ecoregion in
+#' \eqn{\delta^{15}}N) for dreissenid collected from an ecoregion in
 #' Lake Ontario.
 #'
 #' @format `data.frame` containing 12 rows and 5 variables

@@ -18,7 +18,7 @@ baseline_1_iso
 }
 \description{
 Stable isotope data (\eqn{\delta^{13}}C and
-\eqn{\delta^{15}}N) amphipods samples from an ecoregion in
+\eqn{\delta^{15}}N) for amphipods collected from an ecoregion in
 Lake Ontario.
 }
 \keyword{datasets}
