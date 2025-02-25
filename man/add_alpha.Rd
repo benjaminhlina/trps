@@ -26,7 +26,7 @@ Calculate \eqn{\alpha} for a two source trophic position model using
 equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+\deqn{\alpha = (\delta^{13}C_c - \delta ^{13}C_2) /
 (\delta ^{13}C_1 - \delta ^{13}C_1)}
 
 where \eqn{\delta^{13}C_c} is the isotopic value for consumer,

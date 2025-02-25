@@ -15,7 +15,7 @@
 #' value is not taken.
 #'
 #' @details
-#' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+#' \deqn{\alpha = (\delta^{13}C_c - \delta ^{13}C_2) /
 #' (\delta ^{13}C_1 - \delta ^{13}C_1)}
 #'
 #' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
