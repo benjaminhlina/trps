@@ -51,3 +51,48 @@ test_that("test check if alpha errors ", {
   )
 }
 )
+
+test_that("test adding estimates of alpha ", {
+
+
+
+  dats <- combined_iso |>
+    add_alpha(abs = TRUE)
+
+
+  exc <- 0.44
+  expect_equal(round(dats$alpha[1], 2), exc)
+}
+)
+test_that("test adding estimates of alpha_min ", {
+
+
+  dats <- combined_iso |>
+    add_alpha(abs = TRUE)
+
+
+  exc <- 0.06
+  expect_equal(round(dats$min_alpha[1], 2), exc)
+}
+)
+test_that("test adding estimates of max_alpha ", {
+
+
+  dats <- combined_iso |>
+    add_alpha(abs = TRUE)
+
+
+  exc <- 2.38
+  expect_equal(round(dats$max_alpha[1], 2), exc)
+}
+)
+
+test_that("test adding estimates if abs fails", {
+
+
+  expect_error(combined_iso |>
+    add_alpha(abs = "TRUE"),
+    "`abs` argument must be a logical value"
+  )
+}
+)
