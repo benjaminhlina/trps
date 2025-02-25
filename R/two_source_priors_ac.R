@@ -15,7 +15,7 @@
 #'
 #' @seealso [brms::brms()]
 #' @examples
-#' two_source_priors()
+#' two_source_priors_ac()
 #'
 #' @import brms
 #' @export

@@ -23,7 +23,7 @@ with \eqn{\alpha_c} derived from \href{https://esajournals.onlinelibrary.wiley.c
 and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024}.
 }
 \examples{
-two_source_priors()
+two_source_priors_ac()
 
 }
 \seealso{
