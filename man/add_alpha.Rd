@@ -7,12 +7,12 @@
 add_alpha(data)
 }
 \arguments{
-\item{data}{data.frame of stable isotope samples with mean values for two
-baselines. For aquatic ecosystems, baseline two needs to come
-from a pelagic source, while baseline one needs to come from a
-benthic source. Baseline \eqn{\delta^{13} C_c} columns
-need to be named \code{c1_mean} and \code{c2_mean}, with the consumer's column named
-\code{d13c}.}
+\item{data}{\code{data.frame} of stable isotope samples with mean values for two
+baselines. For aquatic ecosystems, baseline one needs to come from a
+benthic source and baseline two needs to come
+from a pelagic source. Baseline \eqn{\delta^{13}}C columns
+need to be named \code{c1_mean} and \code{c2_mean},
+with the consumer's \eqn{\delta^{13}}C column named \code{d13c}.}
 }
 \value{
 a \code{data.frame} that has \code{alpha}, \code{min_alpha}, and \code{max_alpha} added.
@@ -22,13 +22,12 @@ Calculate \eqn{\alpha} for a two source trophic position model using
 equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_p) /
-(\delta ^{13}C_b - \delta ^{13}C_b)}
+\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+(\delta ^{13}C_1 - \delta ^{13}C_1)}
 
 where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-\eqn{\delta^{13}C_p} is the mean isotopic value for pelagic
-baseline, and \eqn{\delta^{13} C_b} is the mean isotopic value
-for benthic baseline.
+\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
+and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
 }
 \examples{
 combined_iso |>

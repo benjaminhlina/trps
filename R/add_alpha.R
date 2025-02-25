@@ -4,21 +4,20 @@
 #' equations from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
 #'
-#' @param data data.frame of stable isotope samples with mean values for two
-#' baselines. For aquatic ecosystems, baseline two needs to come
-#' from a pelagic source, while baseline one needs to come from a
-#' benthic source. Baseline \eqn{\delta^{13} C_c} columns
-#' need to be named `c1_mean` and `c2_mean`, with the consumer's column named
-#' `d13c`.
+#' @param data `data.frame` of stable isotope samples with mean values for two
+#' baselines. For aquatic ecosystems, baseline one needs to come from a
+#' benthic source and baseline two needs to come
+#' from a pelagic source. Baseline \eqn{\delta^{13}}C columns
+#' need to be named `c1_mean` and `c2_mean`,
+#' with the consumer's \eqn{\delta^{13}}C column named `d13c`.
 #'
 #' @details
-#' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_p) /
-#' (\delta ^{13}C_b - \delta ^{13}C_b)}
+#' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+#' (\delta ^{13}C_1 - \delta ^{13}C_1)}
 #'
 #' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-#' \eqn{\delta^{13}C_p} is the mean isotopic value for pelagic
-#' baseline, and \eqn{\delta^{13} C_b} is the mean isotopic value
-#' for benthic baseline.
+#' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
+#' and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
 #'
 #'
 #' @returns a `data.frame` that has `alpha`, `min_alpha`, and `max_alpha` added.
