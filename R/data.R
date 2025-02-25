@@ -45,16 +45,17 @@
 #' }
 #'
 "baseline_2_iso"
-#' Stable isotope data for lake trout, dreissenids (pelagic baseline), and
-#' amphipods (benthic baseline)
+
+#' Stable isotope data for lake trout, amphipods (benthic baseline; baseline 1)
+#' and dreissenids (pelagic baseline; baseline 2),
 #'
 #' Stable isotope data (\eqn{\delta^{13}}C and
 #' \eqn{\delta ^{15}}N) for lake trout collected from an ecoregion in
-#' Lake Ontario. Values of \eqn{\delta ^{13}} C and
-#' \eqn{\delta ^{1}}N for a pelagic baseline
-#' (dreissenids; `c1` and `n1`) and a benthic baseline (amphipods;
-#' `c2` and `n2`) with the means for each calcualted (`c1_mean`, `c2_mean`,
-#' `n1_mean`, `n2_mean`).
+#' Lake Ontario. Values of \eqn{\delta ^{13}}C and
+#' \eqn{\delta ^{15}}N for a benthic baseline (amphipods; baseline 1;
+#' `c1` and `n1`) and  pelagic baseline
+#' (dreissenids; baseline 2; `c2` and `n2`) with the means for each baseline
+#' calculated (`c1_mean`,  `n1_mean`, `c2_mean`, and `n2_mean`).
 #'
 #' @format `data.frame` containing 30 rows and 13 variables
 #'  \describe{

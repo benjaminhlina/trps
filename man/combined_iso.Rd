@@ -3,8 +3,8 @@
 \docType{data}
 \name{combined_iso}
 \alias{combined_iso}
-\title{Stable isotope data for lake trout, dreissenids (pelagic baseline), and
-amphipods (benthic baseline)}
+\title{Stable isotope data for lake trout, amphipods (benthic baseline; baseline 1)
+and dreissenids (pelagic baseline; baseline 2),}
 \format{
 \code{data.frame} containing 30 rows and 13 variables
 \describe{
@@ -30,10 +30,10 @@ combined_iso
 \description{
 Stable isotope data (\eqn{\delta^{13}}C and
 \eqn{\delta ^{15}}N) for lake trout collected from an ecoregion in
-Lake Ontario. Values of \eqn{\delta ^{13}} C and
-\eqn{\delta ^{1}}N for a pelagic baseline
-(dreissenids; \code{c1} and \code{n1}) and a benthic baseline (amphipods;
-\code{c2} and \code{n2}) with the means for each calcualted (\code{c1_mean}, \code{c2_mean},
-\code{n1_mean}, \code{n2_mean}).
+Lake Ontario. Values of \eqn{\delta ^{13}}C and
+\eqn{\delta ^{15}}N for a benthic baseline (amphipods; baseline 1;
+\code{c1} and \code{n1}) and  pelagic baseline
+(dreissenids; baseline 2; \code{c2} and \code{n2}) with the means for each baseline
+calculated (\code{c1_mean},  \code{n1_mean}, \code{c2_mean}, and \code{n2_mean}).
 }
 \keyword{datasets}
