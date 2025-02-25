@@ -7,7 +7,6 @@
 \format{
 \code{data.frame} containing 30 rows and 6 variables
 \describe{
-\item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Lake Trout)}
 \item{ecoregion}{ecoregion where samples were collected}
 \item{d13c}{observed values for \eqn{\delta^{13}}C}
@@ -18,8 +17,8 @@
 consumer_iso
 }
 \description{
-Stable isotope data (SIA) for \eqn{\delta^{13}}C and
-\eqn{\delta^ {15}}N for lake trout collected from an ecoregion in
+Stable isotope data (\eqn{\delta^{13}}C and
+\eqn{\delta^ {15}}N) for lake trout collected from an ecoregion in
 Lake Ontario.
 }
 \keyword{datasets}
