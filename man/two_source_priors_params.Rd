@@ -24,7 +24,7 @@ two_source_priors_params(
 \item{a}{(\eqn{\alpha}) exponent of the random variable for beta distribution.
 Defaults to \code{1}. See beta distribution for more information.}
 
-\item{b}{(\eqn{\alpha}) shape parameter for beta distribution.
+\item{b}{(\eqn{\beta}) shape parameter for beta distribution.
 Defaults to \code{1}. See beta distribution for more information.}
 
 \item{n1}{mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
@@ -44,13 +44,13 @@ baseline. Defaults to \code{9}.}
 \item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 Defaults to \code{0.5}.}
 
-\item{tp_lb}{lower bound prior for trophic position. Defaults to \code{2}.}
+\item{tp_lb}{lower bound for priors for trophic position. Defaults to \code{2}.}
 
-\item{tp_ub}{upper bound prior for trophic position. Defaults to \code{10}.}
+\item{tp_ub}{upper bound for priors for  trophic position. Defaults to \code{10}.}
 
-\item{sigma_lb}{lower bound prior for \eqn{\sigma}. Defaults to \code{0}.}
+\item{sigma_lb}{lower bound for priors for \eqn{\sigma}. Defaults to \code{0}.}
 
-\item{sigma_ub}{upper bound prior for \eqn{\sigma}. Defaults to \code{10}.}
+\item{sigma_ub}{upper bound for priors for \eqn{\sigma}. Defaults to \code{10}.}
 
 \item{bp}{logical value that controls whether informed baseline priors are
 supplied to the model for \eqn{\delta^{15}}N baselines. Default is
@@ -79,18 +79,19 @@ This function allows the user to adjust the priors for the following variables
 in the equation above:
 
 \itemize{
-\item The mean (\code{n1}) and variance (\code{n1_sigma}) of the first
-\eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
+the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 This prior assumes a normal distributions.
-\item The mean (\code{n2}) and variance (\code{n2_sigma}) of the second
-\eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+\item The mean (\code{n2};\eqn{\mu}) and variance (\code{n2_sigma}; \eqn{\sigma}) of
+the second \eqn{\delta^{15}}N for a given baseline.
 This prior assumes a normal distributions.
-\item The mean (\code{dn}) and variance (\code{dn_sigma}) of \eqn{\Delta}N (i.e, trophic enrichment
-factor;). This prior assumes a normal distributions.
-\item The lower (\code{tp_lb}) and upper (\code{tp_up}) of trophic position.
-This prior assumes a uniform distributions.
-\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) variance (\eqn{\sigma}).
-This prior assumes a uniform distributions.
+\item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
+\eqn{\Delta}N (i.e, trophic enrichment factor).
+This prior assumes a normal distributions.
+\item The lower (\code{tp_lb}) and upper (\code{tp_up}) bounds for priors for
+trophic position. This prior assumes a uniform distributions.
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) bounds for
+variance (\eqn{\sigma}). This prior assumes a uniform distributions.
 }
 }
 \examples{
