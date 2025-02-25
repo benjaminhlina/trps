@@ -74,21 +74,25 @@ Defaults to <code>1</code>.</p></dd>
   (\delta ^{13}C_1 - \delta ^{13}C_1)$$</p></li>
 <li><p>$$\alpha = \alpha_c * (\alpha_{max} - \alpha_{min}) + \alpha_{min}$$</p></li>
 <li><p>$$\delta^{13}C = c_1 \times \alpha_c + c_2 \times (1 - \alpha_c)$$</p></li>
-<li><p>$$\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)$$</p>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>                                             Or</span></code></pre><p></p></div></li>
+<li><p>$$\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)$$</p></li>
 <li><p>$$\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)$$</p></li>
-</ol><p>For equation 1) \(\delta^{13}C_c\) is the isotopic value for consumer,
+</ol><p>For equation 1)</p>
+<p>This equation is a carbon source mixing model with
+\(\delta^{13}C_c\) is the isotopic value for consumer,
 \(\delta^{13}C_2\) is the mean isotopic value for baseline 2,
 and \(\delta^{13} C_1\) is the mean isotopic value for baseline 1.</p>
-<p>For equation 2) \(\alpha\) is being corrected using equations in
+<p>For equation 2)</p>
+<p>\(\alpha\) is being corrected using equations in
 <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a>.
 with \(\alpha_c\) being the corrected value (bound by 0 and 1),
 \(\alpha_{min}\) is the minimum \(\alpha\) value calculated
 using <code><a href="add_alpha.html">add_alpha()</a></code> and \(\alpha_{max}\) being the maximum \(\alpha\)
-value calcualted using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
-<p>For equation 3) is carbon source mixing model with \(\delta^{13}\)C being
+value calculated using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
+<p>For equation 3)</p>
+<p>This equation is a carbon source mixing model with \(\delta^{13}\)C being
 estimated using <code>c_1</code>, <code>c_2</code>  and \(\alpha_c\) calculated in equation 1.</p>
-<p>For equation 4) and 5) \(\delta^{15}\)N are values from the consumer,
+<p>For equation 4) and 5)</p>
+<p>\(\delta^{15}\)N are values from the consumer,
 \(n_1\) is \(\delta^{15}\)N values of baseline 1, \(n_2\) is
 \(\delta^{15}\)N values of baseline 2,
 \(\Delta\)N is the trophic discrimination factor for N (i.e., mean of <code>3.4</code>),
