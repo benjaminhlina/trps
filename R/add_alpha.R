@@ -10,6 +10,9 @@
 #' from a pelagic source. Baseline \eqn{\delta^{13}}C columns
 #' need to be named `c1_mean` and `c2_mean`,
 #' with the consumer's \eqn{\delta^{13}}C column named `d13c`.
+#' @param abs logical that controls whether the absolute value is taken for the
+#' numerator and denominator. Default is `FALSE` meaning that the absolute
+#' value is not taken.
 #'
 #' @details
 #' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /

@@ -4,7 +4,7 @@
 \alias{add_alpha}
 \title{Calculate and add \eqn{\alpha}}
 \usage{
-add_alpha(data)
+add_alpha(data, abs = FALSE)
 }
 \arguments{
 \item{data}{\code{data.frame} of stable isotope samples with mean values for two
@@ -13,6 +13,10 @@ benthic source and baseline two needs to come
 from a pelagic source. Baseline \eqn{\delta^{13}}C columns
 need to be named \code{c1_mean} and \code{c2_mean},
 with the consumer's \eqn{\delta^{13}}C column named \code{d13c}.}
+
+\item{abs}{logical that controls whether the absolute value is taken for the
+numerator and denominator. Default is \code{FALSE} meaning that the absolute
+value is not taken.}
 }
 \value{
 a \code{data.frame} that has \code{alpha}, \code{min_alpha}, and \code{max_alpha} added.
