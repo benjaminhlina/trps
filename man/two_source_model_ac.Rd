@@ -70,14 +70,12 @@ tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
 \eqn{\lambda_2} are the trophic levels of
 baselines which are often a primary consumer (e.g., \code{2} or \code{2.5}).
 
-For equation 4), the data supplied to \code{brms()} when using baselines at the
-same trophic level (\code{lambda} argument set to \code{1}) needs to have the
-following variables, \code{d15n}, \code{n1}, \code{n2}, \code{l} (\eqn{\lambda}) which is
-usually \code{2}.
-
-For equation 5), if using baselines at different trophic levels
-(\code{lambda} argument set to \code{2}) the dataframe needs to have \code{l1} and \code{l2}
-with a numerical value for each trophic level (e.g., \code{2} and \code{2.5}).
+The data supplied to \code{brms()} when using baselines at the same trophic level
+(\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},
+\code{n1}, \code{n2}, \code{l} (\eqn{\lambda}) which is usually \code{2}. If using baselines at
+different trophic levels (\code{lambda} argument set to \code{2}) the data frame needs
+to have \code{l1} and \code{l2} with a numerical value for each trophic level (e.g.,
+\code{2} and \code{2.5}).
 }
 \examples{
 two_source_model_ac()
