@@ -12,11 +12,11 @@
 #'
 #' @details
 #'
-#'  \deqn{\delta^{15}N = n1 + dn \times (tp - \lambda)}
+#' \deqn{\delta^{15}N = n1 + \Delta N \times (tp - \lambda)}
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' n1 is \eqn{\delta^{15}}N values of baseline 1,
-#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of 3.4),
+#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., `dn` mean of 3.4),
 #' tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
 #' which are often a primary consumer (e.g., 2).
 #'
