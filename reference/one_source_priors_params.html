@@ -59,7 +59,7 @@ Defaults to <code>9</code>.</p></dd>
 
 
 <dt id="arg-n-sigma">n1_sigma<a class="anchor" aria-label="anchor" href="#arg-n-sigma"></a></dt>
-<dd><p>variance (\(\sigma\)) for\(\delta^{15}\)N
+<dd><p>variance (\(\sigma\)) for \(\delta^{15}\)N
 baseline. Defaults to <code>1</code>.</p></dd>
 
 
@@ -68,7 +68,7 @@ baseline. Defaults to <code>1</code>.</p></dd>
 
 
 <dt id="arg-dn-sigma">dn_sigma<a class="anchor" aria-label="anchor" href="#arg-dn-sigma"></a></dt>
-<dd><p>variance (\(\sigma\)) for \(\delta^{15}\)N
+<dd><p>variance (\(\sigma\)) for \(\delta^{15}\)N.
 Defaults to <code>0.5</code>.</p></dd>
 
 
@@ -104,14 +104,16 @@ supplied to the model for \(\delta^{15}\)N baseline. Default is
     <p>$$\delta^{15}N = n1 + dn * (tp - \lambda)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
-<ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of \(\delta^{15}\)N
-for a given baseline. This prior assumes a normal distributions.</p></li>
-<li><p>The mean (<code>dn</code>) and variance (<code>dn_sigma</code>) of \(\Delta\)N (i.e, trophic enrichment
-factor;). This prior assumes a normal distributions.</p></li>
-<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_up</code>) of trophic position.
-This prior assumes a uniform distributions.</p></li>
-<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_up</code>) variance (\(\sigma\)).
-This prior assumes a uniform distributions.</p></li>
+<ul><li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\)) of
+\(\delta^{15}\)N for a given baseline.
+This prior assumes a normal distribution.</p></li>
+<li><p>The mean (<code>dn</code>; \(\mu\)) and variance (<code>dn_sigma</code>; \(\sigma\)) of
+\(\Delta\)N (i.e, trophic enrichment
+factor). This prior assumes a normal distribution.</p></li>
+<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_up</code>) bounds for trophic position.
+This prior assumes a uniform distribution.</p></li>
+<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_up</code>) bounds for
+variance (\(\sigma\)). This prior assumes a uniform distribution.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

@@ -47,10 +47,11 @@ Post 2002."><meta property="og:image" content="https://benjaminhlina.github.io/t
 
 
 <dl><dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
-<dd><p>logical value that controls whether  priors are
-supplied to the model for \(\delta^{15}\)N baseline. Default is
-<code>FALSE</code> meaning the model will not be supplied priors, however, the supplied
-<code>data.frame</code> needs values for \(\delta^{15}\)N baseline (<code>n1</code>).</p></dd>
+<dd><p>logical value that controls whether informed priors are
+supplied to the model for \(\delta^{15}\)N baseline.
+Default is <code>FALSE</code> meaning the model will use uninformed priors, however,
+the supplied <code>data.frame</code> needs values for  \(\delta^{15}\)N
+baseline (<code>n1</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -67,7 +68,7 @@ n1 is \(\delta^{15}\)N values of baseline 1,
 tp is trophic position, and \(\lambda\) is the trophic level of baselines
 which are often a primary consumer (e.g., 2).</p>
 <p>The data supplied to <code>brms()</code> needs to have the following variables <code>d15n</code>,
-<code>n1</code>, and <code>lambda</code> which is usually <code>2</code>.</p>
+<code>n1</code>, and <code>l</code> (\(\lambda\)) which is usually <code>2</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -77,7 +78,7 @@ which are often a primary consumer (e.g., 2).</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">one_source_model</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ n1 + dn * (tp - lambda) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ n1 + dn * (tp - l) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dn ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tp ~ 1</span>
 <span class="r-in"><span></span></span>

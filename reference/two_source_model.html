@@ -47,17 +47,17 @@ Post 2002."><meta property="og:image" content="https://benjaminhlina.github.io/t
 
 
 <dl><dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
-<dd><p>logical value that controls whether  priors are
-supplied to the model for \(\delta^{15}\)N pelagic and benthic
-baselines. Default is <code>FALSE</code> meaning the model will not be supplied priors,
-however, the supplied <code>data.frame</code> needs values for
-\(\delta^{15}\)N each baseline (<code>n1</code> and <code>n2</code>).</p></dd>
+<dd><p>logical value that controls whether informed priors are
+supplied to the model for both \(\delta^{15}\)N baselines.
+Default is <code>FALSE</code> meaning the model will use uninformed priors, however,
+the supplied <code>data.frame</code> needs values for both \(\delta^{15}\)N
+baseline (<code>n1</code> and <code>n2</code>).</p></dd>
 
 
 <dt id="arg-lambda">lambda<a class="anchor" aria-label="anchor" href="#arg-lambda"></a></dt>
 <dd><p>numerical value, <code>1</code> or <code>2</code>, that controls whether one or
-two lambdas are used. See details for equations and when to use <code>1</code> or <code>2</code>.
-Defaults to <code>1</code>.</p></dd>
+two \(\lambda\)s are used. See details for equations and when to use
+<code>1</code> or <code>2</code>. Defaults to <code>1</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -76,8 +76,9 @@ Defaults to <code>1</code>.</p></dd>
 \(n_1\) is \(\delta^{15}\)N values of baseline 1, \(n_2\) is
 \(\delta^{15}\)N values of baseline 2,
 \(\Delta\)N is the trophic discrimination factor for N (i.e., mean of <code>3.4</code>),
-tp is trophic position, and \(\lambda\) is the trophic level of
-baselines which are often a primary consumer (e.g., <code>2</code>).</p>
+tp is trophic position, and \(\lambda\) or \(\lambda_1\) and
+\(\lambda_2\) are the trophic levels of
+baselines which are often a primary consumer (e.g., <code>2</code> or <code>2.5</code>).</p>
 <p>The data supplied to <code>brms()</code> when using baselines at the same trophic level
 (<code>lambda</code> argument set to <code>1</code>) needs to have the following variables, <code>d15n</code>,
 <code>n1</code>, <code>n2</code>, <code>l</code> (\(\lambda\)) which is usually <code>2</code>.</p>

@@ -47,12 +47,12 @@ equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>data.frame of stable isotope samples with mean values for two
-baselines. For aquatic ecosystems, baseline two needs to come
-from a pelagic source, while baseline one needs to come from a
-benthic source. Baseline \(\delta^{13} C_c\) columns
-need to be named <code>c1_mean</code> and <code>c2_mean</code>, with the consumer's column named
-<code>d13c</code>.</p></dd>
+<dd><p><code>data.frame</code> of stable isotope samples with mean values for two
+baselines. For aquatic ecosystems, baseline one needs to come from a
+benthic source and baseline two needs to come
+from a pelagic source. Baseline \(\delta^{13}\)C columns
+need to be named <code>c1_mean</code> and <code>c2_mean</code>,
+with the consumer's \(\delta^{13}\)C column named <code>d13c</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -61,12 +61,11 @@ need to be named <code>c1_mean</code> and <code>c2_mean</code>, with the consume
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_p) /
-(\delta ^{13}C_b - \delta ^{13}C_b)$$</p>
+    <p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+(\delta ^{13}C_1 - \delta ^{13}C_1)$$</p>
 <p>where \(\delta^{13}C_c\) is the isotopic value for consumer,
-\(\delta^{13}C_p\) is the mean isotopic value for pelagic
-baseline, and \(\delta^{13} C_b\) is the mean isotopic value
-for benthic baseline.</p>
+\(\delta^{13}C_2\) is the mean isotopic value for baseline 2,
+and \(\delta^{13} C_1\) is the mean isotopic value for baseline 1.</p>
     </div>
 
     <div class="section level2">
@@ -76,16 +75,16 @@ for benthic baseline.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       id common_name ecoregion  d13c  d15n    c1    n1    c2    n2 c1_mean</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  15.9 -<span style="color: #BB0000;">23.4</span>  7.81 -<span style="color: #BB0000;">26.2</span>  8.44   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2 -<span style="color: #BB0000;">22.9</span>  7.61 -<span style="color: #BB0000;">26.6</span>  8.77   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Embayment -<span style="color: #BB0000;">22.8</span>  17.0 -<span style="color: #BB0000;">22.7</span>  7.32 -<span style="color: #BB0000;">26.0</span>  8.05   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">23.4</span>  7.81 -<span style="color: #BB0000;">22.1</span> 13.6    -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.6 -<span style="color: #BB0000;">22.9</span>  7.61 -<span style="color: #BB0000;">24.3</span>  6.99   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">22.7</span>  7.32 -<span style="color: #BB0000;">22.1</span>  7.95   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">23.4</span>  7.81 -<span style="color: #BB0000;">24.7</span>  7.37   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2 -<span style="color: #BB0000;">22.9</span>  7.61 -<span style="color: #BB0000;">26.6</span>  6.93   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4 -<span style="color: #BB0000;">22.7</span>  7.32 -<span style="color: #BB0000;">24.6</span>  6.97   -<span style="color: #BB0000;">23.4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3 -<span style="color: #BB0000;">26.9</span> 10.2  -<span style="color: #BB0000;">22.1</span>  7.95   -<span style="color: #BB0000;">23.4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  15.9 -<span style="color: #BB0000;">26.2</span>  8.44 -<span style="color: #BB0000;">23.4</span>  7.81   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2 -<span style="color: #BB0000;">26.6</span>  8.77 -<span style="color: #BB0000;">22.9</span>  7.61   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Embayment -<span style="color: #BB0000;">22.8</span>  17.0 -<span style="color: #BB0000;">26.0</span>  8.05 -<span style="color: #BB0000;">22.7</span>  7.32   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">22.1</span> 13.6  -<span style="color: #BB0000;">23.4</span>  7.81   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.6 -<span style="color: #BB0000;">24.3</span>  6.99 -<span style="color: #BB0000;">22.9</span>  7.61   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">22.1</span>  7.95 -<span style="color: #BB0000;">22.7</span>  7.32   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6 -<span style="color: #BB0000;">24.7</span>  7.37 -<span style="color: #BB0000;">23.4</span>  7.81   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2 -<span style="color: #BB0000;">26.6</span>  6.93 -<span style="color: #BB0000;">22.9</span>  7.61   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4 -<span style="color: #BB0000;">24.6</span>  6.97 -<span style="color: #BB0000;">22.7</span>  7.32   -<span style="color: #BB0000;">24.6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3 -<span style="color: #BB0000;">22.1</span>  7.95 -<span style="color: #BB0000;">26.9</span> 10.2    -<span style="color: #BB0000;">24.6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 20 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6 more variables: n1_mean &lt;dbl&gt;, c2_mean &lt;dbl&gt;, n2_mean &lt;dbl&gt;, alpha &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   min_alpha &lt;dbl&gt;, max_alpha &lt;dbl&gt;</span></span>

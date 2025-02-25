@@ -63,7 +63,7 @@ Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
 
 
 <dt id="arg-b">b<a class="anchor" aria-label="anchor" href="#arg-b"></a></dt>
-<dd><p>(\(\alpha\)) shape parameter for beta distribution.
+<dd><p>(\(\beta\)) shape parameter for beta distribution.
 Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
 
 
@@ -97,19 +97,19 @@ Defaults to <code>0.5</code>.</p></dd>
 
 
 <dt id="arg-tp-lb">tp_lb<a class="anchor" aria-label="anchor" href="#arg-tp-lb"></a></dt>
-<dd><p>lower bound prior for trophic position. Defaults to <code>2</code>.</p></dd>
+<dd><p>lower bound for priors for trophic position. Defaults to <code>2</code>.</p></dd>
 
 
 <dt id="arg-tp-ub">tp_ub<a class="anchor" aria-label="anchor" href="#arg-tp-ub"></a></dt>
-<dd><p>upper bound prior for trophic position. Defaults to <code>10</code>.</p></dd>
+<dd><p>upper bound for priors for  trophic position. Defaults to <code>10</code>.</p></dd>
 
 
 <dt id="arg-sigma-lb">sigma_lb<a class="anchor" aria-label="anchor" href="#arg-sigma-lb"></a></dt>
-<dd><p>lower bound prior for \(\sigma\). Defaults to <code>0</code>.</p></dd>
+<dd><p>lower bound for priors for \(\sigma\). Defaults to <code>0</code>.</p></dd>
 
 
 <dt id="arg-sigma-ub">sigma_ub<a class="anchor" aria-label="anchor" href="#arg-sigma-ub"></a></dt>
-<dd><p>upper bound prior for \(\sigma\). Defaults to <code>10</code>.</p></dd>
+<dd><p>upper bound for priors for \(\sigma\). Defaults to <code>10</code>.</p></dd>
 
 
 <dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
@@ -133,18 +133,19 @@ supplied to the model for \(\delta^{15}\)N baselines. Default is
 <p>$$\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
-<ul><li><p>The mean (<code>n1</code>) and variance (<code>n1_sigma</code>) of the first
-\(\delta\)\(^1\)\(^5\)N for a given baseline.
+<ul><li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\)) of
+the first \(\delta\)\(^1\)\(^5\)N for a given baseline.
 This prior assumes a normal distributions.</p></li>
-<li><p>The mean (<code>n2</code>) and variance (<code>n2_sigma</code>) of the second
-\(\delta\)\(^1\)\(^5\)N for a given baseline.
+<li><p>The mean (<code>n2</code>;\(\mu\)) and variance (<code>n2_sigma</code>; \(\sigma\)) of
+the second \(\delta^{15}\)N for a given baseline.
 This prior assumes a normal distributions.</p></li>
-<li><p>The mean (<code>dn</code>) and variance (<code>dn_sigma</code>) of \(\Delta\)N (i.e, trophic enrichment
-factor;). This prior assumes a normal distributions.</p></li>
-<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_up</code>) of trophic position.
-This prior assumes a uniform distributions.</p></li>
-<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_up</code>) variance (\(\sigma\)).
-This prior assumes a uniform distributions.</p></li>
+<li><p>The mean (<code>dn</code>; \(\mu\)) and variance (<code>dn_sigma</code>; \(\sigma\)) of
+\(\Delta\)N (i.e, trophic enrichment factor).
+This prior assumes a normal distributions.</p></li>
+<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_up</code>) bounds for priors for
+trophic position. This prior assumes a uniform distributions.</p></li>
+<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_up</code>) bounds for
+variance (\(\sigma\)). This prior assumes a uniform distributions.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
