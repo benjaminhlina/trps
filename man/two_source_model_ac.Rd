@@ -43,7 +43,7 @@ For equation 1)
 
 This equation is a carbon source mixing model with
 \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-\eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1 and
+\eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
 
 For equation 2)

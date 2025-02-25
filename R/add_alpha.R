@@ -19,7 +19,7 @@
 #' (\delta ^{13}C_1 - \delta ^{13}C_1)}
 #'
 #' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-#' \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1 and
+#' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 #' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
 #'
 #' @returns a `data.frame` that has `alpha`, `min_alpha`, and `max_alpha` added.
