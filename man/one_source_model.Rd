@@ -7,10 +7,11 @@
 one_source_model(bp = FALSE)
 }
 \arguments{
-\item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta^{15}}N baseline. Default is
-\code{FALSE} meaning the model will not be supplied priors, however, the supplied
-\code{data.frame} needs values for \eqn{\delta^{15}}N baseline (\code{n1}).}
+\item{bp}{logical value that controls whether informed priors are
+supplied to the model for \eqn{\delta^{15}}N baseline.
+Default is \code{FALSE} meaning the model will use uninformed priors, however,
+the supplied \code{data.frame} needs values for  \eqn{\delta^{15}}N
+baseline (\code{n1}).}
 }
 \value{
 returns model structure for one source model to be used in a
@@ -30,7 +31,7 @@ tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
 which are often a primary consumer (e.g., 2).
 
 The data supplied to \code{brms()} needs to have the following variables \code{d15n},
-\code{n1}, and \code{lambda} which is usually \code{2}.
+\code{n1}, and \code{l} (\eqn{\lambda}) which is usually \code{2}.
 }
 \examples{
 one_source_model()

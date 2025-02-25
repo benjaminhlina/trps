@@ -4,11 +4,11 @@
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
 #
-#' @param bp logical value that controls whether  priors are
-#' supplied to the model for \eqn{\delta^{15}}N baseline. Default is
-#' `FALSE` meaning the model will not be supplied priors, however, the supplied
-#' `data.frame` needs values for \eqn{\delta^{15}}N baseline (`n1`).
-#'
+#' @param bp logical value that controls whether informed priors are
+#' supplied to the model for \eqn{\delta^{15}}N baseline.
+#' Default is `FALSE` meaning the model will use uninformed priors, however,
+#' the supplied `data.frame` needs values for  \eqn{\delta^{15}}N
+#' baseline (`n1`).
 #'
 #' @details
 #'
@@ -21,7 +21,7 @@
 #' which are often a primary consumer (e.g., 2).
 #'
 #' The data supplied to `brms()` needs to have the following variables `d15n`,
-#'  `n1`, and `lambda` which is usually `2`.
+#'  `n1`, and `l` (\eqn{\lambda}) which is usually `2`.
 #'
 #' @return returns model structure for one source model to be used in a
 #' `brms()` call.
