@@ -27,7 +27,7 @@ equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.189
 }
 \details{
 \deqn{\alpha = (\delta^{13}C_c - \delta ^{13}C_2) /
-(\delta ^{13}C_1 - \delta ^{13}C_1)}
+(\delta ^{13}C_1 - \delta ^{13}C_2)}
 
 where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
