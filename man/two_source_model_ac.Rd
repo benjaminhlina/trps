@@ -36,27 +36,33 @@ Bayesian model for trophic position using a two source model with \eqn{\alpha_c}
 
 \item \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{                                             Or
-}\if{html}{\out{</div>}}
-
 \item \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 }
 
-For equation 1) \eqn{\delta^{13}C_c} is the isotopic value for consumer,
+For equation 1)
+
+This equation is a carbon source mixing model with
+\eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
 and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
 
-For equation 2) \eqn{\alpha} is being corrected using equations in
+For equation 2)
+
+\eqn{\alpha} is being corrected using equations in
 \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024}.
 with \eqn{\alpha_c} being the corrected value (bound by 0 and 1),
 \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 using \code{add_alpha()} and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
-value calcualted using \code{add_alpha()}.
+value calculated using \code{add_alpha()}.
 
-For equation 3) is carbon source mixing model with \eqn{\delta^{13}}C being
+For equation 3)
+
+This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
 estimated using \code{c_1}, \code{c_2}  and \eqn{\alpha_c} calculated in equation 1.
 
-For equation 4) and 5) \eqn{\delta^{15}}N are values from the consumer,
+For equation 4) and 5)
+
+\eqn{\delta^{15}}N are values from the consumer,
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),

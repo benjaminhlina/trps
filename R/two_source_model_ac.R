@@ -24,26 +24,34 @@
 #'
 #'   \item \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 #'
-#'                                                  Or
 #'
 #'   \item \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 #'    }
 #'
-#' For equation 1) \eqn{\delta^{13}C_c} is the isotopic value for consumer,
+#' For equation 1)
+#'
+#' This equation is a carbon source mixing model with
+#' \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 #' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2,
 #' and \eqn{\delta^{13} C_1} is the mean isotopic value for baseline 1.
 #'
-#' For equation 2) \eqn{\alpha} is being corrected using equations in
+#' For equation 2)
+#'
+#' \eqn{\alpha} is being corrected using equations in
 #' [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
 #' with \eqn{\alpha_c} being the corrected value (bound by 0 and 1),
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
-#' value calcualted using `add_alpha()`.
+#' value calculated using `add_alpha()`.
 #'
-#' For equation 3) is carbon source mixing model with \eqn{\delta^{13}}C being
+#' For equation 3)
+#'
+#' This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
 #' estimated using `c_1`, `c_2`  and \eqn{\alpha_c} calculated in equation 1.
 #'
-#' For equation 4) and 5) \eqn{\delta^{15}}N are values from the consumer,
+#' For equation 4) and 5)
+#'
+#' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 #' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
