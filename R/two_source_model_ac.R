@@ -64,7 +64,7 @@
 #' following variables, `d15n`, `n1`, `n2`, `l` (\eqn{\lambda}) which is
 #' usually `2`.
 #'
-#' For equation 5), ff using baselines at different trophic levels
+#' For equation 5), if using baselines at different trophic levels
 #' (`lambda` argument set to `2`) the dataframe needs to have `l1` and `l2`
 #' with a numerical value for each trophic level (e.g., `2` and `2.5`).
 #'
