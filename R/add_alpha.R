@@ -32,7 +32,8 @@
 #' @export
 
 add_alpha <- function(
-    data
+    data,
+    abs = FALSE
 ) {
 
   if (!(inherits(data, c("data.frame", "tibble",
@@ -58,6 +59,18 @@ add_alpha <- function(
   }
 
 
+
+  if (!(is.logical(abs))) {
+
+    cli::cli_abort(c(
+      "`abs` argument must be a logical value",
+      "i" = "Please provide TRUE or FALSE"
+    ))
+  }
+
+  if(isFALSE(abs)) {
+
+
   dat <- data |>
     dplyr::mutate(
       alpha = (d13c - c2_mean) / (c1_mean - c2_mean),
@@ -65,6 +78,18 @@ add_alpha <- function(
       max_alpha = max(alpha, na.rm = TRUE)
     )
 
+  }
+
+  if(isTRUE(abs)) {
+
+  dat <- data |>
+    dplyr::mutate(
+      alpha = abs((d13c - c2_mean)) / abs((c1_mean - c2_mean)),
+      min_alpha = min(alpha, na.rm = TRUE),
+      max_alpha = max(alpha, na.rm = TRUE)
+    )
+
+  }
 
   return(dat)
 }
