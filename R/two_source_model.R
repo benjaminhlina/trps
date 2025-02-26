@@ -45,7 +45,7 @@
 #'
 #' The data supplied to `brms()` when using baselines at the same trophic level
 #' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,
-#' `n1`, `n2`, `l` (\eqn{\lambda}) which is usually `2`. If using baselines at
+#' `n1`, `n2`, `l1` (\eqn{\lambda}) which is usually `2`. If using baselines at
 #' different trophic levels (`lambda` argument set to `2`) the data frame needs
 #' to have `l1` and `l2` with a numerical value for each trophic level (e.g.,
 #' `2` and `2.5`).
