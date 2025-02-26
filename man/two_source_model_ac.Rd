@@ -37,7 +37,7 @@ We will use the following equations derived from
 
 \item \deqn{\delta^{13}C = c_1 \times \alpha_c + c_2 \times (1 - \alpha_c)}
 
-\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
+\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 
 \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
 }
@@ -69,16 +69,16 @@ estimated using \code{c_1}, \code{c_2}  and \eqn{\alpha_c} calculated in equatio
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
-tp is trophic position, and \eqn{\lambda} or \eqn{\lambda_1} and
+tp is trophic position, and  \eqn{\lambda_1} and/or
 \eqn{\lambda_2} are the trophic levels of
 baselines which are often a primary consumer (e.g., \code{2} or \code{2.5}).
 
 The data supplied to \code{brms()} when using baselines at the same trophic level
 (\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},
-\code{n1}, \code{n2}, \code{l1} (\eqn{\lambda}) which is usually \code{2}. If using baselines at
+\code{n1}, \code{n2}, \code{l1} (\eqn{\lambda_1}) which is usually \code{2}. If using baselines at
 different trophic levels (\code{lambda} argument set to \code{2}) the data frame needs
 to have \code{l1} and \code{l2} with a numerical value for each trophic level (e.g.,
-\code{2} and \code{2.5}).
+\code{2} and \code{2.5}; \eqn{\lambda_1} and \eqn{\lambda_2}).
 }
 \examples{
 two_source_model_ac()
