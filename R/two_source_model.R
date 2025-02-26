@@ -26,7 +26,7 @@
 #'
 #' **When `lambda` is set to `1`**
 #'
-#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
@@ -39,16 +39,16 @@
 #' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
 #' tp is trophic position, \eqn{\alpha} is carbon use derived from
-#' the first equation and \eqn{\lambda} or \eqn{\lambda_1} and
+#' the first equation and  \eqn{\lambda_1} and/or
 #' \eqn{\lambda_2} are the trophic levels of baselines which are often a
 #' primary consumer (e.g., `2` or `2.5`).
 #'
 #' The data supplied to `brms()` when using baselines at the same trophic level
 #' (`lambda` argument set to `1`) needs to have the following variables, `d15n`,
-#' `n1`, `n2`, `l1` (\eqn{\lambda}) which is usually `2`. If using baselines at
+#' `n1`, `n2`, `l1` (\eqn{\lambda_1}) which is usually `2`. If using baselines at
 #' different trophic levels (`lambda` argument set to `2`) the data frame needs
 #' to have `l1` and `l2` with a numerical value for each trophic level (e.g.,
-#' `2` and `2.5`).
+#' `2` and `2.5`; \eqn{\lambda_1} and (\eqn{\lambda_2}).
 #'
 #' @return returns model structure for two source model to be used in a
 #' `brms()` call.
