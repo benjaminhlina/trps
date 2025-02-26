@@ -85,7 +85,7 @@ two_source_model <- function(bp = FALSE,
 
       model <- brms::bf(
         # Likelihood function
-        d15n ~ dn * (tp - l) + n1 * alpha + n2 * (1 - alpha),
+        d15n ~ dn * (tp - l1) + n1 * alpha + n2 * (1 - alpha),
         # Estimate alpha
         alpha ~ 1,
         # Estimate trophic position
@@ -102,7 +102,7 @@ two_source_model <- function(bp = FALSE,
 
       model <- brms::bf(
         # Likelihood function
-        d15n ~ dn * (tp - l) + n1 * alpha + n2 * (1 - alpha),
+        d15n ~ dn * (tp - l1) + n1 * alpha + n2 * (1 - alpha),
         # Estimate alpha
         alpha ~ 1,
         # estimate
