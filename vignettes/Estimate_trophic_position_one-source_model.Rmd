@@ -41,6 +41,7 @@ and [{ggdist}](https://mjskay.github.io/ggdist/).
 {
   library(bayesplot)
   library(bayestestR)
+  library(BH)
   library(brms)
   library(dplyr)
   library(ggplot2)
@@ -146,7 +147,7 @@ argument `iter`), and/or adjust the `adapt_delta` value using
 
 When assessing the model we want rhat to be 1 or within 0.05 of 1, we also want 
 a high value for effective sample size (ESS), we want trace plots to look 
-"grassy" or "catapillery", and we want posterior distrubitons to look relatively
+"grassy" or "catapillery", and we want posterior distributions to look relatively
 normal. 
 
 ## Estimating trophic position 
