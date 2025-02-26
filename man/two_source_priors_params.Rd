@@ -88,9 +88,9 @@ This prior assumes a normal distributions.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment factor).
 This prior assumes a normal distributions.
-\item The lower (\code{tp_lb}) and upper (\code{tp_up}) bounds for priors for
+\item The lower (\code{tp_lb}) and upper (\code{tp_ub}) bounds for priors for
 trophic position. This prior assumes a uniform distributions.
-\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) bounds for
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_ub}) bounds for
 variance (\eqn{\sigma}). This prior assumes a uniform distributions.
 }
 }

@@ -56,9 +56,9 @@
 #'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
 #'   \eqn{\Delta}N (i.e, trophic enrichment factor).
 #'   This prior assumes a normal distributions.
-#'   \item The lower (`tp_lb`) and upper (`tp_up`) bounds for priors for
+#'   \item The lower (`tp_lb`) and upper (`tp_ub`) bounds for priors for
 #'   trophic position. This prior assumes a uniform distributions.
-#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) bounds for
+#'   \item The lower (`sigma_lb`) and upper (`sigma_ub`) bounds for
 #'   variance (\eqn{\sigma}). This prior assumes a uniform distributions.
 #'   }
 #'
