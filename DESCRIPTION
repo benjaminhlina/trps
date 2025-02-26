@@ -24,6 +24,8 @@ Imports:
     dplyr,
     lifecycle
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 RoxygenNote: 7.3.2
@@ -32,3 +34,4 @@ Depends:
     R (>= 3.5)
 URL: https://benjaminhlina.github.io/trps/, https://github.com/benjaminhlina/trps
 BugReports: https://github.com/benjaminhlina/trps/issues
+VignetteBuilder: knitr
