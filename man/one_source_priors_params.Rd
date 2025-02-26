@@ -48,7 +48,7 @@ supplied to the model for \eqn{\delta^{15}}N baseline. Default is
 Adjust priors for one source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda)}
+\deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda_1)}
 
 This function allows the user to adjust the priors for the following variables
 in the equation above:

@@ -20,7 +20,7 @@
 #'
 #' @details
 #'
-#' \deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda)}
+#' \deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda_1)}
 #'
 #' This function allows the user to adjust the priors for the following variables
 #' in the equation above:
