@@ -1,7 +1,7 @@
 url: https://benjaminhlina.github.io/trps/
 template:
   bootstrap: 5
-  bslib:
+  navbar:
     bg: "#2e86c1"
   includes:
     in_header: |
