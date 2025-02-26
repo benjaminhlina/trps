@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # trps <a href="https://benjaminhlina.github.io/trps/"><img src="man/figures/logo.png" align="right" height="138" alt="trps website" /></a>
   
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)[![R-CMD-check](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml)[![Codecov test coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)[![trps status badge](https://benjaminhlina.r-universe.dev/trps/badges/version)](https://benjaminhlina.r-universe.dev/trps)[![R-CMD-check](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml)[![Codecov test coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
 <!-- badges: end -->
 
 Bayesian trophic position models using stan (pronounced trips) by leveraging [{brms}](https://paulbuerkner.com/brms/). Equations for trophic position models are derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and are to be used with stable isotope data for different species.  
@@ -45,12 +45,21 @@ Bayesian trophic position models using stan (pronounced trips) by leveraging [{b
 
 ## Installation
 
+You can install the R-Universe version of {trps} using the following:
+
+``` r
+install.packages("trps", 
+                  repos = c("https://benjaminhlina.r-universe.dev",
+                            "https://cloud.r-project.org"))
+```
+
 You can install the development version of {trps} using the following:
 
 ``` r
 devtools::install_github("benjaminhlina/trps")
 library(trps)
 ```
+
 
 ## Vignettes 
 
