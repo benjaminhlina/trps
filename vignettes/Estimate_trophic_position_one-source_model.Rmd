@@ -41,7 +41,6 @@ and [{ggdist}](https://mjskay.github.io/ggdist/).
 {
   library(bayesplot)
   library(bayestestR)
-  library(BH)
   library(brms)
   library(dplyr)
   library(ggplot2)
