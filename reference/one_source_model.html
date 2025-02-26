@@ -67,14 +67,14 @@ baseline (<code>n1</code>).</p></dd>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\delta^{15}N = n1 + \Delta N \times (tp - \lambda)$$</p>
+    <p>$$\delta^{15}N = \delta^{15} N_1  + \Delta N \times (tp - \lambda)$$</p>
 <p>\(\delta^{15}\)N are values from the consumer,
-n1 is \(\delta^{15}\)N values of baseline 1,
-\(\Delta\)N is the trophic discrimination factor for N (i.e., <code>dn</code> mean of 3.4),
-tp is trophic position, and \(\lambda\) is the trophic level of baselines
-which are often a primary consumer (e.g., 2).</p>
+\(n\delta^{15} N_1\) is \(\delta^{15}\)N values of baseline 1,
+\(\Delta\)N is the trophic discrimination factor for N (i.e., <code>dn</code> mean
+of <code>3.4</code>), \(tp\) is trophic position, and \(\lambda\) is the
+trophic level of baselines which are often a primary consumer (e.g., <code>2</code>).</p>
 <p>The data supplied to <code>brms()</code> needs to have the following variables <code>d15n</code>,
-<code>n1</code>, and <code>l</code> (\(\lambda\)) which is usually <code>2</code>.</p>
+<code>n1</code>, and <code>l1</code> (\(\lambda\)) which is usually <code>2</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -84,7 +84,7 @@ which are often a primary consumer (e.g., 2).</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">one_source_model</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ n1 + dn * (tp - l) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ n1 + dn * (tp - l1) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dn ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tp ~ 1</span>
 <span class="r-in"><span></span></span>

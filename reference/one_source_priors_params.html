@@ -107,7 +107,7 @@ supplied to the model for \(\delta^{15}\)N baseline. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>$$\delta^{15}N = n1 + dn * (tp - \lambda)$$</p>
+    <p>$$\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
 <ul><li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\)) of
@@ -116,9 +116,9 @@ This prior assumes a normal distribution.</p></li>
 <li><p>The mean (<code>dn</code>; \(\mu\)) and variance (<code>dn_sigma</code>; \(\sigma\)) of
 \(\Delta\)N (i.e, trophic enrichment
 factor). This prior assumes a normal distribution.</p></li>
-<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_up</code>) bounds for trophic position.
+<li><p>The lower (<code>tp_lb</code>) and upper (<code>tp_ub</code>) bounds for trophic position.
 This prior assumes a uniform distribution.</p></li>
-<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_up</code>) bounds for
+<li><p>The lower (<code>sigma_lb</code>) and upper (<code>sigma_ub</code>) bounds for
 variance (\(\sigma\)). This prior assumes a uniform distribution.</p></li>
 </ul></div>
     <div class="section level2">

@@ -106,7 +106,7 @@ tp is trophic position, and \(\lambda\) or \(\lambda_1\) and
 baselines which are often a primary consumer (e.g., <code>2</code> or <code>2.5</code>).</p>
 <p>The data supplied to <code>brms()</code> when using baselines at the same trophic level
 (<code>lambda</code> argument set to <code>1</code>) needs to have the following variables, <code>d15n</code>,
-<code>n1</code>, <code>n2</code>, <code>l</code> (\(\lambda\)) which is usually <code>2</code>. If using baselines at
+<code>n1</code>, <code>n2</code>, <code>l1</code> (\(\lambda\)) which is usually <code>2</code>. If using baselines at
 different trophic levels (<code>lambda</code> argument set to <code>2</code>) the data frame needs
 to have <code>l1</code> and <code>l2</code> with a numerical value for each trophic level (e.g.,
 <code>2</code> and <code>2.5</code>).</p>
@@ -123,7 +123,7 @@ to have <code>l1</code> and <code>l2</code> with a numerical value for each trop
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> d13c ~ (c1 * ac) + (c2 * (1 - ac)) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ac ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tp ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dn ~ 1</span>
