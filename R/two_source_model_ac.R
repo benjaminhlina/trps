@@ -117,7 +117,7 @@ two_source_model_ac <- function(
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac),
+          d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac),
           ac ~ 1,
           tp ~ 1,
           dn ~ 1,
@@ -141,7 +141,7 @@ two_source_model_ac <- function(
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac),
+          d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac),
           ac ~ 1,
           n1 ~ 1,
           n2 ~ 1,
