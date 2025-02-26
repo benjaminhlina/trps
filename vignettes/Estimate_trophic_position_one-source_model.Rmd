@@ -133,7 +133,7 @@ Lake Ontario.
 There are a few things to know about running a Bayesian analysis, I suggest 
 reading a these resources. 
 
-Bayesian analyses rely on supplying uniformed or informed prior distributions 
+Bayesian analyses rely on supplying uninformed or informed prior distributions 
 for each parameter (coefficient; predictor) in the model.
 
 Some important things to pay attention to are 
