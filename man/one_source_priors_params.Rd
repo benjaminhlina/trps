@@ -48,7 +48,7 @@ supplied to the model for \eqn{\delta^{15}}N baseline. Default is
 Adjust priors for one source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
 }
 \details{
-\deqn{\delta^{15}N = n1 + dn * (tp - \lambda)}
+\deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda)}
 
 This function allows the user to adjust the priors for the following variables
 in the equation above:
@@ -60,9 +60,9 @@ This prior assumes a normal distribution.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment
 factor). This prior assumes a normal distribution.
-\item The lower (\code{tp_lb}) and upper (\code{tp_up}) bounds for trophic position.
+\item The lower (\code{tp_lb}) and upper (\code{tp_ub}) bounds for trophic position.
 This prior assumes a uniform distribution.
-\item The lower (\code{sigma_lb}) and upper (\code{sigma_up}) bounds for
+\item The lower (\code{sigma_lb}) and upper (\code{sigma_ub}) bounds for
 variance (\eqn{\sigma}). This prior assumes a uniform distribution.
 }
 }

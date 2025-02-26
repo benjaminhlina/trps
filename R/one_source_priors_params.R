@@ -20,7 +20,7 @@
 #'
 #' @details
 #'
-#' \deqn{\delta^{15}N = n1 + dn * (tp - \lambda)}
+#' \deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda)}
 #'
 #' This function allows the user to adjust the priors for the following variables
 #' in the equation above:
@@ -32,9 +32,9 @@
 #'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
 #'   \eqn{\Delta}N (i.e, trophic enrichment
 #'   factor). This prior assumes a normal distribution.
-#'   \item The lower (`tp_lb`) and upper (`tp_up`) bounds for trophic position.
+#'   \item The lower (`tp_lb`) and upper (`tp_ub`) bounds for trophic position.
 #'   This prior assumes a uniform distribution.
-#'   \item The lower (`sigma_lb`) and upper (`sigma_up`) bounds for
+#'   \item The lower (`sigma_lb`) and upper (`sigma_ub`) bounds for
 #'   variance (\eqn{\sigma}). This prior assumes a uniform distribution.
 #'   }
 #'
