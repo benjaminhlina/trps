@@ -1,7 +1,7 @@
 #' Bayesian model - Two Source Trophic Position
 #'
-#' Bayesian model for trophic position using a two source model derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+#' Trophic position using a two source model derived from
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) using a Bayesian framework.
 #'
 #' @param bp logical value that controls whether informed priors are
 #' supplied to the model for both \eqn{\delta^{15}}N baselines.
@@ -14,33 +14,32 @@
 #'
 #' @details
 #'
+#' We will use the following equations from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2):
+#'
 #' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
 #' (\delta ^{13}C_1 - \delta ^{13}C_2)}
 #'
 #' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 #' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 #' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
-#' and
 #'
 #'
 #' **When `lambda` is set to `1`**
 #'
-#' \deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
 #' **When `lambda` is set to `2`**
 #'
-#' \deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
-#' \eqn{\delta^{15}}N are values from the consumer,
+#' where \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 #' \eqn{\delta^{15}}N values of baseline 2,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of `3.4`),
-#' tp is trophic position, \eqn{\alpha} is carbon usage where \eqn{\delta^{13}C_c} is
-#' the isotopic value for consumer, \eqn{\delta^{13}C_2} is the mean
-#' isotopic value for baseline 2, and \eqn{\delta^{13} C_1} is the mean
-#' isotopic value for baseline 1. \eqn{\lambda} or \eqn{\lambda_1} and
+#' tp is trophic position, \eqn{\alpha} is carbon use derived from
+#' the first equation and \eqn{\lambda} or \eqn{\lambda_1} and
 #' \eqn{\lambda_2} are the trophic levels of baselines which are often a
 #' primary consumer (e.g., `2` or `2.5`).
 #'
