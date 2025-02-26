@@ -16,8 +16,8 @@ leveraging [{brms}](https://paulbuerkner.com/brms/). Equations for
 trophic position models are derived from [Post
 2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 and [Heuvel et
-al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466)
-and are to be used with stable isotope data for different species.
+al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and are
+to be used with stable isotope data for different species.
 
 ## Progress
 
@@ -37,10 +37,11 @@ and are to be used with stable isotope data for different species.
     (priors are the same as a two-source)
 - \[\] a two-source carbon fractionation model
   - \[\] priors and parameters for priors
-- \[\] a two-source model with different lambdas and alpha corrected
+- [x] a two-source model with different lambdas and alpha corrected
   using [Heuvel et
-  al. 2024](https://aslopubs.onlinelibrary.wiley.com/doi/full/10.1002/lno.12466).
-  - \[\] priors and parameters for priors
+  al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+  - [x] priors
+  - \[\] parameters for priors
 - \[\] vignettes for each model type
 
 ## Installation
