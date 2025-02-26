@@ -1,7 +1,7 @@
 #' Bayesian model - Two Source Trophic Position with \eqn{\alpha_c}
 #'
-#' Bayesian model for trophic position using a two source model with \eqn{\alpha_c} derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
+#' Estimate trophic position using a two source model with \eqn{\alpha_c} derived from
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) using a Bayesian framework.
 #'
 #' @param bp logical value that controls whether  priors are
 #' supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
@@ -13,6 +13,9 @@
 #' Defaults to `1`.
 #'
 #' @details
+#'
+#' We will use the following equations derived from
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028):
 #'
 #' \enumerate{
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
