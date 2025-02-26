@@ -24,9 +24,15 @@ Imports:
     dplyr,
     lifecycle
 Suggests: 
+    bayesplot,
+    bayestestR,
+    ggdist,
+    ggplot2,
     knitr,
+    purrr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0), 
+    tidybayes
 Config/testthat/edition: 3
 RoxygenNote: 7.3.2
 Roxygen: list(markdown = TRUE)
