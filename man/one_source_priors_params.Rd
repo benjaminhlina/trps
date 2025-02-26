@@ -55,7 +55,7 @@ in the equation above:
 
 \itemize{
 \item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
-\eqn{\delta^{15}}N for a given baseline.
+\eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
 This prior assumes a normal distribution.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment

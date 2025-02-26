@@ -27,7 +27,7 @@
 #'
 #' \itemize{
 #'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
-#'   \eqn{\delta^{15}}N for a given baseline.
+#'   \eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
 #'   This prior assumes a normal distribution.
 #'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
 #'   \eqn{\Delta}N (i.e, trophic enrichment
