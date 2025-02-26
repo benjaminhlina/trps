@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-02-25T23:26Z
+articles:
+  how_to_use_a_one-source_model: how_to_use_a_one-source_model.html
+last_built: 2025-02-26T00:34Z
 urls:
   reference: https://benjaminhlina.github.io/trps/reference
   article: https://benjaminhlina.github.io/trps/articles
