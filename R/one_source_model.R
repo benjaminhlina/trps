@@ -45,7 +45,7 @@ one_source_model <- function(bp = FALSE) {
   if (isFALSE(bp)) {
     model <- brms::bf(
       # Likelihood function
-      d15n ~ n1 + dn * (tp - l),
+      d15n ~ n1 + dn * (tp - l1),
       # Trophic enrichment factor (ΔN)
       dn ~ 1,
       # Trophic Position (TP to be estimated)
@@ -59,7 +59,7 @@ one_source_model <- function(bp = FALSE) {
   if (isTRUE(bp)) {
     model <- brms::bf(
       # Likelihood function
-      d15n ~ n1 + dn * (tp - l),
+      d15n ~ n1 + dn * (tp - l1),
       # Baseline δ15N (to be estimated)
       n1 ~ 1,
       # Trophic enrichment factor (ΔN)
