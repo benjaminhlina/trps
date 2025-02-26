@@ -26,7 +26,6 @@ Imports:
 Suggests: 
     bayesplot,
     bayestestR,
-    BH,
     ggdist,
     ggplot2,
     knitr,
