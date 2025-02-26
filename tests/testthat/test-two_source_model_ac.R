@@ -3,7 +3,7 @@ test_that("test two-source model without baseline prior", {
   m <- two_source_model_ac()
   # m$formula
   expected_wb <- formula(
-    d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac)
+    d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac)
   )
 
   # class(m$formula)
@@ -113,7 +113,7 @@ test_that("test two-source model with baseline prior", {
   m <- two_source_model_ac(bp = TRUE)
 
   el <- formula(
-    d15n ~ dn * (tp - l) + n1 * ac + n2 * (1 - ac)
+    d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac)
     )
 
 
