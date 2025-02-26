@@ -67,13 +67,13 @@ Adjust priors for two source trophic position model derived from \href{https://e
 \details{
 When \code{lambda} is set to \code{1}
 
-\deqn{\delta^{15}N = \Delta n \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+\deqn{\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 or
 
 When \code{lambda} is set to \code{2}
 
-\deqn{\delta^{15}N = \Delta n \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+\deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 This function allows the user to adjust the priors for the following variables
 in the equation above:
