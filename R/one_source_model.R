@@ -1,7 +1,7 @@
 #' Bayesian model - One Source Trophic Position
 #'
-#' Bayesian model for trophic position using a one source model derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+#' Estimate trophic position using a one source model derived from
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) using a Bayesian framework.
 #'
 #
 #' @param bp logical value that controls whether informed priors are

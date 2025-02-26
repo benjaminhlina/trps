@@ -18,8 +18,8 @@ returns model structure for one source model to be used in a
 \code{brms()} call.
 }
 \description{
-Bayesian model for trophic position using a one source model derived from
-\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+Estimate trophic position using a one source model derived from
+\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} using a Bayesian framework.
 }
 \details{
 \deqn{\delta^{15}N = n1 + \Delta N \times (tp - \lambda)}
