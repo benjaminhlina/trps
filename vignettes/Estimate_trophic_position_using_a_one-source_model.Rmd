@@ -1,0 +1,31 @@
+---
+title: "Estimate trophic position using a one-source model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Estimate trophic position using a one-source model}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Our Objectives
+The purpose of this vignette is to learn how to estimate trophic position of a 
+species using a one-source model based on [Post 2002](). We will use a Bayesian 
+framework deployed through [{trps}]() and [{brms}](). Stable isotope data
+($\delta$<sup>13</sup>C and $\delta$<sup>15</sup>N) will be supplied to 
+the model.
+
+
+## Load packages 
+```{r setup, message=FALSE}
+{
+  library(brms)
+  library(trps)
+}
+```
