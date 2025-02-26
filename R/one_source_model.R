@@ -12,12 +12,12 @@
 #'
 #' @details
 #'
-#' \deqn{\delta^{15}N = \delta^{15} N_1  + \Delta N \times (tp - \lambda)}
+#' \deqn{\delta^{15}N = \delta^{15} N_1  + \Delta N \times (tp - \lambda_1)}
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{\delta^{15} N_1} is \eqn{\delta^{15}}N values of baseline 1,
 #' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., `dn` mean
-#' of `3.4`), \eqn{tp} is trophic position, and \eqn{\lambda} is the
+#' of `3.4`), \eqn{tp} is trophic position, and \eqn{\lambda_1} is the
 #' trophic level of baselines which are often a primary consumer (e.g., `2`).
 #'
 #' The data supplied to `brms()` needs to have the following variables `d15n`,
