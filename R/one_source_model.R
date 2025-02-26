@@ -12,16 +12,16 @@
 #'
 #' @details
 #'
-#' \deqn{\delta^{15}N = n1 + \Delta N \times (tp - \lambda)}
+#' \deqn{\delta^{15}N = \delta^{15} N_1  + \Delta N \times (tp - \lambda)}
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
-#' n1 is \eqn{\delta^{15}}N values of baseline 1,
-#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., `dn` mean of 3.4),
-#' tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
-#' which are often a primary consumer (e.g., 2).
+#' \eqn{n\delta^{15} N_1} is \eqn{\delta^{15}}N values of baseline 1,
+#' \eqn{\Delta}N is the trophic discrimination factor for N (i.e., `dn` mean
+#' of `3.4`), \eqn{tp} is trophic position, and \eqn{\lambda} is the
+#' trophic level of baselines which are often a primary consumer (e.g., `2`).
 #'
 #' The data supplied to `brms()` needs to have the following variables `d15n`,
-#'  `n1`, and `l` (\eqn{\lambda}) which is usually `2`.
+#'  `n1`, and `l1` (\eqn{\lambda}) which is usually `2`.
 #'
 #' @return returns model structure for one source model to be used in a
 #' `brms()` call.

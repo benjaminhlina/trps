@@ -22,16 +22,16 @@ Estimate trophic position using a one source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} using a Bayesian framework.
 }
 \details{
-\deqn{\delta^{15}N = n1 + \Delta N \times (tp - \lambda)}
+\deqn{\delta^{15}N = \delta^{15} N_1  + \Delta N \times (tp - \lambda)}
 
 \eqn{\delta^{15}}N are values from the consumer,
-n1 is \eqn{\delta^{15}}N values of baseline 1,
-\eqn{\Delta}N is the trophic discrimination factor for N (i.e., \code{dn} mean of 3.4),
-tp is trophic position, and \eqn{\lambda} is the trophic level of baselines
-which are often a primary consumer (e.g., 2).
+\eqn{n\delta^{15} N_1} is \eqn{\delta^{15}}N values of baseline 1,
+\eqn{\Delta}N is the trophic discrimination factor for N (i.e., \code{dn} mean
+of \code{3.4}), \eqn{tp} is trophic position, and \eqn{\lambda} is the
+trophic level of baselines which are often a primary consumer (e.g., \code{2}).
 
 The data supplied to \code{brms()} needs to have the following variables \code{d15n},
-\code{n1}, and \code{l} (\eqn{\lambda}) which is usually \code{2}.
+\code{n1}, and \code{l1} (\eqn{\lambda}) which is usually \code{2}.
 }
 \examples{
 one_source_model()
