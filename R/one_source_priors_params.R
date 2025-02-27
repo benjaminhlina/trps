@@ -8,7 +8,7 @@
 #' baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
-#' Defaults to `0.5`.
+#' Defaults to `0.25`.
 #' @param tp_lb lower bound prior for trophic position. Defaults to `2`.
 #' @param tp_ub upper bound prior for trophic position. Defaults to `10`.
 #' @param sigma_lb lower bound prior for \eqn{\sigma}. Defaults to `0`.
@@ -107,7 +107,7 @@ one_source_priors_params <- function(
 
   # create error message for dn priors
   if (is.null(dn_sigma)) {
-    dn_sigma <- 0.5
+    dn_sigma <- 0.25
   }
 
   if  (!is.numeric(dn_sigma)) {

@@ -26,7 +26,7 @@ baseline. Defaults to \code{1}.}
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
 
 \item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
-Defaults to \code{0.5}.}
+Defaults to \code{0.25}.}
 
 \item{tp_lb}{lower bound prior for trophic position. Defaults to \code{2}.}
 
