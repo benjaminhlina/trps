@@ -28,9 +28,11 @@ For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.c
 the equation consists of the following: 
 
 
+
 $$
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
 $$
+
 
 
 Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
@@ -43,9 +45,11 @@ To use this model with a Bayesian framework deployed by
 this equation to the following: 
 
 
+
 $$
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda)  
 $$
+
 
 
 
@@ -242,9 +246,7 @@ Let's view the summary of the model.
 
 
 ```{r}
-
 m
-
 ```
 
 
