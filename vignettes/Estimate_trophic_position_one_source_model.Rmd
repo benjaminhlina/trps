@@ -19,15 +19,18 @@ The purpose of this vignette is to learn how to estimate trophic position of a
 species using stable isotope data
 ($\delta^{13}C$ and $\delta^{15}N$). We can estiamte trophic psoition using 
 a one source model based on equations from 
-[Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2). We will use a Bayesian 
-framework deployed through [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/).
+[Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
-For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) the equation consists of the following: 
+## Trophic Position Model
+For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
+the equation consists of the following: 
 
 
 $$
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
 $$
+
+
 Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
 $\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the 
 $\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
@@ -36,9 +39,12 @@ $\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor
 To estimate trophic position using a Bayesian framework we need to rearrange 
 this equation to the following: 
 
+
 $$
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda)  
 $$
+
+
 Functions in {trps} use this rearranged equation to estimate trophic position. 
 
 ## Vignette structure   
@@ -107,9 +113,10 @@ Now that we understand the data we need to combine the data to estimate
 trophic position for our consumer. To do this we first need to make an `id` 
 column in each data set that will assist in joining data. 
 
-Let us first do this to the `consumer_iso` data frame.  
+### Consumer data
 
-### Consumer data 
+Let us first do this to the `consumer_iso` data frame.  
+ 
 ```{r}
 consumer_iso <- consumer_iso %>% 
   group_by(common_name, ecoregion) %>% 
@@ -121,6 +128,7 @@ consumer_iso <- consumer_iso %>%
 ```
 
 ### Baseline data 
+
 Next let us do this to the `baseline_1_iso` data frame. For joining purposes we 
 are going to drop `common_name` from this data frame. 
 
