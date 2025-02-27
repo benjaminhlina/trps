@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ## Our Objectives
+
 The purpose of this vignette is to learn how to estimate trophic position of a 
 species using stable isotope data
 ($\delta^{13}C$ and $\delta^{15}N$). We can estiamte trophic psoition using 
@@ -22,6 +23,7 @@ a one source model based on equations from
 [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
 ## Trophic Position Model
+
 For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 the equation consists of the following: 
 
@@ -36,7 +38,8 @@ $\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the
 $\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
 (e.g., 3.4). 
 
-To estimate trophic position using a Bayesian framework we need to rearrange 
+To use this model with a Bayesian framework deployed by 
+`one_source_model()` in {trps}, we need to rearrange 
 this equation to the following: 
 
 
@@ -45,12 +48,13 @@ $$
 $$
 
 
-Functions in {trps} use this rearranged equation to estimate trophic position. 
+
 
 ## Vignette structure   
-First we will need to do a bit of organizing the data prior to running the model. 
+
+First we will need to organize the data prior to running the model. 
 To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
-[{tidyr}]() but we could also use 
+[{tidyr}](https://tidyr.tidyverse.org/) but we could also use 
 [{data.table}](https://rdatatable.gitlab.io/data.table/) to do this work. 
 
 When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) 
@@ -65,6 +69,9 @@ Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyve
 and [{ggdist}](https://mjskay.github.io/ggdist/).
 
 ## Load packages 
+
+Below we will load all the packages needed to carry out the anlaysis
+
 ```{r setup, message=FALSE}
 {
   library(bayesplot)
@@ -81,12 +88,13 @@ and [{ggdist}](https://mjskay.github.io/ggdist/).
 
 ## Assess data 
 
-In [{trps}]() we have several data sets, they include stable isotope data
-($\delta$<sup>13</sup>C and $\delta$<sup>15</sup>N) for a
+In [{trps}](https://benjaminhlina.github.io/trps/) we have several data sets, 
+they include stable isotope data ($\delta^{13}C$ and $\delta^{15}N$) for a
 consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
 and a pelagic baseline, dreissenids for two ecoregions in Lake Ontario. 
 
 ### Consumer data
+
 We will check out each data set with the first being the consumer. 
 ```{r}
 consumer_iso
@@ -94,10 +102,11 @@ consumer_iso
 
 We can see that this data set contains the common name of the consumer 
 (`common_name`), the ecoregion samples were collected (`ecoregion`) and 
-$\delta$<sup>13</sup>C (`d13c`) and $\delta$<sup>15</sup>N (`d15n`). 
+$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
 
 ### Baseline data 
-Next for this vignette we will only assess benthic baseline data set 
+
+Next for this vignette we will only assess benthic baseline data set.
 
 ```{r}
 baseline_1_iso
@@ -105,17 +114,17 @@ baseline_1_iso
 
 We can see that this data set contains the common name of the baseline 
 (`common_name`), the ecoregion samples were collected (`ecoregion`) and 
-$\delta$<sup>13</sup>C (`c1`) and $\delta$<sup>15</sup>N (`n1`). 
+$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
 
 ## Organizing data 
 
-Now that we understand the data we need to combine the data to estimate 
+Now that we understand the data we need to combine both data sets to estimate 
 trophic position for our consumer. To do this we first need to make an `id` 
-column in each data set that will assist in joining data. 
+column in each data set that will assist in joining them together.  
 
 ### Consumer data
 
-Let us first do this to the `consumer_iso` data frame.  
+Let's first add `id` to `consumer_iso` data frame.  
  
 ```{r}
 consumer_iso <- consumer_iso %>% 
@@ -129,7 +138,7 @@ consumer_iso <- consumer_iso %>%
 
 ### Baseline data 
 
-Next let us do this to the `baseline_1_iso` data frame. For joining purposes we 
+Next let's add `id` to  `baseline_1_iso` data frame. For joining purposes we 
 are going to drop `common_name` from this data frame. 
 
 ```{r}
@@ -143,9 +152,10 @@ baseline_1_iso <- baseline_1_iso %>%
 ```
 
 ### Joining isotope data 
-Now that we have both the consumer and baseline data frames having consistent
-structure we can join them to then use in the analysis. We will also add in 
-a constant $\lambda$ (`l1`) to our data frame. 
+
+Now that we have both the consumer and baseline in a  consistent
+structure we can join them using `left_join()` from {dplyr}. We will also add in 
+the constant $\lambda$ (`l1`) to our data frame. 
 
 ```{r}
 combined_iso_os <- consumer_iso %>% 
@@ -155,10 +165,14 @@ combined_iso_os <- consumer_iso %>%
   )
 ```
 
-We can see that this has successfully combined our consumer and baseline data. 
+We can see that we have successfully combined our consumer and baseline data.
+
 ```{r}
 combined_iso_os
 ```
+
+Important note, to run the model successfully columns need to be names `d15n`, 
+`n1`, and `l1`. 
 
 ## Bayesian Analysis
 
@@ -169,7 +183,14 @@ There are a few things to know about running a Bayesian analysis, I suggest
 reading a these resources. 
 
 Bayesian analyses rely on supplying uninformed or informed prior distributions 
-for each parameter (coefficient; predictor) in the model.
+for each parameter (coefficient; predictor) in the model. The default informed
+priors for a one source model are the following, $\Delta N$ assumes a normal 
+distribution (`dn`; $\mu = 3.4$; 
+$\sigma = 0.25$), trophic position assumes a uniform distribution (`lb = 2`
+and `ub = 10`), $\sigma$ assumes a uniform distribution (`lb = 0` and . 
+`ub = 10`), and if informed priors are desired for 
+$\delta^{15}N_b$ (`n1`; $\mu = 9$; $\sigma = 1$), 
+we can set the argument `bp` to `TRUE` in all `one_source_` functions. 
 
 Some important things to pay attention to are 
 always run at least 2 chains, if the model does not converge you can try 
@@ -188,7 +209,7 @@ normal.
 
 We will use functions from {trps} that drop into a {brms} model. These 
 functions are `one_source_model()` which provides `brm()` the formula structure
-needed to run a one source model. Next is `brm()` needs the structure of the 
+needed to run a one source model. Next `brm()` needs the structure of the 
 priors which can be supplied to the `prior` argument using `one_source_priors()`. 
 Lastly, values for these priors are supplied through the `stanvars` argument 
 using `one_source_priors_params()`. You can adjust the mean ($\mu$),  
@@ -196,6 +217,9 @@ variance ($\sigma$), or upper and lower bounds (`lb` and `ub`) for each prior
 of the model within `one_soruce_priors_params()`, however, only adjust priors 
 if you have a good grasp of Bayesian frameworks and your study system and 
 species. 
+
+
+Let's run the model! 
 
 ```{r}
 m <- brm(
@@ -213,13 +237,19 @@ m <- brm(
 )
 ```
 
-Let us view a summary of the model  
+
+Let's view the summary of the model. 
+
 
 ```{r}
+
 m
+
 ```
 
-Let us view trace plots and posterior distributions 
+
+Let's view trace plots and posterior distributions for the model. 
+
 
 ```{r}
 plot(m)
