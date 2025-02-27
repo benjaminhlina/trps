@@ -186,6 +186,7 @@ Lake Ontario.
 There are a few things to know about running a Bayesian analysis, I suggest 
 reading a these resources. 
 
+### Priors 
 Bayesian analyses rely on supplying uninformed or informed prior distributions 
 for each parameter (coefficient; predictor) in the model. The default informed
 priors for a one source model are the following, $\Delta N$ assumes a normal 
@@ -196,6 +197,7 @@ and `ub = 10`), $\sigma$ assumes a uniform distribution (`lb = 0` and .
 $\delta^{15}N_b$ (`n1`; $\mu = 9$; $\sigma = 1$), 
 we can set the argument `bp` to `TRUE` in all `one_source_` functions. 
 
+### Model convergence 
 Some important things to pay attention to are 
 always run at least 2 chains, if the model does not converge you can try 
 to adjust the amount of samples that are burned-in (discarded; in brms 
@@ -204,7 +206,7 @@ iterative samples retained (in brms this can be controlled by the
 argument `iter`), and/or adjust the `adapt_delta` value using 
 `control = list(adapt_delta = 0.95)`. 
 
-When assessing the model we want rhat to be 1 or within 0.05 of 1, we also want 
+When assessing the model we want R-hat to be 1 or within 0.05 of 1, we also want 
 a high value for effective sample size (ESS), we want trace plots to look 
 "grassy" or "catapillery", and we want posterior distributions to look relatively
 normal. 
@@ -222,7 +224,7 @@ of the model within `one_soruce_priors_params()`, however, only adjust priors
 if you have a good grasp of Bayesian frameworks and your study system and 
 species. 
 
-
+### Model 
 Let's run the model! 
 
 ```{r}
@@ -241,19 +243,97 @@ m <- brm(
 )
 ```
 
-
+### Model output 
 Let's view the summary of the model. 
-
 
 ```{r}
 m
 ```
+We can see that the R-hat is 1 meaning that variance among and within chains is 
+equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+and that ESS is quite large, with this overall meaning the model is converging 
+and fitting accordingly. 
 
-
+### Trace plots 
 Let's view trace plots and posterior distributions for the model. 
-
 
 ```{r}
 plot(m)
 ```
 
+We can see that the trace plots look "grassy" meaning the model is converging!  
+
+## Posterior draws 
+
+Let's again look at the summary output from the model. 
+
+```{r}
+m
+```
+
+We can see that $\delta N$ is estimated to be `3.38` with  `l-95% CI` of `2.90`, 
+and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we 
+see trophic position is estimated to be `4.41` with `l-95% CI` of `3.97`, 
+and `u-95% CI` of `4.92`. 
+
+### Extract posterior draws 
+
+We will use functions from {tidybayes} to do this work. First we will look at 
+the the names of the variables we want to extract using `get_variables()`. 
+
+```{r}
+get_variables(m)
+```
+
+You will notice that `"b_tp_Intercept"` is the name of the variable in the 
+model object that we are most interested in extracting. We then get posterior 
+draws using `gather_draws()`. I am going to rename `"b_tp_Intercept"` to `tp`. 
+
+```{r}
+post_draws <- m %>% 
+  gather_draws(b_tp_Intercept) %>% 
+  mutate(
+    .variable = "tp"
+  )
+```
+
+Let's view the `post_draws`
+
+```{r}
+post_draws
+```
+We can see that this consists of five variables `.chain`, `.itteration`, 
+`.draw`, `.variable` (this will have different variables of interest if you 
+supply `gather_draws()` with more than one variable), `.value` (estimated value). 
+
+## Plot 
+
+Now that we have our posteriors extracted we can plot them. For comparing 
+trophic position among species or groups, I like using either 
+violin plots, interval points, or slab plots for posteriors. We can access 
+violins through {ggplot2} with the later being available in {ggdist}. 
+
+However, for this example we are only going to plot the distribution. Further 
+below I'll demonstrate how to run the model itteratively producing 
+estimates of trophic position for more groups 
+
+```{r}
+ggplot(data = post_draws, aes(x = .value)) + 
+  geom_density() + 
+  theme_bw(base_size = 15) +
+  theme(
+    panel.grid = element_blank()
+  ) + 
+  labs(
+    x = "P(Trophic Position | X)", 
+    y = "Density"
+  )
+  
+```
+
+Congratulations we have estimate trophic position for Lake Trout. We will 
+extend this to compare trophic position for Lake Trout among different regions 
+below with some data already formatted that is in the package. 
+
+## Estimate trophic position among species or groups
+this 
