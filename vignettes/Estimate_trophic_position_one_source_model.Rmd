@@ -334,6 +334,3 @@ ggplot(data = post_draws, aes(x = .value)) +
 Congratulations we have estimate trophic position for Lake Trout. We will 
 extend this to compare trophic position for Lake Trout among different regions 
 below with some data already formatted that is in the package. 
-
-## Estimate trophic position among species or groups
-this 
