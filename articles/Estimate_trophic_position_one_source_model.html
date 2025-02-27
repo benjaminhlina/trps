@@ -288,6 +288,9 @@ names <code>d15n</code>, <code>n1</code>, and <code>l1</code>.</p>
 of Lake Ontario.</p>
 <p>There are a few things to know about running a Bayesian analysis, I
 suggest reading a these resources.</p>
+<div class="section level3">
+<h3 id="priors">Priors<a class="anchor" aria-label="anchor" href="#priors"></a>
+</h3>
 <p>Bayesian analyses rely on supplying uninformed or informed prior
 distributions for each parameter (coefficient; predictor) in the model.
 The default informed priors for a one source model are the following,
@@ -306,6 +309,10 @@ assumes a uniform distribution (<code>lb = 0</code> and .
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sigma = 1</annotation></semantics></math>),
 we can set the argument <code>bp</code> to <code>TRUE</code> in all
 <code>one_source_</code> functions.</p>
+</div>
+<div class="section level3">
+<h3 id="model-convergence">Model convergence<a class="anchor" aria-label="anchor" href="#model-convergence"></a>
+</h3>
 <p>Some important things to pay attention to are always run at least 2
 chains, if the model does not converge you can try to adjust the amount
 of samples that are burned-in (discarded; in brms this can be controlled
@@ -313,10 +320,11 @@ by the argument <code>warmup</code>), adjust the number of iterative
 samples retained (in brms this can be controlled by the argument
 <code>iter</code>), and/or adjust the <code>adapt_delta</code> value
 using <code>control = list(adapt_delta = 0.95)</code>.</p>
-<p>When assessing the model we want rhat to be 1 or within 0.05 of 1, we
-also want a high value for effective sample size (ESS), we want trace
+<p>When assessing the model we want R-hat to be 1 or within 0.05 of 1,
+we also want a high value for effective sample size (ESS), we want trace
 plots to look “grassy” or “catapillery”, and we want posterior
 distributions to look relatively normal.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="estimating-trophic-position">Estimating trophic position<a class="anchor" aria-label="anchor" href="#estimating-trophic-position"></a>
@@ -336,6 +344,9 @@ or upper and lower bounds (<code>lb</code> and <code>ub</code>) for each
 prior of the model within <code>one_soruce_priors_params()</code>,
 however, only adjust priors if you have a good grasp of Bayesian
 frameworks and your study system and species.</p>
+<div class="section level3">
+<h3 id="model">Model<a class="anchor" aria-label="anchor" href="#model"></a>
+</h3>
 <p>Let’s run the model!</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm</a></span><span class="op">(</span></span>
@@ -354,6 +365,10 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; Warning: Rows containing NAs were excluded from the model.</span></span>
 <span><span class="co">#&gt; Compiling Stan program...</span></span>
 <span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="model-output">Model output<a class="anchor" aria-label="anchor" href="#model-output"></a>
+</h3>
 <p>Let’s view the summary of the model.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span></span>
@@ -368,20 +383,144 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.33      0.51     2.33     4.32 1.00     1560     2091</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.51      0.46     3.81     5.57 1.00     1590     2026</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     2669     2974</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.41      0.24     3.97     4.92 1.00     2584     3044</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     1.95      0.46     1.28     3.08 1.00     2159     1631</span></span>
+<span><span class="co">#&gt; sigma     1.93      0.43     1.31     2.97 1.00     2510     2532</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
+<p>We can see that the R-hat is 1 meaning that variance among and within
+chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+docmentation on R-hat</a>). and that ESS is quite large, with this
+overall meaning the model is converging and fitting accordingly.</p>
+</div>
+<div class="section level3">
+<h3 id="trace-plots">Trace plots<a class="anchor" aria-label="anchor" href="#trace-plots"></a>
+</h3>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span></code></pre></div>
 <p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<p>We can see that the trace plots look “grassy” meaning the model is
+converging!</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="posterior-draws">Posterior draws<a class="anchor" aria-label="anchor" href="#posterior-draws"></a>
+</h2>
+<p>Let’s again look at the summary output from the model.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">m</span></span>
+<span><span class="co">#&gt;  Family: gaussian </span></span>
+<span><span class="co">#&gt;   Links: mu = identity; sigma = identity </span></span>
+<span><span class="co">#&gt; Formula: d15n ~ n1 + dn * (tp - l1) </span></span>
+<span><span class="co">#&gt;          dn ~ 1</span></span>
+<span><span class="co">#&gt;          tp ~ 1</span></span>
+<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 14) </span></span>
+<span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
+<span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Regression Coefficients:</span></span>
+<span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     2669     2974</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.41      0.24     3.97     4.92 1.00     2584     3044</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Further Distributional Parameters:</span></span>
+<span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; sigma     1.93      0.43     1.31     2.97 1.00     2510     2532</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
+<span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
+<span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
+<p>We can see that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta N</annotation></semantics></math>
+is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
+<code>2.90</code>, and <code>u-95% CI</code> of <code>3.87</code>. If we
+move down to trophic position (<code>tp</code>) we see trophic position
+is estimated to be <code>4.41</code> with <code>l-95% CI</code> of
+<code>3.97</code>, and <code>u-95% CI</code> of <code>4.92</code>.</p>
+<div class="section level3">
+<h3 id="extract-posterior-draws">Extract posterior draws<a class="anchor" aria-label="anchor" href="#extract-posterior-draws"></a>
+</h3>
+<p>We will use functions from {tidybayes} to do this work. First we will
+look at the the names of the variables we want to extract using
+<code><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables()</a></code>.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "b_dn_Intercept" "b_tp_Intercept" "sigma"          "lprior"        </span></span>
+<span><span class="co">#&gt;  [5] "lp__"           "accept_stat__"  "stepsize__"     "treedepth__"   </span></span>
+<span><span class="co">#&gt;  [9] "n_leapfrog__"   "divergent__"    "energy__"</span></span></code></pre></div>
+<p>You will notice that <code>"b_tp_Intercept"</code> is the name of the
+variable in the model object that we are most interested in extracting.
+We then get posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>. I am
+going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">post_draws</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    .variable <span class="op">=</span> <span class="st">"tp"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p>Let’s view the <code>post_draws</code></p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">post_draws</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6,000 × 5</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [1]</span></span></span>
+<span><span class="co">#&gt;    .chain .iteration .draw .variable .value</span></span>
+<span><span class="co">#&gt;     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>      1          1     1 tp          4.49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>      1          2     2 tp          4.94</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>      1          3     3 tp          4.50</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>      1          4     4 tp          4.24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>      1          5     5 tp          4.26</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>      1          6     6 tp          4.34</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>      1          7     7 tp          4.09</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>      1          8     8 tp          4.46</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>      1          9     9 tp          4.57</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>      1         10    10 tp          4.03</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5,990 more rows</span></span></span></code></pre></div>
+<p>We can see that this consists of five variables <code>.chain</code>,
+<code>.itteration</code>, <code>.draw</code>, <code>.variable</code>
+(this will have different variables of interest if you supply
+<code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code> with more than one variable),
+<code>.value</code> (estimated value).</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
+</h2>
+<p>Now that we have our posteriors extracted we can plot them. For
+comparing trophic position among species or groups, I like using either
+violin plots, interval points, or slab plots for posteriors. We can
+access violins through {ggplot2} with the later being available in
+{ggdist}.</p>
+<p>However, for this example we are only going to plot the distribution.
+Further below I’ll demonstrate how to run the model itteratively
+producing estimates of trophic position for more groups</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>    panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span>, </span>
+<span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
+<p>Congratulations we have estimate trophic position for Lake Trout. We
+will extend this to compare trophic position for Lake Trout among
+different regions below with some data already formatted that is in the
+package.</p>
+</div>
+<div class="section level2">
+<h2 id="estimate-trophic-position-among-species-or-groups">Estimate trophic position among species or groups<a class="anchor" aria-label="anchor" href="#estimate-trophic-position-among-species-or-groups"></a>
+</h2>
+<p>this</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
