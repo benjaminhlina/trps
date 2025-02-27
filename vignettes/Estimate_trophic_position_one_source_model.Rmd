@@ -1,8 +1,8 @@
 ---
-title: "Estimate trophic position - one-source model"
+title: "Estimate trophic position - one source model"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Estimate trophic position - one-source model}
+  %\VignetteIndexEntry{Estimate trophic position - one source model}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Our Objectives
 The purpose of this vignette is to learn how to estimate trophic position of a 
-species using a one-source model based on [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2). We will use a Bayesian 
+species using a one source model based on [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2). We will use a Bayesian 
 framework deployed through [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/). We will use stable isotope data
 ($\delta$<sup>13</sup>C and $\delta$<sup>15</sup>N) to estimate trophic position. 
 
@@ -153,7 +153,7 @@ normal.
 
 We will use functions from {trps} that drop into a {brms} model. These 
 functions are `one_source_model()` which provides `brm()` the formula structure
-needed to run a one-source model. Next is `brm()` needs the structure of the 
+needed to run a one source model. Next is `brm()` needs the structure of the 
 priors which can be supplied to the `prior` argument using `one_source_priors()`. 
 Lastly, values for these priors are supplied through the `stanvars` argument 
 using `one_source_priors_params()`. You can adjust the mean ($\mu$),  
