@@ -76,12 +76,17 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>).
 We can estiamte trophic psoition using a one source model based on
 equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
-2002</a>. We will use a Bayesian framework deployed through <a href="https://benjaminhlina.github.io/trps/">{trps}</a> and <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>.</p>
+2002</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="trophic-position-model">Trophic Position Model<a class="anchor" aria-label="anchor" href="#trophic-position-model"></a>
+</h2>
 <p>For a one source model from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
 2002</a> the equation consists of the following:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
-</annotation></semantics></math> Where
+</annotation></semantics></math></p>
+<p>Where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 is the trophic position of the baseline (e.g., <code>2</code>),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_c</annotation></semantics></math>
@@ -98,8 +103,9 @@ is the trophic enrichment factor (e.g., 3.4).</p>
 rearrange this equation to the following:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub><mo>+</mo><mi>Δ</mi><mi>N</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Trophic Position</mtext><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda)  
-</annotation></semantics></math> Functions in {trps} use this rearranged
-equation to estimate trophic position.</p>
+</annotation></semantics></math></p>
+<p>Functions in {trps} use this rearranged equation to estimate trophic
+position.</p>
 </div>
 <div class="section level2">
 <h2 id="vignette-structure">Vignette structure<a class="anchor" aria-label="anchor" href="#vignette-structure"></a>
@@ -209,10 +215,10 @@ collected (<code>ecoregion</code>) and
 estimate trophic position for our consumer. To do this we first need to
 make an <code>id</code> column in each data set that will assist in
 joining data.</p>
-<p>Let us first do this to the <code>consumer_iso</code> data frame.</p>
 <div class="section level3">
 <h3 id="consumer-data-1">Consumer data<a class="anchor" aria-label="anchor" href="#consumer-data-1"></a>
 </h3>
+<p>Let us first do this to the <code>consumer_iso</code> data frame.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">consumer_iso</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">common_name</span>, <span class="va">ecoregion</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
