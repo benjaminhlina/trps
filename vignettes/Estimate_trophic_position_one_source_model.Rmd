@@ -16,14 +16,36 @@ knitr::opts_chunk$set(
 
 ## Our Objectives
 The purpose of this vignette is to learn how to estimate trophic position of a 
-species using a one source model based on [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2). We will use a Bayesian 
-framework deployed through [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/). We will use stable isotope data
-($\delta$<sup>13</sup>C and $\delta$<sup>15</sup>N) to estimate trophic position. 
+species using stable isotope data
+($\delta^{13}C$ and $\delta^{15}N$). We can estiamte trophic psoition using 
+a one source model based on equations from 
+[Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2). We will use a Bayesian 
+framework deployed through [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/).
 
-We will need to do a bit of organizing the data prior to running the model. To 
-do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
-[{tidyr}]() but we could also use [{data.table}](https://rdatatable.gitlab.io/data.table/) 
-to do this work. 
+For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) the equation consists of the following: 
+
+
+$$
+\text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
+$$
+Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
+$\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the 
+$\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
+(e.g., 3.4). 
+
+To estimate trophic position using a Bayesian framework we need to rearrange 
+this equation to the following: 
+
+$$
+\delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda)  
+$$
+Functions in {trps} use this rearranged equation to estimate trophic position. 
+
+## Vignette structure   
+First we will need to do a bit of organizing the data prior to running the model. 
+To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
+[{tidyr}]() but we could also use 
+[{data.table}](https://rdatatable.gitlab.io/data.table/) to do this work. 
 
 When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) 
 and [{brms}](https://paulbuerkner.com/brms/) and iterative processes provided 
@@ -55,9 +77,10 @@ and [{ggdist}](https://mjskay.github.io/ggdist/).
 
 In [{trps}]() we have several data sets, they include stable isotope data
 ($\delta$<sup>13</sup>C and $\delta$<sup>15</sup>N) for a
-consumer, lake trout (), a benthic baseline, amphipods, and a pelagic baseline, 
-dreissenids for two ecoregions in Lake Ontario. 
+consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
+and a pelagic baseline, dreissenids for two ecoregions in Lake Ontario. 
 
+### Consumer data
 We will check out each data set with the first being the consumer. 
 ```{r}
 consumer_iso
@@ -67,6 +90,7 @@ We can see that this data set contains the common name of the consumer
 (`common_name`), the ecoregion samples were collected (`ecoregion`) and 
 $\delta$<sup>13</sup>C (`d13c`) and $\delta$<sup>15</sup>N (`d15n`). 
 
+### Baseline data 
 Next for this vignette we will only assess benthic baseline data set 
 
 ```{r}
@@ -85,6 +109,7 @@ column in each data set that will assist in joining data.
 
 Let us first do this to the `consumer_iso` data frame.  
 
+### Consumer data 
 ```{r}
 consumer_iso <- consumer_iso %>% 
   group_by(common_name, ecoregion) %>% 
@@ -95,6 +120,7 @@ consumer_iso <- consumer_iso %>%
   dplyr::select(id, common_name:d15n)
 ```
 
+### Baseline data 
 Next let us do this to the `baseline_1_iso` data frame. For joining purposes we 
 are going to drop `common_name` from this data frame. 
 
@@ -108,6 +134,7 @@ baseline_1_iso <- baseline_1_iso %>%
   dplyr::select(id, ecoregion:n1)
 ```
 
+### Joining isotope data 
 Now that we have both the consumer and baseline data frames having consistent
 structure we can join them to then use in the analysis. We will also add in 
 a constant $\lambda$ (`l1`) to our data frame. 
