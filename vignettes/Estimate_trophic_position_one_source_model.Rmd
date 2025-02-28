@@ -418,6 +418,11 @@ Let's look at the summary of both models.
 m1
 ```
 
+We can see that the R-hat is 1 meaning that variance among and within chains is 
+equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+and that ESS is quite large. Overall this means the both models are converging 
+and fitting accordingly. 
+
 ### Trace plots  
 Let's look at the trace plots and distributions 
 
@@ -426,3 +431,4 @@ m1 %>%
   map(~ plot(.x))
 ```
 
+We can see that the trace plots look "grassy" meaning the model is converging!  
