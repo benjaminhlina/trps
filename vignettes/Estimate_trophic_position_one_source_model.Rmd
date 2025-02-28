@@ -95,7 +95,7 @@ Below we will load all the packages needed to carry out the anlaysis
 In [{trps}](https://benjaminhlina.github.io/trps/) we have several data sets, 
 they include stable isotope data ($\delta^{13}C$ and $\delta^{15}N$) for a
 consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
-and a pelagic baseline, dreissenids for two ecoregions in Lake Ontario. 
+and a pelagic baseline, dreissenids for a ecoregion in Lake Ontario. 
 
 ### Consumer data
 
@@ -328,7 +328,6 @@ ggplot(data = post_draws, aes(x = .value)) +
     x = "P(Trophic Position | X)", 
     y = "Density"
   )
-  
 ```
 
 Congratulations we have estimate trophic position for Lake Trout. We will 
