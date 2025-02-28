@@ -44,9 +44,17 @@ to be used with stable isotope data for different species.
   al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
   - [x] priors
   - \[\] parameters for priors
-- \[\] vignettes for each model type
+- [x] vignettes for one source
+- \[\] vignettes for two source
+- \[\] vignettes for twp source ac
 
 ## Installation
+
+You can install the development version of {trps} using the following:
+
+``` r
+devtools::install_github("benjaminhlina/trps")
+```
 
 You can install the R-Universe version of {trps} using the following:
 
@@ -56,16 +64,17 @@ install.packages("trps",
                             "https://cloud.r-project.org"))
 ```
 
-You can install the development version of {trps} using the following:
-
-``` r
-devtools::install_github("benjaminhlina/trps")
-library(trps)
-```
-
 ## Vignettes
 
-Info to come
+I highly suggest going through the vignettes as they will walk you
+through how to use create each trophic position model using {trps} and
+{brms}.
+
+The vignettes are currently available online under the articles section
+of the website. See the following links, [Estimate trophic position -
+one
+source](https://benjaminhlina.github.io/trps/articles/Estimate_trophic_position_one_source_model.html).
+They will be available within the package soon.
 
 ## Citations
 
