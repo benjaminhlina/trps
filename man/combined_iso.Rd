@@ -6,7 +6,7 @@
 \title{Stable isotope data for lake trout, amphipods (benthic baseline; baseline 1)
 and dreissenids (pelagic baseline; baseline 2),}
 \format{
-\code{data.frame} containing 30 rows and 13 variables
+\code{data.frame} containing 117 rows and 13 variables
 \describe{
 \item{id}{row id number}
 \item{common_name}{name of the spcies (i.e., Lake Trout)}
@@ -29,7 +29,7 @@ combined_iso
 }
 \description{
 Stable isotope data (\eqn{\delta^{13}}C and
-\eqn{\delta ^{15}}N) for lake trout collected from an ecoregion in
+\eqn{\delta ^{15}}N) for lake trout collected from two ecoregions in
 Lake Ontario. Values of \eqn{\delta ^{13}}C and
 \eqn{\delta ^{15}}N for a benthic baseline (amphipods; baseline 1;
 \code{c1} and \code{n1}) and  pelagic baseline
