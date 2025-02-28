@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 The purpose of this vignette is to learn how to estimate trophic position of a 
 species using stable isotope data
-($\delta^{13}C$ and $\delta^{15}N$). We can estiamte trophic psoition using 
+($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using 
 a one source model based on equations from 
 [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
@@ -40,18 +40,14 @@ $\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the
 $\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
 (e.g., 3.4). 
 
-To use this model with a Bayesian framework deployed by 
-`one_source_model()` in {trps}, we need to rearrange 
-this equation to the following: 
-
+To use this model with a Bayesian framework, we need to rearrange 
+this equation. A function in {trps}, `one_source_model()` 
+uses this rearranged equation below: 
 
 
 $$
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda)  
 $$
-
-
-
 
 
 ## Vignette structure   
@@ -74,7 +70,7 @@ and [{ggdist}](https://mjskay.github.io/ggdist/).
 
 ## Load packages 
 
-Below we will load all the packages needed to carry out the anlaysis
+Below we will load all the packages needed to carry out the analysis.
 
 ```{r setup, message=FALSE}
 {
@@ -132,7 +128,8 @@ Let's first add `id` to `consumer_iso` data frame.
  
 ```{r}
 consumer_iso <- consumer_iso %>% 
-  group_by(common_name, ecoregion) %>% 
+  arrange(ecoregion, common_name) %>% 
+  group_by(ecoregion, common_name) %>% 
   mutate(
     id = row_number()
   ) %>% 
@@ -147,7 +144,8 @@ are going to drop `common_name` from this data frame.
 
 ```{r}
 baseline_1_iso <- baseline_1_iso %>% 
-  group_by(common_name, ecoregion) %>% 
+  arrange(ecoregion, common_name) %>% 
+  group_by(ecoregion, common_name) %>% 
   mutate(
     id = row_number()
   ) %>% 
@@ -187,6 +185,7 @@ There are a few things to know about running a Bayesian analysis, I suggest
 reading a these resources. 
 
 ### Priors 
+
 Bayesian analyses rely on supplying uninformed or informed prior distributions 
 for each parameter (coefficient; predictor) in the model. The default informed
 priors for a one source model are the following, $\Delta N$ assumes a normal 
@@ -244,6 +243,7 @@ m <- brm(
 ```
 
 ### Model output 
+
 Let's view the summary of the model. 
 
 ```{r}
@@ -271,7 +271,7 @@ Let's again look at the summary output from the model.
 m
 ```
 
-We can see that $\delta N$ is estimated to be `3.38` with  `l-95% CI` of `2.90`, 
+We can see that $\Delta N$ is estimated to be `3.38` with  `l-95% CI` of `2.90`, 
 and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we 
 see trophic position is estimated to be `4.41` with `l-95% CI` of `3.97`, 
 and `u-95% CI` of `4.92`. 
@@ -306,16 +306,19 @@ We can see that this consists of five variables `.chain`, `.itteration`,
 `.draw`, `.variable` (this will have different variables of interest if you 
 supply `gather_draws()` with more than one variable), `.value` (estimated value). 
 
-## Plot 
+## Ploting posterior distributions  
 
-Now that we have our posteriors extracted we can plot them. For comparing 
+Now that we have our posterior draws extracted we can plot them. For comparing 
 trophic position among species or groups, I like using either 
 violin plots, interval points, or slab plots for posteriors. We can access 
 violins through {ggplot2} with the later being available in {ggdist}. 
 
-However, for this example we are only going to plot the distribution. Further 
-below I'll demonstrate how to run the model itteratively producing 
-estimates of trophic position for more groups 
+For this example, however, we are going to plot the density for posterior
+draws using `geom_desnity()`. I'll demonstrate below how to run the model 
+with an iterative process to produce estimates of trophic position for more 
+than one group (e.g., comparing trophic position among species or different 
+ecoergion). 
+
 
 ```{r}
 ggplot(data = post_draws, aes(x = .value)) + 
@@ -330,6 +333,96 @@ ggplot(data = post_draws, aes(x = .value)) +
   )
 ```
 
-Congratulations we have estimate trophic position for Lake Trout. We will 
-extend this to compare trophic position for Lake Trout among different regions 
-below with some data already formatted that is in the package. 
+Congratulations we have estimate trophic position for Lake Trout! We will 
+further compare trophic position for Lake Trout among different regions 
+below with some data already formatted and ready to go that is in the package. 
+
+## Trophic position for multiple groups
+
+In {trps} we have a data set that has consumer and baseline data already joined 
+for two ecoregions (`combined_iso`). Let's look at this data frame. 
+
+### Organize data 
+```{r}
+combined_iso
+```
+
+We can see that this data frame has a isotope data for a 
+second baseline (dreissenids; `c2` and `n2`) as well as the mean values for both 
+baselines. These columns will be used when estimating trophic position 
+using a two source model and will need to be removed these columns. We can 
+also confirm that this data set has one species, lake trout, collected from 
+two ecoregions in Lake Ontario. 
+
+```{r}
+unique(combined_iso$ecoregion)
+```
+
+Let's remove the columns we don't need, `c2`, `n2`, `c1_mean`, `n1_mean`, 
+`c2_mean`, `n2_mean`. We also need to add $\lambda$ to the data frame (`l1`), 
+and I am going to make a `name` column that will be the two groups we have 
+`common_name` and `ecoregion` pasted together. We are doing this to make the 
+itterative processes easier. 
+
+```{r}
+combined_iso_update <- combined_iso %>% 
+  dplyr::select(-c(c2:n2_mean)) %>% 
+  mutate(
+    l1 = 2, 
+    name = paste(ecoregion, common_name, sep = "_")
+  )
+
+combined_iso_update
+```
+
+This example data is now ready to be analyzed. 
+
+## Model Trophic position for multiple groups
+
+We will use similar structure as before to model however, we will first `split()` 
+the data into a list for all group combinations and then use `map()` from 
+{purrr} to run the model for each group.
+
+You will notice that the `brm()` call is exactly the same as when we ran the model
+for one group. The only difference here is we are using `map()` and replacing the 
+`data` argument in `brm()` with `.x` to tell `brm()` and `map()` where to get 
+the data.
+
+### Model 
+Let's run the model! 
+
+```{r}
+m1 <- combined_iso_update %>% 
+  split(.$name) %>% 
+  map( ~ brm(
+  formula = one_source_model(),
+  prior = one_source_priors(),
+  stanvars = one_source_priors_params(),
+  data = .x,
+  family = gaussian(),
+  chains = 2,
+  iter = 4000,
+  warmup = 1000,
+  cores = 4,
+  seed = 4,
+  control = list(adapt_delta = 0.95)
+), 
+.progress = TRUE
+)
+```
+
+### Model output 
+Let's look at the summary of both models. 
+
+```{r}
+m1
+```
+
+### Trace plots  
+Let's look at the trace plots and distributions 
+
+```{r}
+m1 %>% 
+  map(~ plot(.x))
+```
+
