@@ -684,6 +684,10 @@ argument in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" cla
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
+<p>We can see that the R-hat is 1 meaning that variance among and within
+chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+docmentation on R-hat</a>). and that ESS is quite large. Overall this
+means the both models are converging and fitting accordingly.</p>
 </div>
 <div class="section level3">
 <h3 id="trace-plots-1">Trace plots<a class="anchor" aria-label="anchor" href="#trace-plots-1"></a>
@@ -701,6 +705,8 @@ argument in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" cla
 <span><span class="co">#&gt; $`Embayment_Lake Trout`</span></span>
 <span><span class="co">#&gt; $`Embayment_Lake Trout`[[1]]</span></span></code></pre>
 <p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-21-4.png" width="700"></p>
+<p>We can see that the trace plots look “grassy” meaning the model is
+converging!</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
