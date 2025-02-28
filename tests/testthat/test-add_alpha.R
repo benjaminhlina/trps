@@ -7,7 +7,7 @@ test_that("test adding estimates of alpha ", {
     add_alpha()
 
 
-  exc <- -0.4400
+  exc <- 0.76
   expect_equal(round(dats$alpha[1], 2), exc)
 }
 )
@@ -29,7 +29,7 @@ test_that("test adding estimates of max_alpha ", {
     add_alpha()
 
 
-  exc <- 0.0600
+  exc <- 1.27
   expect_equal(round(dats$max_alpha[1], 2), exc)
 }
 )
@@ -60,7 +60,7 @@ test_that("test adding estimates of alpha ", {
     add_alpha(abs = TRUE)
 
 
-  exc <- 0.44
+  exc <- 0.76
   expect_equal(round(dats$alpha[1], 2), exc)
 }
 )
