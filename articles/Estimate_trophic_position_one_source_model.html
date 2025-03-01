@@ -180,8 +180,8 @@ collected (<code>ecoregion</code>) and
 <div class="section level3">
 <h3 id="baseline-data">Baseline data<a class="anchor" aria-label="anchor" href="#baseline-data"></a>
 </h3>
-<p>Next for this vignette we will only assess benthic baseline data
-set.</p>
+<p>Next for this vignette we will only assess and use benthic baseline
+data set.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">baseline_1_iso</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 4</span></span></span>
@@ -216,7 +216,13 @@ collected (<code>ecoregion</code>) and
 <p>Now that we understand the data we need to combine both data sets to
 estimate trophic position for our consumer. To do this we first need to
 make an <code>id</code> column in each data set that will assist in
-joining them together.</p>
+joining them together. We will first <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange()</a></code> the data by
+<code>ecoregion</code> and then <code>common_name</code>. We will then
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> the same variables and add <code>id</code> for
+each grouping using <code><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number()</a></code>. Always
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup()</a></code> the data frame after completing
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. Lastly, we will use
+<code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> rearrange the order of the columns.</p>
 <div class="section level3">
 <h3 id="consumer-data-1">Consumer data<a class="anchor" aria-label="anchor" href="#consumer-data-1"></a>
 </h3>
@@ -251,9 +257,10 @@ frame. For joining purposes we are going to drop
 <div class="section level3">
 <h3 id="joining-isotope-data">Joining isotope data<a class="anchor" aria-label="anchor" href="#joining-isotope-data"></a>
 </h3>
-<p>Now that we have both the consumer and baseline in a consistent
-structure we can join them using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> from {dplyr}.
-We will also add in the constant
+<p>Now that we have the consumer and baseline data sets in a consistent
+structure we can join them by <code>"id"</code> and
+<code>"ecoregion"</code> using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> from {dplyr}. We
+will also add in the constant
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 (<code>l1</code>) to our data frame.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -290,7 +297,7 @@ names <code>d15n</code>, <code>n1</code>, and <code>l1</code>.</p>
 <p>We can now estimate trophic position for lake trout in an ecoregion
 of Lake Ontario.</p>
 <p>There are a few things to know about running a Bayesian analysis, I
-suggest reading a these resources.</p>
+suggest reading these resources:</p>
 <div class="section level3">
 <h3 id="priors">Priors<a class="anchor" aria-label="anchor" href="#priors"></a>
 </h3>
@@ -301,11 +308,11 @@ The default informed priors for a one source model are the following,
 assumes a normal distribution (<code>dn</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>3.4</mn></mrow><annotation encoding="application/x-tex">\mu = 3.4</annotation></semantics></math>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0.25</mn></mrow><annotation encoding="application/x-tex">\sigma = 0.25</annotation></semantics></math>),
-trophic position assumes a uniform distribution (<code>lb = 2</code> and
-<code>ub = 10</code>),
+trophic position assumes a uniform distribution (lower bound =
+<code>2</code>and upper bound = <code>10</code>),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
-assumes a uniform distribution (<code>lb = 0</code> and .
-<code>ub = 10</code>), and if informed priors are desired for
+assumes a uniform distribution (lower bound = <code>0</code> and upper
+bound = <code>10</code>) and if informed priors are desired for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_b</annotation></semantics></math>
 (<code>n1</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu = 9</annotation></semantics></math>;
@@ -317,12 +324,13 @@ we can set the argument <code>bp</code> to <code>TRUE</code> in all
 <h3 id="model-convergence">Model convergence<a class="anchor" aria-label="anchor" href="#model-convergence"></a>
 </h3>
 <p>Some important things to pay attention to are always run at least 2
-chains, if the model does not converge you can try to adjust the amount
-of samples that are burned-in (discarded; in brms this can be controlled
-by the argument <code>warmup</code>), adjust the number of iterative
-samples retained (in brms this can be controlled by the argument
-<code>iter</code>), and/or adjust the <code>adapt_delta</code> value
-using <code>control = list(adapt_delta = 0.95)</code>.</p>
+chains, if the model does not converge you can try to increase the
+amount of samples that are burned-in (discarded; in brms this can be
+controlled by the argument <code>warmup</code>), increase the number of
+iterative samples retained (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this can be controlled
+by the argument <code>iter</code>), and/or adjust the
+<code>adapt_delta</code> value using
+<code>control = list(adapt_delta = 0.95)</code>.</p>
 <p>When assessing the model we want R-hat to be 1 or within 0.05 of 1,
 we also want a high value for effective sample size (ESS), we want trace
 plots to look “grassy” or “catapillery”, and we want posterior
@@ -632,8 +640,7 @@ argument in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" cla
 <span><span class="co">#&gt;  <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span>  50% |  ETA:  1m</span></span>
 <span><span class="co">#&gt; Warning: Rows containing NAs were excluded from the model.</span></span>
 <span><span class="co">#&gt; Compiling Stan program...</span></span>
-<span><span class="co">#&gt; Start sampling</span></span>
-<span><span class="co">#&gt; 2:</span></span></code></pre></div>
+<span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="model-output---multiple-groups">Model output - multiple groups<a class="anchor" aria-label="anchor" href="#model-output---multiple-groups"></a>
