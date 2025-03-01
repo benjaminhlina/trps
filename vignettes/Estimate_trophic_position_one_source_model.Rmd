@@ -107,7 +107,7 @@ $\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`).
 
 ### Baseline data 
 
-Next for this vignette we will only assess benthic baseline data set.
+Next for this vignette we will only assess and use benthic baseline data set.
 
 ```{r}
 baseline_1_iso
@@ -121,7 +121,12 @@ $\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`).
 
 Now that we understand the data we need to combine both data sets to estimate 
 trophic position for our consumer. To do this we first need to make an `id` 
-column in each data set that will assist in joining them together.  
+column in each data set that will assist in joining them together.  We will
+first `arrange()` the data by `ecoregion` and then `common_name`. We will then 
+`group_by()` the same variables and add `id` for each grouping using 
+`row_number()`. Always `ungroup()` the data frame after completing 
+`group_by()`. Lastly, we will use `dplyr::select()` rearrange the order of the 
+columns. 
 
 ### Consumer data
 
@@ -156,8 +161,9 @@ baseline_1_iso <- baseline_1_iso %>%
 
 ### Joining isotope data 
 
-Now that we have both the consumer and baseline in a  consistent
-structure we can join them using `left_join()` from {dplyr}. We will also add in 
+Now that we have the consumer and baseline data sets in a consistent
+structure we can join them by `"id"` and `"ecoregion"`
+using `left_join()` from {dplyr}. We will also add in 
 the constant $\lambda$ (`l1`) to our data frame. 
 
 ```{r}
@@ -183,7 +189,7 @@ We can now estimate trophic position for lake trout in an ecoregion of
 Lake Ontario. 
 
 There are a few things to know about running a Bayesian analysis, I suggest 
-reading a these resources. 
+reading these resources:
 
 ### Priors 
 
@@ -191,18 +197,19 @@ Bayesian analyses rely on supplying uninformed or informed prior distributions
 for each parameter (coefficient; predictor) in the model. The default informed
 priors for a one source model are the following, $\Delta N$ assumes a normal 
 distribution (`dn`; $\mu = 3.4$; 
-$\sigma = 0.25$), trophic position assumes a uniform distribution (`lb = 2`
-and `ub = 10`), $\sigma$ assumes a uniform distribution (`lb = 0` and . 
-`ub = 10`), and if informed priors are desired for 
-$\delta^{15}N_b$ (`n1`; $\mu = 9$; $\sigma = 1$), 
-we can set the argument `bp` to `TRUE` in all `one_source_` functions. 
+$\sigma = 0.25$), trophic position assumes a uniform distribution 
+(lower bound = `2`and upper bound = `10`), $\sigma$ assumes a uniform 
+distribution (lower bound = `0` and upper bound = `10`) and if 
+informed priors are desired for $\delta^{15}N_b$ (`n1`; $\mu = 9$; 
+$\sigma = 1$), we can set the argument `bp` to `TRUE` in 
+all `one_source_` functions. 
 
 ### Model convergence 
 Some important things to pay attention to are 
 always run at least 2 chains, if the model does not converge you can try 
-to adjust the amount of samples that are burned-in (discarded; in brms 
-this can be controlled by the argument `warmup`), adjust the number of 
-iterative samples retained (in brms this can be controlled by the 
+to increase the amount of samples that are burned-in (discarded; in brms 
+this can be controlled by the argument `warmup`), increase the number of 
+iterative samples retained (in `brm()` this can be controlled by the 
 argument `iter`), and/or adjust the `adapt_delta` value using 
 `control = list(adapt_delta = 0.95)`. 
 
