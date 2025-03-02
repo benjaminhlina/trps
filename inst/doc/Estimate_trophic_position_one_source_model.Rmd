@@ -1,0 +1,642 @@
+---
+title: "Estimate trophic position - one source model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Estimate trophic position - one source model}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+ 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>"
+)
+```
+
+## Our Objectives
+
+The purpose of this vignette is to learn how to estimate trophic position of a 
+species using stable isotope data
+($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using 
+a one source model based on equations from 
+[Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+
+## Trophic Position Model
+
+For a one source model from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
+the equation consists of the following: 
+
+
+
+$$
+\text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
+$$
+
+
+
+Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
+$\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the 
+$\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
+(e.g., 3.4). 
+
+To use this model with a Bayesian framework, we need to rearrange 
+this equation. A function in [{trps}](https://benjaminhlina.github.io/trps/) , `one_source_model()`, uses this rearranged equation below: 
+
+
+$$
+\delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda) 
+$$
+
+
+## Vignette structure  
+
+First we will need to organize the data prior to running the model. 
+To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
+[{tidyr}](https://tidyr.tidyverse.org/) but we could also use 
+[{data.table}](https://rdatatable.gitlab.io/data.table/) to do this work. 
+
+When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) 
+and [{brms}](https://paulbuerkner.com/brms/) and iterative processes provided 
+by [{purrr}](https://purrr.tidyverse.org/). 
+
+Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayesplot/) 
+to assess models and then extract posterior draws using 
+[{bayestestR}](https://easystats.github.io/bayestestR/) and 
+[{tidybayes}](http://mjskay.github.io/tidybayes/). 
+Posterior distributions will be plotted using [[{ggplot2}](https://ggplot2.tidyverse.org/) ](https://ggplot2.tidyverse.org/) 
+and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by 
+[{viridis}](https://sjmgarnier.github.io/viridis/).
+
+## Load packages 
+
+Below we will load all the packages needed to carry out the analysis.
+
+```{r setup, message=FALSE}
+{
+  library(bayesplot)
+  library(bayestestR)
+  library(brms)
+  library(dplyr)
+  library(ggplot2)
+  library(ggdist)
+  library(grid)
+  library(purrr)
+  library(tidybayes)
+  library(tidyr)
+  library(trps)
+  library(viridis)
+  }
+```
+
+## Assess data 
+
+In [{trps}](https://benjaminhlina.github.io/trps/) we have several data sets, 
+they include stable isotope data ($\delta^{13}C$ and $\delta^{15}N$) for a
+consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
+and a pelagic baseline, dreissenids for a ecoregion in Lake Ontario. 
+
+### Consumer data
+
+We will check out each data set with the first being the consumer. 
+```{r}
+consumer_iso
+```
+
+We can see that this data set contains the common name of the consumer 
+(`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
+$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
+
+### Baseline data 
+
+Next for this vignette we will only assess and use the benthic baseline data set.
+
+```{r}
+baseline_1_iso
+```
+
+We can see that this data set contains the common name of the baseline 
+(`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
+$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
+
+## Organizing data 
+
+Now that we understand the data we need to combine both data sets to estimate 
+trophic position for our consumer. To do this we first need to make an `id` 
+column in each data set that will assist in joining them together. We will
+first `arrange()` the data by `ecoregion` and then `common_name`. We will then 
+`group_by()` the same variables, and add `id` for each grouping using 
+`row_number()`. Always `ungroup()` the data frame after completing 
+`group_by()`. Lastly, we will use `dplyr::select()` to rearrange the order of the 
+columns. 
+
+### Consumer data
+
+Let's first add `id` to `consumer_iso` data frame. 
+
+```{r}
+consumer_iso <- consumer_iso %>% 
+ arrange(ecoregion, common_name) %>% 
+ group_by(ecoregion, common_name) %>% 
+ mutate(
+  id = row_number()
+ ) %>% 
+ ungroup() %>% 
+ dplyr::select(id, common_name:d15n)
+```
+
+### Baseline data 
+
+Next let's add `id` to `baseline_1_iso` data frame. For joining purposes we 
+are going to drop `common_name` from this data frame. 
+
+```{r}
+baseline_1_iso <- baseline_1_iso %>% 
+ arrange(ecoregion, common_name) %>% 
+ group_by(ecoregion, common_name) %>% 
+ mutate(
+  id = row_number()
+ ) %>% 
+ ungroup() %>% 
+ dplyr::select(id, ecoregion:n1)
+```
+
+### Joining isotope data 
+
+Now that we have the consumer and baseline data sets in a consistent
+structure we can join them by `"id"` and `"ecoregion"`
+using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/). We will also 
+add in the constant $\lambda$ (`l1`) to our data frame. 
+
+```{r}
+combined_iso_os <- consumer_iso %>% 
+ left_join(baseline_1_iso, by = c("id", "ecoregion")) %>% 
+ mutate(
+  l1 = 2
+ )
+```
+
+We can see that we have successfully combined our consumer and baseline data
+and it is now ready to be analyzed.
+
+```{r}
+combined_iso_os
+```
+
+Important note, to run the model successfully columns need to be named `d15n`, 
+`n1`, and `l1`. 
+
+## Bayesian Analysis
+
+We can now estimate trophic position for lake trout in an ecoregion of
+Lake Ontario. 
+
+There are a few things to know about running a Bayesian analysis, I suggest 
+reading these resources:
+
+### Priors 
+
+Bayesian analyses rely on supplying uninformed or informed prior distributions 
+for each parameter (coefficient; predictor) in the model. The default informed
+priors for a one source model are the following, $\Delta N$ assumes a normal 
+distribution (`dn`; $\mu = 3.4$; 
+$\sigma = 0.25$), trophic position assumes a uniform distribution 
+(lower bound = `2`and upper bound = `10`), $\sigma$ assumes a uniform 
+distribution (lower bound = `0` and upper bound = `10`) and if 
+informed priors are desired for $\delta^{15}N_b$ (`n1`; $\mu = 9$; 
+$\sigma = 1$), we can set the argument `bp` to `TRUE` in 
+all `one_source_` functions. 
+
+### Model convergence 
+
+Some important things to pay attention to are 
+always run at least 2 chains, if the model does not converge you can try 
+to increase the amount of samples that are burned-in (discarded; in brms 
+this can be controlled by the argument `warmup`), increase the number of 
+iterative samples retained (in `brm()` this can be controlled by the 
+argument `iter`), increase the the number of samples drawn (in `brm()` 
+this is controled by the argument `thin`), and/or adjust the `adapt_delta` 
+value using `control = list(adapt_delta = 0.95)`. 
+
+When assessing the model we want R-hat to be 1 or within 0.05, 
+meaning that variance among and within chains is equal 
+(See 
+[{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)),
+a high value for effective sample size (ESS), trace plots to look 
+"grassy" or "catapillery", and posterior distributions to look relatively
+normal. 
+
+## Estimating trophic position 
+
+We will use functions from [{trps}](https://benjaminhlina.github.io/trps/)
+that drop into a [{brms}](https://paulbuerkner.com/brms/) model. These 
+functions are `one_source_model()` which provides `brm()` the formula structure
+needed to run a one source model. Next `brm()` needs the structure of the 
+priors which is supplied to the `prior` argument using `one_source_priors()`. 
+Lastly, values for these priors are supplied through the `stanvars` argument 
+using `one_source_priors_params()`. You can adjust the mean ($\mu$), 
+variance ($\sigma$), or upper and lower bounds (`lb` and `ub`) for each prior 
+of the model within `one_soruce_priors_params()`, however, only adjust priors 
+if you have a good grasp of Bayesian frameworks and your study system and 
+species. 
+
+### Model 
+Let's run the model! 
+
+```{r}
+m <- brm(
+ formula = one_source_model(),
+ prior = one_source_priors(),
+ stanvars = one_source_priors_params(),
+ data = combined_iso_os,
+ family = gaussian(),
+ chains = 2,
+ iter = 4000,
+ warmup = 1000,
+ cores = 4,
+ seed = 4,
+ control = list(adapt_delta = 0.95)
+)
+```
+
+### Model output 
+
+Let's view the summary of the model. 
+
+```{r}
+m
+```
+We can see that the R-hat is 1 meaning that variance among and within chains is 
+equal (See 
+[{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+and that ESS is quite large. Overall, this means the model is converging 
+and fitting accordingly. 
+
+### Trace plots 
+Let's view trace plots and posterior distributions for the model. 
+
+```{r}
+plot(m)
+```
+
+We can see that the trace plots look "grassy" meaning the model is converging! 
+
+## Posterior draws 
+
+Let's again look at the summary output from the model. 
+
+```{r}
+m
+```
+
+We can see that $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.90`, 
+and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we 
+see trophic position is estimated to be `4.41` with `l-95% CI` of `3.97`, 
+and `u-95% CI` of `4.92`. 
+
+### Extract posterior draws 
+
+We will use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we will look at 
+the the names of the variables we want to extract using `get_variables()`. 
+
+```{r}
+get_variables(m)
+```
+
+You will notice that `"b_tp_Intercept"` is the name of the variable in the 
+model object that we are most interested in extracting. We then get posterior 
+draws using `gather_draws()`. I am going to rename `"b_tp_Intercept"` to `tp`. 
+
+```{r}
+post_draws <- m %>% 
+ gather_draws(b_tp_Intercept) %>% 
+ mutate(
+  ecoregion = "Embayment",
+  common_name = "Lake Trout",
+  .variable = "tp"
+ ) %>% 
+ dplyr::select(common_name, ecoregion, .chain:.value)
+```
+
+Let's view the `post_draws`
+
+```{r}
+post_draws
+```
+We can see that this consists of seven variables, `ecoregion`,
+`common_name`, `.chain` (chain number), 
+`.iteration`(number sampled after burn-in; adjusted using `inter`), 
+`.draw` (number sampled from `iter`; adjusted using `thin`), 
+`.variable` (this will have different variables of interest if you 
+supply `gather_draws()` with more than one variable), `.value` (estimated value). 
+
+## Ploting posterior distributions 
+
+Now that we have our posterior draws extracted we can plot them. For comparing 
+trophic position among species or groups, I like using either 
+violin plots, interval points, or slab plots for posteriors. We can access 
+violins through [{ggplot2}](https://ggplot2.tidyverse.org/) with the later being available in [{ggdist}](https://mjskay.github.io/ggdist/). 
+
+For this example, however, we first are going to plot the density for posterior
+draws using `geom_density()` and then as a point interval using 
+`stat_pointinterval()`. 
+
+```{r}
+ggplot(data = post_draws, aes(x = .value)) + 
+ geom_density() + 
+ theme_bw(base_size = 15) +
+ theme(
+  panel.grid = element_blank()
+ ) + 
+ labs(
+  x = "P(Trophic Position | X)", 
+  y = "Density"
+ )
+```
+
+and then as point interval. 
+
+```{r}
+ggplot(data = post_draws, aes(y = .value, 
+               x = common_name)) + 
+ stat_pointinterval() + 
+ theme_bw(base_size = 15) +
+ theme(
+  panel.grid = element_blank()
+ ) + 
+ labs(
+  x = "P(Trophic Position | X)", 
+  y = "Density"
+ )
+```
+
+Congratulations we have estimate trophic position for Lake Trout! 
+I'll demonstrate below how to run the model with an iterative process to 
+produce estimates of trophic position for more than one group 
+(e.g., comparing trophic position among species or different 
+ecoergion). 
+
+## Estimate trophic position - multiple groups 
+
+In [{trps}](https://benjaminhlina.github.io/trps/) we have a data set that has 
+consumer and baseline data already joined 
+for two ecoregions (`combined_iso`). Let's look at this data frame. 
+
+### Organize data - multiple groups 
+```{r}
+combined_iso
+```
+
+We can see that this data frame has a isotope data for a 
+second baseline (dreissenids; `c2` and `n2`) as well as the mean values for both 
+baselines. These columns are useful when estimating trophic position 
+using a two source model but can be removed for this analysis.
+
+We can also confirm that this data set has one species, lake trout. 
+```{r}
+unique(combined_iso$common_name)
+```
+
+collected from two ecoregions in Lake Ontario. 
+
+```{r}
+unique(combined_iso$ecoregion)
+```
+
+Let's remove the columns we don't need, `c2`, `n2`, `c1_mean`, `n1_mean`, 
+`c2_mean`, `n2_mean`. We also need to add $\lambda$ to the data frame (`l1`), 
+and I am going to make a `name` column that will be the two groups we have 
+`common_name` and `ecoregion` pasted together. We are doing this to make the 
+iterative processes easier. 
+
+```{r}
+combined_iso_update <- combined_iso %>% 
+ dplyr::select(-c(c2:n2_mean)) %>% 
+ mutate(
+  l1 = 2, 
+  name = paste(ecoregion, common_name, sep = "_")
+ )
+
+combined_iso_update
+```
+
+This example data is now ready to be analyzed. 
+
+## Model trophic position - multiple groups 
+
+We will use similar structure as before to model however, we will first `split()` 
+the data into a list for all groups and then use `map()` from 
+[{purrr}](https://purrr.tidyverse.org/) to run the model for each group.
+
+You will notice that the `brm()` call is exactly the same as when we ran the model
+for one group. The only difference here is when using `map()`, the 
+`data` argument in `brm()` needs to be replaced with `.x` to tell `brm()` where 
+to get the data.
+
+### Model - multiple groups 
+Let's run the model! 
+
+```{r}
+m1 <- combined_iso_update %>% 
+ split(.$name) %>% 
+ map( ~ brm(
+  formula = one_source_model(),
+  prior = one_source_priors(),
+  stanvars = one_source_priors_params(),
+  data = .x,
+  family = gaussian(),
+  chains = 2,
+  iter = 4000,
+  warmup = 1000,
+  cores = 4,
+  seed = 4,
+  control = list(adapt_delta = 0.95)
+ ), 
+ .progress = TRUE
+ )
+```
+
+### Model output - multiple groups 
+Let's look at the summary of both models. 
+
+```{r}
+m1
+```
+
+We can see that the R-hat is 1 meaning that variance among and within chains is 
+equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+and that ESS is quite large for both groups. 
+Overall this means the both models are converging and fitting accordingly. 
+
+### Trace plots - multiple groups 
+
+Let's look at the trace plots and distributions. We will use `iwalk()` instead 
+of `map()` here as `walk()` invisibly return `.x` which is handy when you want 
+to call a function (`plot()`) for its side effects rather than its return value.
+I have also added `grid.text()` from {grid} to add in the name of the group
+to each plot. 
+
+```{r}
+
+m1 %>% 
+ iwalk(~ {
+  plot(.x) 
+  grid.text(.y, x = 0.5, y = 0.98)
+ })
+```
+
+We can see that the trace plots look "grassy" meaning the model is converging! 
+
+## Posterior draws - multiple groups 
+
+Let's again look at the summary output from the model. 
+
+```{r}
+m1
+```
+
+We can see for lake trout from the Anthropogenic ecoregion that
+$\Delta N$ is estimated to be `3.39` with `l-95% CI` of `2.91`, 
+and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) we 
+see trophic position is estimated to be `4.48` with `l-95% CI` of `4.43`, 
+and `u-95% CI` of `5.39`. 
+
+We can see for lake trout from the Embayment ecoregion that 
+$\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.90`, 
+and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we 
+see trophic position is estimated to be `4.41` with `l-95% CI` of `3.97`, 
+and `u-95% CI` of `4.92`. 
+
+### Extract posterior draws - multiple groups 
+
+We will use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we will look at 
+the the names of the variables we want to extract using `get_variables()`. 
+Considering we have multiple models in `m1` we need to use `map()` to iterate
+over `m1` to get variables.
+
+```{r}
+m1 %>% 
+ map(~ get_variables(.x))
+```
+
+You will notice that `"b_tp_Intercept"` is the name of the variable in the 
+model object that we are most interested in extracting. We then get posterior 
+draws using `gather_draws()`. We are going to rename `"b_tp_Intercept"` to `tp`. 
+
+Again, considering we have multiple models in `m1` we need to use `map()` 
+to iterate over `m1` to get the posterior draws. Once we have iterated over 
+`m1` to extract draws we can combine the results using `bind_rows()` from 
+{dplyr}. The variable `name` will have the ecoregion and common name 
+of the species, however, they will pasted to together by a `_`. We need 
+separate the the string into the two variables we want `ecoregion` and 
+`common_name`. We can do this by using `separate_wider_delim()` from 
+{tidyr}. When using this function it will separate the columns and 
+keep them as `characters`, hence why the last step is to convert `ecoregion` 
+into a `factor`. 
+
+```{r}
+post_draws_mg <- m1 %>%
+ map(~ .x %>% 
+    gather_draws(b_tp_Intercept) %>% 
+    mutate(
+     .variable = "tp"
+    )
+ ) %>% 
+ bind_rows(.id = "name") %>% 
+ separate_wider_delim(name, names = c("ecoregion", "common_name"), 
+            delim = "_") %>% 
+ mutate(
+  ecoregion = factor(ecoregion, 
+            levels = c("Anthropogenic", "Embayment")), 
+ )
+```
+
+Let's view the `post_draws_mg`
+
+```{r}
+post_draws_mg
+```
+
+We can see that this consists of seven variables, `ecoregion`, `common_name`,
+`.chain`, `.itteration`, `.draw`, `.variable` 
+(this will have different variables of interest if you 
+supply `gather_draws()` with more than one variable), `.value` (estimated value). 
+
+Note - the first two columns will vary depending on the names you split your data
+into. 
+
+## Ploting posterior distributions - multiple groups 
+
+Now that we have our posterior draws extracted we can plot them. For comparing 
+trophic position among species or groups, I like using either 
+violin plots, interval points, or slab plots for posteriors. We can access 
+violins through [{ggplot2}](https://ggplot2.tidyverse.org/) with the later 
+being available in [{ggdist}](https://mjskay.github.io/ggdist/). 
+
+Let's first look at the violin plot. 
+```{r}
+ggplot(data = post_draws_mg, aes(x = common_name, 
+                 y = .value, 
+                 fill = ecoregion)) + 
+ geom_violin() + 
+ stat_summary(fun = median, geom = "point", 
+        size = 3, 
+        position = position_dodge(0.9)
+ ) + 
+ scale_fill_viridis_d(name = "Ecoregion", 
+            option = "G", 
+            begin = 0.35, 
+            end = 0.75, alpha = 0.65) + 
+ theme_bw(base_size = 15) + 
+ theme(
+  panel.grid = element_blank(),
+  legend.position = "inside", 
+  legend.position.inside = c(0.85, 0.86)
+ ) +
+ labs(
+  x = "Species", 
+  y = "P(Trophic Position | X)"
+ )
+```
+
+Lastly, let's look at the point interval plot but first we need to create the 
+colour pallette. 
+```{r}
+viridis_colours <- viridis(2,
+                           option = "G",
+                           begin = 0.35, 
+                           end = 0.75, 
+                           alpha = 0.65)
+```
+
+Now let's plot the point intervals. 
+
+```{r}
+ggplot(data = post_draws_mg, aes(x = common_name, 
+                                 y = .value, 
+                                 group = ecoregion)) + 
+  stat_pointinterval(
+    aes(point_fill = ecoregion),
+    point_size = 4,
+    interval_colour = "grey60",
+    position = position_dodge(0.4),
+    shape = 21,
+  ) + 
+  scale_fill_manual(aesthetics = "point_fill",
+                    values = viridis_colours,
+                    name = "Ecoregion") +
+  theme_bw(base_size = 15) + 
+  theme(
+    panel.grid = element_blank(),
+    legend.position = "inside", 
+    legend.position.inside = c(0.85, 0.86)
+  ) +
+  labs(
+    x = "Species", 
+    y = "P(Trophic Position | X)"
+  )
+```
+
+
+Congratulations we have successfully run a Bayesian one source trophic position 
+model for one species in two ecoregions of Lake Ontario! 
