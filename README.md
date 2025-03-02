@@ -50,18 +50,18 @@ to be used with stable isotope data for different species.
 
 ## Installation
 
-You can install the development version of {trps} using the following:
-
-``` r
-devtools::install_github("benjaminhlina/trps")
-```
-
 You can install the R-Universe version of {trps} using the following:
 
 ``` r
 install.packages("trps", 
                   repos = c("https://benjaminhlina.r-universe.dev",
                             "https://cloud.r-project.org"))
+```
+
+You can install the development version of {trps} using the following:
+
+``` r
+devtools::install_github("benjaminhlina/trps")
 ```
 
 ## Vignettes
