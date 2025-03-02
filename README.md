@@ -70,11 +70,20 @@ I highly suggest going through the vignettes as they will walk you
 through how to use create each trophic position model using {trps} and
 {brms}.
 
+``` r
+vignette("Estimate_trophic_position_one_source_model")
+```
+
+You can also use the following to see vignettes:
+
+``` r
+browseVignettes("trps")
+```
+
 The vignettes are currently available online under the articles section
 of the website. See the following links, [Estimate trophic position -
 one
 source](https://benjaminhlina.github.io/trps/articles/Estimate_trophic_position_one_source_model.html).
-They will be available within the package soon.
 
 ## Citations
 
