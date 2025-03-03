@@ -176,7 +176,7 @@ consumer.</p>
 consumer (<code>common_name</code>), the ecoregion samples were
 collected from (<code>ecoregion</code>), and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
-(<code>d13c</code>) and and
+(<code>d13c</code>) and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 (<code>d15n</code>).</p>
 </div>
@@ -208,7 +208,7 @@ baseline data set.</p>
 baseline (<code>common_name</code>), the ecoregion samples were
 collected from (<code>ecoregion</code>), and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
-(<code>d13c</code>) and and
+(<code>d13c</code>) and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 (<code>d15n</code>).</p>
 </div>
@@ -217,14 +217,14 @@ collected from (<code>ecoregion</code>), and
 <h2 id="organizing-data">Organizing data<a class="anchor" aria-label="anchor" href="#organizing-data"></a>
 </h2>
 <p>Now that we understand the data we need to combine both data sets to
-estimate trophic position for our consumer. To do this we first need to
-make an <code>id</code> column in each data set that will assist in
-joining them together. We will first <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange()</a></code> the data by
-<code>ecoregion</code> and then <code>common_name</code>. We will then
-<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> the same variables, and add <code>id</code> for
-each grouping using <code><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number()</a></code>. Always
-<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup()</a></code> the data frame after completing
-<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. Lastly, we will use
+estimate trophic position for our consumer.</p>
+<p>To do this we first need to make an <code>id</code> column in each
+data set that will assist in joining them together. We will first
+<code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange()</a></code> the data by <code>ecoregion</code> and then
+<code>common_name</code>. We will then <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> the same
+variables, and add <code>id</code> for each grouping using
+<code><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number()</a></code>. Always <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup()</a></code> the data frame
+after completing <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. Lastly, we will use
 <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> to rearrange the order of the columns.</p>
 <div class="section level3">
 <h3 id="consumer-data-1">Consumer data<a class="anchor" aria-label="anchor" href="#consumer-data-1"></a>
@@ -311,11 +311,11 @@ The default informed priors for a one source model are the following,
 assumes a normal distribution (<code>dn</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>3.4</mn></mrow><annotation encoding="application/x-tex">\mu = 3.4</annotation></semantics></math>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0.25</mn></mrow><annotation encoding="application/x-tex">\sigma = 0.25</annotation></semantics></math>),
-trophic position assumes a uniform distribution (lower bound =
-<code>2</code>and upper bound = <code>10</code>),
+trophic position assumes a uniform distribution (lower bound = 2 and
+upper bound = 10),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
-assumes a uniform distribution (lower bound = <code>0</code> and upper
-bound = <code>10</code>) and if informed priors are desired for
+assumes a uniform distribution (lower bound = 0 and upper bound = 10)
+and if informed priors are desired for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_b</annotation></semantics></math>
 (<code>n1</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\mu = 9</annotation></semantics></math>;
@@ -328,17 +328,17 @@ we can set the argument <code>bp</code> to <code>TRUE</code> in all
 </h3>
 <p>Some important things to pay attention to are always run at least 2
 chains, if the model does not converge you can try to increase the
-amount of samples that are burned-in (discarded; in brms this can be
-controlled by the argument <code>warmup</code>), increase the number of
-iterative samples retained (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this can be controlled
-by the argument <code>iter</code>), increase the the number of samples
-drawn (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this is controled by the argument
-<code>thin</code>), and/or adjust the <code>adapt_delta</code> value
-using <code>control = list(adapt_delta = 0.95)</code>.</p>
-<p>When assessing the model we want R-hat to be 1 or within 0.05,
+amount of samples that are burned-in (discarded; in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code>
+this can be controlled by the argument <code>warmup</code>), increase
+the number of iterative samples retained (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this can
+be controlled by the argument <code>iter</code>), increase the the
+number of samples drawn (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this is controled by the
+argument <code>thin</code>), and/or adjust the <code>adapt_delta</code>
+value using <code>control = list(adapt_delta = 0.95)</code>.</p>
+<p>When assessing the model we want R-hat to be 1 or within 0.05 of 1,
 meaning that variance among and within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
 docmentation on R-hat</a>), a high value for effective sample size
-(ESS), trace plots to look “grassy” or “catapillery”, and posterior
+(ESS), trace plots to look “grassy” or “catapiller like”, and posterior
 distributions to look relatively normal.</p>
 </div>
 </div>
@@ -412,7 +412,7 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 <p>We can see that the R-hat is 1 meaning that variance among and within
 chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
-docmentation on R-hat</a>). and that ESS is quite large. Overall, this
+docmentation on R-hat</a>) and that ESS is quite large. Overall, this
 means the model is converging and fitting accordingly.</p>
 </div>
 <div class="section level3">
@@ -473,8 +473,8 @@ extract using <code><a href="https://mjskay.github.io/tidybayes/reference/get_va
 <span><span class="co">#&gt;  [9] "n_leapfrog__"   "divergent__"    "energy__"</span></span></code></pre></div>
 <p>You will notice that <code>"b_tp_Intercept"</code> is the name of the
 variable in the model object that we are most interested in extracting.
-We then get posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>. I am
-going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
+We then will gather posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>.
+We going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">post_draws</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -520,9 +520,11 @@ comparing trophic position among species or groups, I like using either
 violin plots, interval points, or slab plots for posteriors. We can
 access violins through <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a> with the later being
 available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{ggdist}</a>.</p>
-<p>For this example, however, we first are going to plot the density for
-posterior draws using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density()</a></code> and then as a point
-interval using <code><a href="http://mjskay.github.io/ggdist/reference/stat_pointinterval.html" class="external-link">stat_pointinterval()</a></code>.</p>
+<div class="section level3">
+<h3 id="density-plot">Density plot<a class="anchor" aria-label="anchor" href="#density-plot"></a>
+</h3>
+<p>For this example we first are going to plot the density for posterior
+draws using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density()</a></code>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -535,7 +537,12 @@ interval using <code><a href="http://mjskay.github.io/ggdist/reference/stat_poin
 <span>  y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
 <p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
-<p>and then as point interval.</p>
+</div>
+<div class="section level3">
+<h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
+</h3>
+<p>Next as a point interval plot using
+<code><a href="http://mjskay.github.io/ggdist/reference/stat_pointinterval.html" class="external-link">stat_pointinterval()</a></code>.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">.value</span>, </span>
 <span>               x <span class="op">=</span> <span class="va">common_name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -552,7 +559,9 @@ interval using <code><a href="http://mjskay.github.io/ggdist/reference/stat_poin
 <p>Congratulations we have estimate trophic position for Lake Trout!
 I’ll demonstrate below how to run the model with an iterative process to
 produce estimates of trophic position for more than one group (e.g.,
-comparing trophic position among species or different ecoergion).</p>
+comparing trophic position among species or in this case different
+ecoergion).</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="working-with-multiple-groups">Working with multiple groups<a class="anchor" aria-label="anchor" href="#working-with-multiple-groups"></a>
@@ -581,11 +590,11 @@ frame.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.7</span>  17.7 -<span style="color: #BB0000;">20.8</span>  9.28 -<span style="color: #BB0000;">24.6</span> 10.7    -<span style="color: #BB0000;">21.3</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: n1_mean &lt;dbl&gt;, c2_mean &lt;dbl&gt;, n2_mean &lt;dbl&gt;</span></span></span></code></pre></div>
-<p>We can see that this data frame has a isotope data for a second
+<p>We can see that this data frame has isotope data for a second
 baseline (dreissenids; <code>c2</code> and <code>n2</code>) as well as
 the mean values for both baselines. These columns are useful when
-estimating trophic position using a two source model but can be removed
-for this analysis.</p>
+estimating trophic position using a two source model but are not need
+for this analysis and can be removed.</p>
 <p>We can also confirm that this data set has one species, lake
 trout.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
@@ -601,7 +610,7 @@ trout.</p>
 <code>n2</code>, <code>c1_mean</code>, <code>n1_mean</code>,
 <code>c2_mean</code>, <code>n2_mean</code>. We also need to add
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
-to the data frame (<code>l1</code>), and I am going to make a
+to the data frame (<code>l1</code>). We are going to make a
 <code>name</code> column that will be the two groups we have
 <code>common_name</code> and <code>ecoregion</code> pasted together. We
 are doing this to make the iterative processes easier.</p>
@@ -634,9 +643,9 @@ are doing this to make the iterative processes easier.</p>
 <div class="section level2">
 <h2 id="estimate-trophic-position---multiple-groups">Estimate trophic position - multiple groups<a class="anchor" aria-label="anchor" href="#estimate-trophic-position---multiple-groups"></a>
 </h2>
-<p>We will use similar structure as before to model however, we will
-first <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> the data into a list for all groups and then
-use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> from <a href="https://purrr.tidyverse.org/" class="external-link">{purrr}</a> to run the model for
+<p>We will use similar structure as before to model trophic position,
+however, we will first <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> the data into a list for all
+groups and then use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> from <a href="https://purrr.tidyverse.org/" class="external-link">{purrr}</a> to run the model for
 each group.</p>
 <p>You will notice that the <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> call is exactly the same
 as when we ran the model for one group. The only difference here is when
@@ -726,8 +735,8 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 <p>We can see that the R-hat is 1 meaning that variance among and within
 chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
-docmentation on R-hat</a>). and that ESS is quite large for both groups.
-Overall this means the both models are converging and fitting
+docmentation on R-hat</a>) and that ESS is quite large for both groups.
+Overall, this means the both models are converging and fitting
 accordingly.</p>
 </div>
 <div class="section level3">
@@ -735,10 +744,11 @@ accordingly.</p>
 </h3>
 <p>Let’s look at the trace plots and distributions. We will use
 <code><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">iwalk()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> here as
-<code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">walk()</a></code> invisibly return <code>.x</code> which is handy when
-you want to call a function (<code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>) for its side effects
-rather than its return value. I have also added <code><a href="https://rdrr.io/r/grid/grid.text.html" class="external-link">grid.text()</a></code>
-from {grid} to add in the name of the group to each plot.</p>
+<code><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">iwalk()</a></code> invisibly return <code>.x</code> which is handy
+when you want to call a function (e.g., <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>) for its
+side effects rather than its return value. I have also added
+<code><a href="https://rdrr.io/r/grid/grid.text.html" class="external-link">grid.text()</a></code> from {grid} to add the group names to each
+plot.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">m1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -838,15 +848,16 @@ over <code>m1</code> to get variables.</p>
 <span><span class="co">#&gt;  [9] "n_leapfrog__"   "divergent__"    "energy__"</span></span></code></pre></div>
 <p>You will notice that <code>"b_tp_Intercept"</code> is the name of the
 variable in the model object that we are most interested in extracting.
-We then get posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>. We are
-going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
+We then will gather posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>.
+We are going to rename <code>"b_tp_Intercept"</code> to
+<code>tp</code>.</p>
 <p>Again, considering we have multiple models in <code>m1</code> we need
 to use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> to iterate over <code>m1</code> to get the
 posterior draws. Once we have iterated over <code>m1</code> to extract
 draws we can combine the results using <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows()</a></code> from <a href="https://dplyr.tidyverse.org/" class="external-link">{dplyr}</a>. The variable
-<code>name</code> will have the ecoregion and common name of the
-species, however, they will pasted to together by a <code>_</code>. We
-need separate the the string into the two variables we want
+<code>name</code> will have the name of the ecoregion and common name of
+the species, however, they will pasted to together by a <code>_</code>.
+We need separate this string into the two variables we want
 <code>ecoregion</code> and <code>common_name</code>. We can do this by
 using <code><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html" class="external-link">separate_wider_delim()</a></code> from <a href="https://tidyr.tidyverse.org/" class="external-link">{tidyr}</a>. When using this
 function it will separate the columns and keep them as
@@ -903,6 +914,9 @@ comparing trophic position among species or groups, I like using either
 violin plots, interval points, or slab plots for posteriors. We can
 access violins through <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a> with the later being
 available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{ggdist}</a>.</p>
+<div class="section level3">
+<h3 id="violin-plot">Violin plot<a class="anchor" aria-label="anchor" href="#violin-plot"></a>
+</h3>
 <p>Let’s first look at the violin plot.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws_mg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">common_name</span>, </span>
@@ -928,6 +942,10 @@ available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{g
 <span>  y <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
 <p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-28-1.png" width="700"></p>
+</div>
+<div class="section level3">
+<h3 id="point-interval-plot">Point interval plot<a class="anchor" aria-label="anchor" href="#point-interval-plot"></a>
+</h3>
 <p>Lastly, let’s look at the point interval plot but first we need to
 create the colour palette.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
@@ -965,6 +983,7 @@ create the colour palette.</p>
 <p>Congratulations we have successfully run a Bayesian one source
 trophic position model for one species in two ecoregions of Lake
 Ontario!</p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
