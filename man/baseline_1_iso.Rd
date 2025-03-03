@@ -9,8 +9,8 @@
 \describe{
 \item{common_name}{name of the spcies (i.e., Amphipoda)}
 \item{ecoregion}{ecoregion where samples were collected}
-\item{c1}{observed values for \eqn{\delta^{13}}C}
-\item{n1}{observed values for \eqn{\delta^{15}}N}
+\item{d13c_b1}{observed values for \eqn{\delta^{13}}C}
+\item{d15n_b1}{observed values for \eqn{\delta^{15}}N}
 }
 }
 \usage{
