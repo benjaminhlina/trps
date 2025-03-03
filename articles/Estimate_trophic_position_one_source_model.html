@@ -117,8 +117,7 @@ this work.</p>
 provided by <a href="https://purrr.tidyverse.org/" class="external-link">{purrr}</a>.</p>
 <p>Once we have run the model we will use <a href="https://mc-stan.org/bayesplot/" class="external-link">{bayesplot}</a> to assess models
 and then extract posterior draws using <a href="https://easystats.github.io/bayestestR/" class="external-link">{bayestestR}</a> and <a href="http://mjskay.github.io/tidybayes/" class="external-link">{tidybayes}</a>. Posterior
-distributions will be plotted using <a href="https://ggplot2.tidyverse.org/" class="external-link">[{ggplot2}](https://ggplot2.tidyverse.org/)</a>
-and <a href="https://mjskay.github.io/ggdist/" class="external-link">{ggdist}</a> with colours
+distributions will be plotted using <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a> ](<a href="https://ggplot2.tidyverse.org/" class="external-link uri">https://ggplot2.tidyverse.org/</a>) and <a href="https://mjskay.github.io/ggdist/" class="external-link">{ggdist}</a> with colours
 provided by <a href="https://sjmgarnier.github.io/viridis/" class="external-link">{viridis}</a>.</p>
 </div>
 <div class="section level2">
@@ -557,7 +556,7 @@ produce estimates of trophic position for more than one group (e.g.,
 comparing trophic position among species or different ecoergion).</p>
 </div>
 <div class="section level2">
-<h2 id="estimate-trophic-position---multiple-groups">Estimate trophic position - multiple groups<a class="anchor" aria-label="anchor" href="#estimate-trophic-position---multiple-groups"></a>
+<h2 id="working-with-multiple-groups">Working with multiple groups<a class="anchor" aria-label="anchor" href="#working-with-multiple-groups"></a>
 </h2>
 <p>In <a href="https://benjaminhlina.github.io/trps/">{trps}</a> we have
 a data set that has consumer and baseline data already joined for two
@@ -634,7 +633,7 @@ are doing this to make the iterative processes easier.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="model-trophic-position---multiple-groups">Model trophic position - multiple groups<a class="anchor" aria-label="anchor" href="#model-trophic-position---multiple-groups"></a>
+<h2 id="estimate-trophic-position---multiple-groups">Estimate trophic position - multiple groups<a class="anchor" aria-label="anchor" href="#estimate-trophic-position---multiple-groups"></a>
 </h2>
 <p>We will use similar structure as before to model however, we will
 first <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> the data into a list for all groups and then
@@ -845,13 +844,13 @@ going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
 <p>Again, considering we have multiple models in <code>m1</code> we need
 to use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> to iterate over <code>m1</code> to get the
 posterior draws. Once we have iterated over <code>m1</code> to extract
-draws we can combine the results using <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows()</a></code> from
-{dplyr}. The variable <code>name</code> will have the ecoregion and
-common name of the species, however, they will pasted to together by a
-<code>_</code>. We need separate the the string into the two variables
-we want <code>ecoregion</code> and <code>common_name</code>. We can do
-this by using <code><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html" class="external-link">separate_wider_delim()</a></code> from {tidyr}. When
-using this function it will separate the columns and keep them as
+draws we can combine the results using <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows()</a></code> from <a href="https://dplyr.tidyverse.org/" class="external-link">{dplyr}</a>. The variable
+<code>name</code> will have the ecoregion and common name of the
+species, however, they will pasted to together by a <code>_</code>. We
+need separate the the string into the two variables we want
+<code>ecoregion</code> and <code>common_name</code>. We can do this by
+using <code><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html" class="external-link">separate_wider_delim()</a></code> from <a href="https://tidyr.tidyverse.org/" class="external-link">{tidyr}</a>. When using this
+function it will separate the columns and keep them as
 <code>characters</code>, hence why the last step is to convert
 <code>ecoregion</code> into a <code>factor</code>.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
@@ -931,7 +930,7 @@ available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{g
 <span> <span class="op">)</span></span></code></pre></div>
 <p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-28-1.png" width="700"></p>
 <p>Lastly, let’s look at the point interval plot but first we need to
-create the colour pallette.</p>
+create the colour palette.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">viridis_colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">2</span>,</span>
 <span>                           option <span class="op">=</span> <span class="st">"G"</span>,</span>
