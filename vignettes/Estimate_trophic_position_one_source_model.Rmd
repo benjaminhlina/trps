@@ -94,7 +94,7 @@ Below we will load all the packages needed to carry out the analysis.
 In [{trps}](https://benjaminhlina.github.io/trps/) we have several data sets, 
 they include stable isotope data ($\delta^{13}C$ and $\delta^{15}N$) for a
 consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
-and a pelagic baseline, dreissenids for an ecoregion in Lake Ontario. 
+and a pelagic baseline, dreissenids, for an ecoregion in Lake Ontario. 
 
 ### Consumer data
 
