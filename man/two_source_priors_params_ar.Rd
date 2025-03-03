@@ -50,7 +50,7 @@ baseline. Defaults to \code{-21}.}
 \eqn{\delta^{13}}C baseline. Defaults to \code{1}.}
 
 \item{c2}{mean (\eqn{\mu}) prior for second \eqn{\delta^{13}}C
-baseline. Defaults to \code{9}.}
+baseline. Defaults to \code{-26}.}
 
 \item{c2_sigma}{variance (\eqn{\sigma}) for second
 \eqn{\delta^{13}}C  baseline. Defaults to \code{1}.}
