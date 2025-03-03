@@ -1,4 +1,4 @@
-#' Bayesian priors - Two Source Trophic Position with \eqn{\alpha_c}
+#' Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r}
 #'
 #' Create priors for trophic position using a two source model
 #' with \eqn{\alpha_r} derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
@@ -15,7 +15,7 @@
 #'
 #' @seealso [brms::brms()]
 #' @examples
-#' two_source_priors_ac()
+#' two_source_priors_ar()
 #'
 #' @import brms
 #' @export
@@ -38,9 +38,9 @@ two_source_priors_ar <- function(bp = FALSE) {
 
       # alpha priors
 
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ac"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
@@ -61,9 +61,9 @@ two_source_priors_ar <- function(bp = FALSE) {
     priors <- c(
          # alpha priors
 
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ac"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
 
       # Baseline 1 δ15N (n1)
       brms::prior(normal(n1, n1_sigma), resp = "d15n",

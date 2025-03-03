@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_priors_ar.R
 \name{two_source_priors_ar}
 \alias{two_source_priors_ar}
-\title{Bayesian priors - Two Source Trophic Position with \eqn{\alpha_c}}
+\title{Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r}}
 \usage{
 two_source_priors_ar(bp = FALSE)
 }
@@ -23,7 +23,7 @@ with \eqn{\alpha_r} derived from \href{https://esajournals.onlinelibrary.wiley.c
 and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024}.
 }
 \examples{
-two_source_priors_ac()
+two_source_priors_ar()
 
 }
 \seealso{
