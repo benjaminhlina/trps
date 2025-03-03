@@ -24,8 +24,8 @@
 #'  \describe{
 #'    \item{common_name}{name of the spcies (i.e., Amphipoda)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
-#'    \item{c1}{observed values for \eqn{\delta^{13}}C}
-#'    \item{n1}{observed values for \eqn{\delta^{15}}N}
+#'    \item{d13c_b1}{observed values for \eqn{\delta^{13}}C}
+#'    \item{d15n_b1}{observed values for \eqn{\delta^{15}}N}
 #' }
 #'
 "baseline_1_iso"
@@ -40,8 +40,8 @@
 #'  \describe{
 #'    \item{common_name}{name of the spcies (i.e., Dreissenids)}
 #'    \item{ecoregion}{ecoregion where samples were collected}
-#'    \item{c2}{observed values for \eqn{\delta^{13}}C}
-#'    \item{n2}{observed values for \eqn{\delta^{15}}N}
+#'    \item{d13c_b2}{observed values for \eqn{\delta^{13}}C}
+#'    \item{d15n_b2}{observed values for \eqn{\delta^{15}}N}
 #' }
 #'
 "baseline_2_iso"
@@ -53,9 +53,9 @@
 #' \eqn{\delta ^{15}}N) for lake trout collected from two ecoregions in
 #' Lake Ontario. Values of \eqn{\delta ^{13}}C and
 #' \eqn{\delta ^{15}}N for a benthic baseline (amphipods; baseline 1;
-#' `c1` and `n1`) and  pelagic baseline
-#' (dreissenids; baseline 2; `c2` and `n2`) with the means for each baseline
-#' calculated (`c1_mean`,  `n1_mean`, `c2_mean`, and `n2_mean`).
+#' `d13c_b1` and `d15n_b1`) and  pelagic baseline
+#' (dreissenids; baseline 2; `d13c_b2` and `d15n_b2`) with the means for each
+#' baseline calculated (`c1`,  `n1`, `c2`, and `n2`).
 #'
 #' @format `data.frame` containing 117 rows and 13 variables
 #'  \describe{
@@ -64,14 +64,14 @@
 #'    \item{ecoregion}{ecoregion where samples were collected}
 #'    \item{d13c}{observed values for \eqn{\delta^{13}}C of consumer}
 #'    \item{d15n}{observed values for \eqn{\delta^{15}}N of consumer}
-#'    \item{c1}{observed values for \eqn{\delta^{13}}C of baseline 1}
-#'    \item{n1}{observed values for \eqn{\delta^{15}}N of baseline 1}
-#'    \item{c2}{observed values for \eqn{\delta^{13}}C of baseline 2}
-#'    \item{n2}{observed values for \eqn{\delta^{15}}N of baseline 2}
-#'    \item{c1_mean}{mean values for \eqn{\delta^{13}}C of baseline 1}
-#'    \item{n1_mean}{mean values for \eqn{\delta^{15}}N of baseline 1}
-#'    \item{c2_mean}{mean values for \eqn{\delta^{13}}C of baseline 2}
-#'    \item{n2_mean}{mean values for \eqn{\delta^{15}}N of baseline 2}
+#'    \item{d13c_b1}{observed values for \eqn{\delta^{13}}C of baseline 1}
+#'    \item{d15n_b1}{observed values for \eqn{\delta^{15}}N of baseline 1}
+#'    \item{d13c_b2}{observed values for \eqn{\delta^{13}}C of baseline 2}
+#'    \item{d15n_b2}{observed values for \eqn{\delta^{15}}N of baseline 2}
+#'    \item{c1}{mean values for \eqn{\delta^{13}}C of baseline 1}
+#'    \item{n1}{mean values for \eqn{\delta^{15}}N of baseline 1}
+#'    \item{c2}{mean values for \eqn{\delta^{13}}C of baseline 2}
+#'    \item{n2}{mean values for \eqn{\delta^{15}}N of baseline 2}
 #'
 #' }
 #'
