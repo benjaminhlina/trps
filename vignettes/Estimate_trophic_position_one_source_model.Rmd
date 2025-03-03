@@ -64,7 +64,7 @@ Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayespl
 to assess models and then extract posterior draws using 
 [{bayestestR}](https://easystats.github.io/bayestestR/) and 
 [{tidybayes}](http://mjskay.github.io/tidybayes/). 
-Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/) ](https://ggplot2.tidyverse.org/) 
+Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/)
 and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by 
 [{viridis}](https://sjmgarnier.github.io/viridis/).
 
