@@ -13,14 +13,14 @@ and dreissenids (pelagic baseline; baseline 2),}
 \item{ecoregion}{ecoregion where samples were collected}
 \item{d13c}{observed values for \eqn{\delta^{13}}C of consumer}
 \item{d15n}{observed values for \eqn{\delta^{15}}N of consumer}
-\item{c1}{observed values for \eqn{\delta^{13}}C of baseline 1}
-\item{n1}{observed values for \eqn{\delta^{15}}N of baseline 1}
-\item{c2}{observed values for \eqn{\delta^{13}}C of baseline 2}
-\item{n2}{observed values for \eqn{\delta^{15}}N of baseline 2}
-\item{c1_mean}{mean values for \eqn{\delta^{13}}C of baseline 1}
-\item{n1_mean}{mean values for \eqn{\delta^{15}}N of baseline 1}
-\item{c2_mean}{mean values for \eqn{\delta^{13}}C of baseline 2}
-\item{n2_mean}{mean values for \eqn{\delta^{15}}N of baseline 2}
+\item{d13c_b1}{observed values for \eqn{\delta^{13}}C of baseline 1}
+\item{d15n_b1}{observed values for \eqn{\delta^{15}}N of baseline 1}
+\item{d13c_b2}{observed values for \eqn{\delta^{13}}C of baseline 2}
+\item{d15n_b2}{observed values for \eqn{\delta^{15}}N of baseline 2}
+\item{c1}{mean values for \eqn{\delta^{13}}C of baseline 1}
+\item{n1}{mean values for \eqn{\delta^{15}}N of baseline 1}
+\item{c2}{mean values for \eqn{\delta^{13}}C of baseline 2}
+\item{n2}{mean values for \eqn{\delta^{15}}N of baseline 2}
 
 }
 }
@@ -32,8 +32,8 @@ Stable isotope data (\eqn{\delta^{13}}C and
 \eqn{\delta ^{15}}N) for lake trout collected from two ecoregions in
 Lake Ontario. Values of \eqn{\delta ^{13}}C and
 \eqn{\delta ^{15}}N for a benthic baseline (amphipods; baseline 1;
-\code{c1} and \code{n1}) and  pelagic baseline
-(dreissenids; baseline 2; \code{c2} and \code{n2}) with the means for each baseline
-calculated (\code{c1_mean},  \code{n1_mean}, \code{c2_mean}, and \code{n2_mean}).
+\code{d13c_b1} and \code{d15n_b1}) and  pelagic baseline
+(dreissenids; baseline 2; \code{d13c_b2} and \code{d15n_b2}) with the means for each
+baseline calculated (\code{c1},  \code{n1}, \code{c2}, and \code{n2}).
 }
 \keyword{datasets}
