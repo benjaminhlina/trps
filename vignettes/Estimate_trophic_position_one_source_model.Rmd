@@ -64,7 +64,7 @@ Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayespl
 to assess models and then extract posterior draws using 
 [{bayestestR}](https://easystats.github.io/bayestestR/) and 
 [{tidybayes}](http://mjskay.github.io/tidybayes/). 
-Posterior distributions will be plotted using [[{ggplot2}](https://ggplot2.tidyverse.org/) ](https://ggplot2.tidyverse.org/) 
+Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/) ](https://ggplot2.tidyverse.org/) 
 and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by 
 [{viridis}](https://sjmgarnier.github.io/viridis/).
 
@@ -376,7 +376,7 @@ produce estimates of trophic position for more than one group
 (e.g., comparing trophic position among species or different 
 ecoergion). 
 
-## Estimate trophic position - multiple groups 
+## Working with multiple groups 
 
 In [{trps}](https://benjaminhlina.github.io/trps/) we have a data set that has 
 consumer and baseline data already joined 
@@ -422,7 +422,7 @@ combined_iso_update
 
 This example data is now ready to be analyzed. 
 
-## Model trophic position - multiple groups 
+## Estimate trophic position - multiple groups 
 
 We will use similar structure as before to model however, we will first `split()` 
 the data into a list for all groups and then use `map()` from 
@@ -526,11 +526,11 @@ draws using `gather_draws()`. We are going to rename `"b_tp_Intercept"` to `tp`.
 Again, considering we have multiple models in `m1` we need to use `map()` 
 to iterate over `m1` to get the posterior draws. Once we have iterated over 
 `m1` to extract draws we can combine the results using `bind_rows()` from 
-{dplyr}. The variable `name` will have the ecoregion and common name 
+[{dplyr}](https://dplyr.tidyverse.org/). The variable `name` will have the ecoregion and common name 
 of the species, however, they will pasted to together by a `_`. We need 
 separate the the string into the two variables we want `ecoregion` and 
 `common_name`. We can do this by using `separate_wider_delim()` from 
-{tidyr}. When using this function it will separate the columns and 
+[{tidyr}](https://tidyr.tidyverse.org/). When using this function it will separate the columns and 
 keep them as `characters`, hence why the last step is to convert `ecoregion` 
 into a `factor`. 
 
@@ -600,7 +600,8 @@ ggplot(data = post_draws_mg, aes(x = common_name,
 ```
 
 Lastly, let's look at the point interval plot but first we need to create the 
-colour pallette. 
+colour palette. 
+
 ```{r}
 viridis_colours <- viridis(2,
                            option = "G",
