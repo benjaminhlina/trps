@@ -11,7 +11,7 @@ add_alpha(data, abs = FALSE)
 baselines. For aquatic ecosystems, baseline one needs to come from a
 benthic source and baseline two needs to come
 from a pelagic source. Baseline \eqn{\delta^{13}}C columns
-need to be named \code{c1_mean} and \code{c2_mean},
+need to be named \code{c1} and \code{c2},
 with the consumer's \eqn{\delta^{13}}C column named \code{d13c}.}
 
 \item{abs}{logical that controls whether the absolute value is taken for the
