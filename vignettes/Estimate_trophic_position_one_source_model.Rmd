@@ -54,7 +54,7 @@ $$
 First we will need to organize the data prior to running the model. 
 To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
 [{tidyr}](https://tidyr.tidyverse.org/) but we could also use 
-[{data.table}](https://rdatatable.gitlab.io/data.table/) to do this work. 
+[{data.table}](https://rdatatable.gitlab.io/data.table/). 
 
 When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) 
 and [{brms}](https://paulbuerkner.com/brms/) and iterative processes provided 
