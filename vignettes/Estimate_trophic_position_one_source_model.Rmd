@@ -117,7 +117,7 @@ baseline_1_iso
 
 We can see that this data set contains the common name of the baseline 
 (`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
-$\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`). 
+$\delta^{13}C$ (`d13c_b1`) and $\delta^{15}N$ (`d15n_b1`). 
 
 ## Organizing data 
 
@@ -160,25 +160,36 @@ baseline_1_iso <- baseline_1_iso %>%
   id = row_number()
  ) %>% 
  ungroup() %>% 
- dplyr::select(id, ecoregion:n1)
+ dplyr::select(id, ecoregion:d15n_b1)
 ```
 
 ### Joining isotope data 
 
 Now that we have the consumer and baseline data sets in a consistent
 structure we can join them by `"id"` and `"ecoregion"`
-using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/). We will also 
-add in the constant $\lambda$ (`l1`) to our data frame. 
+using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
 combined_iso_os <- consumer_iso %>% 
- left_join(baseline_1_iso, by = c("id", "ecoregion")) %>% 
- mutate(
-  l1 = 2
- )
+ left_join(baseline_1_iso, by = c("id", "ecoregion"))
 ```
 
-We can see that we have successfully combined our consumer and baseline data
+We can see that we have successfully combined our consumer and baseline data. 
+We need to do one last thing prior to analyzing the data and that is 
+calculate the mean $\delta^{13}C$ and $\delta^{15}N$ and 
+add in the constant $\lambda$ (`l1`) to our data frame. We ill do this by 
+`groub_by()` our two groups, then using `mutate()` and `mean()` to calculate 
+the mean values. 
+```{r}
+combined_iso_os <- combined_iso_os %>% 
+  group_by(ecoregion, common_name) %>% 
+  mutate(
+    c1 = mean(d13c_b1, na.rm = TRUE),
+    n1 = mean(d15n_b1, na.rm = TRUE),
+    l1 = 2
+  ) %>% 
+  ungroup()
+```
 and it is now ready to be analyzed.
 
 ```{r}
@@ -408,15 +419,15 @@ collected from two ecoregions in Lake Ontario.
 unique(combined_iso$ecoregion)
 ```
 
-Let's remove the columns we don't need, `c2`, `n2`, `c1_mean`, `n1_mean`, 
-`c2_mean`, `n2_mean`. We also need to add $\lambda$ to the data frame (`l1`). 
+Let's remove the columns we don't need, `d13c_b2`, `d15n_b2`, `c2`, `n2`. 
+We also need to add $\lambda$ to the data frame (`l1`). 
 We are going to make a `name` column that will be the two groups we have 
 `common_name` and `ecoregion` pasted together. We are doing this to make the 
 iterative processes easier. 
 
 ```{r}
 combined_iso_update <- combined_iso %>% 
- dplyr::select(-c(c2:n2_mean)) %>% 
+ dplyr::select(-c(d13c_b2, d15n_b2, c2, n2)) %>% 
  mutate(
   l1 = 2, 
   name = paste(ecoregion, common_name, sep = "_")
