@@ -47,6 +47,9 @@
 #' in the equation above:
 #'
 #' \itemize{
+#'   \item The random exponent (\eqn{\alpha}; `a`)
+#'   and shape parameters (\eqn{\beta}; `b`) for \eqn{\alpha}. This prior
+#'   assumes a beta distribution.
 #'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
 #'   the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 #'   This prior assumes a normal distributions.

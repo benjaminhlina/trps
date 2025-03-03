@@ -79,6 +79,9 @@ This function allows the user to adjust the priors for the following variables
 in the equation above:
 
 \itemize{
+\item The random exponent (\eqn{\alpha}; \code{a})
+and shape parameters (\eqn{\beta}; \code{b}) for \eqn{\alpha}. This prior
+assumes a beta distribution.
 \item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
 the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 This prior assumes a normal distributions.
