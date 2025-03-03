@@ -16,6 +16,14 @@
 #' baseline. Defaults to `9`.
 #' @param n2_sigma variance (\eqn{\sigma}) for second
 #' \eqn{\delta^{15}}N  baseline. Defaults to `1`.
+#' @param c1 mean (\eqn{\mu}) prior for first \eqn{\delta^{13}}C
+#' baseline. Defaults to `-21`.
+#' @param c1_sigma variance (\eqn{\sigma})for first
+#' \eqn{\delta^{13}}C baseline. Defaults to `1`.
+#' @param c2 mean (\eqn{\mu}) prior for second \eqn{\delta^{13}}C
+#' baseline. Defaults to `9`.
+#' @param c2_sigma variance (\eqn{\sigma}) for second
+#' \eqn{\delta^{13}}C  baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 #' Defaults to `0.5`.

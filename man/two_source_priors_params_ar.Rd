@@ -43,6 +43,18 @@ baseline. Defaults to \code{9}.}
 \item{n2_sigma}{variance (\eqn{\sigma}) for second
 \eqn{\delta^{15}}N  baseline. Defaults to \code{1}.}
 
+\item{c1}{mean (\eqn{\mu}) prior for first \eqn{\delta^{13}}C
+baseline. Defaults to \code{-21}.}
+
+\item{c1_sigma}{variance (\eqn{\sigma})for first
+\eqn{\delta^{13}}C baseline. Defaults to \code{1}.}
+
+\item{c2}{mean (\eqn{\mu}) prior for second \eqn{\delta^{13}}C
+baseline. Defaults to \code{9}.}
+
+\item{c2_sigma}{variance (\eqn{\sigma}) for second
+\eqn{\delta^{13}}C  baseline. Defaults to \code{1}.}
+
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
 
 \item{dn_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
