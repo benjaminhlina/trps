@@ -54,7 +54,7 @@ $$
 First we will need to organize the data prior to running the model. 
 To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and 
 [{tidyr}](https://tidyr.tidyverse.org/) but we could also use 
-[{data.table}](https://rdatatable.gitlab.io/data.table/) to do this work. 
+[{data.table}](https://rdatatable.gitlab.io/data.table/). 
 
 When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) 
 and [{brms}](https://paulbuerkner.com/brms/) and iterative processes provided 
@@ -64,7 +64,7 @@ Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayespl
 to assess models and then extract posterior draws using 
 [{bayestestR}](https://easystats.github.io/bayestestR/) and 
 [{tidybayes}](http://mjskay.github.io/tidybayes/). 
-Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/) ](https://ggplot2.tidyverse.org/) 
+Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/)
 and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by 
 [{viridis}](https://sjmgarnier.github.io/viridis/).
 
@@ -94,7 +94,7 @@ Below we will load all the packages needed to carry out the analysis.
 In [{trps}](https://benjaminhlina.github.io/trps/) we have several data sets, 
 they include stable isotope data ($\delta^{13}C$ and $\delta^{15}N$) for a
 consumer, lake trout (*Salvelinus namaycush*), a benthic baseline, amphipods, 
-and a pelagic baseline, dreissenids for a ecoregion in Lake Ontario. 
+and a pelagic baseline, dreissenids, for an ecoregion in Lake Ontario. 
 
 ### Consumer data
 
@@ -105,7 +105,7 @@ consumer_iso
 
 We can see that this data set contains the common name of the consumer 
 (`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
-$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
+$\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`). 
 
 ### Baseline data 
 
@@ -117,12 +117,14 @@ baseline_1_iso
 
 We can see that this data set contains the common name of the baseline 
 (`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
-$\delta^{13}C$ (`d13c`) and and $\delta^{15}N$ (`d15n`). 
+$\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`). 
 
 ## Organizing data 
 
 Now that we understand the data we need to combine both data sets to estimate 
-trophic position for our consumer. To do this we first need to make an `id` 
+trophic position for our consumer. 
+
+To do this we first need to make an `id` 
 column in each data set that will assist in joining them together. We will
 first `arrange()` the data by `ecoregion` and then `common_name`. We will then 
 `group_by()` the same variables, and add `id` for each grouping using 
@@ -201,8 +203,8 @@ for each parameter (coefficient; predictor) in the model. The default informed
 priors for a one source model are the following, $\Delta N$ assumes a normal 
 distribution (`dn`; $\mu = 3.4$; 
 $\sigma = 0.25$), trophic position assumes a uniform distribution 
-(lower bound = `2`and upper bound = `10`), $\sigma$ assumes a uniform 
-distribution (lower bound = `0` and upper bound = `10`) and if 
+(lower bound = 2 and upper bound = 10), $\sigma$ assumes a uniform 
+distribution (lower bound = 0 and upper bound = 10) and if 
 informed priors are desired for $\delta^{15}N_b$ (`n1`; $\mu = 9$; 
 $\sigma = 1$), we can set the argument `bp` to `TRUE` in 
 all `one_source_` functions. 
@@ -211,19 +213,19 @@ all `one_source_` functions.
 
 Some important things to pay attention to are 
 always run at least 2 chains, if the model does not converge you can try 
-to increase the amount of samples that are burned-in (discarded; in brms 
+to increase the amount of samples that are burned-in (discarded; in `brm()` 
 this can be controlled by the argument `warmup`), increase the number of 
 iterative samples retained (in `brm()` this can be controlled by the 
 argument `iter`), increase the the number of samples drawn (in `brm()` 
 this is controled by the argument `thin`), and/or adjust the `adapt_delta` 
 value using `control = list(adapt_delta = 0.95)`. 
 
-When assessing the model we want R-hat to be 1 or within 0.05, 
+When assessing the model we want R-hat to be 1 or within 0.05 of 1, 
 meaning that variance among and within chains is equal 
 (See 
 [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)),
 a high value for effective sample size (ESS), trace plots to look 
-"grassy" or "catapillery", and posterior distributions to look relatively
+"grassy" or "catapiller like", and posterior distributions to look relatively
 normal. 
 
 ## Estimating trophic position 
@@ -268,7 +270,7 @@ m
 ```
 We can see that the R-hat is 1 meaning that variance among and within chains is 
 equal (See 
-[{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+[{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html))
 and that ESS is quite large. Overall, this means the model is converging 
 and fitting accordingly. 
 
@@ -304,8 +306,9 @@ get_variables(m)
 ```
 
 You will notice that `"b_tp_Intercept"` is the name of the variable in the 
-model object that we are most interested in extracting. We then get posterior 
-draws using `gather_draws()`. I am going to rename `"b_tp_Intercept"` to `tp`. 
+model object that we are most interested in extracting. We then will gather 
+posterior draws using `gather_draws()`. We going to rename `"b_tp_Intercept"` 
+to `tp`. 
 
 ```{r}
 post_draws <- m %>% 
@@ -337,9 +340,9 @@ trophic position among species or groups, I like using either
 violin plots, interval points, or slab plots for posteriors. We can access 
 violins through [{ggplot2}](https://ggplot2.tidyverse.org/) with the later being available in [{ggdist}](https://mjskay.github.io/ggdist/). 
 
-For this example, however, we first are going to plot the density for posterior
-draws using `geom_density()` and then as a point interval using 
-`stat_pointinterval()`. 
+### Density plot
+For this example we first are going to plot the density for posterior
+draws using `geom_density()`.
 
 ```{r}
 ggplot(data = post_draws, aes(x = .value)) + 
@@ -354,8 +357,10 @@ ggplot(data = post_draws, aes(x = .value)) +
  )
 ```
 
-and then as point interval. 
+### Point interval
 
+Next as a point interval plot using 
+`stat_pointinterval()`. 
 ```{r}
 ggplot(data = post_draws, aes(y = .value, 
                x = common_name)) + 
@@ -373,8 +378,8 @@ ggplot(data = post_draws, aes(y = .value,
 Congratulations we have estimate trophic position for Lake Trout! 
 I'll demonstrate below how to run the model with an iterative process to 
 produce estimates of trophic position for more than one group 
-(e.g., comparing trophic position among species or different 
-ecoergion). 
+(e.g., comparing trophic position among species or in this 
+case different ecoergion). 
 
 ## Working with multiple groups 
 
@@ -387,10 +392,10 @@ for two ecoregions (`combined_iso`). Let's look at this data frame.
 combined_iso
 ```
 
-We can see that this data frame has a isotope data for a 
+We can see that this data frame has isotope data for a 
 second baseline (dreissenids; `c2` and `n2`) as well as the mean values for both 
 baselines. These columns are useful when estimating trophic position 
-using a two source model but can be removed for this analysis.
+using a two source model but are not need for this analysis and can be removed.
 
 We can also confirm that this data set has one species, lake trout. 
 ```{r}
@@ -404,8 +409,8 @@ unique(combined_iso$ecoregion)
 ```
 
 Let's remove the columns we don't need, `c2`, `n2`, `c1_mean`, `n1_mean`, 
-`c2_mean`, `n2_mean`. We also need to add $\lambda$ to the data frame (`l1`), 
-and I am going to make a `name` column that will be the two groups we have 
+`c2_mean`, `n2_mean`. We also need to add $\lambda$ to the data frame (`l1`). 
+We are going to make a `name` column that will be the two groups we have 
 `common_name` and `ecoregion` pasted together. We are doing this to make the 
 iterative processes easier. 
 
@@ -424,9 +429,10 @@ This example data is now ready to be analyzed.
 
 ## Estimate trophic position - multiple groups 
 
-We will use similar structure as before to model however, we will first `split()` 
-the data into a list for all groups and then use `map()` from 
-[{purrr}](https://purrr.tidyverse.org/) to run the model for each group.
+We will use similar structure as before to model trophic position, 
+however, we will first `split()` the data into a list for all groups 
+and then use `map()` from [{purrr}](https://purrr.tidyverse.org/) 
+to run the model for each group.
 
 You will notice that the `brm()` call is exactly the same as when we ran the model
 for one group. The only difference here is when using `map()`, the 
@@ -464,17 +470,16 @@ m1
 ```
 
 We can see that the R-hat is 1 meaning that variance among and within chains is 
-equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)).
+equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html))
 and that ESS is quite large for both groups. 
-Overall this means the both models are converging and fitting accordingly. 
+Overall, this means the both models are converging and fitting accordingly. 
 
 ### Trace plots - multiple groups 
 
 Let's look at the trace plots and distributions. We will use `iwalk()` instead 
-of `map()` here as `walk()` invisibly return `.x` which is handy when you want 
-to call a function (`plot()`) for its side effects rather than its return value.
-I have also added `grid.text()` from {grid} to add in the name of the group
-to each plot. 
+of `map()` here as `iwalk()` invisibly return `.x` which is handy when you want 
+to call a function (e.g., `plot()`) for its side effects rather than its return value.
+I have also added `grid.text()` from {grid} to add the group names to each plot. 
 
 ```{r}
 
@@ -520,17 +525,19 @@ m1 %>%
 ```
 
 You will notice that `"b_tp_Intercept"` is the name of the variable in the 
-model object that we are most interested in extracting. We then get posterior 
-draws using `gather_draws()`. We are going to rename `"b_tp_Intercept"` to `tp`. 
+model object that we are most interested in extracting. We then will gather
+ posterior draws using `gather_draws()`. We are going to rename 
+`"b_tp_Intercept"` to `tp`. 
 
 Again, considering we have multiple models in `m1` we need to use `map()` 
 to iterate over `m1` to get the posterior draws. Once we have iterated over 
 `m1` to extract draws we can combine the results using `bind_rows()` from 
-[{dplyr}](https://dplyr.tidyverse.org/). The variable `name` will have the ecoregion and common name 
-of the species, however, they will pasted to together by a `_`. We need 
-separate the the string into the two variables we want `ecoregion` and 
-`common_name`. We can do this by using `separate_wider_delim()` from 
-[{tidyr}](https://tidyr.tidyverse.org/). When using this function it will separate the columns and 
+[{dplyr}](https://dplyr.tidyverse.org/). The variable `name` will have the 
+name of the ecoregion and common name of the species, however, they will 
+pasted to together by a `_`. We need separate this string into the two 
+variables we want `ecoregion` and `common_name`. We can do this by using
+ `separate_wider_delim()` from [{tidyr}](https://tidyr.tidyverse.org/). 
+When using this function it will separate the columns and 
 keep them as `characters`, hence why the last step is to convert `ecoregion` 
 into a `factor`. 
 
@@ -573,6 +580,7 @@ violin plots, interval points, or slab plots for posteriors. We can access
 violins through [{ggplot2}](https://ggplot2.tidyverse.org/) with the later 
 being available in [{ggdist}](https://mjskay.github.io/ggdist/). 
 
+### Violin plot
 Let's first look at the violin plot. 
 ```{r}
 ggplot(data = post_draws_mg, aes(x = common_name, 
@@ -598,6 +606,8 @@ ggplot(data = post_draws_mg, aes(x = common_name,
   y = "P(Trophic Position | X)"
  )
 ```
+
+### Point interval plot 
 
 Lastly, let's look at the point interval plot but first we need to create the 
 colour palette. 
