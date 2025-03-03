@@ -8,7 +8,7 @@
 #' baselines. For aquatic ecosystems, baseline one needs to come from a
 #' benthic source and baseline two needs to come
 #' from a pelagic source. Baseline \eqn{\delta^{13}}C columns
-#' need to be named `c1_mean` and `c2_mean`,
+#' need to be named `c1` and `c2`,
 #' with the consumer's \eqn{\delta^{13}}C column named `d13c`.
 #' @param abs logical that controls whether the absolute value is taken for the
 #' numerator and denominator. Default is `FALSE` meaning that the absolute
@@ -44,7 +44,7 @@ add_alpha <- function(
 
   }
 
-  rv <- c("d13c", "c1_mean", "c2_mean")
+  rv <- c("d13c", "c1", "c2")
 
   if(!all(rv %in% names(data))) {
 
@@ -72,7 +72,7 @@ add_alpha <- function(
 
   dat <- data |>
     dplyr::mutate(
-      alpha = (d13c - c2_mean) / (c1_mean - c2_mean),
+      alpha = (d13c - c2) / (c1 - c2),
       min_alpha = min(alpha, na.rm = TRUE),
       max_alpha = max(alpha, na.rm = TRUE)
     )
@@ -83,7 +83,7 @@ add_alpha <- function(
 
   dat <- data |>
     dplyr::mutate(
-      alpha = abs((d13c - c2_mean)) / abs((c1_mean - c2_mean)),
+      alpha = abs((d13c - c2)) / abs((c1 - c2)),
       min_alpha = min(alpha, na.rm = TRUE),
       max_alpha = max(alpha, na.rm = TRUE)
     )
