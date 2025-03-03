@@ -1,7 +1,7 @@
 #' Bayesian priors - Two Source Trophic Position with \eqn{\alpha_c}
 #'
 #' Create priors for trophic position using a two source model
-#' with \eqn{\alpha_c} derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
+#' with \eqn{\alpha_r} derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
 #' and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
 #'
 #' @param bp logical value that controls whether informed priors are
@@ -20,7 +20,7 @@
 #' @import brms
 #' @export
 
-two_source_priors_ac <- function(bp = FALSE) {
+two_source_priors_ar <- function(bp = FALSE) {
 
   if (!(is.logical(bp))) {
 

@@ -1,6 +1,6 @@
-#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_c}
+#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_r}
 #'
-#' Estimate trophic position using a two source model with \eqn{\alpha_c} derived from
+#' Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) using a Bayesian framework.
 #'
 #' @param bp logical value that controls whether  priors are
@@ -21,14 +21,14 @@
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
 #'   (\delta ^{13}C_1 - \delta ^{13}C_2)}
 #'
-#'   \item \deqn{\alpha = \alpha_c \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
+#'   \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 #'
-#'   \item \deqn{\delta^{13}C = c_1 \times \alpha_c + c_2 \times (1 - \alpha_c)}
+#'   \item \deqn{\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)}
 #'
-#'   \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
+#'   \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 #'
 #'
-#'   \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
+#'   \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 #'    }
 #'
 #' **For equation 1)**
@@ -42,7 +42,7 @@
 #'
 #' \eqn{\alpha} is being corrected using equations in
 #' [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
-#' with \eqn{\alpha_c} being the corrected value (bound by 0 and 1),
+#' with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
 #' value calculated using `add_alpha()`.
@@ -50,7 +50,7 @@
 #' **For equation 3)**
 #'
 #' This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
-#' estimated using `c_1`, `c_2`  and \eqn{\alpha_c} calculated in equation 1.
+#' estimated using `c_1`, `c_2`  and \eqn{\alpha_r} calculated in equation 1.
 #'
 #' **For equation 4) and 5)**
 #'
@@ -73,13 +73,13 @@
 #' @return returns model structure for two source model to be used in a
 #' `brms()` call.
 #' @examples
-#' two_source_model_ac()
+#' two_source_model_ar()
 #'
 #' @seealso [brms::brms()]
 #' @import brms
 #' @export
 
-two_source_model_ac <- function(
+two_source_model_ar <- function(
     bp = FALSE,
     lambda = NULL) {
   if (!(is.logical(bp))) {
@@ -107,18 +107,18 @@ two_source_model_ac <- function(
     # ---- no baseline priors -----
     if (isFALSE(bp)) {
       model <- brms::bf(
-        alpha ~ ac * (max_alpha - min_alpha) + min_alpha,
-        ac ~ 1,
+        alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
+        ar ~ 1,
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
-          ac ~ 1,
+          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          ar ~ 1,
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac),
-          ac ~ 1,
+          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar),
+          ar ~ 1,
           tp ~ 1,
           dn ~ 1,
           nl = TRUE
@@ -129,20 +129,20 @@ two_source_model_ac <- function(
     # ----- baseline priors -----
     if (isTRUE(bp)) {
       model <- brms::bf(
-        alpha ~ ac * (max_alpha - min_alpha) + min_alpha,
-        ac ~ 1,
+        alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
+        ar~ 1,
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
-          ac ~ 1,
+          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          ar ~ 1,
           c1 ~ 1,
           c2 ~ 1,
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - l1) + n1 * ac + n2 * (1 - ac),
-          ac ~ 1,
+          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar),
+          ar ~ 1,
           n1 ~ 1,
           n2 ~ 1,
           tp ~ 1,
@@ -159,18 +159,18 @@ two_source_model_ac <- function(
     # ---- no baseline priors -----
     if (isFALSE(bp)) {
       model <- brms::bf(
-        alpha ~ ac * (max_alpha - min_alpha) + min_alpha,
-        ac ~ 1,
+        alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
+        ar ~ 1,
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
-          ac ~ 1,
+          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          ar ~ 1,
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - (l1 * ac + l2 * (1 - ac))) + n1 * ac + n2 * (1 - ac),
-          ac ~ 1,
+          d15n ~ dn * (tp - (l1 * ar + l2 * (1 - ar))) + n1 * ar + n2 * (1 - ar),
+          ar ~ 1,
           tp ~ 1,
           dn ~ 1,
           nl = TRUE
@@ -181,20 +181,20 @@ two_source_model_ac <- function(
     if (isTRUE(bp)) {
 
       model <- brms::bf(
-        alpha ~ ac * (max_alpha - min_alpha) + min_alpha,
-        ac ~ 1,
+        alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
+        ar ~ 1,
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ac)  + (c2 * (1 - ac)),
-          ac ~ 1,
+          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          ar ~ 1,
           c1 ~ 1,
           c2 ~ 1,
           nl = TRUE
         ) +
         brms::bf(
-          d15n ~ dn * (tp - (l1 * ac + l2 * (1 - ac))) + n1 * ac + n2 * (1 - ac),
-          ac ~ 1,
+          d15n ~ dn * (tp - (l1 * ar + l2 * (1 - ar))) + n1 * ar + n2 * (1 - ar),
+          ar ~ 1,
           n1 ~ 1,
           n2 ~ 1,
           tp ~ 1,
