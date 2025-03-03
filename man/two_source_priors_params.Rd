@@ -27,16 +27,16 @@ Defaults to \code{1}. See beta distribution for more information.}
 \item{b}{(\eqn{\beta}) shape parameter for beta distribution.
 Defaults to \code{1}. See beta distribution for more information.}
 
-\item{n1}{mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
-baseline. Defaults to \code{9}.}
+\item{n1}{mean (\eqn{\mu}) prior for the mean of the first \eqn{\delta^{15}}N
+baseline. Defaults to \code{8}.}
 
-\item{n1_sigma}{variance (\eqn{\sigma})for first
+\item{n1_sigma}{variance (\eqn{\sigma})for the mean of the first
 \eqn{\delta^{15}}N baseline. Defaults to \code{1}.}
 
-\item{n2}{mean (\eqn{\mu}) prior for second \eqn{\delta^{15}}N
-baseline. Defaults to \code{9}.}
+\item{n2}{mean (\eqn{\mu}) prior for or the mean of the
+second \eqn{\delta^{15}}N baseline. Defaults to \code{9.5}.}
 
-\item{n2_sigma}{variance (\eqn{\sigma}) for second
+\item{n2_sigma}{variance (\eqn{\sigma}) for the mean of the second
 \eqn{\delta^{15}}N  baseline. Defaults to \code{1}.}
 
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
@@ -55,7 +55,7 @@ Defaults to \code{0.5}.}
 \item{bp}{logical value that controls whether informed baseline priors are
 supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 \code{FALSE} meaning the model will use uninformed priors, however, the supplied
-\code{data.frame} needs values for both \eqn{\delta^{15}}N baseline
+\code{data.frame} needs mean values for both \eqn{\delta^{15}}N baseline
 (\code{n1} and \code{n2})}
 }
 \value{
@@ -83,10 +83,10 @@ in the equation above:
 and shape parameters (\eqn{\beta}; \code{b}) for \eqn{\alpha}. This prior
 assumes a beta distribution.
 \item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
-the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+the mean for the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 This prior assumes a normal distributions.
 \item The mean (\code{n2};\eqn{\mu}) and variance (\code{n2_sigma}; \eqn{\sigma}) of
-the second \eqn{\delta^{15}}N for a given baseline.
+the mean for the second \eqn{\delta^{15}}N for a given baseline.
 This prior assumes a normal distributions.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment factor).

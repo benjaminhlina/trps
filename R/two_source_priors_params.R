@@ -8,13 +8,13 @@
 #' Defaults to `1`. See beta distribution for more information.
 #' @param n1_sigma variance (\eqn{\sigma})for first
 #' \eqn{\delta^{15}}N baseline. Defaults to `1`.
-#' @param n1 mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
-#' baseline. Defaults to `9`.
-#' @param n1_sigma variance (\eqn{\sigma})for first
+#' @param n1 mean (\eqn{\mu}) prior for the mean of the first \eqn{\delta^{15}}N
+#' baseline. Defaults to `8`.
+#' @param n1_sigma variance (\eqn{\sigma})for the mean of the first
 #' \eqn{\delta^{15}}N baseline. Defaults to `1`.
-#' @param n2 mean (\eqn{\mu}) prior for second \eqn{\delta^{15}}N
-#' baseline. Defaults to `9`.
-#' @param n2_sigma variance (\eqn{\sigma}) for second
+#' @param n2 mean (\eqn{\mu}) prior for or the mean of the
+#' second \eqn{\delta^{15}}N baseline. Defaults to `9.5`.
+#' @param n2_sigma variance (\eqn{\sigma}) for the mean of the second
 #' \eqn{\delta^{15}}N  baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
@@ -26,7 +26,7 @@
 #' @param bp logical value that controls whether informed baseline priors are
 #' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 #' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs values for both \eqn{\delta^{15}}N baseline
+#' `data.frame` needs mean values for both \eqn{\delta^{15}}N baseline
 #' (`n1` and `n2`)
 #'
 #' @details
@@ -51,10 +51,10 @@
 #'   and shape parameters (\eqn{\beta}; `b`) for \eqn{\alpha}. This prior
 #'   assumes a beta distribution.
 #'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
-#'   the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+#'   the mean for the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
 #'   This prior assumes a normal distributions.
 #'   \item The mean (`n2`;\eqn{\mu}) and variance (`n2_sigma`; \eqn{\sigma}) of
-#'   the second \eqn{\delta^{15}}N for a given baseline.
+#'   the mean for the second \eqn{\delta^{15}}N for a given baseline.
 #'   This prior assumes a normal distributions.
 #'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
 #'   \eqn{\Delta}N (i.e, trophic enrichment factor).
@@ -127,7 +127,7 @@ two_source_priors_params <- function(
 
   # set n1 to 9
   if (is.null(n1)) {
-    n1 <- 9
+    n1 <- 8
   }
 
   # create error message for n1 priros
@@ -153,7 +153,7 @@ two_source_priors_params <- function(
 
   # set n1 to 9
   if (is.null(n2)) {
-    n2 <- 9
+    n2 <- 9.5
   }
 
   # create error message for n1 priros
