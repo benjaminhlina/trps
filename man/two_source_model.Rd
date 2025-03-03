@@ -46,8 +46,8 @@ or
 \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 where \eqn{\delta^{15}}N are values from the consumer,
-\eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
-\eqn{\delta^{15}}N values of baseline 2,
+\eqn{n_1} is mean \eqn{\delta^{15}}N of baseline 1, \eqn{n_2} is mean
+\eqn{\delta^{15}}N of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
 tp is trophic position, \eqn{\alpha} is carbon use derived from
 the first equation and  \eqn{\lambda_1} and/or
