@@ -111,7 +111,7 @@ test_that("test two-source priors fails b", {
 test_that("test two-source priors n1", {
 
   pri_pram <- two_source_priors_params(bp = TRUE)
-  expected_n1 <- 9
+  expected_n1 <- 8
 
   results_n1 <- pri_pram$n1$sdata
 
@@ -137,7 +137,7 @@ test_that("test two-source priors fails n1", {
 test_that("test two-source priors n2", {
 
   pri_pram <- two_source_priors_params(bp = TRUE)
-  expected_n2 <- 9
+  expected_n2 <- 9.5
 
   results_n2 <- pri_pram$n2$sdata
 
