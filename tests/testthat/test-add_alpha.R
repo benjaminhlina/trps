@@ -47,7 +47,7 @@ test_that("test check if alpha errors ", {
 
   expect_error(
     add_alpha(data = combined_iso[-c(4, 10, 12)]),
-    "The data.frame is missing: d13c, c1_mean, and c2_mean"
+    "The data.frame is missing: d13c, c1, and c2"
   )
 }
 )
