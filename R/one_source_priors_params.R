@@ -2,9 +2,9 @@
 #'
 #' Adjust priors for one source trophic position model derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 #'
-#' @param n1 mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
+#' @param n1 mean (\eqn{\mu}) prior for the mean \eqn{\delta^{15}}N baseline.
 #' Defaults to `9`.
-#' @param n1_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
+#' @param n1_sigma variance (\eqn{\sigma}) for the mean \eqn{\delta^{15}}N
 #' baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
@@ -26,8 +26,8 @@
 #' in the equation above:
 #'
 #' \itemize{
-#'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
-#'   \eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
+#'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) for
+#'   the mean \eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
 #'   This prior assumes a normal distribution.
 #'   \item The mean (`dn`; \eqn{\mu}) and variance (`dn_sigma`; \eqn{\sigma}) of
 #'   \eqn{\Delta}N (i.e, trophic enrichment

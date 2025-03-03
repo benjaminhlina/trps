@@ -17,10 +17,10 @@ one_source_priors_params(
 )
 }
 \arguments{
-\item{n1}{mean (\eqn{\mu}) prior for \eqn{\delta^{15}}N baseline.
+\item{n1}{mean (\eqn{\mu}) prior for the mean \eqn{\delta^{15}}N baseline.
 Defaults to \code{9}.}
 
-\item{n1_sigma}{variance (\eqn{\sigma}) for \eqn{\delta^{15}}N
+\item{n1_sigma}{variance (\eqn{\sigma}) for the mean \eqn{\delta^{15}}N
 baseline. Defaults to \code{1}.}
 
 \item{dn}{mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to \code{3.4}.}
@@ -54,8 +54,8 @@ This function allows the user to adjust the priors for the following variables
 in the equation above:
 
 \itemize{
-\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) of
-\eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
+\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) for
+the mean \eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
 This prior assumes a normal distribution.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment
