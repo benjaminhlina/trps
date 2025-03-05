@@ -21,6 +21,20 @@ and [Heuvel et
 al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and are
 to be used with stable isotope data for different species.
 
+## Trophic Models in {trps}
+
+Currently {trps} supports the following models:
+
+1)  One Source Model
+
+2)  Two Source Model
+
+3)  Two Source Model - $\alpha$ corrected ($\alpha_r$) using [Heuvel et
+    al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+
+None of these models currently implement carbon mixing or fractionation
+models, but will at some point.
+
 ## Progress
 
 {trps} is currently in active development with the following progress:
