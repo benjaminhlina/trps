@@ -25,11 +25,12 @@ Bayesian trophic position models using stan (pronounced trips) by leveraging [{b
 
 Currently {trps} supports the following models: 
 
-1) One Source Model 
+1) One Source Model - `one_source_model()`
 
-2) Two Source Model 
+2) Two Source Model - `two_source_model()`
 
-3) Two Source Model - $\alpha$ corrected ($\alpha_r$) using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+3) Two Source Model - $\alpha$ corrected ($\alpha_r$) using 
+[Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) - `two_source_model_ar()`
 
 None of these models currently implement carbon mixing or fractionation models, 
 but will at some point. 
