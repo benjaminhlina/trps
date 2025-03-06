@@ -29,7 +29,7 @@ Currently {trps} supports the following models:
 
 2)  Two Source Model - `two_source_model()`
 
-3)  Two Source Model - $\alpha$ corrected ($\alpha_r$) using [Heuvel et
+3)  Two Source Model - $\\alpha$ corrected ($\\alpha_r$) using [Heuvel et
     al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
     `two_source_model_ar()`
 
