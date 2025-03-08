@@ -25,7 +25,6 @@ Imports:
     lifecycle
 Suggests: 
     bayesplot,
-    bayestestR,
     ggdist,
     ggplot2,
     grid,
