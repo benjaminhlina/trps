@@ -220,6 +220,10 @@ informed priors are desired for $\delta^{15}N_b$ (`n1`; $\mu = 9$;
 $\sigma = 1$), we can set the argument `bp` to `TRUE` in 
 all `one_source_` functions. 
 
+You can change these default priors using 
+`one_source_priors_params()`, however, I would suggest becoming familiar with 
+Bayesian analyses, your study species, and system prior to adjusting these values. 
+
 ### Model convergence 
 
 Some important things to pay attention to are 
@@ -232,8 +236,8 @@ this can be controlled by the argument `warmup`)
 2. The number of iterative samples retained (in `brm()` this can be controlled 
 by the argument `iter`). 
 
-3. The number of samples drawn (in `brm()` 
-this is controled by the argument `thin`).
+3. The number of samples drawn (in `brm()` this is controlled by the argument 
+`thin`).
 
 4. Adjust the `adapt_delta` value using `control = list(adapt_delta = 0.95)`. 
 
@@ -242,7 +246,7 @@ which indicates that the variance among and within chains is equal
 (See 
 [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)),
 a high value for effective sample size (ESS), trace plots to look 
-"grassy" or "catapiller like", and posterior distributions to look relatively
+"grassy" or "caterpillar like", and posterior distributions to look relatively
 normal. 
 
 ## Estimating trophic position 
@@ -264,17 +268,17 @@ Let's run the model!
 
 ```{r}
 m <- brm(
- formula = one_source_model(),
- prior = one_source_priors(),
- stanvars = one_source_priors_params(),
- data = combined_iso_os,
- family = gaussian(),
- chains = 2,
- iter = 4000,
- warmup = 1000,
- cores = 4,
- seed = 4,
- control = list(adapt_delta = 0.95)
+  formula = one_source_model(),
+  prior = one_source_priors(),
+  stanvars = one_source_priors_params(),
+  data = combined_iso_os,
+  family = gaussian(),
+  chains = 2,
+  iter = 4000,
+  warmup = 1000,
+  cores = 4,
+  seed = 4,
+  control = list(adapt_delta = 0.95)
 )
 ```
 
