@@ -333,13 +333,13 @@ to `tp`.
 
 ```{r}
 post_draws <- m %>% 
- gather_draws(b_tp_Intercept) %>% 
- mutate(
-  ecoregion = "Embayment",
-  common_name = "Lake Trout",
-  .variable = "tp"
- ) %>% 
- dplyr::select(common_name, ecoregion, .chain:.value)
+  gather_draws(b_tp_Intercept) %>% 
+  mutate(
+    ecoregion = "Embayment",
+    common_name = "Lake Trout",
+    .variable = "tp"
+  ) %>% 
+  dplyr::select(common_name, ecoregion, .chain:.value)
 ```
 
 Let's view the `post_draws`
@@ -347,12 +347,55 @@ Let's view the `post_draws`
 ```{r}
 post_draws
 ```
-We can see that this consists of seven variables, `ecoregion`,
-`common_name`, `.chain`,
-`.iteration`(number sampled after burn-in), 
-`.draw` (number sampled from `iter`; adjusted using `thin`), 
-`.variable` (this will have different variables dependig on what is 
-supplied to `gather_draws()`), `.value` (estimated value). 
+We can see that this consists of seven variables:
+1. `ecoregion`,
+2. `common_name`, 
+3. `.chain`,
+4. `.iteration`(number sampled after burn-in), 
+5. `.draw` (number sampled from `iter`; adjusted using `thin`), 
+6. `.variable` (this will have different variables depending on what is 
+supplied to `gather_draws()`), 
+7. `.value` (estimated value). 
+
+## Extracting credible intervals 
+
+Considering we are likely using this information for a paper or presentation, 
+it is nice to be able to report the median and credible intervals (e.g., 
+equal-tailed intervals; ETI). We can extract and export these values using 
+`spread_draws()` and `median_qi` from 
+[{tidybayes}](http://mjskay.github.io/tidybayes/). 
+
+I have renamed `b_tp_Intercept` to `tp`, added the grouping columns, rounded 
+all columns that are numeric to two decimal points using `mutate_if()` and 
+rearranged the order of the columns using `dplyr::select()`. 
+
+```{r, message=FALSE}
+medians_ci <- m %>%
+        spread_draws(b_tp_Intercept) %>%
+        median_qi() %>% 
+        rename(
+          tp = b_tp_Intercept
+        ) %>% 
+  mutate(
+    ecoregion = "Embayment", 
+    common_name = "Lake Trout"
+  ) %>% 
+  mutate_if(is.numeric, round, digits = 2) %>% 
+  dplyr::select(ecoregion, common_name, tp:.interval)
+```
+
+Let's view the output. 
+
+```{r}
+medians_ci
+```
+
+I like to use [{openxlsx}](https://ycphs.github.io/openxlsx/index.html) 
+to export these values into a table that I can use for presentations and papers.
+For the vignette I am not going to demonstrate how to do this but please 
+check out `{openxlsx}`. 
+
+
 
 ## Ploting posterior distributions 
 
