@@ -40,7 +40,7 @@
 - [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
     - [] priors 
     - [] parameters for priors 
-- [x] vignettes for one source
+- [] vignettes for one source
 - [] vignettes for two source
 - [] vignettes for twp source ac 
 
@@ -62,7 +62,7 @@
 - [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
     - [] priors 
     - [] parameters for priors 
-- [x] vignettes for one source
+- [] vignettes for one source
 - [] vignettes for two source
 - [] vignettes for twp source ac 
 
