@@ -534,14 +534,22 @@ using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.h
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 tp          4.67</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 tp          4.67</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5,990 more rows</span></span></span></code></pre></div>
-<p>We can see that this consists of seven variables: 1.
-<code>ecoregion</code>, 2. <code>common_name</code>, 3.
-<code>.chain</code>, 4. <code>.iteration</code>(number sampled after
-burn-in), 5. <code>.draw</code> (number sampled from <code>iter</code>;
-adjusted using <code>thin</code>), 6. <code>.variable</code> (this will
-have different variables depending on what is supplied to
-<code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>), 7. <code>.value</code> (estimated
-value).</p>
+<p>We can see that this consists of seven variables:</p>
+<ol style="list-style-type: decimal">
+<li><code>ecoregion</code></li>
+<li><code>common_name</code></li>
+<li><code>.chain</code></li>
+<li>
+<code>.iteration</code>(number sampled after burn-in)</li>
+<li>
+<code>.draw</code> (number sampled from <code>iter</code>; adjusted
+using <code>thin</code>)</li>
+<li>
+<code>.variable</code> (this will have different variables depending
+on what is supplied to <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>)</li>
+<li>
+<code>.value</code> (estimated value)</li>
+</ol>
 </div>
 </div>
 <div class="section level2">
