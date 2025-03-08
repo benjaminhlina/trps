@@ -158,20 +158,20 @@ ecoregion in Lake Ontario.</p>
 consumer.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">consumer_iso</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 4</span></span></span>
-<span><span class="co">#&gt;    common_name ecoregion  d13c  d15n</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  15.9</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.8</span>  17.0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 4</span></span></span>
+<span><span class="co">#&gt;    common_name ecoregion      d13c  d15n</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.3</span>  17.6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">23.0</span>  17.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.2</span>  16.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.7</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.8</span>  17.8</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.4</span>  17.9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.7</span>  17.7</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span></code></pre></div>
 <p>We can see that this data set contains the common name of the
 consumer (<code>common_name</code>), the ecoregion samples were
 collected from (<code>ecoregion</code>), and
@@ -187,23 +187,20 @@ collected from (<code>ecoregion</code>), and
 baseline data set.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">baseline_1_iso</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 14 × 5</span></span></span>
-<span><span class="co">#&gt;       id common_name ecoregion d13c_b1 d15n_b1</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Amphipoda   Embayment   -<span style="color: #BB0000;">26.2</span>    8.44</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Amphipoda   Embayment   -<span style="color: #BB0000;">26.6</span>    8.77</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Amphipoda   Embayment   -<span style="color: #BB0000;">26.0</span>    8.05</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Amphipoda   Embayment   -<span style="color: #BB0000;">22.1</span>   13.6 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Amphipoda   Embayment   -<span style="color: #BB0000;">24.3</span>    6.99</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Amphipoda   Embayment   -<span style="color: #BB0000;">22.1</span>    7.95</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Amphipoda   Embayment   -<span style="color: #BB0000;">24.7</span>    7.37</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Amphipoda   Embayment   -<span style="color: #BB0000;">26.6</span>    6.93</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Amphipoda   Embayment   -<span style="color: #BB0000;">24.6</span>    6.97</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Amphipoda   Embayment   -<span style="color: #BB0000;">22.1</span>    7.95</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>    11 Amphipoda   Embayment   -<span style="color: #BB0000;">24.7</span>    7.37</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>    12 Amphipoda   Embayment   -<span style="color: #BB0000;">22.1</span>    7.95</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>    13 Amphipoda   Embayment   -<span style="color: #BB0000;">24.7</span>    7.37</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>    14 Amphipoda   Embayment   -<span style="color: #BB0000;">26.9</span>   10.2</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 36 × 4</span></span></span>
+<span><span class="co">#&gt;    common_name ecoregion     d13c_b1 d15n_b1</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.3</span>    8.85</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.1</span>    8.77</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.3</span>    8.85</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.1</span>    8.77</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.5</span>    8.38</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.1</span>    8.34</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">19.7</span>    8.04</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.1</span>    8.56</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">18.7</span>    8.95</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Amphipoda   Anthropogenic   -<span style="color: #BB0000;">20.8</span>    9.28</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 26 more rows</span></span></span></code></pre></div>
 <p>We can see that this data set contains the common name of the
 baseline (<code>common_name</code>), the ecoregion samples were
 collected from (<code>ecoregion</code>), and
@@ -290,20 +287,20 @@ named <code>d15n</code>, <code>n1</code>, and <code>l1</code>.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">combined_iso_os</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 10</span></span></span>
-<span><span class="co">#&gt;       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1    c1    n1    l1</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  15.9   -<span style="color: #BB0000;">26.2</span>    8.44 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2   -<span style="color: #BB0000;">26.6</span>    8.77 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Embayment -<span style="color: #BB0000;">22.8</span>  17.0   -<span style="color: #BB0000;">26.0</span>    8.05 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6   -<span style="color: #BB0000;">22.1</span>   13.6  -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.6   -<span style="color: #BB0000;">24.3</span>    6.99 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6   -<span style="color: #BB0000;">22.1</span>    7.95 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.6   -<span style="color: #BB0000;">24.7</span>    7.37 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Embayment -<span style="color: #BB0000;">22.5</span>  16.2   -<span style="color: #BB0000;">26.6</span>    6.93 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4   -<span style="color: #BB0000;">24.6</span>    6.97 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3   -<span style="color: #BB0000;">22.1</span>    7.95 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 10</span></span></span>
+<span><span class="co">#&gt;       id common_name ecoregion      d13c  d15n d13c_b1 d15n_b1    c1    n1    l1</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.3</span>  17.6   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Anthropogenic -<span style="color: #BB0000;">23.0</span>  17.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.2</span>  16.7   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.5</span>    8.38 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.1</span>    8.34 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.8</span>  17.8   -<span style="color: #BB0000;">19.7</span>    8.04 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.4</span>  17.9   -<span style="color: #BB0000;">20.1</span>    8.56 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.4   -<span style="color: #BB0000;">18.7</span>    8.95 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.7</span>  17.7   -<span style="color: #BB0000;">20.8</span>    9.28 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span></code></pre></div>
 <p>and it is now ready to be analyzed.</p>
 </div>
 </div>
@@ -412,18 +409,18 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; Formula: d15n ~ n1 + dn * (tp - l1) </span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 117) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1490     1773</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.75      0.21     4.39     5.20 1.00     1495     1785</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
+<span><span class="co">#&gt; sigma     0.66      0.04     0.58     0.75 1.00     2062     2326</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -455,18 +452,18 @@ converging!</p>
 <span><span class="co">#&gt; Formula: d15n ~ n1 + dn * (tp - l1) </span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 117) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1490     1773</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.75      0.21     4.39     5.20 1.00     1495     1785</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
+<span><span class="co">#&gt; sigma     0.66      0.04     0.58     0.75 1.00     2062     2326</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -510,16 +507,16 @@ using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.h
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [1]</span></span></span>
 <span><span class="co">#&gt;    common_name ecoregion .chain .iteration .draw .variable .value</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 tp          4.23</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 tp          4.26</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 tp          4.39</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 tp          4.44</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 tp          4.33</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 tp          4.74</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 tp          5.06</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 tp          4.40</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 tp          4.42</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 tp          4.30</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 tp          5.32</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 tp          5.27</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 tp          5.03</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 tp          5.24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 tp          5.25</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 tp          5.23</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 tp          5.21</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 tp          4.73</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 tp          4.67</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 tp          4.67</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5,990 more rows</span></span></span></code></pre></div>
 <p>We can see that this consists of seven variables,
 <code>ecoregion</code>, <code>common_name</code>, <code>.chain</code>,
@@ -619,12 +616,12 @@ trout.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">combined_iso</span><span class="op">$</span><span class="va">common_name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] Lake Trout</span></span>
-<span><span class="co">#&gt; Levels: Round Goby Alewife Lake Trout</span></span></code></pre></div>
+<span><span class="co">#&gt; Levels: Lake Trout</span></span></code></pre></div>
 <p>collected from two ecoregions in Lake Ontario.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">combined_iso</span><span class="op">$</span><span class="va">ecoregion</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] Anthropogenic Embayment    </span></span>
-<span><span class="co">#&gt; Levels: Anthropogenic Inlet Open-Coastal Deep-Hole Outlet Embayment</span></span></code></pre></div>
+<span><span class="co">#&gt; Levels: Anthropogenic Embayment</span></span></code></pre></div>
 <p>Let’s remove the columns we don’t need, <code>d13c_b2</code>,
 <code>d15n_b2</code>, <code>c1</code>, <code>c2</code>, <code>n2</code>.
 We also need to add
