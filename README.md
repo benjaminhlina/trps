@@ -39,7 +39,7 @@ models, but will at some point.
 ## Progress
 
 To view the current overall progress of the package please see
-[news](NEWS.md)
+[news](https://benjaminhlina.github.io/trps/news/index.html)
 
 - [x] a one-source model
   - [x] priors for a one-source model  
