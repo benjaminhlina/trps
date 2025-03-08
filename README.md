@@ -38,7 +38,7 @@ models, but will at some point.
 
 ## Progress
 
-To view the current progress of the package please see [news](news.md)
+To view the current progress of the package please see [news](NEWS.md)
 
 ## Installation
 
