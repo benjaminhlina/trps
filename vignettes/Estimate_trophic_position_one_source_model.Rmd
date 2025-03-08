@@ -191,7 +191,7 @@ combined_iso_os <- combined_iso_os %>%
 
 combined_iso_os
 ```
-and it is now ready to be analyzed.
+and it is now ready to be analyzed!
 
 ## Bayesian Analysis
 
@@ -200,6 +200,12 @@ Lake Ontario.
 
 There are a few things to know about running a Bayesian analysis, I suggest 
 reading these resources:
+
+1. [Basics of Bayesian Statistics - Book](https://statswithr.github.io/book/)
+2. [General Introduction to brms](https://www.jstatsoft.org/article/view/v080i01) 
+3. [Estimating non-linear models with brms](https://paulbuerkner.com/brms/articles/brms_nonlinear.html)
+4. [Andrew Proctor's - Module 6](https://andrewproctor.github.io/rcourse/module6.html)
+5. [van de Schoot et al., 2021](https://www.nature.com/articles/s43586-020-00001-2)
 
 ### Priors 
 
