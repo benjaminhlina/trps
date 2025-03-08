@@ -101,8 +101,8 @@ We will check out each data set with the first being the consumer.
 consumer_iso
 ```
 
-We can see that this data set contains the common name of the consumer 
-(`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
+We can see that this data set contains the `common_name` of the consumer 
+, the `ecoregion` samples were collected from, and 
 $\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`). 
 
 ### Baseline data 
@@ -113,8 +113,7 @@ Next for this vignette we will only assess and use the benthic baseline data set
 baseline_1_iso
 ```
 
-We can see that this data set contains the common name of the baseline 
-(`common_name`), the ecoregion samples were collected from (`ecoregion`), and 
+We can see that this data set contains the `common_name` of the baseline, the `ecoregion` samples were collected from, and 
 $\delta^{13}C$ (`d13c_b1`) and $\delta^{15}N$ (`d15n_b1`). 
 
 ## Organizing data 
@@ -124,11 +123,10 @@ trophic position for our consumer.
 
 To do this we first need to make an `id` 
 column in each data set that will assist in joining them together. We will
-first `arrange()` the data by `ecoregion` and then `common_name`. We will then 
+first `arrange()` the data by `ecoregion` and `common_name`. Next we will 
 `group_by()` the same variables, and add `id` for each grouping using 
-`row_number()`. Always `ungroup()` the data frame after using 
-`group_by()`. Lastly, we will use `dplyr::select()` to rearrange the order of the 
-columns. 
+`row_number()`. Always `ungroup()` the `data.frame` after using 
+`group_by()`. Lastly, we will use `dplyr::select()` to rearrange the order of the columns. 
 
 ### Consumer data
 
@@ -136,13 +134,13 @@ Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
 consumer_iso <- consumer_iso %>% 
- arrange(ecoregion, common_name) %>% 
- group_by(ecoregion, common_name) %>% 
- mutate(
-  id = row_number()
- ) %>% 
- ungroup() %>% 
- dplyr::select(id, common_name:d15n)
+  arrange(ecoregion, common_name) %>% 
+  group_by(ecoregion, common_name) %>% 
+  mutate(
+    id = row_number()
+  ) %>% 
+  ungroup() %>% 
+  dplyr::select(id, common_name:d15n)
 ```
 
 ### Baseline data 
@@ -152,32 +150,31 @@ are going to drop `common_name` from this data frame.
 
 ```{r}
 baseline_1_iso <- baseline_1_iso %>% 
- arrange(ecoregion, common_name) %>% 
- group_by(ecoregion, common_name) %>% 
- mutate(
-  id = row_number()
- ) %>% 
- ungroup() %>% 
- dplyr::select(id, ecoregion:d15n_b1)
+  arrange(ecoregion, common_name) %>% 
+  group_by(ecoregion, common_name) %>% 
+  mutate(
+    id = row_number()
+  ) %>% 
+  ungroup() %>% 
+  dplyr::select(id, ecoregion:d15n_b1)
 ```
 
 ### Joining isotope data 
 
 Now that we have the consumer and baseline data sets in a consistent
-structure we can join them by `"id"` and `"ecoregion"`
+format we can join them by `"id"` and `"ecoregion"`
 using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
 combined_iso_os <- consumer_iso %>% 
- left_join(baseline_1_iso, by = c("id", "ecoregion"))
+  left_join(baseline_1_iso, by = c("id", "ecoregion"))
 ```
 
 We can see that we have successfully combined our consumer and baseline data. 
 We need to do one last thing prior to analyzing the data and that is 
-calculate the mean $\delta^{13}C$ and $\delta^{15}N$ for the 
+calculate the mean $\delta^{13}C$ (`c1`) and $\delta^{15}N$ (`n1`) for the 
 baseline and add in the constant $\lambda$ (`l1`) to our data frame. 
-We will do this by `groub_by()` our two groups, then using `mutate()` and `mean()` to calculate 
-the mean values. 
+We will do this by `groub_by()` our two groups, then using `mutate()` and `mean()` to calculate the mean values. 
 
 Important note, to run the model successfully columns need to be named `d15n`, 
 `n1`, and `l1`. 
