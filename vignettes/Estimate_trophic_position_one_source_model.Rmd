@@ -6,7 +6,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
- 
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
 collapse = TRUE,
@@ -62,7 +62,6 @@ by [{purrr}](https://purrr.tidyverse.org/).
 
 Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayesplot/) 
 to assess models and then extract posterior draws using 
-[{bayestestR}](https://easystats.github.io/bayestestR/) and 
 [{tidybayes}](http://mjskay.github.io/tidybayes/). 
 Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/)
 and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by 
@@ -74,19 +73,18 @@ Below we will load all the packages needed to carry out the analysis.
 
 ```{r setup, message=FALSE}
 {
-  library(bayesplot)
-  library(bayestestR)
-  library(brms)
-  library(dplyr)
-  library(ggplot2)
-  library(ggdist)
-  library(grid)
-  library(purrr)
-  library(tidybayes)
-  library(tidyr)
-  library(trps)
-  library(viridis)
-  }
+library(bayesplot)
+library(brms)
+library(dplyr)
+library(ggplot2)
+library(ggdist)
+library(grid)
+library(purrr)
+library(tidybayes)
+library(tidyr)
+library(trps)
+library(viridis)
+}
 ```
 
 ## Assess data 
