@@ -688,8 +688,8 @@ trout.</p>
 <span><span class="co">#&gt; [1] Anthropogenic Embayment    </span></span>
 <span><span class="co">#&gt; Levels: Anthropogenic Embayment</span></span></code></pre></div>
 <p>Let’s remove the columns we don’t need, <code>d13c_b2</code>,
-<code>d15n_b2</code>, <code>c1</code>, <code>c2</code>, <code>n2</code>.
-We also need to add
+<code>d15n_b2</code>, <code>c2</code>, <code>n2</code>. We also need to
+add
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 to the data frame (<code>l1</code>). We are going to make a
 <code>name</code> column that will be the two groups we have
@@ -697,7 +697,7 @@ to the data frame (<code>l1</code>). We are going to make a
 are doing this to make the iterative processes easier.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">combined_iso_update</span> <span class="op">&lt;-</span> <span class="va">combined_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">d13c_b1</span>, <span class="va">d15n_b1</span>, <span class="va">d13c_b2</span>, <span class="va">d15n_b2</span>, <span class="va">c1</span>, <span class="va">c2</span>, <span class="va">n2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">d13c_b2</span>, <span class="va">d15n_b2</span>, <span class="va">c2</span>, <span class="va">n2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    l1 <span class="op">=</span> <span class="fl">2</span>, </span>
 <span>    name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
@@ -705,20 +705,21 @@ are doing this to make the iterative processes easier.</p>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">common_name</span>, <span class="va">ecoregion</span>, <span class="va">name</span>, <span class="va">d13c</span><span class="op">:</span><span class="va">l1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">combined_iso_update</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 8</span></span></span>
-<span><span class="co">#&gt;       id common_name ecoregion     name                   d13c  d15n    n1    l1</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">22.3</span>  17.6  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">23.0</span>  17.7  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">21.2</span>  16.7  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">20.9</span>  18.7  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">20.7</span>  18.0  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">20.7</span>  18.0  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">22.8</span>  17.8  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">22.4</span>  17.9  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">20.9</span>  18.4  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic Anthropogenic_Lake T… -<span style="color: #BB0000;">21.7</span>  17.7  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 11</span></span></span>
+<span><span class="co">#&gt;       id common_name ecoregion     name   d13c  d15n d13c_b1 d15n_b1    c1    n1</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">22.3</span>  17.6   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">23.0</span>  17.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">21.2</span>  16.7   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">20.9</span>  18.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.5</span>    8.38 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.1</span>    8.34 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">22.8</span>  17.8   -<span style="color: #BB0000;">19.7</span>    8.04 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">22.4</span>  17.9   -<span style="color: #BB0000;">20.1</span>    8.56 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">20.9</span>  18.4   -<span style="color: #BB0000;">18.7</span>    8.95 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic Anth… -<span style="color: #BB0000;">21.7</span>  17.7   -<span style="color: #BB0000;">20.8</span>    9.28 -<span style="color: #BB0000;">21.3</span>  8.14</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: l1 &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>This example data is now ready to be analyzed.</p>
 </div>
 </div>
