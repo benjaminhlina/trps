@@ -94,7 +94,7 @@ is the
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 of the consumer,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_b</annotation></semantics></math>
-is the
+is the mean
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 of the baseline, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
@@ -224,7 +224,7 @@ data set that will assist in joining them together. We will first
 <code>common_name</code>. We will then <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> the same
 variables, and add <code>id</code> for each grouping using
 <code><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number()</a></code>. Always <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup()</a></code> the data frame
-after completing <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. Lastly, we will use
+after using <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. Lastly, we will use
 <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> to rearrange the order of the columns.</p>
 <div class="section level3">
 <h3 id="consumer-data-1">Consumer data<a class="anchor" aria-label="anchor" href="#consumer-data-1"></a>
@@ -272,11 +272,13 @@ and that is calculate the mean
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
-and add in the constant
+for the baseline and add in the constant
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
-(<code>l1</code>) to our data frame. We ill do this by
+(<code>l1</code>) to our data frame. We will do this by
 <code>groub_by()</code> our two groups, then using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code>
 and <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code> to calculate the mean values.</p>
+<p>Important note, to run the model successfully columns need to be
+named <code>d15n</code>, <code>n1</code>, and <code>l1</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">combined_iso_os</span> <span class="op">&lt;-</span> <span class="va">combined_iso_os</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -285,10 +287,9 @@ and <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean(
 <span>    n1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">d15n_b1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    l1 <span class="op">=</span> <span class="fl">2</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>and it is now ready to be analyzed.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_os</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">combined_iso_os</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 10</span></span></span>
 <span><span class="co">#&gt;       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1    c1    n1    l1</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -303,8 +304,7 @@ and <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean(
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4   -<span style="color: #BB0000;">24.6</span>    6.97 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3   -<span style="color: #BB0000;">22.1</span>    7.95 -<span style="color: #BB0000;">24.6</span>  8.28     2</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span></code></pre></div>
-<p>Important note, to run the model successfully columns need to be
-named <code>d15n</code>, <code>n1</code>, and <code>l1</code>.</p>
+<p>and it is now ready to be analyzed.</p>
 </div>
 </div>
 <div class="section level2">
@@ -341,15 +341,21 @@ we can set the argument <code>bp</code> to <code>TRUE</code> in all
 </h3>
 <p>Some important things to pay attention to are always run at least 2
 chains, if the model does not converge you can try to increase the
-amount of samples that are burned-in (discarded; in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code>
-this can be controlled by the argument <code>warmup</code>), increase
-the number of iterative samples retained (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this can
-be controlled by the argument <code>iter</code>), increase the the
-number of samples drawn (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this is controled by the
-argument <code>thin</code>), and/or adjust the <code>adapt_delta</code>
-value using <code>control = list(adapt_delta = 0.95)</code>.</p>
+following:</p>
+<ol style="list-style-type: decimal">
+<li><p>The amount of samples that are burned-in (discarded; in
+<code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this can be controlled by the argument
+<code>warmup</code>)</p></li>
+<li><p>The number of iterative samples retained (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code>
+this can be controlled by the argument <code>iter</code>).</p></li>
+<li><p>The number of samples drawn (in <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> this is
+controled by the argument <code>thin</code>).</p></li>
+<li><p>Adjust the <code>adapt_delta</code> value using
+<code>control = list(adapt_delta = 0.95)</code>.</p></li>
+</ol>
 <p>When assessing the model we want R-hat to be 1 or within 0.05 of 1,
-meaning that variance among and within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+which indicates that the variance among and within chains is equal (See
+<a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
 docmentation on R-hat</a>), a high value for effective sample size
 (ESS), trace plots to look “grassy” or “catapiller like”, and posterior
 distributions to look relatively normal.</p>
@@ -371,14 +377,14 @@ supplied through the <code>stanvars</code> argument using
 variance
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>),
 or upper and lower bounds (<code>lb</code> and <code>ub</code>) for each
-prior of the model within <code>one_soruce_priors_params()</code>,
+prior of the model using <code><a href="../reference/one_source_priors_params.html">one_source_priors_params()</a></code>,
 however, only adjust priors if you have a good grasp of Bayesian
 frameworks and your study system and species.</p>
 <div class="section level3">
 <h3 id="model">Model<a class="anchor" aria-label="anchor" href="#model"></a>
 </h3>
 <p>Let’s run the model!</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm</a></span><span class="op">(</span></span>
 <span> formula <span class="op">=</span> <span class="fu"><a href="../reference/one_source_model.html">one_source_model</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span> prior <span class="op">=</span> <span class="fu"><a href="../reference/one_source_priors.html">one_source_priors</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -399,7 +405,7 @@ frameworks and your study system and species.</p>
 <h3 id="model-output">Model output<a class="anchor" aria-label="anchor" href="#model-output"></a>
 </h3>
 <p>Let’s view the summary of the model.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
 <span><span class="co">#&gt;   Links: mu = identity; sigma = identity </span></span>
@@ -431,9 +437,9 @@ means the model is converging and fitting accordingly.</p>
 <h3 id="trace-plots">Trace plots<a class="anchor" aria-label="anchor" href="#trace-plots"></a>
 </h3>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -442,7 +448,7 @@ converging!</p>
 <h2 id="posterior-draws">Posterior draws<a class="anchor" aria-label="anchor" href="#posterior-draws"></a>
 </h2>
 <p>Let’s again look at the summary output from the model.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
 <span><span class="co">#&gt;   Links: mu = identity; sigma = identity </span></span>
@@ -467,27 +473,28 @@ converging!</p>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 <p>We can see that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
-is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
-<code>2.90</code>, and <code>u-95% CI</code> of <code>3.87</code>. If we
+is estimated to be <code>3.37</code> with <code>l-95% CI</code> of
+<code>2.89</code>, and <code>u-95% CI</code> of <code>3.86</code>. If we
 move down to trophic position (<code>tp</code>) we see trophic position
-is estimated to be <code>4.41</code> with <code>l-95% CI</code> of
-<code>3.97</code>, and <code>u-95% CI</code> of <code>4.92</code>.</p>
+is estimated to be <code>4.54</code> with <code>l-95% CI</code> of
+<code>4.21</code>, and <code>u-95% CI</code> of <code>4.96</code>.</p>
 <div class="section level3">
 <h3 id="extract-posterior-draws">Extract posterior draws<a class="anchor" aria-label="anchor" href="#extract-posterior-draws"></a>
 </h3>
 <p>We will use functions from <a href="http://mjskay.github.io/tidybayes/" class="external-link">{tidybayes}</a> to do this
 work. First we will look at the the names of the variables we want to
 extract using <code><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables()</a></code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "b_dn_Intercept" "b_tp_Intercept" "sigma"          "lprior"        </span></span>
 <span><span class="co">#&gt;  [5] "lp__"           "accept_stat__"  "stepsize__"     "treedepth__"   </span></span>
 <span><span class="co">#&gt;  [9] "n_leapfrog__"   "divergent__"    "energy__"</span></span></code></pre></div>
 <p>You will notice that <code>"b_tp_Intercept"</code> is the name of the
-variable in the model object that we are most interested in extracting.
-We then will gather posterior draws using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>.
-We going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+variable<br>
+that we are wanting to extract. We then will extract posterior draws
+using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>. We going to rename
+<code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">post_draws</span> <span class="op">&lt;-</span> <span class="va">m</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -497,7 +504,7 @@ We going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
 <span> <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">common_name</span>, <span class="va">ecoregion</span>, <span class="va">.chain</span><span class="op">:</span><span class="va">.value</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s view the <code>post_draws</code></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">post_draws</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6,000 × 7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [1]</span></span></span>
@@ -515,13 +522,12 @@ We going to rename <code>"b_tp_Intercept"</code> to <code>tp</code>.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 tp          4.30</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5,990 more rows</span></span></span></code></pre></div>
 <p>We can see that this consists of seven variables,
-<code>ecoregion</code>, <code>common_name</code>, <code>.chain</code>
-(chain number), <code>.iteration</code>(number sampled after burn-in;
-adjusted using <code>inter</code>), <code>.draw</code> (number sampled
-from <code>iter</code>; adjusted using <code>thin</code>),
-<code>.variable</code> (this will have different variables of interest
-if you supply <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code> with more than one variable),
-<code>.value</code> (estimated value).</p>
+<code>ecoregion</code>, <code>common_name</code>, <code>.chain</code>,
+<code>.iteration</code>(number sampled after burn-in),
+<code>.draw</code> (number sampled from <code>iter</code>; adjusted
+using <code>thin</code>), <code>.variable</code> (this will have
+different variables dependig on what is supplied to
+<code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>), <code>.value</code> (estimated value).</p>
 </div>
 </div>
 <div class="section level2">
@@ -537,7 +543,7 @@ available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{g
 </h3>
 <p>For this example we first are going to plot the density for posterior
 draws using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density()</a></code>.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html" class="external-link">geom_density</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span></span>
@@ -548,14 +554,14 @@ draws using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.
 <span>  x <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span>, </span>
 <span>  y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
 </h3>
 <p>Next as a point interval plot using
 <code><a href="http://mjskay.github.io/ggdist/reference/stat_pointinterval.html" class="external-link">stat_pointinterval()</a></code>.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">.value</span>, </span>
 <span>               x <span class="op">=</span> <span class="va">common_name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span> <span class="fu"><a href="http://mjskay.github.io/ggdist/reference/stat_pointinterval.html" class="external-link">stat_pointinterval</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -567,7 +573,7 @@ draws using <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.
 <span>  x <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span>, </span>
 <span>  y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-17-1.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
 <p>Congratulations we have estimate trophic position for Lake Trout!
 I’ll demonstrate below how to run the model with an iterative process to
 produce estimates of trophic position for more than one group (e.g.,
@@ -585,7 +591,7 @@ frame.</p>
 <div class="section level3">
 <h3 id="organize-data---multiple-groups">Organize data - multiple groups<a class="anchor" aria-label="anchor" href="#organize-data---multiple-groups"></a>
 </h3>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">combined_iso</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 13</span></span></span>
 <span><span class="co">#&gt;       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1 d13c_b2 d15n_b2    c1</span></span>
@@ -603,53 +609,53 @@ frame.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: n1 &lt;dbl&gt;, c2 &lt;dbl&gt;, n2 &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>We can see that this data frame has isotope data for a second
-baseline (dreissenids; <code>c2</code> and <code>n2</code>) as well as
-the mean values for both baselines. These columns are useful when
+baseline (dreissenids; <code>d13c_b2</code> and <code>d15n_b2</code>) as
+well as the mean values for both baselines
+(<code>c1</code>-<code>n2</code>). These columns are useful when
 estimating trophic position using a two source model but are not need
 for this analysis and can be removed.</p>
 <p>We can also confirm that this data set has one species, lake
 trout.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">combined_iso</span><span class="op">$</span><span class="va">common_name</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] Lake Trout</span></span>
 <span><span class="co">#&gt; Levels: Round Goby Alewife Lake Trout</span></span></code></pre></div>
 <p>collected from two ecoregions in Lake Ontario.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">combined_iso</span><span class="op">$</span><span class="va">ecoregion</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] Anthropogenic Embayment    </span></span>
 <span><span class="co">#&gt; Levels: Anthropogenic Inlet Open-Coastal Deep-Hole Outlet Embayment</span></span></code></pre></div>
 <p>Let’s remove the columns we don’t need, <code>d13c_b2</code>,
-<code>d15n_b2</code>, <code>c2</code>, <code>n2</code>. We also need to
-add
+<code>d15n_b2</code>, <code>c1</code>, <code>c2</code>, <code>n2</code>.
+We also need to add
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 to the data frame (<code>l1</code>). We are going to make a
 <code>name</code> column that will be the two groups we have
 <code>common_name</code> and <code>ecoregion</code> pasted together. We
 are doing this to make the iterative processes easier.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">combined_iso_update</span> <span class="op">&lt;-</span> <span class="va">combined_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">d13c_b2</span>, <span class="va">d15n_b2</span>, <span class="va">c2</span>, <span class="va">n2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">d13c_b2</span>, <span class="va">d15n_b2</span>, <span class="va">c1</span>, <span class="va">c2</span>, <span class="va">n2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>  l1 <span class="op">=</span> <span class="fl">2</span>, </span>
 <span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
 <span> <span class="op">)</span></span>
 <span></span>
 <span><span class="va">combined_iso_update</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 11</span></span></span>
-<span><span class="co">#&gt;       id common_name ecoregion      d13c  d15n d13c_b1 d15n_b1    c1    n1    l1</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.3</span>  17.6   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Anthropogenic -<span style="color: #BB0000;">23.0</span>  17.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.2</span>  16.7   -<span style="color: #BB0000;">20.3</span>    8.85 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.7   -<span style="color: #BB0000;">20.1</span>    8.77 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.5</span>    8.38 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.1</span>    8.34 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.8</span>  17.8   -<span style="color: #BB0000;">19.7</span>    8.04 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.4</span>  17.9   -<span style="color: #BB0000;">20.1</span>    8.56 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.4   -<span style="color: #BB0000;">18.7</span>    8.95 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.7</span>  17.7   -<span style="color: #BB0000;">20.8</span>    9.28 -<span style="color: #BB0000;">21.3</span>  8.14     2</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: name &lt;chr&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 117 × 10</span></span></span>
+<span><span class="co">#&gt;       id common_name ecoregion      d13c  d15n d13c_b1 d15n_b1    n1    l1 name </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.3</span>  17.6   -<span style="color: #BB0000;">20.3</span>    8.85  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 Lake Trout  Anthropogenic -<span style="color: #BB0000;">23.0</span>  17.7   -<span style="color: #BB0000;">20.1</span>    8.77  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.2</span>  16.7   -<span style="color: #BB0000;">20.3</span>    8.85  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.7   -<span style="color: #BB0000;">20.1</span>    8.77  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.5</span>    8.38  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.7</span>  18.0   -<span style="color: #BB0000;">20.1</span>    8.34  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.8</span>  17.8   -<span style="color: #BB0000;">19.7</span>    8.04  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 Lake Trout  Anthropogenic -<span style="color: #BB0000;">22.4</span>  17.9   -<span style="color: #BB0000;">20.1</span>    8.56  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Anthropogenic -<span style="color: #BB0000;">20.9</span>  18.4   -<span style="color: #BB0000;">18.7</span>    8.95  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Anthropogenic -<span style="color: #BB0000;">21.7</span>  17.7   -<span style="color: #BB0000;">20.8</span>    9.28  8.14     2 Anth…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 107 more rows</span></span></span></code></pre></div>
 <p>This example data is now ready to be analyzed.</p>
 </div>
 </div>
@@ -669,7 +675,7 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <h3 id="model---multiple-groups">Model - multiple groups<a class="anchor" aria-label="anchor" href="#model---multiple-groups"></a>
 </h3>
 <p>Let’s run the model!</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="va">combined_iso_update</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://rdrr.io/r/base/split.html" class="external-link">split</a></span><span class="op">(</span><span class="va">.</span><span class="op">$</span><span class="va">name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span> <span class="op">~</span> <span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm</a></span><span class="op">(</span></span>
@@ -697,7 +703,7 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <h3 id="model-output---multiple-groups">Model output - multiple groups<a class="anchor" aria-label="anchor" href="#model-output---multiple-groups"></a>
 </h3>
 <p>Let’s look at the summary of both models.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m1</span></span>
 <span><span class="co">#&gt; $`Anthropogenic_Lake Trout`</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
@@ -744,8 +750,8 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-<p>We can see that the R-hat is 1 meaning that variance among and within
-chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+<p>We can see that the R-hat is 1 meaning that the variance among and
+within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
 docmentation on R-hat</a>) and that ESS is quite large for both groups.
 Overall, this means the both models are converging and fitting
 accordingly.</p>
@@ -757,17 +763,17 @@ accordingly.</p>
 <code><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">iwalk()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> here as
 <code><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">iwalk()</a></code> invisibly return <code>.x</code> which is handy
 when you want to call a function (e.g., <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>) for its
-side effects rather than its return value. I have also added
+side effects rather than its returned value. I have also added
 <code><a href="https://rdrr.io/r/grid/grid.text.html" class="external-link">grid.text()</a></code> from {grid} to add the group names to each
 plot.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">m1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">iwalk</a></span><span class="op">(</span><span class="op">~</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/grid/grid.text.html" class="external-link">grid.text</a></span><span class="op">(</span><span class="va">.y</span>, x <span class="op">=</span> <span class="fl">0.5</span>, y <span class="op">=</span> <span class="fl">0.98</span><span class="op">)</span></span>
 <span> <span class="op">}</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-24-1.png" width="700"><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-24-2.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-23-1.png" width="700"><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-23-2.png" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -776,7 +782,7 @@ converging!</p>
 <h2 id="posterior-draws---multiple-groups">Posterior draws - multiple groups<a class="anchor" aria-label="anchor" href="#posterior-draws---multiple-groups"></a>
 </h2>
 <p>Let’s again look at the summary output from the model.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m1</span></span>
 <span><span class="co">#&gt; $`Anthropogenic_Lake Trout`</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
@@ -825,7 +831,7 @@ converging!</p>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 <p>We can see for lake trout from the Anthropogenic ecoregion that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
-is estimated to be <code>3.39</code> with <code>l-95% CI</code> of
+is estimated to be <code>3.89</code> with <code>l-95% CI</code> of
 <code>2.91</code>, and <code>u-95% CI</code> of <code>3.86</code>. If we
 move down to trophic position (<code>tp</code>) we see trophic position
 is estimated to be <code>4.48</code> with <code>l-95% CI</code> of
@@ -843,9 +849,9 @@ is estimated to be <code>4.41</code> with <code>l-95% CI</code> of
 <p>We will use functions from <a href="http://mjskay.github.io/tidybayes/" class="external-link">{tidybayes}</a> to do this
 work. First we will look at the the names of the variables we want to
 extract using <code><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables()</a></code>. Considering we have multiple
-models in <code>m1</code> we need to use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> to iterate
+models in <code>m1</code>, need to use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> to iterate
 over <code>m1</code> to get variables.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">m1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $`Anthropogenic_Lake Trout`</span></span>
@@ -874,7 +880,7 @@ using <code><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.
 function it will separate the columns and keep them as
 <code>characters</code>, hence why the last step is to convert
 <code>ecoregion</code> into a <code>factor</code>.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">post_draws_mg</span> <span class="op">&lt;-</span> <span class="va">m1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="op">~</span> <span class="va">.x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -890,7 +896,7 @@ function it will separate the columns and keep them as
 <span>            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Anthropogenic"</span>, <span class="st">"Embayment"</span><span class="op">)</span><span class="op">)</span>, </span>
 <span> <span class="op">)</span></span></code></pre></div>
 <p>Let’s view the <code>post_draws_mg</code></p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">post_draws_mg</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12,000 × 7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [1]</span></span></span>
@@ -929,7 +935,7 @@ available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{g
 <h3 id="violin-plot">Violin plot<a class="anchor" aria-label="anchor" href="#violin-plot"></a>
 </h3>
 <p>Let’s first look at the violin plot.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws_mg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">common_name</span>, </span>
 <span>                 y <span class="op">=</span> <span class="va">.value</span>, </span>
 <span>                 fill <span class="op">=</span> <span class="va">ecoregion</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -952,21 +958,21 @@ available in <a href="https://mjskay.github.io/ggdist/" class="external-link">{g
 <span>  x <span class="op">=</span> <span class="st">"Species"</span>, </span>
 <span>  y <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span></span>
 <span> <span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-29-1.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-28-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval-plot">Point interval plot<a class="anchor" aria-label="anchor" href="#point-interval-plot"></a>
 </h3>
 <p>Lastly, let’s look at the point interval plot but first we need to
 create the colour palette.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">viridis_colours</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html" class="external-link">viridis</a></span><span class="op">(</span><span class="fl">2</span>,</span>
 <span>                           option <span class="op">=</span> <span class="st">"G"</span>,</span>
 <span>                           begin <span class="op">=</span> <span class="fl">0.35</span>, </span>
 <span>                           end <span class="op">=</span> <span class="fl">0.75</span>, </span>
 <span>                           alpha <span class="op">=</span> <span class="fl">0.65</span><span class="op">)</span></span></code></pre></div>
 <p>Now let’s plot the point intervals.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">post_draws_mg</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">common_name</span>, </span>
 <span>                                 y <span class="op">=</span> <span class="va">.value</span>, </span>
 <span>                                 group <span class="op">=</span> <span class="va">ecoregion</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -990,7 +996,7 @@ create the colour palette.</p>
 <span>    x <span class="op">=</span> <span class="st">"Species"</span>, </span>
 <span>    y <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-31-1.png" width="700"></p>
+<p><img src="Estimate_trophic_position_one_source_model_files/figure-html/unnamed-chunk-30-1.png" width="700"></p>
 <p>Congratulations we have successfully run a Bayesian one source
 trophic position model for one species in two ecoregions of Lake
 Ontario!</p>
