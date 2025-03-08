@@ -37,7 +37,7 @@ $$
 
 Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
 $\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_b$ is the 
-$\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
+mean $\delta^{15}N$ of the baseline, and $\Delta N$ is the trophic enrichment factor 
 (e.g., 3.4). 
 
 To use this model with a Bayesian framework, we need to rearrange 
@@ -128,7 +128,7 @@ To do this we first need to make an `id`
 column in each data set that will assist in joining them together. We will
 first `arrange()` the data by `ecoregion` and then `common_name`. We will then 
 `group_by()` the same variables, and add `id` for each grouping using 
-`row_number()`. Always `ungroup()` the data frame after completing 
+`row_number()`. Always `ungroup()` the data frame after using 
 `group_by()`. Lastly, we will use `dplyr::select()` to rearrange the order of the 
 columns. 
 
@@ -176,10 +176,14 @@ combined_iso_os <- consumer_iso %>%
 
 We can see that we have successfully combined our consumer and baseline data. 
 We need to do one last thing prior to analyzing the data and that is 
-calculate the mean $\delta^{13}C$ and $\delta^{15}N$ and 
-add in the constant $\lambda$ (`l1`) to our data frame. We ill do this by 
-`groub_by()` our two groups, then using `mutate()` and `mean()` to calculate 
+calculate the mean $\delta^{13}C$ and $\delta^{15}N$ for the 
+baseline and add in the constant $\lambda$ (`l1`) to our data frame. 
+We will do this by `groub_by()` our two groups, then using `mutate()` and `mean()` to calculate 
 the mean values. 
+
+Important note, to run the model successfully columns need to be named `d15n`, 
+`n1`, and `l1`. 
+
 ```{r}
 combined_iso_os <- combined_iso_os %>% 
   group_by(ecoregion, common_name) %>% 
@@ -189,15 +193,10 @@ combined_iso_os <- combined_iso_os %>%
     l1 = 2
   ) %>% 
   ungroup()
-```
-and it is now ready to be analyzed.
 
-```{r}
 combined_iso_os
 ```
-
-Important note, to run the model successfully columns need to be named `d15n`, 
-`n1`, and `l1`. 
+and it is now ready to be analyzed.
 
 ## Bayesian Analysis
 
@@ -224,15 +223,21 @@ all `one_source_` functions.
 
 Some important things to pay attention to are 
 always run at least 2 chains, if the model does not converge you can try 
-to increase the amount of samples that are burned-in (discarded; in `brm()` 
-this can be controlled by the argument `warmup`), increase the number of 
-iterative samples retained (in `brm()` this can be controlled by the 
-argument `iter`), increase the the number of samples drawn (in `brm()` 
-this is controled by the argument `thin`), and/or adjust the `adapt_delta` 
-value using `control = list(adapt_delta = 0.95)`. 
+to increase the following: 
+
+1. The amount of samples that are burned-in (discarded; in `brm()` 
+this can be controlled by the argument `warmup`)
+
+2. The number of iterative samples retained (in `brm()` this can be controlled 
+by the argument `iter`). 
+
+3. The number of samples drawn (in `brm()` 
+this is controled by the argument `thin`).
+
+4. Adjust the `adapt_delta` value using `control = list(adapt_delta = 0.95)`. 
 
 When assessing the model we want R-hat to be 1 or within 0.05 of 1, 
-meaning that variance among and within chains is equal 
+which indicates that the variance among and within chains is equal 
 (See 
 [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html)),
 a high value for effective sample size (ESS), trace plots to look 
@@ -249,7 +254,7 @@ priors which is supplied to the `prior` argument using `one_source_priors()`.
 Lastly, values for these priors are supplied through the `stanvars` argument 
 using `one_source_priors_params()`. You can adjust the mean ($\mu$), 
 variance ($\sigma$), or upper and lower bounds (`lb` and `ub`) for each prior 
-of the model within `one_soruce_priors_params()`, however, only adjust priors 
+of the model using `one_source_priors_params()`, however, only adjust priors 
 if you have a good grasp of Bayesian frameworks and your study system and 
 species. 
 
@@ -302,10 +307,10 @@ Let's again look at the summary output from the model.
 m
 ```
 
-We can see that $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.90`, 
-and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we 
-see trophic position is estimated to be `4.41` with `l-95% CI` of `3.97`, 
-and `u-95% CI` of `4.92`. 
+We can see that $\Delta N$ is estimated to be `3.37` with `l-95% CI` of `2.89`, 
+and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) we 
+see trophic position is estimated to be `4.54` with `l-95% CI` of `4.21`, 
+and `u-95% CI` of `4.96`. 
 
 ### Extract posterior draws 
 
@@ -316,8 +321,8 @@ the the names of the variables we want to extract using `get_variables()`.
 get_variables(m)
 ```
 
-You will notice that `"b_tp_Intercept"` is the name of the variable in the 
-model object that we are most interested in extracting. We then will gather 
+You will notice that `"b_tp_Intercept"` is the name of the variable  
+that we are wanting to extract. We then will extract
 posterior draws using `gather_draws()`. We going to rename `"b_tp_Intercept"` 
 to `tp`. 
 
@@ -338,11 +343,11 @@ Let's view the `post_draws`
 post_draws
 ```
 We can see that this consists of seven variables, `ecoregion`,
-`common_name`, `.chain` (chain number), 
-`.iteration`(number sampled after burn-in; adjusted using `inter`), 
+`common_name`, `.chain`,
+`.iteration`(number sampled after burn-in), 
 `.draw` (number sampled from `iter`; adjusted using `thin`), 
-`.variable` (this will have different variables of interest if you 
-supply `gather_draws()` with more than one variable), `.value` (estimated value). 
+`.variable` (this will have different variables dependig on what is 
+supplied to `gather_draws()`), `.value` (estimated value). 
 
 ## Ploting posterior distributions 
 
@@ -404,8 +409,8 @@ combined_iso
 ```
 
 We can see that this data frame has isotope data for a 
-second baseline (dreissenids; `c2` and `n2`) as well as the mean values for both 
-baselines. These columns are useful when estimating trophic position 
+second baseline (dreissenids; `d13c_b2` and `d15n_b2`) as well as the mean 
+values for both baselines (`c1`-`n2`). These columns are useful when estimating trophic position 
 using a two source model but are not need for this analysis and can be removed.
 
 We can also confirm that this data set has one species, lake trout. 
@@ -419,7 +424,7 @@ collected from two ecoregions in Lake Ontario.
 unique(combined_iso$ecoregion)
 ```
 
-Let's remove the columns we don't need, `d13c_b2`, `d15n_b2`, `c2`, `n2`. 
+Let's remove the columns we don't need, `d13c_b2`, `d15n_b2`, `c1`, `c2`, `n2`. 
 We also need to add $\lambda$ to the data frame (`l1`). 
 We are going to make a `name` column that will be the two groups we have 
 `common_name` and `ecoregion` pasted together. We are doing this to make the 
@@ -427,7 +432,7 @@ iterative processes easier.
 
 ```{r}
 combined_iso_update <- combined_iso %>% 
- dplyr::select(-c(d13c_b2, d15n_b2, c2, n2)) %>% 
+ dplyr::select(-c(d13c_b2, d15n_b2, c1, c2, n2)) %>% 
  mutate(
   l1 = 2, 
   name = paste(ecoregion, common_name, sep = "_")
@@ -480,7 +485,7 @@ Let's look at the summary of both models.
 m1
 ```
 
-We can see that the R-hat is 1 meaning that variance among and within chains is 
+We can see that the R-hat is 1 meaning that the variance among and within chains is 
 equal (See [{rstan} docmentation on R-hat](https://mc-stan.org/rstan/reference/Rhat.html))
 and that ESS is quite large for both groups. 
 Overall, this means the both models are converging and fitting accordingly. 
@@ -489,7 +494,7 @@ Overall, this means the both models are converging and fitting accordingly.
 
 Let's look at the trace plots and distributions. We will use `iwalk()` instead 
 of `map()` here as `iwalk()` invisibly return `.x` which is handy when you want 
-to call a function (e.g., `plot()`) for its side effects rather than its return value.
+to call a function (e.g., `plot()`) for its side effects rather than its returned value.
 I have also added `grid.text()` from {grid} to add the group names to each plot. 
 
 ```{r}
@@ -512,7 +517,7 @@ m1
 ```
 
 We can see for lake trout from the Anthropogenic ecoregion that
-$\Delta N$ is estimated to be `3.39` with `l-95% CI` of `2.91`, 
+$\Delta N$ is estimated to be `3.89` with `l-95% CI` of `2.91`, 
 and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) we 
 see trophic position is estimated to be `4.48` with `l-95% CI` of `4.43`, 
 and `u-95% CI` of `5.39`. 
@@ -527,7 +532,7 @@ and `u-95% CI` of `4.92`.
 
 We will use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we will look at 
 the the names of the variables we want to extract using `get_variables()`. 
-Considering we have multiple models in `m1` we need to use `map()` to iterate
+Considering we have multiple models in `m1`, need to use `map()` to iterate
 over `m1` to get variables.
 
 ```{r}
