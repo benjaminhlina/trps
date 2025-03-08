@@ -599,7 +599,7 @@ m1
 We can see for lake trout from the `Anthropogenic` ecoregion that
 $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.88`, and
 `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we see
-trophic position is estimated to be `4.42` with `l-95% CI` of `4.44`,
+trophic position is estimated to be `4.82` with `l-95% CI` of `4.44`,
 and `u-95% CI` of `5.29`.
 
 We can see for lake trout from the `Embayment` ecoregion that $\Delta N$
