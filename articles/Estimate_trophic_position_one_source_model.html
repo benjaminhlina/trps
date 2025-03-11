@@ -81,8 +81,7 @@ equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.18
 <div class="section level2">
 <h2 id="trophic-position-model">Trophic Position Model<a class="anchor" aria-label="anchor" href="#trophic-position-model"></a>
 </h2>
-<p>For a one source model from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
-2002</a> the equation consists of the following:</p>
+<p>The equation for a one source model consists of the following:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - \delta^{15}N_b)}{\Delta N}
 </annotation></semantics></math></p>
@@ -100,12 +99,12 @@ of the baseline, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is the trophic enrichment factor (e.g., 3.4).</p>
 <p>To use this model with a Bayesian framework, we need to rearrange
-this equation. A function in <a href="https://benjaminhlina.github.io/trps/">{trps}</a> ,
-<code><a href="../reference/one_source_model.html">one_source_model()</a></code>, uses this rearranged equation
-below:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub><mo>+</mo><mi>Δ</mi><mi>N</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Trophic Position</mtext><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+this equation to the following:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>b</mi></msub><mo>+</mo><mi>Δ</mi><mi>N</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Trophic Position</mtext><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda) 
 </annotation></semantics></math></p>
+<p>The function <code><a href="../reference/one_source_model.html">one_source_model()</a></code> uses this rearranged
+equation.</p>
 </div>
 <div class="section level2">
 <h2 id="vignette-structure">Vignette structure<a class="anchor" aria-label="anchor" href="#vignette-structure"></a>
