@@ -320,6 +320,11 @@ Statistics - Book</a></li>
 Introduction to brms</a></li>
 <li><a href="https://paulbuerkner.com/brms/articles/brms_nonlinear.html" class="external-link">Estimating
 non-linear models with brms</a></li>
+<li><a href="https://www.bayes-pharma.org/wp-content/uploads/2019/06/Session-3.1-Fran%C3%A7ois-Mercier.pdf" class="external-link">Wandering
+the Bayesian countryside with ‘brms’ - Example of a nonlinear
+mixed-effect model in clinical oncology</a></li>
+<li><a href="https://www.granvillematheson.com/post/nonlinear-modelling-using-nls-nlme-and-brms/" class="external-link">Nonlinear
+modelling using nls nlme and brms</a></li>
 <li><a href="https://andrewproctor.github.io/rcourse/module6.html" class="external-link">Andrew
 Proctor’s - Module 6</a></li>
 <li><a href="https://www.nature.com/articles/s43586-020-00001-2" class="external-link">van de
@@ -368,12 +373,15 @@ controlled by the argument <code>thin</code>).</p></li>
 <li><p>Adjust the <code>adapt_delta</code> value using
 <code>control = list(adapt_delta = 0.95)</code>.</p></li>
 </ol>
-<p>When assessing the model we want R-hat to be 1 or within 0.05 of 1,
-which indicates that the variance among and within chains is equal (See
-<a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
-docmentation on R-hat</a>), a high value for effective sample size
-(ESS), trace plots to look “grassy” or “caterpillar like”, and posterior
-distributions to look relatively normal.</p>
+<p>When assessing the model we want
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math>
+to be 1 or within 0.05 of 1, which indicates that the variance among and
+within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+documentation on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math></a>),
+a high value for effective sample size (ESS), trace plots to look
+“grassy” or “caterpillar like”, and posterior distributions to look
+relatively normal.</p>
 </div>
 </div>
 <div class="section level2">
@@ -443,10 +451,13 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-<p>We can see that the R-hat is 1 meaning that variance among and within
-chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
-docmentation on R-hat</a>) and that ESS is quite large. Overall, this
-means the model is converging and fitting accordingly.</p>
+<p>We can see that
+the<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math>
+is 1 meaning that variance among and within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+documentation on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math></a>)
+and that ESS is quite large. Overall, this means the model is converging
+and fitting accordingly.</p>
 </div>
 <div class="section level3">
 <h3 id="trace-plots">Trace plots<a class="anchor" aria-label="anchor" href="#trace-plots"></a>
@@ -760,7 +771,8 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; Start sampling</span></span>
 <span><span class="co">#&gt;  <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span>  50% |  ETA:  1m</span></span>
 <span><span class="co">#&gt; Compiling Stan program...</span></span>
-<span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
+<span><span class="co">#&gt; Start sampling</span></span>
+<span><span class="co">#&gt; 1:</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="model-output---multiple-groups">Model output - multiple groups<a class="anchor" aria-label="anchor" href="#model-output---multiple-groups"></a>
@@ -813,11 +825,13 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
-<p>We can see that the R-hat is 1, meaning that the variance among and
-within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
-docmentation on R-hat</a>) and that ESS is quite large for both groups.
-Overall, this means the both models are converging and fitting
-accordingly.</p>
+<p>We can see that the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math>
+is 1, meaning that the variance among and within chains is equal (See <a href="https://mc-stan.org/rstan/reference/Rhat.html" class="external-link">{rstan}
+docmentation on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>R</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat R</annotation></semantics></math></a>)
+and that ESS is quite large for both groups. Overall, this means the
+both models are converging and fitting accordingly.</p>
 </div>
 <div class="section level3">
 <h3 id="trace-plots---multiple-groups">Trace plots - multiple groups<a class="anchor" aria-label="anchor" href="#trace-plots---multiple-groups"></a>
