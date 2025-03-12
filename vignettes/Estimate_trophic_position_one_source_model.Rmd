@@ -213,9 +213,14 @@ suggest reading these resources:
     brms](https://www.jstatsoft.org/article/view/v080i01)
 3.  [Estimating non-linear models with
     brms](https://paulbuerkner.com/brms/articles/brms_nonlinear.html)
-4.  [Andrew Proctor's - Module
+4.  [Wandering the Bayesian countryside with ‘brms’ - 
+    Example of a nonlinear mixed-effect model in 
+    clinical oncology](https://www.bayes-pharma.org/wp-content/uploads/2019/06/Session-3.1-Fran%C3%A7ois-Mercier.pdf)
+5.  [Nonlinear modelling using nls nlme and
+    brms](https://www.granvillematheson.com/post/nonlinear-modelling-using-nls-nlme-and-brms/)
+6.  [Andrew Proctor's - Module
     6](https://andrewproctor.github.io/rcourse/module6.html)
-5.  [van de Schoot et al.,
+7.  [van de Schoot et al.,
     2021](https://www.nature.com/articles/s43586-020-00001-2)
 
 ### Priors
