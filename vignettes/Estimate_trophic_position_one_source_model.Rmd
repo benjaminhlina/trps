@@ -257,10 +257,10 @@ following:
 4.  Adjust the `adapt_delta` value using
     `control = list(adapt_delta = 0.95)`.
 
-When assessing the model we want R-hat to be 1 or within 0.05 of 1,
+When assessing the model we want $\hat R$ to be 1 or within 0.05 of 1,
 which indicates that the variance among and within chains is equal (See
-[{rstan} docmentation on
-R-hat](https://mc-stan.org/rstan/reference/Rhat.html)), a high value for
+[{rstan} documentation on
+$\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)), a high value for
 effective sample size (ESS), trace plots to look "grassy" or
 "caterpillar like", and posterior distributions to look relatively
 normal.
@@ -308,9 +308,9 @@ Let's view the summary of the model.
 m
 ```
 
-We can see that the R-hat is 1 meaning that variance among and within
-chains is equal (See [{rstan} docmentation on
-R-hat](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
+We can see that the$\hat R$ is 1 meaning that variance among and within
+chains is equal (See [{rstan} documentation on
+$\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
 quite large. Overall, this means the model is converging and fitting
 accordingly.
 
@@ -567,9 +567,9 @@ Let's look at the summary of both models.
 m1
 ```
 
-We can see that the R-hat is 1, meaning that the variance among and
+We can see that the $\hat R$ is 1, meaning that the variance among and
 within chains is equal (See [{rstan} docmentation on
-R-hat](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
+$\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
 quite large for both groups. Overall, this means the both models are
 converging and fitting accordingly.
 
