@@ -7,11 +7,11 @@
 two_source_model_ar(bp = FALSE, lambda = NULL)
 }
 \arguments{
-\item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-baselines. Default is \code{FALSE} meaning the model will not be supplied priors,
-however, the supplied \code{data.frame} needs values for
-\eqn{\delta^{15}}N each baseline (\code{n1} and \code{n2}).}
+\item{bp}{logical value that controls whether informed priors are
+supplied to the model for both \eqn{\delta^{15}}N baselines.
+Default is \code{FALSE} meaning the model will use uninformed priors, however,
+the supplied \code{data.frame} needs values for both \eqn{\delta^{15}}N
+baseline (\code{n1} and \code{n2}).\}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
 two lambdas are used. See details for equations and when to use \code{1} or \code{2}.
@@ -22,7 +22,8 @@ returns model structure for two source model to be used in a
 \code{brms()} call.
 }
 \description{
-Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
+Estimate trophic position using a two source model with \eqn{\alpha_r}
+derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024} using a Bayesian framework.
 }
 \details{
@@ -34,8 +35,6 @@ We will use the following equations derived from
   (\delta ^{13}C_1 - \delta ^{13}C_2)}
 
 \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
-
-\item \deqn{\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)}
 
 \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 
@@ -58,12 +57,7 @@ with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 using \code{add_alpha()} and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
 value calculated using \code{add_alpha()}.
 
-\strong{For equation 3)}
-
-This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
-estimated using \code{c_1}, \code{c_2}  and \eqn{\alpha_r} calculated in equation 1.
-
-\strong{For equation 4) and 5)}
+\strong{For equation 3) and 4)}
 
 \eqn{\delta^{15}}N are values from the consumer,
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is

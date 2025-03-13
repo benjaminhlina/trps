@@ -1,13 +1,16 @@
 #' Bayesian model - Two Source Trophic Position with \eqn{\alpha_r}
 #'
-#' Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) using a Bayesian framework.
+#' Estimate trophic position using a two source model with \eqn{\alpha_r}
+#' derived from
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al.
+#' 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) using a Bayesian framework.
 #'
-#' @param bp logical value that controls whether  priors are
-#' supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-#' baselines. Default is `FALSE` meaning the model will not be supplied priors,
-#' however, the supplied `data.frame` needs values for
-#' \eqn{\delta^{15}}N each baseline (`n1` and `n2`).
+#' @param bp logical value that controls whether informed priors are
+#' supplied to the model for both \eqn{\delta^{15}}N baselines.
+#' Default is `FALSE` meaning the model will use uninformed priors, however,
+#' the supplied `data.frame` needs values for both \eqn{\delta^{15}}N
+#' baseline (`n1` and `n2`).\
+#'
 #' @param lambda numerical value, `1` or `2`, that controls whether one or
 #' two lambdas are used. See details for equations and when to use `1` or `2`.
 #' Defaults to `1`.
@@ -15,7 +18,8 @@
 #' @details
 #'
 #' We will use the following equations derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028):
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al.
+#' 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028):
 #'
 #' \enumerate{
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
@@ -23,10 +27,7 @@
 #'
 #'   \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 #'
-#'   \item \deqn{\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)}
-#'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
-#'
 #'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 #'    }
@@ -47,12 +48,7 @@
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
 #' value calculated using `add_alpha()`.
 #'
-#' **For equation 3)**
-#'
-#' This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
-#' estimated using `c_1`, `c_2`  and \eqn{\alpha_r} calculated in equation 1.
-#'
-#' **For equation 4) and 5)**
+#' **For equation 3) and 4)**
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
