@@ -9,7 +9,7 @@
 #' supplied to the model for both \eqn{\delta^{15}}N baselines.
 #' Default is `FALSE` meaning the model will use uninformed priors, however,
 #' the supplied `data.frame` needs values for both \eqn{\delta^{15}}N
-#' baseline (`n1` and `n2`).\
+#' baseline (`n1` and `n2`).
 #'
 #' @param lambda numerical value, `1` or `2`, that controls whether one or
 #' two lambdas are used. See details for equations and when to use `1` or `2`.
@@ -28,6 +28,7 @@
 #'   \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 #'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
+#'
 #'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 #'    }

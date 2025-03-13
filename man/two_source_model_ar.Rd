@@ -11,7 +11,7 @@ two_source_model_ar(bp = FALSE, lambda = NULL)
 supplied to the model for both \eqn{\delta^{15}}N baselines.
 Default is \code{FALSE} meaning the model will use uninformed priors, however,
 the supplied \code{data.frame} needs values for both \eqn{\delta^{15}}N
-baseline (\code{n1} and \code{n2}).\}
+baseline (\code{n1} and \code{n2}).}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
 two lambdas are used. See details for equations and when to use \code{1} or \code{2}.
