@@ -1,4 +1,4 @@
-#' Adjust Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model
+#' Adjust Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r}
 #'
 #' Create priors for trophic position using a two source model
 #' with \eqn{\alpha_r} derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)

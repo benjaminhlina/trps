@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_priors_params_ar.R
 \name{two_source_priors_params_ar}
 \alias{two_source_priors_params_ar}
-\title{Adjust Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model}
+\title{Adjust Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r}}
 \usage{
 two_source_priors_params_ar(
   a = NULL,
