@@ -112,11 +112,6 @@ two_source_model_ar <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
-          ar ~ 1,
-          nl = TRUE
-        ) +
-        brms::bf(
           d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar),
           ar ~ 1,
           tp ~ 1,
@@ -130,16 +125,9 @@ two_source_model_ar <- function(
     if (isTRUE(bp)) {
       model <- brms::bf(
         alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
-        ar~ 1,
+        ar ~ 1,
         nl = TRUE
       ) +
-        brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
-          ar ~ 1,
-          c1 ~ 1,
-          c2 ~ 1,
-          nl = TRUE
-        ) +
         brms::bf(
           d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar),
           ar ~ 1,
@@ -164,11 +152,6 @@ two_source_model_ar <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
-          ar ~ 1,
-          nl = TRUE
-        ) +
-        brms::bf(
           d15n ~ dn * (tp - (l1 * ar + l2 * (1 - ar))) + n1 * ar + n2 * (1 - ar),
           ar ~ 1,
           tp ~ 1,
@@ -185,13 +168,6 @@ two_source_model_ar <- function(
         ar ~ 1,
         nl = TRUE
       ) +
-        brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
-          ar ~ 1,
-          c1 ~ 1,
-          c2 ~ 1,
-          nl = TRUE
-        ) +
         brms::bf(
           d15n ~ dn * (tp - (l1 * ar + l2 * (1 - ar))) + n1 * ar + n2 * (1 - ar),
           ar ~ 1,
