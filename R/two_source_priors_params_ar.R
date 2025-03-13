@@ -296,10 +296,6 @@ two_source_priors_params_ar <- function(
       brms::stanvar(n1_sigma, 'n1_sigma') +
       brms::stanvar(n2, name = 'n2') +
       brms::stanvar(n2_sigma, 'n2_sigma') +
-      brms::stanvar(c1, name = 'c1') +
-      brms::stanvar(c1_sigma, 'c1_sigma') +
-      brms::stanvar(c2, name = 'c2') +
-      brms::stanvar(c2_sigma, 'c2_sigma') +
       brms::stanvar(dn, 'dn') +
       brms::stanvar(dn_sigma, 'dn_sigma') +
       brms::stanvar(tp_lb, 'tp_lb') +
