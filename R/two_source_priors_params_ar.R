@@ -125,10 +125,6 @@ two_source_priors_params_ar <- function(
   n1_sigma = NULL,
   n2 = NULL,
   n2_sigma = NULL,
-  c1 = NULL,
-  c1_sigma = NULL,
-  c2 = NULL,
-  c2_sigma = NULL,
   dn = NULL,
   dn_sigma = NULL,
   tp_lb = NULL,
@@ -177,7 +173,7 @@ two_source_priors_params_ar <- function(
 
   # set n1 to 9
   if (is.null(n1)) {
-    n1 <- 9
+    n1 <- 8.0
   }
 
   # create error message for n1 priros
@@ -203,7 +199,7 @@ two_source_priors_params_ar <- function(
 
   # set n1 to 9
   if (is.null(n2)) {
-    n2 <- 9
+    n2 <- 9.5
   }
 
   # create error message for n1 priros
@@ -225,60 +221,6 @@ two_source_priors_params_ar <- function(
       "i" = "Please provide a numerical value as a piror"
     ))
   }
-  # ----- c1 -----
-
-  # set c1 to -21
-  if (is.null(c1)) {
-    c1 <- -21
-  }
-
-  # create error message for c1 priros
-  if  (!is.numeric(c1)) {
-    cli::cli_abort(c(
-      "`c1` argument must be a numerical value.",
-      "i" = "Please provide a numerical value as a piror."
-    ))
-  }
-
-  # set c1_sigma to 1
-  if (is.null(c1_sigma)) {
-    c1_sigma <- 1
-  }
-  # create error message for n1 priors
-  if  (!is.numeric(c1_sigma)) {
-    cli::cli_abort(c(
-      "`c1_sigma` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
-  # ----- c2 -----
-
-  # set c2 to -26
-  if (is.null(c2)) {
-    c2 <- -26
-  }
-
-  # create error message for c1 priros
-  if  (!is.numeric(c2)) {
-    cli::cli_abort(c(
-      "`c2` argument must be a numerical value.",
-      "i" = "Please provide a numerical value as a piror."
-    ))
-  }
-
-  # set c1_sigma to 1
-  if (is.null(c2_sigma)) {
-    c2_sigma <- 1
-  }
-  # create error message for n1 priors
-  if  (!is.numeric(c2_sigma)) {
-    cli::cli_abort(c(
-      "`c2_sigma` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
   # ---- dn priors -----
 
 
