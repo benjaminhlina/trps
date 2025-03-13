@@ -2,16 +2,17 @@
 % Please edit documentation in R/two_source_model_arc.R
 \name{two_source_model_arc}
 \alias{two_source_model_arc}
-\title{Bayesian model - Two Source Trophic Position with \eqn{\alpha_c}}
+\title{Bayesian model - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model}
 \usage{
 two_source_model_arc(bp = FALSE, lambda = NULL)
 }
 \arguments{
-\item{bp}{logical value that controls whether  priors are
-supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-baselines. Default is \code{FALSE} meaning the model will not be supplied priors,
-however, the supplied \code{data.frame} needs values for
-\eqn{\delta^{15}}N each baseline (\code{n1} and \code{n2}).}
+\item{bp}{logical value that controls whether informed priors are
+supplied to the model for both \eqn{\delta^{15}}N and
+\eqn{\delta^{15}}C baselines. Default is \code{FALSE} meaning the model will
+use uninformed priors, however, the supplied \code{data.frame} needs values
+for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
+(\code{c1}, \code{c2}, \code{n1}, and \code{n2}).}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
 two lambdas are used. See details for equations and when to use \code{1} or \code{2}.
@@ -22,7 +23,7 @@ returns model structure for two source model to be used in a
 \code{brms()} call.
 }
 \description{
-Estimate trophic position using a two source model with \eqn{\alpha_c} derived from
+Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024} using a Bayesian framework.
 }
 \details{

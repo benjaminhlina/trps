@@ -1,13 +1,15 @@
-#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_c}
+#' Bayesian model - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model
 #'
-#' Estimate trophic position using a two source model with \eqn{\alpha_c} derived from
+#' Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) using a Bayesian framework.
 #'
-#' @param bp logical value that controls whether  priors are
-#' supplied to the model for \eqn{\delta^{15}}N pelagic and benthic
-#' baselines. Default is `FALSE` meaning the model will not be supplied priors,
-#' however, the supplied `data.frame` needs values for
-#' \eqn{\delta^{15}}N each baseline (`n1` and `n2`).
+#' @param bp logical value that controls whether informed priors are
+#' supplied to the model for both \eqn{\delta^{15}}N and
+#' \eqn{\delta^{15}}C baselines. Default is `FALSE` meaning the model will
+#' use uninformed priors, however, the supplied `data.frame` needs values
+#' for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
+#' (`c1`, `c2`, `n1`, and `n2`).
+#'
 #' @param lambda numerical value, `1` or `2`, that controls whether one or
 #' two lambdas are used. See details for equations and when to use `1` or `2`.
 #' Defaults to `1`.

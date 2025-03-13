@@ -2,7 +2,7 @@
 % Please edit documentation in R/two_source_priors_params_arc.R
 \name{two_source_priors_params_arc}
 \alias{two_source_priors_params_arc}
-\title{Adjust Bayesian priors - Two Source Trophic Position}
+\title{Adjust Bayesian priors - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model}
 \usage{
 two_source_priors_params_arc(
   a = NULL,
@@ -78,7 +78,9 @@ supplied to the model for \eqn{\delta^{15}}N baselines. Default is
 \code{stanvars} object to be used with \code{brms()} call.
 }
 \description{
-Adjust priors for two source trophic position model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}.
+Adjust priors for trophic position using a two source model
+with \eqn{\alpha_r} derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}
+and \href{https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028}{Heuvel et al. 2024}
 }
 \details{
 We will use the following equations derived from
