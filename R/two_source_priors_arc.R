@@ -38,9 +38,9 @@ two_source_priors_arc <- function(bp = FALSE) {
 
       # alpha priors
 
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ac"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
@@ -61,9 +61,9 @@ two_source_priors_arc <- function(bp = FALSE) {
     priors <- c(
          # alpha priors
 
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ac"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ac"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
+      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
 
       # Baseline 1 δ15N (n1)
       brms::prior(normal(n1, n1_sigma), resp = "d15n",
