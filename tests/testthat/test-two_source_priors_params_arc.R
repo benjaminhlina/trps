@@ -210,6 +210,111 @@ test_that("test priors fails n1_sigam ", {
 }
 
 )
+#  tests for the two_source_priors_params_arc c1
+
+
+test_that("test two-source priors n1", {
+
+  pri_pram <- two_source_priors_params_arc(bp = TRUE)
+  expected_c1 <- -21
+
+  results_c1 <- pri_pram$c1$sdata
+
+  expect_equal(results_c1, expected_c1)
+
+}
+)
+
+#  tests for the two_source_priors_params_arc fails when given not. a numeric
+
+
+test_that("test two-source priors fails c1", {
+
+  expect_error(two_source_priors_params_arc(bp = TRUE,
+                                        c1 = "test"),
+               regexp = "`c1` argument must be a numerical value")
+
+
+}
+)
+
+
+test_that("test two-source priors c2", {
+
+  pri_pram <- two_source_priors_params_arc(bp = TRUE)
+  expected_c2 <- -26
+
+  results_c2 <- pri_pram$c2$sdata
+
+  expect_equal(results_c2, expected_c2)
+
+}
+)
+
+#  tests for the two_source_priors_params_arc fails when given not. a numeric
+
+
+test_that("test two-source priors fails c2", {
+
+  expect_error(two_source_priors_params_arc(bp = TRUE,
+                                        c2 = "test"),
+               regexp = "`c2` argument must be a numerical value")
+
+
+}
+)
+
+
+test_that("test two-source priors sigma", {
+
+  pri_pram <- two_source_priors_params_arc(bp = TRUE)
+  expected_c2_sigma <- 1
+
+  results_c2_sigma <- pri_pram$c2_sigma$sdata
+
+  expect_equal(results_c2_sigma, expected_c2_sigma)
+
+}
+)
+
+
+test_that("test priors fails c2_sigam ", {
+
+  expect_error(two_source_priors_params_arc(bp = TRUE,
+                                        c2_sigma = "test"),
+               regexp = "`c2_sigma` argument must be a numerical value"
+  )
+
+
+
+}
+
+)
+test_that("test two-source priors sigma", {
+
+  pri_pram <- two_source_priors_params_arc(bp = TRUE)
+  expected_c1_sigma <- 1
+
+  results_c1_sigma <- pri_pram$c1_sigma$sdata
+
+  expect_equal(results_c1_sigma, expected_c1_sigma)
+
+}
+)
+
+
+test_that("test priors fails c1_sigam ", {
+
+  expect_error(two_source_priors_params_arc(bp = TRUE,
+                                        c1_sigma = "test"),
+               regexp = "`c1_sigma` argument must be a numerical value"
+  )
+
+
+
+}
+
+)
 #  tests for the two_source_priors_params_arc
 
 
