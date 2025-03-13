@@ -8,11 +8,11 @@ two_source_priors_ar(bp = FALSE)
 }
 \arguments{
 \item{bp}{logical value that controls whether informed priors are
-supplied to the model for both \eqn{\delta^{15}}N and
-\eqn{\delta^{15}}C baselines. Default is \code{FALSE} meaning the model will
+supplied to the model for  \eqn{\delta^{15}}N baselines.
+Default is \code{FALSE} meaning the model will
 use uninformed priors, however, the supplied \code{data.frame} needs values
-for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
-(\code{c1}, \code{c2}, \code{n1}, and \code{n2}).}
+for both \eqn{\delta^{15}}N baseline
+(\code{n1}, and \code{n2}).}
 }
 \value{
 returns priors for two source model to be used in a \code{brms()} call.

@@ -5,11 +5,11 @@
 #' and [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
 #'
 #' @param bp logical value that controls whether informed priors are
-#' supplied to the model for both \eqn{\delta^{15}}N and
-#' \eqn{\delta^{15}}C baselines. Default is `FALSE` meaning the model will
+#' supplied to the model for  \eqn{\delta^{15}}N baselines.
+#' Default is `FALSE` meaning the model will
 #' use uninformed priors, however, the supplied `data.frame` needs values
-#' for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
-#' (`c1`, `c2`, `n1`, and `n2`).
+#' for both \eqn{\delta^{15}}N baseline
+#' (`n1`, and `n2`).
 #'
 #' @return returns priors for two source model to be used in a `brms()` call.
 #'
