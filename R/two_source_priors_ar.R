@@ -39,7 +39,6 @@ two_source_priors_ar <- function(bp = FALSE) {
       # alpha priors
 
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
@@ -48,8 +47,6 @@ two_source_priors_ar <- function(bp = FALSE) {
                   nlpar = "tp"),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub), resp = "alpha",
-                  class = "sigma", ub = sigma_ub),
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d13c",
                   class = "sigma", ub = sigma_ub),
       brms::prior(uniform(sigma_lb, sigma_ub), resp = "d15n",
                   class = "sigma", ub = sigma_ub)
@@ -62,7 +59,6 @@ two_source_priors_ar <- function(bp = FALSE) {
          # alpha priors
 
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "alpha", nlpar = "ar"),
-      brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "ar"),
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "ar"),
 
       # Baseline 1 δ15N (n1)
@@ -78,8 +74,6 @@ two_source_priors_ar <- function(bp = FALSE) {
                   nlpar = "tp"),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub), resp = "alpha",
-                  class = "sigma", ub = sigma_ub),
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d13c",
                   class = "sigma", ub = sigma_ub),
       brms::prior(uniform(sigma_lb, sigma_ub), resp = "d15n",
                   class = "sigma", ub = sigma_ub)
