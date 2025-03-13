@@ -38,6 +38,7 @@ trophic enrichment factor (e.g., 3.4).
 
 To use this model with a Bayesian framework, we need to rearrange this
 equation to the following: 
+
 $$
 \delta^{15}N_c = \delta^{15}N_b + \Delta N \times (\text{Trophic Position} - \lambda) 
 $$
@@ -191,7 +192,11 @@ combined_iso_os <- combined_iso_os %>%
     l1 = 2
   ) %>% 
   ungroup()
+```
 
+Let's view our combined data. 
+
+```{r}
 combined_iso_os
 ```
 
@@ -211,14 +216,11 @@ suggest reading these resources:
     brms](https://www.jstatsoft.org/article/view/v080i01)
 3.  [Estimating non-linear models with
     brms](https://paulbuerkner.com/brms/articles/brms_nonlinear.html)
-4.  [Wandering the Bayesian countryside with ‘brms’ - 
-    Example of a nonlinear mixed-effect model in 
-    clinical oncology](https://www.bayes-pharma.org/wp-content/uploads/2019/06/Session-3.1-Fran%C3%A7ois-Mercier.pdf)
-5.  [Nonlinear modelling using nls nlme and
+4.  [Nonlinear modelling using nls nlme and
     brms](https://www.granvillematheson.com/post/nonlinear-modelling-using-nls-nlme-and-brms/)
-6.  [Andrew Proctor's - Module
+5.  [Andrew Proctor's - Module
     6](https://andrewproctor.github.io/rcourse/module6.html)
-7.  [van de Schoot et al.,
+6.  [van de Schoot et al.,
     2021](https://www.nature.com/articles/s43586-020-00001-2)
 
 ### Priors
@@ -229,7 +231,7 @@ The default informed priors for a one source model are the following,
 $\Delta N$ assumes a normal distribution (`dn`; $\mu = 3.4$;
 $\sigma = 0.25$), trophic position assumes a uniform distribution (lower
 bound = 2 and upper bound = 10), $\sigma$ assumes a uniform distribution
-(lower bound = 0 and upper bound = 10) and if informed priors are
+(lower bound = 0 and upper bound = 10), and if informed priors are
 desired for $\delta^{15}N_b$ (`n1`; $\mu = 9$; $\sigma = 1$), we can set
 the argument `bp` to `TRUE` in all `one_source_` functions.
 
@@ -256,7 +258,7 @@ following:
     `control = list(adapt_delta = 0.95)`.
 
 When assessing the model we want $\hat R$ to be 1 or within 0.05 of 1,
-which indicates that the variance among and within chains is equal (See
+which indicates that the variance among and within chains are equal (See
 [{rstan} documentation on
 $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)), a high value for
 effective sample size (ESS), trace plots to look "grassy" or
@@ -307,7 +309,7 @@ m
 ```
 
 We can see that $\hat R$ is 1 meaning that variance among and within
-chains is equal (See [{rstan} documentation on
+chains are equal (See [{rstan} documentation on
 $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
 quite large. Overall, this means the model is converging and fitting
 accordingly.
@@ -504,7 +506,7 @@ unique(combined_iso$ecoregion)
 
 Let's remove the columns we don't need, `d13c_b2`, `d15n_b2`,
 `c2`, `n2`. We also need to add $\lambda$ to the data frame (`l1`). We
-are going to make a `name` column that will be the two groups we have
+are going to make a `name` column that will be the two groups we have,
 `common_name` and `ecoregion` pasted together. We are doing this to make
 the iterative processes easier.
 
@@ -571,15 +573,15 @@ m1
 ```
 
 We can see that $\hat R$ is 1, meaning that the variance among and
-within chains is equal (See [{rstan} docmentation on
+within chains are equal (See [{rstan} docmentation on
 $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is
-quite large for both groups. Overall, this means the both models are
+quite large for both groups. Overall, this means that both models are
 converging and fitting accordingly.
 
 ### Trace plots - multiple groups
 
 Let's look at the trace plots and distributions. We will use `iwalk()`
-instead of `map()` here as `iwalk()` invisibly return `.x` which is
+instead of `map()`, as `iwalk()` invisibly return `.x` which is
 handy when you want to call a function (e.g., `plot()`) for its side
 effects rather than its returned value. I have also added `grid.text()`
 from {grid} to add the group names to each plot.
@@ -620,8 +622,8 @@ position is estimated to be `4.54` with `l-95% CI` of `4.21`, and
 We will use functions from
 [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First
 we will look at the the names of the variables we want to extract using
-`get_variables()`. Considering we have multiple models in `m1` that have
-all of the same structure we can just look at the names of the first
+`get_variables()`. Considering we have multiple models in `m1` that all
+have the same structure, we can just look at the names of the first
 model object in `m1`.
 
 ```{r}
@@ -673,6 +675,8 @@ Let's view the `post_draws_mg`
 post_draws_mg
 ```
 
+We can see that this consists of seven variables:
+
 1.  `ecoregion`
 2.  `common_name`
 3.  `.chain`
@@ -693,10 +697,10 @@ intervals (e.g., equal-tailed intervals; ETI). We can extract and export
 these values using `spread_draws()` and `median_qi` from
 [{tidybayes}](http://mjskay.github.io/tidybayes/).
 
-Again, `m1` is a `list` of our model objects, we need to `map()` over the
-list to calculate these. Then we will do the same procedures we have
-done before in combining our outputs and getting the names of each group
-correct. Lastly, we will use `mutate_if()` to round all columns that are
+Again, because `m1` is a `list` of our model objects, we need to `map()` 
+over the list to calculate these values. Then we will do the same procedures 
+we have done before to combine and restructure the outputs. 
+Lastly, we will use `mutate_if()` to round all columns that are
 numeric to two decimal points.
 
 ```{r, message=FALSE}
