@@ -8,14 +8,10 @@ test_that("test two-source priors", {
   expected <- c(
     "beta(a, b)",
     "beta(a, b)",
-    "beta(a, b)",
     "normal(n1, n1_sigma)",
     "normal(n2, n2_sigma)",
-    # "normal(c1, c1_sigma)",
-    # "normal(c2, c2_sigma)",
     "normal(dn, dn_sigma)",
     "uniform(tp_lb, tp_ub)",
-    "uniform(sigma_lb, sigma_ub)",
     "uniform(sigma_lb, sigma_ub)",
     "uniform(sigma_lb, sigma_ub)"
   )
@@ -35,10 +31,8 @@ test_that("test two-source priors without baseline", {
   expected <- c(
     "beta(a, b)",
     "beta(a, b)",
-    "beta(a, b)",
     "normal(dn, dn_sigma)",
     "uniform(tp_lb, tp_ub)",
-    "uniform(sigma_lb, sigma_ub)",
     "uniform(sigma_lb, sigma_ub)",
     "uniform(sigma_lb, sigma_ub)"
   )
