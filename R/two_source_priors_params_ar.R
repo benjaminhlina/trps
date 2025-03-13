@@ -9,21 +9,13 @@
 #' @param n1_sigma variance (\eqn{\sigma})for first
 #' \eqn{\delta^{15}}N baseline. Defaults to `1`.
 #' @param n1 mean (\eqn{\mu}) prior for first \eqn{\delta^{15}}N
-#' baseline. Defaults to `9`.
+#' baseline. Defaults to `8.0`.
 #' @param n1_sigma variance (\eqn{\sigma})for first
 #' \eqn{\delta^{15}}N baseline. Defaults to `1`.
 #' @param n2 mean (\eqn{\mu}) prior for second \eqn{\delta^{15}}N
-#' baseline. Defaults to `9`.
+#' baseline. Defaults to `9.5`.
 #' @param n2_sigma variance (\eqn{\sigma}) for second
 #' \eqn{\delta^{15}}N  baseline. Defaults to `1`.
-#' @param c1 mean (\eqn{\mu}) prior for first \eqn{\delta^{13}}C
-#' baseline. Defaults to `-21`.
-#' @param c1_sigma variance (\eqn{\sigma})for first
-#' \eqn{\delta^{13}}C baseline. Defaults to `1`.
-#' @param c2 mean (\eqn{\mu}) prior for second \eqn{\delta^{13}}C
-#' baseline. Defaults to `-26`.
-#' @param c2_sigma variance (\eqn{\sigma}) for second
-#' \eqn{\delta^{13}}C  baseline. Defaults to `1`.
 #' @param dn mean (\eqn{\mu}) prior value for \eqn{\Delta}N. Defaults to `3.4`.
 #' @param dn_sigma variance (\eqn{\sigma}) for \eqn{\delta^{15}}N.
 #' Defaults to `0.5`.
@@ -47,10 +39,7 @@
 #'
 #'   \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 #'
-#'   \item \deqn{\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)}
-#'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
-#'
 #'
 #'   \item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 #'    }
@@ -70,13 +59,8 @@
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
 #' value calculated using `add_alpha()`.
-#'
-#' **For equation 3)**
-#'
-#' This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
-#' estimated using `c_1`, `c_2`  and \eqn{\alpha_r} calculated in equation 1.
-#'
-#' **For equation 4) and 5)**
+
+#' **For equation 3) and 4)**
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
