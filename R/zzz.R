@@ -1,5 +1,5 @@
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("version 0.1.0 ('xc-ski-time').\nHave you loaded {brms}?")
+  packageStartupMessage("version 0.1.0 ('one-skate').\nHave you loaded {brms}?")
 }
 utils::globalVariables(c("n1",
                          "n1_sigma",

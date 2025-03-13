@@ -87,7 +87,8 @@ To cite this package please cite the following publications
   [10.1139/cjfas-2024-0028](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
 
 - Hlina B.L. 2025. trps: Bayesian trophic position models using stan. R
-  package version 0.1.0. <https://benjaminhlina.github.io/trps/>
+  package version 0.1.0 (‘one-skate’).
+  <https://benjaminhlina.github.io/trps/>
 
 ## Progress
 
