@@ -71,13 +71,6 @@ two_source_priors_ar <- function(bp = FALSE) {
       # Baseline 2 δ15N (n2)
       brms::prior(normal(n2, n2_sigma),  resp = "d15n",
                   nlpar = "n2"),
-      # Baseline 1 δ15N (n1)
-      brms::prior(normal(c1, c1_sigma),  resp = "d13c",
-                  nlpar = "c1"),
-      # Baseline 2 δ15N (n2)
-      brms::prior(normal(c2, c2_sigma),  resp = "d13c",
-                  nlpar = "c2"),
-
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
