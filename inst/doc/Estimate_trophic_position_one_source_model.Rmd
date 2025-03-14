@@ -241,6 +241,7 @@ using `pp_check()` from `{bayesplot}`.
 ```{r}
 pp_check(m)
 ```
+
 We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
 modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
 
@@ -489,6 +490,7 @@ m1 %>%
         pp_check()
   )
 ```
+
 We can see that posteriors draws ($y_{rep}$; light lines) for both groups are
 are effectively modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
 
