@@ -73,7 +73,7 @@
 <li><p>Two Source Model - <code><a href="reference/two_source_model.html">two_source_model()</a></code></p></li>
 <li><p>Two Source Model - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> corrected (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>) using <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a> - <code><a href="reference/two_source_model_ar.html">two_source_model_ar()</a></code></p></li>
 </ol>
-<p>None of these models currently implement carbon mixing or fractionation models, but will at some point.</p>
+<p>None of these models currently implement carbon mixing models, but will at some point.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -134,16 +134,17 @@
 <li><label><input type="checkbox" checked>parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)</label></li>
 </ul>
 </li>
-<li>[] a two-source carbon fractionation model
-<ul>
-<li>[] priors and parameters for priors</li>
+<li>
+<label><input type="checkbox" checked>a two-source carbon mixing model model</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked>priors and parameters for priors</label></li>
 </ul>
 </li>
 <li>
 <label><input type="checkbox" checked>a two-source model with different lambdas and alpha corrected using <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a>.</label>
-<ul>
+<ul class="task-list">
 <li><label><input type="checkbox" checked>priors</label></li>
-<li>[] parameters for priors</li>
+<li><label><input type="checkbox" checked>parameters for priors</label></li>
 </ul>
 </li>
 <li><label><input type="checkbox" checked>vignettes for one source</label></li>
