@@ -75,36 +75,32 @@ two \(\lambda\)s are used. See details for equations and when to use
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>We will use the following equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a>:</p>
-<p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
-(\delta ^{13}C_1 - \delta ^{13}C_2)$$</p>
-<p>where \(\delta^{13}C_c\) is the isotopic value for consumer,
-\(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
-\(\delta^{13}C_2\) is the mean isotopic value for baseline 2.</p>
-<p>Which we will solve for \(\delta^{13}C_c\):</p>
-<p>$$\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
-\delta ^{13}C_2$$</p>
-<p><strong>When <code>lambda</code> is set to <code>1</code></strong></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) +
-n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
-<p>or</p>
-<p><strong>When <code>lambda</code> is set to <code>2</code></strong></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+<ol><li><p>$$\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\delta ^{13}C_2$$</p></li>
+<li><p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) +
+n_1 \times \alpha + n_2 \times (1 - \alpha)$$
+ $$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
 \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
-n_2 \times (1 - \alpha)$$</p>
-<p>where \(\delta^{15}\)N are values from the consumer,
-\(n_1\) is mean \(\delta^{15}\)N of baseline 1, \(n_2\) is mean
-\(\delta^{15}\)N of baseline 2,
+n_2 \times (1 - \alpha)$$</p></li>
+</ol><p><strong>For equation 1)</strong>
+where \(\delta^{13}C_c\) is the isotopic value for consumer, \(\alpha\)
+is the ratio between baselines and consumer \(\delta^{13}C\),
+\(\delta^{13}C_1\) is the mean isotopic value for baseline 1,  and
+\(\delta^{13}C_2\) is the mean isotopic value for baseline 2</p>
+<p><strong>For equation 2) and 3)</strong>
+\(\delta^{15}\)N are values from the consumer,
+\(n_1\) is \(\delta^{15}\)N values of baseline 1, \(n_2\) is
+\(\delta^{15}\)N values of baseline 2,
 \(\Delta\)N is the trophic discrimination factor for N (i.e., mean of <code>3.4</code>),
-tp is trophic position, \(\alpha\) is carbon use derived from
-the first equation and  \(\lambda_1\) and/or
-\(\lambda_2\) are the trophic levels of baselines which are often a
-primary consumer (e.g., <code>2</code> or <code>2.5</code>).</p>
+tp is trophic position, and  \(\lambda_1\) and/or
+\(\lambda_2\) are the trophic levels of
+baselines which are often a primary consumer (e.g., <code>2</code> or <code>2.5</code>).</p>
 <p>The data supplied to <code>brms()</code> when using baselines at the same trophic level
 (<code>lambda</code> argument set to <code>1</code>) needs to have the following variables, <code>d15n</code>,
-<code>n1</code>, <code>n2</code>, <code>l1</code> (\(\lambda_1\)) which is usually <code>2</code>. If using baselines at
-different trophic levels (<code>lambda</code> argument set to <code>2</code>) the data frame needs
-to have <code>l1</code> and <code>l2</code> with a numerical value for each trophic level (e.g.,
-<code>2</code> and <code>2.5</code>; \(\lambda_1\) and (\(\lambda_2\)).</p>
+<code>c1</code>, <code>c2</code>, <code>n1</code>, <code>n2</code>, <code>l1</code> (\(\lambda_1\)) which is usually <code>2</code>.
+If using baselines at different trophic levels (<code>lambda</code> argument set to <code>2</code>)
+the data frame needs to have <code>l1</code> and <code>l2</code> with a numerical value for
+each trophic level (e.g.,<code>2</code> and <code>2.5</code>; \(\lambda_1\) and \(\lambda_2\)).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
