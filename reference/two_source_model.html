@@ -54,10 +54,11 @@ Post 2002 using a Bayesian framework."><meta property="og:image" content="https:
 
 <dl><dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
 <dd><p>logical value that controls whether informed priors are
-supplied to the model for both \(\delta^{15}\)N baselines.
-Default is <code>FALSE</code> meaning the model will use uninformed priors, however,
-the supplied <code>data.frame</code> needs values for both \(\delta^{15}\)N
-baseline (<code>n1</code> and <code>n2</code>).</p></dd>
+supplied to the model for both \(\delta^{15}\)N and
+\(\delta^{15}\)C baselines. Default is <code>FALSE</code> meaning the model will
+use uninformed priors, however, the supplied <code>data.frame</code> needs values
+for both \(\delta^{15}\)N and \(\delta^{15}\)C baseline
+(<code>c1</code>, <code>c2</code>, <code>n1</code>, and <code>n2</code>).</p></dd>
 
 
 <dt id="arg-lambda">lambda<a class="anchor" aria-label="anchor" href="#arg-lambda"></a></dt>
@@ -79,11 +80,17 @@ two \(\lambda\)s are used. See details for equations and when to use
 <p>where \(\delta^{13}C_c\) is the isotopic value for consumer,
 \(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
 \(\delta^{13}C_2\) is the mean isotopic value for baseline 2.</p>
+<p>Which we will solve for \(\delta^{13}C_c\):</p>
+<p>$$\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\delta ^{13}C_2$$</p>
 <p><strong>When <code>lambda</code> is set to <code>1</code></strong></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+<p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) +
+n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
 <p>or</p>
 <p><strong>When <code>lambda</code> is set to <code>2</code></strong></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+<p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
+n_2 \times (1 - \alpha)$$</p>
 <p>where \(\delta^{15}\)N are values from the consumer,
 \(n_1\) is mean \(\delta^{15}\)N of baseline 1, \(n_2\) is mean
 \(\delta^{15}\)N of baseline 2,
@@ -107,6 +114,8 @@ to have <code>l1</code> and <code>l2</code> with a numerical value for each trop
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">two_source_model</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> d13c ~ alpha * (c1 - c2) + c2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alpha ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> d15n ~ dn * (tp - l1) + n1 * alpha + n2 * (1 - alpha) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alpha ~ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tp ~ 1</span>
