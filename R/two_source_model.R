@@ -157,7 +157,8 @@ two_source_model <- function(bp = FALSE,
         dn ~ 1,
         # Non-linear model specification
         nl = TRUE
-      )
+      ) +
+        brms::set_rescor()
 
     }
 
@@ -185,7 +186,8 @@ two_source_model <- function(bp = FALSE,
         dn ~ 1,
         # Non-linear model specification
         nl = TRUE
-      )
+      ) +
+        brms::set_rescor()
 
     }
   }
