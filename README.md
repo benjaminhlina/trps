@@ -33,8 +33,12 @@ Currently {trps} supports the following models:
     al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
     `two_source_model_ar()`
 
-None of these models currently implement carbon mixing models, but will
-at some point.
+4)  Two Source Model - $\alpha$ corrected ($\alpha_r$) using [Heuvel et
+    al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
+    with carbon mixing model - `two_source_model_arc()`
+
+To view the overall progress of the package please see
+[news](https://benjaminhlina.github.io/trps/news/index.html)
 
 ## Installation
 
@@ -89,31 +93,3 @@ To cite this package please cite the following publications
 - Hlina B.L. 2025. trps: Bayesian trophic position models using stan. R
   package version 0.1.0 (‘one-skate’).
   <https://benjaminhlina.github.io/trps/>
-
-## Progress
-
-To view the current overall progress of the package please see
-[news](https://benjaminhlina.github.io/trps/news/index.html)
-
-- [x] a one-source model
-  - [x] priors for a one-source model  
-  - [x] parameters for priors for a one-source model  
-- [x] a two-source model without different lambda
-  - [x] priors for a two-source model without different lambda
-  - [x] parameters for priors for a two-source model without different
-    lambda
-- [x] a two-source model with different lambda
-  - [x] priors for two-source model w/ different lambda (priors are the
-    same as a two-source)
-  - [x] parameters for priors for a two-source model w/ different lambda
-    (priors are the same as a two-source)
-- [x] a two-source carbon mixing model model
-  - [x] priors and parameters for priors
-- [x] a two-source model with different lambdas and alpha corrected
-  using [Heuvel et
-  al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
-  - [x] priors
-  - [x] parameters for priors
-- [x] vignettes for one source
-- \[\] vignettes for two source
-- \[\] vignettes for twp source ac
