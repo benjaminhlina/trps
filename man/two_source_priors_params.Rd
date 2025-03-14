@@ -89,7 +89,7 @@ We will use the following equations from \href{https://esajournals.onlinelibrary
 \delta ^{13}C_2}
 \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
 n_1 \times \alpha + n_2 \times (1 - \alpha)}
-\itme \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
 \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
 n_2 \times (1 - \alpha)}
 }
