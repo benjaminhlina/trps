@@ -233,6 +233,17 @@ plot(m)
 
 We can see that the trace plots look "grassy" meaning the model is converging!
 
+## Predictive posterior check 
+
+We can check how well the model is predicting the $\delta^{15}N$ of the consumer
+using `pp_check()` from `{bayesplot}`. 
+
+```{r}
+pp_check(m)
+```
+We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
+modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+
 ## Posterior draws
 
 Let's again look at the summary output from the model.
@@ -241,11 +252,15 @@ Let's again look at the summary output from the model.
 m
 ```
 
-We can see that $\Delta N$ is estimated to be `3.37` with `l-95% CI` of `2.89`, and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) we see trophic position is estimated to be `4.54` with `l-95% CI` of `4.21`, and `u-95% CI` of `4.96`.
+We can see that $\Delta N$ is estimated to be `3.37` with `l-95% CI` of `2.89`, 
+and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) 
+we see trophic position is estimated to be `4.54` 
+with `l-95% CI` of `4.21`, and `u-95% CI` of `4.96`.
 
 ### Extract posterior draws
 
-We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we look at the the names of the variables we want to extract using `get_variables()`.
+We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) 
+to do this work. First we look at the the names of the variables we want to extract using `get_variables()`.
 
 ```{r}
 get_variables(m)
@@ -462,7 +477,22 @@ We can see that, for lake trout from the `Anthropogenic` ecoregion, $\Delta N$ i
 
 We can see that, for lake trout from the `Embayment` ecoregion, $\Delta N$ is estimated to be `3.37` with `l-95% CI` of `2.89`, and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) we see trophic position is estimated to be `4.54` with `l-95% CI` of `4.21`, and `u-95% CI` of `4.96`.
 
-### Extract posterior draws - multiple groups
+## Predictive posterior check 
+
+We can check how well the model is predicting the $\delta^{15}N$ of the consumer
+using `pp_check()` from `{bayesplot}`. We have to use `map()` from `{purrr}` 
+to iterate over the list that has our model objects. 
+
+```{r}
+m1 %>% 
+  map(~ .x %>% 
+        pp_check()
+  )
+```
+We can see that posteriors draws ($y_{rep}$; light lines) for both groups are
+are effectively modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+
+## Extract posterior draws - multiple groups
 
 We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we look at the the names of the variables we want to extract using `get_variables()`. Considering we have multiple models in `m1` that all have the same structure, we can just look at the names of the first model object in `m1`.
 
