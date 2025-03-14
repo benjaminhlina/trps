@@ -33,12 +33,11 @@ Currently {trps} supports the following models:
     al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
     `two_source_model_ar()`
 
-4)  Two Source Model - $\alpha$ corrected ($\alpha_r$) using [Heuvel et
-    al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
-    with carbon mixing model - `two_source_model_arc()`
+4)  Two Source Model - $\alpha$ corrected ($\alpha_r$) - with carbon
+    mixing model - `two_source_model_arc()`
 
 To view the overall progress of the package please see
-[news](https://benjaminhlina.github.io/trps/news/index.html)
+[news](https://benjaminhlina.github.io/trps/news/index.html).
 
 ## Installation
 
