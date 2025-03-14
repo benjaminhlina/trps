@@ -33,8 +33,8 @@ Currently {trps} supports the following models:
     al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) -
     `two_source_model_ar()`
 
-None of these models currently implement carbon mixing or fractionation
-models, but will at some point.
+None of these models currently implement carbon mixing models, but will
+at some point.
 
 ## Installation
 
@@ -107,13 +107,13 @@ To view the current overall progress of the package please see
     same as a two-source)
   - [x] parameters for priors for a two-source model w/ different lambda
     (priors are the same as a two-source)
-- \[\] a two-source carbon fractionation model
-  - \[\] priors and parameters for priors
+- [x] a two-source carbon mixing model model
+  - [x] priors and parameters for priors
 - [x] a two-source model with different lambdas and alpha corrected
   using [Heuvel et
   al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
   - [x] priors
-  - \[\] parameters for priors
+  - [x] parameters for priors
 - [x] vignettes for one source
 - \[\] vignettes for two source
 - \[\] vignettes for twp source ac
