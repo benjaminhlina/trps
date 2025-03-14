@@ -84,32 +84,15 @@ Adjust priors for two source trophic position model derived from \href{https://e
 \details{
 We will use the following equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}:
 
-\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
-(\delta ^{13}C_1 - \delta ^{13}C_2)}
-
-where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-\eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
-\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
-
-Which we will solve for \eqn{\delta^{13}C_c}:
-
-\deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\enumerate{
+\item \deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
 \delta ^{13}C_2}
-
-When \code{lambda} is set to \code{1}
-
-\deqn{\delta^{15}N = \Delta N \times (tp - \lambda) +
+\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
 n_1 \times \alpha + n_2 \times (1 - \alpha)}
-
-or
-
-When \code{lambda} is set to \code{2}
-
-\deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
-\lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
-
-This function allows the user to adjust the priors for the following variables
-in the equation above:
+\itme \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
+n_2 \times (1 - \alpha)}
+}
 
 \itemize{
 \item The random exponent (\eqn{\alpha}; \code{a})
