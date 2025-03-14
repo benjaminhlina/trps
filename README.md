@@ -62,7 +62,7 @@ through how to use create each trophic position model using {trps} and
 {brms}.
 
 ``` r
-vignette("Estimate_trophic_position_one_source_model")
+vignette("estimate_trophic_position_one_source_model")
 ```
 
 You can also use the following to see vignettes:
