@@ -30,22 +30,24 @@ Trophic position using a two source model derived from
 We will use the following equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}:
 
 \enumerate{
-\item \deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\item \deqn{\delta^{13}C_c = \alpha \times (\delta ^{13}C_1 - \delta ^{13}C_2) +
 \delta ^{13}C_2}
 \item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
 n_1 \times \alpha + n_2 \times (1 - \alpha)}
-\itme \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
 \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
 n_2 \times (1 - \alpha)}
 }
 
 \strong{For equation 1)}
+
 where \eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
 is the ratio between baselines and consumer \eqn{\delta^{13}C},
 \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1,  and
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2
 
 \strong{For equation 2) and 3)}
+
 \eqn{\delta^{15}}N are values from the consumer,
 \eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
 \eqn{\delta^{15}}N values of baseline 2,
