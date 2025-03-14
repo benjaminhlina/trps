@@ -102,6 +102,10 @@
 two_source_priors_params <- function(
   a = NULL,
   b = NULL,
+  c1 = NULL,
+  c1_sigma = NULL,
+  c2 = NULL,
+  c2_sigma = NULL,
   n1 = NULL,
   n1_sigma = NULL,
   n2 = NULL,
@@ -150,6 +154,58 @@ two_source_priors_params <- function(
     ))
   }
 
+  # ----- c1 -----
+
+  # set c1 to 21
+  if (is.null(c1)) {
+    c1 <- -21
+  }
+
+  # create error message for n1 priros
+  if  (!is.numeric(c1)) {
+    cli::cli_abort(c(
+      "`c1` argument must be a numerical value.",
+      "i" = "Please provide a numerical value as a piror."
+    ))
+  }
+
+  # set c1_sigma to 1
+  if (is.null(c1_sigma)) {
+    c1_sigma <- 1
+  }
+  # create error message for c1 priors
+  if  (!is.numeric(c1_sigma)) {
+    cli::cli_abort(c(
+      "`c1_sigma` argument must be a numerical value",
+      "i" = "Please provide a numerical value as a piror"
+    ))
+  }
+  # ----- c2 -----
+
+  # set c2 to -25
+  if (is.null(c2)) {
+    c2 <- -26
+  }
+
+  # create error message for n1 priros
+  if  (!is.numeric(c2)) {
+    cli::cli_abort(c(
+      "`c2` argument must be a numerical value.",
+      "i" = "Please provide a numerical value as a piror."
+    ))
+  }
+
+  # set c1_sigma to 1
+  if (is.null(c2_sigma)) {
+    c2_sigma <- 1
+  }
+  # create error message for c1 priors
+  if  (!is.numeric(c2_sigma)) {
+    cli::cli_abort(c(
+      "`c2_sigma` argument must be a numerical value",
+      "i" = "Please provide a numerical value as a piror"
+    ))
+  }
   # ----- n1 -----
 
   # set n1 to 9
@@ -289,6 +345,10 @@ two_source_priors_params <- function(
     priors_params <-
       brms::stanvar(a, name = 'a') +
       brms::stanvar(b, 'b') +
+      brms::stanvar(c1, name = 'c1') +
+      brms::stanvar(c1_sigma, 'c1_sigma') +
+      brms::stanvar(c2, name = 'c2') +
+      brms::stanvar(c2_sigma, 'c2_sigma') +
       brms::stanvar(n1, name = 'n1') +
       brms::stanvar(n1_sigma, 'n1_sigma') +
       brms::stanvar(n2, name = 'n2') +
