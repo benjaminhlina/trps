@@ -4,10 +4,12 @@
 #' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) using a Bayesian framework.
 #'
 #' @param bp logical value that controls whether informed priors are
-#' supplied to the model for both \eqn{\delta^{15}}N baselines.
-#' Default is `FALSE` meaning the model will use uninformed priors, however,
-#' the supplied `data.frame` needs values for both \eqn{\delta^{15}}N
-#' baseline (`n1` and `n2`).
+#' supplied to the model for both \eqn{\delta^{15}}N and
+#' \eqn{\delta^{15}}C baselines. Default is `FALSE` meaning the model will
+#' use uninformed priors, however, the supplied `data.frame` needs values
+#' for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
+#' (`c1`, `c2`, `n1`, and `n2`).
+#'
 #' @param lambda numerical value, `1` or `2`, that controls whether one or
 #' two \eqn{\lambda}s are used. See details for equations and when to use
 #' `1` or `2`. Defaults to `1`.
@@ -23,16 +25,23 @@
 #' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 #' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
 #'
+#' Which we will solve for \eqn{\delta^{13}C_c}:
+#'
+#' \deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+#' \delta ^{13}C_2}
 #'
 #' **When `lambda` is set to `1`**
 #'
-#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
+#' n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
 #' **When `lambda` is set to `2`**
 #'
-#' \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+#' \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
+#' n_2 \times (1 - \alpha)}
 #'
 #' where \eqn{\delta^{15}}N are values from the consumer,
 #' \eqn{n_1} is mean \eqn{\delta^{15}}N of baseline 1, \eqn{n_2} is mean

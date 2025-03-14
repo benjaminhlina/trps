@@ -8,10 +8,11 @@ two_source_model(bp = FALSE, lambda = NULL)
 }
 \arguments{
 \item{bp}{logical value that controls whether informed priors are
-supplied to the model for both \eqn{\delta^{15}}N baselines.
-Default is \code{FALSE} meaning the model will use uninformed priors, however,
-the supplied \code{data.frame} needs values for both \eqn{\delta^{15}}N
-baseline (\code{n1} and \code{n2}).}
+supplied to the model for both \eqn{\delta^{15}}N and
+\eqn{\delta^{15}}C baselines. Default is \code{FALSE} meaning the model will
+use uninformed priors, however, the supplied \code{data.frame} needs values
+for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
+(\code{c1}, \code{c2}, \code{n1}, and \code{n2}).}
 
 \item{lambda}{numerical value, \code{1} or \code{2}, that controls whether one or
 two \eqn{\lambda}s are used. See details for equations and when to use
@@ -35,15 +36,23 @@ where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
 
+Which we will solve for \eqn{\delta^{13}C_c}:
+
+\deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\delta ^{13}C_2}
+
 \strong{When \code{lambda} is set to \code{1}}
 
-\deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+\deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
+n_1 \times \alpha + n_2 \times (1 - \alpha)}
 
 or
 
 \strong{When \code{lambda} is set to \code{2}}
 
-\deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+\deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
+n_2 \times (1 - \alpha)}
 
 where \eqn{\delta^{15}}N are values from the consumer,
 \eqn{n_1} is mean \eqn{\delta^{15}}N of baseline 1, \eqn{n_2} is mean
