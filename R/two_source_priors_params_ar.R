@@ -51,17 +51,18 @@
 #' This equation is a carbon source mixing model with
 #' \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 #' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
-#' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
+#' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2. This
+#' equation is added to the data frame using `add_alpha()`.
 #'
 #' **For equation 2)**
 #'
 #' \eqn{\alpha} is being corrected using equations in
-#' [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+#' [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
 #' with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
 #' value calculated using `add_alpha()`.
-
+#'
 #' **For equation 3) and 4)**
 #'
 #' \eqn{\delta^{15}}N are values from the consumer,
