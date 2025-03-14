@@ -29,46 +29,37 @@ Trophic position using a two source model derived from
 \details{
 We will use the following equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}:
 
-\deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
-(\delta ^{13}C_1 - \delta ^{13}C_2)}
-
-where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
-\eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
-\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
-
-Which we will solve for \eqn{\delta^{13}C_c}:
-
-\deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\enumerate{
+\item \deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
 \delta ^{13}C_2}
-
-\strong{When \code{lambda} is set to \code{1}}
-
-\deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
+\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) +
 n_1 \times \alpha + n_2 \times (1 - \alpha)}
-
-or
-
-\strong{When \code{lambda} is set to \code{2}}
-
-\deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\itme \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
 \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha +
 n_2 \times (1 - \alpha)}
+}
 
-where \eqn{\delta^{15}}N are values from the consumer,
-\eqn{n_1} is mean \eqn{\delta^{15}}N of baseline 1, \eqn{n_2} is mean
-\eqn{\delta^{15}}N of baseline 2,
+\strong{For equation 1)}
+where \eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
+is the ratio between baselines and consumer \eqn{\delta^{13}C},
+\eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1,  and
+\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2
+
+\strong{For equation 2) and 3)}
+\eqn{\delta^{15}}N are values from the consumer,
+\eqn{n_1} is \eqn{\delta^{15}}N values of baseline 1, \eqn{n_2} is
+\eqn{\delta^{15}}N values of baseline 2,
 \eqn{\Delta}N is the trophic discrimination factor for N (i.e., mean of \code{3.4}),
-tp is trophic position, \eqn{\alpha} is carbon use derived from
-the first equation and  \eqn{\lambda_1} and/or
-\eqn{\lambda_2} are the trophic levels of baselines which are often a
-primary consumer (e.g., \code{2} or \code{2.5}).
+tp is trophic position, and  \eqn{\lambda_1} and/or
+\eqn{\lambda_2} are the trophic levels of
+baselines which are often a primary consumer (e.g., \code{2} or \code{2.5}).
 
 The data supplied to \code{brms()} when using baselines at the same trophic level
 (\code{lambda} argument set to \code{1}) needs to have the following variables, \code{d15n},
-\code{n1}, \code{n2}, \code{l1} (\eqn{\lambda_1}) which is usually \code{2}. If using baselines at
-different trophic levels (\code{lambda} argument set to \code{2}) the data frame needs
-to have \code{l1} and \code{l2} with a numerical value for each trophic level (e.g.,
-\code{2} and \code{2.5}; \eqn{\lambda_1} and (\eqn{\lambda_2}).
+\code{c1}, \code{c2}, \code{n1}, \code{n2}, \code{l1} (\eqn{\lambda_1}) which is usually \code{2}.
+If using baselines at different trophic levels (\code{lambda} argument set to \code{2})
+the data frame needs to have \code{l1} and \code{l2} with a numerical value for
+each trophic level (e.g.,\code{2} and \code{2.5}; \eqn{\lambda_1} and \eqn{\lambda_2}).
 }
 \examples{
 two_source_model()
