@@ -6,8 +6,14 @@
 #' Defaults to `1`. See beta distribution for more information.
 #' @param b (\eqn{\beta}) shape parameter for beta distribution.
 #' Defaults to `1`. See beta distribution for more information.
-#' @param n1_sigma variance (\eqn{\sigma})for first
-#' \eqn{\delta^{15}}N baseline. Defaults to `1`.
+#' @param c1 mean (\eqn{\mu}) prior for the mean of the first \eqn{\delta^{13}}C
+#' baseline. Defaults to `-21`.
+#' @param c1_sigma variance (\eqn{\sigma})for the mean of the first
+#' \eqn{\delta^{13}}C baseline. Defaults to `1`.
+#' @param c2 mean (\eqn{\mu}) prior for or the mean of the
+#' second \eqn{\delta^{13}}C baseline. Defaults to `-26`.
+#' @param c2_sigma variance (\eqn{\sigma})for the mean of the first
+#' \eqn{\delta^{13}}C baseline. Defaults to `1`.
 #' @param n1 mean (\eqn{\mu}) prior for the mean of the first \eqn{\delta^{15}}N
 #' baseline. Defaults to `8`.
 #' @param n1_sigma variance (\eqn{\sigma})for the mean of the first
@@ -23,25 +29,40 @@
 #' @param tp_ub upper bound for priors for  trophic position. Defaults to `10`.
 #' @param sigma_lb lower bound for priors for \eqn{\sigma}. Defaults to `0`.
 #' @param sigma_ub upper bound for priors for \eqn{\sigma}. Defaults to `10`.
-#' @param bp logical value that controls whether informed baseline priors are
-#' supplied to the model for \eqn{\delta^{15}}N baselines. Default is
-#' `FALSE` meaning the model will use uninformed priors, however, the supplied
-#' `data.frame` needs mean values for both \eqn{\delta^{15}}N baseline
-#' (`n1` and `n2`)
+#' @param bp logical value that controls whether informed priors are
+#' supplied to the model for both \eqn{\delta^{15}}N and
+#' \eqn{\delta^{15}}C baselines. Default is `FALSE` meaning the model will
+#' use uninformed priors, however, the supplied `data.frame` needs values
+#' for both \eqn{\delta^{15}}N and \eqn{\delta^{15}}C baseline
+#' (`c1`, `c2`, `n1`, and `n2`).
 #'
 #' @details
 #'
+#' We will use the following equations from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2):
+#'
+#' \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+#' (\delta ^{13}C_1 - \delta ^{13}C_2)}
+#'
+#' where \eqn{\delta^{13}C_c} is the isotopic value for consumer,
+#' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
+#' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
+#'
+#' Which we will solve for \eqn{\delta^{13}C_c}:
+#'
+#' \deqn{\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+#' \delta ^{13}C_2}
+#'
 #' When `lambda` is set to `1`
 #'
-#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
+#' \deqn{\delta^{15}N = \Delta N \times (tp - \lambda) +
+#' n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' or
 #'
 #' When `lambda` is set to `2`
 #'
-#' \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
-#'
-#'
+#' \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+#' \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)}
 #'
 #' This function allows the user to adjust the priors for the following variables
 #' in the equation above:
@@ -50,8 +71,14 @@
 #'   \item The random exponent (\eqn{\alpha}; `a`)
 #'   and shape parameters (\eqn{\beta}; `b`) for \eqn{\alpha}. This prior
 #'   assumes a beta distribution.
+#'   \item The mean (`c1`; \eqn{\mu}) and variance (`c1_sigma`; \eqn{\sigma}) of
+#'   the mean for the first \eqn{\delta^{13}C} for a given baseline.
+#'   This prior assumes a normal distributions.
+#'   \item The mean (`c2`;\eqn{\mu}) and variance (`c2_sigma`; \eqn{\sigma}) of
+#'   the mean for the second \eqn{\delta^{13}C} for a given baseline.
+#'   This prior assumes a normal distributions.
 #'   \item The mean (`n1`; \eqn{\mu}) and variance (`n1_sigma`; \eqn{\sigma}) of
-#'   the mean for the first \eqn{\delta}\eqn{^1}\eqn{^5}N for a given baseline.
+#'   the mean for the first \eqn{\delta^{15}N} for a given baseline.
 #'   This prior assumes a normal distributions.
 #'   \item The mean (`n2`;\eqn{\mu}) and variance (`n2_sigma`; \eqn{\sigma}) of
 #'   the mean for the second \eqn{\delta^{15}}N for a given baseline.
