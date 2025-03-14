@@ -45,6 +45,10 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">two_source_priors_params</span><span class="op">(</span></span>
 <span>  a <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  b <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  c1 <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  c1_sigma <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  c2 <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  c2_sigma <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n1 <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n1_sigma <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n2 <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -71,6 +75,26 @@ Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
 <dt id="arg-b">b<a class="anchor" aria-label="anchor" href="#arg-b"></a></dt>
 <dd><p>(\(\beta\)) shape parameter for beta distribution.
 Defaults to <code>1</code>. See beta distribution for more information.</p></dd>
+
+
+<dt id="arg-c-">c1<a class="anchor" aria-label="anchor" href="#arg-c-"></a></dt>
+<dd><p>mean (\(\mu\)) prior for the mean of the first \(\delta^{13}\)C
+baseline. Defaults to <code>-21</code>.</p></dd>
+
+
+<dt id="arg-c-sigma">c1_sigma<a class="anchor" aria-label="anchor" href="#arg-c-sigma"></a></dt>
+<dd><p>variance (\(\sigma\))for the mean of the first
+\(\delta^{13}\)C baseline. Defaults to <code>1</code>.</p></dd>
+
+
+<dt id="arg-c-">c2<a class="anchor" aria-label="anchor" href="#arg-c-"></a></dt>
+<dd><p>mean (\(\mu\)) prior for or the mean of the
+second \(\delta^{13}\)C baseline. Defaults to <code>-26</code>.</p></dd>
+
+
+<dt id="arg-c-sigma">c2_sigma<a class="anchor" aria-label="anchor" href="#arg-c-sigma"></a></dt>
+<dd><p>variance (\(\sigma\))for the mean of the first
+\(\delta^{13}\)C baseline. Defaults to <code>1</code>.</p></dd>
 
 
 <dt id="arg-n-">n1<a class="anchor" aria-label="anchor" href="#arg-n-"></a></dt>
@@ -119,11 +143,12 @@ Defaults to <code>0.5</code>.</p></dd>
 
 
 <dt id="arg-bp">bp<a class="anchor" aria-label="anchor" href="#arg-bp"></a></dt>
-<dd><p>logical value that controls whether informed baseline priors are
-supplied to the model for \(\delta^{15}\)N baselines. Default is
-<code>FALSE</code> meaning the model will use uninformed priors, however, the supplied
-<code>data.frame</code> needs mean values for both \(\delta^{15}\)N baseline
-(<code>n1</code> and <code>n2</code>)</p></dd>
+<dd><p>logical value that controls whether informed priors are
+supplied to the model for both \(\delta^{15}\)N and
+\(\delta^{15}\)C baselines. Default is <code>FALSE</code> meaning the model will
+use uninformed priors, however, the supplied <code>data.frame</code> needs values
+for both \(\delta^{15}\)N and \(\delta^{15}\)C baseline
+(<code>c1</code>, <code>c2</code>, <code>n1</code>, and <code>n2</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -132,18 +157,35 @@ supplied to the model for \(\delta^{15}\)N baselines. Default is
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>When <code>lambda</code> is set to <code>1</code></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - \lambda) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+    <p>We will use the following equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a>:</p>
+<p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
+(\delta ^{13}C_1 - \delta ^{13}C_2)$$</p>
+<p>where \(\delta^{13}C_c\) is the isotopic value for consumer,
+\(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
+\(\delta^{13}C_2\) is the mean isotopic value for baseline 2.</p>
+<p>Which we will solve for \(\delta^{13}C_c\):</p>
+<p>$$\delta^{13}C_c = \alpha * (\delta ^{13}C_1 - \delta ^{13}C_2) +
+\delta ^{13}C_2$$</p>
+<p>When <code>lambda</code> is set to <code>1</code></p>
+<p>$$\delta^{15}N = \Delta N \times (tp - \lambda) +
+n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
 <p>or</p>
 <p>When <code>lambda</code> is set to <code>2</code></p>
-<p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha + \lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
+<p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha +
+\lambda_2 \times (1 - \alpha))) + n_1 \times \alpha + n_2 \times (1 - \alpha)$$</p>
 <p>This function allows the user to adjust the priors for the following variables
 in the equation above:</p>
 <ul><li><p>The random exponent (\(\alpha\); <code>a</code>)
 and shape parameters (\(\beta\); <code>b</code>) for \(\alpha\). This prior
 assumes a beta distribution.</p></li>
+<li><p>The mean (<code>c1</code>; \(\mu\)) and variance (<code>c1_sigma</code>; \(\sigma\)) of
+the mean for the first \(\delta^{13}C\) for a given baseline.
+This prior assumes a normal distributions.</p></li>
+<li><p>The mean (<code>c2</code>;\(\mu\)) and variance (<code>c2_sigma</code>; \(\sigma\)) of
+the mean for the second \(\delta^{13}C\) for a given baseline.
+This prior assumes a normal distributions.</p></li>
 <li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\)) of
-the mean for the first \(\delta\)\(^1\)\(^5\)N for a given baseline.
+the mean for the first \(\delta^{15}N\) for a given baseline.
 This prior assumes a normal distributions.</p></li>
 <li><p>The mean (<code>n2</code>;\(\mu\)) and variance (<code>n2_sigma</code>; \(\sigma\)) of
 the mean for the second \(\delta^{15}\)N for a given baseline.
