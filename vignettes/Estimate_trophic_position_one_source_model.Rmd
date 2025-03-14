@@ -484,7 +484,7 @@ using `pp_check()` from `{bayesplot}`. We have to use `map()` from `{purrr}`
 to iterate over the list that has our model objects. 
 
 ```{r}
-m %>% 
+m1 %>% 
   map(~ .x %>% 
         pp_check()
   )
