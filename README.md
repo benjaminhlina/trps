@@ -36,9 +36,6 @@ Currently {trps} supports the following models:
 4)  Two Source Model - $\alpha$ corrected ($\alpha_r$) - with carbon
     mixing model - `two_source_model_arc()`
 
-To view the overall progress of the package please see
-[news](https://benjaminhlina.github.io/trps/news/index.html).
-
 ## Installation
 
 You can install the R-Universe version of {trps} using the following:
@@ -54,6 +51,9 @@ You can install the development version of {trps} using the following:
 ``` r
 devtools::install_github("benjaminhlina/trps")
 ```
+
+To view the overall progress of the package please see
+[news](https://benjaminhlina.github.io/trps/news/index.html).
 
 ## Vignettes
 
