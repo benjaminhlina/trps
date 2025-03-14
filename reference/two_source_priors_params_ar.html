@@ -149,15 +149,16 @@ supplied to the model for \(\delta^{15}\)N baselines. Default is
 <p>This equation is a carbon source mixing model with
 \(\delta^{13}C_c\) is the isotopic value for consumer,
 \(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
-\(\delta^{13}C_2\) is the mean isotopic value for baseline 2.</p>
+\(\delta^{13}C_2\) is the mean isotopic value for baseline 2. This
+equation is added to the data frame using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
 <p><strong>For equation 2)</strong></p>
 <p>\(\alpha\) is being corrected using equations in
-<a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a>.
+<a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a>
 with \(\alpha_r\) being the corrected value (bound by 0 and 1),
 \(\alpha_{min}\) is the minimum \(\alpha\) value calculated
 using <code><a href="add_alpha.html">add_alpha()</a></code> and \(\alpha_{max}\) being the maximum \(\alpha\)
-value calculated using <code><a href="add_alpha.html">add_alpha()</a></code>.
-<strong>For equation 3) and 4)</strong></p>
+value calculated using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
+<p><strong>For equation 3) and 4)</strong></p>
 <p>\(\delta^{15}\)N are values from the consumer,
 \(n_1\) is \(\delta^{15}\)N values of baseline 1, \(n_2\) is
 \(\delta^{15}\)N values of baseline 2,
