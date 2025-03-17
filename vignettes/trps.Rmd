@@ -111,6 +111,12 @@ consumer_iso_1 <- consumer_iso %>%
   dplyr::select(id, common_name:d15n)
 ```
 
+
+You will notice that I have renamed this object to `conusmer_iso_1` this is for 
+two reasons the first being that we are modifying `consumer_iso` and should make 
+a new object and second is that to render these vignettes it needs them to 
+be new objects. 
+
 ### Baseline data
 
 Next let's add `id` to `baseline_1_iso` data frame. For joining purposes we are going to drop `common_name` from this data frame.
