@@ -369,3 +369,10 @@ ggplot(data = post_draws, aes(y = .value,
 Congratulations we have estimated the trophic position for Lake Trout!
 
 I'll demonstrate in another vignette (i.e, [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)) how to run the model with an iterative process to produce estimates of trophic position for more than one group (e.g., comparing trophic position among species or in this case different ecoregions).
+
+Now that you have gone through a one source model, you may be looking 
+to model trophic position using a two source model. Please see the following 
+vignette on how to setup and run a two source model 
+[Esttimae trophic position - two source model](estimate_trophic_position_two_source_model.html). 
+The same iterative processes used in [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)) 
+can be applied to the two sorce model. 
