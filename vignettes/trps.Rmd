@@ -16,7 +16,10 @@ comment = "#>"
 
 ## Our Objectives
 
-The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using a one source model based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using several different models but for the purpose of getting started a one source model is the simplist and easiest to implement. The one source model is based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+
+We are starting out with the simplest model. If you are wanting to use other trophic position models 
+please check out those vignettes under the article section of the webpage. 
 
 ## Trophic Position Model
 
@@ -40,7 +43,7 @@ The function `one_source_model()` uses this rearranged equation.
 
 First we need to organize the data prior to running the model. To do this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and [{tidyr}](https://tidyr.tidyverse.org/) but we could also use [{data.table}](https://rdatatable.gitlab.io/data.table/).
 
-When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/) and iterative processes provided by [{purrr}](https://purrr.tidyverse.org/).
+When running the model we will use [{trps}](https://benjaminhlina.github.io/trps/) and [{brms}](https://paulbuerkner.com/brms/). 
 
 Once we have run the model we will use [{bayesplot}](https://mc-stan.org/bayesplot/) to assess models and then extract posterior draws using [{tidybayes}](http://mjskay.github.io/tidybayes/). Posterior distributions will be plotted using [{ggplot2}](https://ggplot2.tidyverse.org/) and [{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by [{viridis}](https://sjmgarnier.github.io/viridis/).
 
@@ -56,7 +59,6 @@ library(dplyr)
 library(ggplot2)
 library(ggdist)
 library(grid)
-library(purrr)
 library(tidybayes)
 library(tidyr)
 library(trps)
@@ -366,4 +368,4 @@ ggplot(data = post_draws, aes(y = .value,
 
 Congratulations we have estimated the trophic position for Lake Trout!
 
-I'll demonstrate in another vignette how to run the model with an iterative process to produce estimates of trophic position for more than one group (e.g., comparing trophic position among species or in this case different ecoregions).
+I'll demonstrate in another vignette (i.e, [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)) how to run the model with an iterative process to produce estimates of trophic position for more than one group (e.g., comparing trophic position among species or in this case different ecoregions).
