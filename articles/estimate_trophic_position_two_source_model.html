@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>estimate_trophic_position_two_source_model • trps</title>
+<title>Estimate trophic position - two source model • trps</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="estimate_trophic_position_two_source_model">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estimate trophic position - two source model">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 </head>
@@ -36,7 +36,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate trophic position - one source - multiple groups</a></li>
-    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">estimate_trophic_position_two_source_model</a></li>
+    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">Estimate trophic position - two source model</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
@@ -59,10 +59,10 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>estimate_trophic_position_two_source_model</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Estimate trophic position - two source model</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/articles/estimate_trophic_position_two_source_model.Rmd" class="external-link"><code>vignettes/articles/estimate_trophic_position_two_source_model.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/estimate_trophic_position_two_source_model.Rmd" class="external-link"><code>vignettes/estimate_trophic_position_two_source_model.Rmd</code></a></small>
       <div class="d-none name"><code>estimate_trophic_position_two_source_model.Rmd</code></div>
     </div>
 
@@ -76,9 +76,10 @@ position of a species using stable isotope data
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>).
-We can estimate trophic position using a two source model The based on
-equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
-2002</a> and <a href="">Vander Zaden and (2002)</a>.</p>
+We can estimate trophic position using a two source model that is based
+on equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
+2002</a> and <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander
+Zaden and (2002)</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="trophic-position-model">Trophic Position Model<a class="anchor" aria-label="anchor" href="#trophic-position-model"></a>
@@ -86,7 +87,8 @@ equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.18
 <p>The equations for a two source model consists of the following:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mi>c</mi></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \alpha = \frac{(\delta^{13}C_c - \delta^{13}C_{b2})}{(\delta^{13}C_{b1}-\delta^{13}C_{b2})}
-</annotation></semantics></math><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>C</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}C_c</annotation></semantics></math>
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>C</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}C_c</annotation></semantics></math>
 is the isotope value of the consumer,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta^{15}C_{b1}</annotation></semantics></math>
 is the mean isotope value of the first baseline,
@@ -102,8 +104,8 @@ is the proportion of carbon that comes from each source and should be
 bound by 0 and 1. We will see later on that this does not always happen
 which can be problematic with <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
 al. 2024</a> proposing an new method to correct (i.e., scale) these
-values.</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>l</mi><mi>p</mi><mi>h</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">alpha</annotation></semantics></math>
+values.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 is then used the equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
@@ -128,8 +130,8 @@ of the second baseline (e.g., pelagic),
 is estimated above, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is the trophic enrichment factor (e.g., 3.4).</p>
-<p>There is a variation of this model that using a mixing model to
-consider different tropic positions of baseline
+<p>There is a variation of this model that uses a mixing model to
+consider different trophic positions of baseline
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>.
 The equation replaces
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
@@ -140,10 +142,10 @@ with the following:</p>
 <p>Where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\lambda_1</annotation></semantics></math>
 is the trophic level of the first baseline (e.g., 2),
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>a</mi><mi>m</mi><mi>b</mi><mi>d</mi><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">lambda_2</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\lambda_2</annotation></semantics></math>
 is the trophic level of the second baseline (e.g., 2.5), and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-is from above. Only use this replace for
+is from above. Only use this replacement equation for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 if you have baselines from two different trophic levels.</p>
 <div class="section level3">
@@ -153,8 +155,8 @@ if you have baselines from two different trophic levels.</p>
 equation for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 to the following:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mi>c</mi></msub><mo>=</mo><mi>α</mi><mo>*</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
-\delta^{13}C_c = \alpha * (\delta^{13}C_{b1} - \delta^{13}C_{b2}) + 
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mi>c</mi></msub><mo>=</mo><mi>α</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
+\delta^{13}C_c = \alpha \times (\delta^{13}C_{b1} - \delta^{13}C_{b2}) + 
 \delta^{13}C_{b2}
 </annotation></semantics></math></p>
 <p>and then the use estimates of
@@ -383,9 +385,9 @@ constant
 <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> and <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code> to calculate the mean
 values.</p>
 <p>Important note, to run the model successfully, columns need to be
-named <code>d13c</code>, <code>c1</code>, <code>c2``d15n</code>,
-<code>n1</code>, <code>n2</code>, and <code>l1</code> with
-<code>l2</code> needed if using two
+named <code>d13c</code>, <code>c1</code>, <code>c2</code>,
+<code>d15n</code>, <code>n1</code>, <code>n2</code>, and <code>l1</code>
+with <code>l2</code> needed if using two
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\lambda s</annotation></semantics></math>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">combined_iso_os</span> <span class="op">&lt;-</span> <span class="va">combined_iso_os</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -457,16 +459,19 @@ upper bound = 10),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
 assumes a uniform distribution (lower bound = 0 and upper bound = 10),
 and if informed priors are desired for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta^{13}C_{b1}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta^{13}C_{b2}</annotation></semantics></math>
+(<code>c1</code> and <code>c2</code>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mo>−</mo><mn>21</mn></mrow><annotation encoding="application/x-tex">\mu = -21</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">-26</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sigma = 1</annotation></semantics></math>),
+and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_{b1}</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_{b2}</annotation></semantics></math>
 (<code>n1</code> and <code>n2</code>;
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">\mu = 8</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>9.5</mn><annotation encoding="application/x-tex">9.5</annotation></semantics></math>;
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sigma = 1</annotation></semantics></math>),
-<span class="math inline">$\delta^{153N_b$</span> (<code>n1</code> and
-<code>n2</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">\mu = 8</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>9.5</mn><annotation encoding="application/x-tex">9.5</annotation></semantics></math>;
@@ -624,11 +629,14 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
-light lines) are effectively modeling
+light lines) are not effectively modeling
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 of the consumer (
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
-dark line).</p>
+dark line). We can correct (i.e., scale) using another model
+<code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
+al. 2024</a> that corrects (i.e., scales) this equation providing better
+and more meaningful estimates.</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
