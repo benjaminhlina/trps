@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Our Objectives
 
-The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using a one source model based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+The purpose of this vignette is to learn how to estimate trophic position of multiple species or groups using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using a one source model based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
 ## Trophic Position Model
 
@@ -67,7 +67,9 @@ library(viridis)
 
 ## Working with multiple groups
 
-In [{trps}](https://benjaminhlina.github.io/trps/) we have a data set that has consumer and baseline data already joined for two ecoregions (`combined_iso`) using the same methods above. Let's look at this data frame.
+In [{trps}](https://benjaminhlina.github.io/trps/) we have a data set that has consumer and baseline data already joined for two ecoregions (`combined_iso`) using the same methods in 
+[estimating trophic position - one source](estimate_trophic_position_one_source.html). 
+Let's look at this data frame.
 
 ### Organize data - multiple groups
 
