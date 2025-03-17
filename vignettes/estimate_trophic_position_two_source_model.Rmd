@@ -1,5 +1,5 @@
 ---
-title: "estimate_trophic_position_two_source_model"
+title: "Estimate trophic position - two source model"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{estimate_trophic_position_two_source_model}
@@ -31,7 +31,8 @@ comment = "#>"
 
 ## Our Objectives
 
-The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using a two source model The based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Vander Zaden and (2002)]().
+The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using a two source model
+that is based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Vander Zaden and (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2).
 
 ## Trophic Position Model
 
@@ -42,6 +43,8 @@ The equations for a two source model consists of the following:
 $$
 \alpha = \frac{(\delta^{13}C_c - \delta^{13}C_{b2})}{(\delta^{13}C_{b1}-\delta^{13}C_{b2})}
 $$
+ 
+ 
  $\delta^{15}C_c$ is the isotope value of the consumer, $\delta^{15}C_{b1}$ is 
  the mean isotope value of the first baseline, $\delta^{15}C_{b2}$ is the mean 
  isotope value of the second baseline. For aquatic ecosystems, often 
@@ -49,14 +52,14 @@ $$
  pelagic source. Lastly, $\alpha$ is the proportion of carbon that comes from 
  each source and should be bound by 0 and 1. We will see later on that this 
  does not always happen which can be problematic with [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) proposing an new 
- method to correct (i.e., scale) these values.
- 
- $alpha$ is then used the equation below. 
+ method to correct (i.e., scale) these values. $\alpha$ is then used the equation below. 
+
 
 $$
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
 [(\delta^{15}N_{b1} \times \alpha) - (\delta^{15}N_{b1} \times (1 - \alpha))]}{\Delta N}
 $$
+
 
 Where $\lambda$ is the trophic position of the baseline (e.g., `2`), 
 $\delta^{15}N_c$ is the $\delta^{15}N$ of the consumer, $\delta^{15}N_{b1}$ 
@@ -65,8 +68,8 @@ $\delta^{15}N_{b2}$
 is the mean $\delta^{15}N$ of the second baseline (e.g., pelagic), $\alpha$ 
 is estimated above, and $\Delta N$ is the trophic enrichment factor (e.g., 3.4).
 
-There is a variation of this model that using a mixing model to consider 
-different tropic positions of baseline $\lambda$. The equation replaces 
+There is a variation of this model that uses a mixing model to consider 
+different trophic positions of baseline $\lambda$. The equation replaces 
 $\lambda$ with the following: 
 
 
@@ -75,9 +78,9 @@ $$
 $$
 
 Where $\lambda_1$ is the trophic level of the first baseline (e.g., 2), 
-$lambda_2$ is the trophic level of the second baseline (e.g., 2.5), and $\alpha$
-is from above. Only use this replace for $\lambda$ if you have baselines from 
-two different trophic levels. 
+$\lambda_2$ is the trophic level of the second baseline (e.g., 2.5), and $\alpha$
+is from above. Only use this replacement equation 
+for $\lambda$ if you have baselines from two different trophic levels. 
 
 ### Bayesian model 
 To use this model with a Bayesian framework, we need to rearrange the 
@@ -86,7 +89,7 @@ equation for $\alpha$ to the following:
 
 
 $$
-\delta^{13}C_c = \alpha * (\delta^{13}C_{b1} - \delta^{13}C_{b2}) + 
+\delta^{13}C_c = \alpha \times (\delta^{13}C_{b1} - \delta^{13}C_{b2}) + 
 \delta^{13}C_{b2}
 $$
 
@@ -235,7 +238,7 @@ data frame. We do this by using `groub_by()` to group the data by our two groups
 then using `mutate()` and `mean()` to calculate the mean values.
 
 Important note, to run the model successfully, columns need to be 
-named `d13c`, `c1`, `c2``d15n`, `n1`, `n2`, and `l1` with `l2` needed if using 
+named `d13c`, `c1`, `c2`, `d15n`, `n1`, `n2`, and `l1` with `l2` needed if using 
 two $\lambda s$.
 
 ```{r}
@@ -281,9 +284,12 @@ by 0 and 1 and assumes a beta distribution, $\Delta N$
 assumes a normal distribution (`dn`; $\mu = 3.4$; $\sigma = 0.25$), 
 trophic position assumes a uniform distribution (lower bound = 2 and 
 upper bound = 10), $\sigma$ assumes a uniform distribution (lower bound = 0 
-and upper bound = 10), and if informed priors are desired for $\delta^{15}N_{b1}$ 
-and  $\delta^{15}N_{b2}$ (`n1` and `n2`; $\mu = 8$ and $9.5$; $\sigma = 1$), 
-$\delta^{153N_b$ (`n1` and `n2`; $\mu = 8$ and $9.5$; $\sigma = 1$), 
+and upper bound = 10), and if informed priors are desired for 
+$\delta^{13}C_{b1}$ 
+and  $\delta^{13}C_{b2}$ (`c1` and `c2`; $\mu = -21$ and $-26$; $\sigma = 1$), 
+and 
+$\delta^{15}N_{b1}$ 
+and  $\delta^{15}N_{b2}$ (`n1` and `n2`; $\mu = 8$ and $9.5$; $\sigma = 1$),
 we can set the argument `bp` to `TRUE` in all `two_source_` functions.
 
 You can change these default priors using `two_source_priors_params()`, however, 
@@ -359,8 +365,13 @@ using `pp_check()` from `{bayesplot}`.
 pp_check(m, resp = "d13c")
 ```
 
-We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
-modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+We can see that posteriors draws ($y_{rep}$; light lines) are not
+effectively modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+We can correct (i.e., scale) using another model `two_source_model_ar()` 
+that uses an equation in 
+[Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
+that corrects (i.e., scales) this equation providing better and more meaningful
+estimates.
 
 ### $\delta^{15}N$ 
 Next We can check how well the model is predicting the $\delta^{15}N$ of the consumer
