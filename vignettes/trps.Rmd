@@ -16,7 +16,7 @@ comment = "#>"
 
 ## Our Objectives
 
-The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using several different models but for the purpose of getting started a one source model is the simplist and easiest to implement. The one source model is based on equations from [Post 2002](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using several different models but for the purpose of getting started a one source model is the simplist and easiest to implement. The one source model is based on equations from [Post (2002)](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
 We are starting out with the simplest model. If you are wanting to use other trophic position models 
 please check out those vignettes under the article section of the webpage. 
