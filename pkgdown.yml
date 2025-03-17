@@ -2,10 +2,10 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  articles/estimate_trophic_position_one_source_multiple_groups: estimate_trophic_position_one_source_multiple_groups.html
-  articles/estimate_trophic_position_two_source_model: estimate_trophic_position_two_source_model.html
+  estimate_trophic_position_one_source_multiple_groups: estimate_trophic_position_one_source_multiple_groups.html
+  estimate_trophic_position_two_source_model: estimate_trophic_position_two_source_model.html
   trps: trps.html
-last_built: 2025-03-17T17:32Z
+last_built: 2025-03-17T20:22Z
 urls:
   reference: https://benjaminhlina.github.io/trps/reference
   article: https://benjaminhlina.github.io/trps/articles

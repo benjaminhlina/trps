@@ -62,7 +62,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Estimate trophic position - two source model</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/articles/estimate_trophic_position_two_source_model.Rmd" class="external-link"><code>vignettes/articles/estimate_trophic_position_two_source_model.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/estimate_trophic_position_two_source_model.Rmd" class="external-link"><code>vignettes/estimate_trophic_position_two_source_model.Rmd</code></a></small>
       <div class="d-none name"><code>estimate_trophic_position_two_source_model.Rmd</code></div>
     </div>
 
@@ -320,7 +320,7 @@ columns.</p>
 <p>Let’s first add <code>id</code> to <code>consumer_iso</code> data
 frame.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">consumer_iso</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">consumer_iso_2</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -328,6 +328,11 @@ frame.</p>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">common_name</span><span class="op">:</span><span class="va">d15n</span><span class="op">)</span></span></code></pre></div>
+<p>You will notice that I have renamed this object to
+<code>conusmer_iso_2</code> this is for two reasons the first being that
+we are modifying <code>consumer_iso</code> and should make a new object
+and second is that to render these vignettes it needs them to be new
+objects.</p>
 </div>
 <div class="section level3">
 <h3 id="baseline-1-data">Baseline 1 data<a class="anchor" aria-label="anchor" href="#baseline-1-data"></a>
@@ -336,7 +341,7 @@ frame.</p>
 frame. For joining purposes we are going to drop
 <code>common_name</code> from this data frame.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">baseline_1_iso</span> <span class="op">&lt;-</span> <span class="va">baseline_1_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">baseline_1_iso_2</span> <span class="op">&lt;-</span> <span class="va">baseline_1_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -352,7 +357,7 @@ frame. For joining purposes we are going to drop
 frame. For joining purposes we are going to drop
 <code>common_name</code> from this data frame.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">baseline_2_iso</span> <span class="op">&lt;-</span> <span class="va">baseline_2_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">baseline_2_iso_2</span> <span class="op">&lt;-</span> <span class="va">baseline_2_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -368,9 +373,9 @@ frame. For joining purposes we are going to drop
 format we can join them by <code>"id"</code> and
 <code>"ecoregion"</code> using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> from <a href="https://dplyr.tidyverse.org/" class="external-link">{dplyr}</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_os</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">baseline_1_iso</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">baseline_2_iso</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">combined_iso_ts</span> <span class="op">&lt;-</span> <span class="va">consumer_iso_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">baseline_1_iso_2</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">baseline_2_iso_2</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <p>We can see that we have successfully combined our consumer and
 baseline data. We need to do one last thing prior to analyzing the data,
 and that is calculate the mean
@@ -390,7 +395,7 @@ named <code>d13c</code>, <code>c1</code>, <code>c2</code>,
 with <code>l2</code> needed if using two
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\lambda s</annotation></semantics></math>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_os</span> <span class="op">&lt;-</span> <span class="va">combined_iso_os</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">combined_iso_ts_1</span> <span class="op">&lt;-</span> <span class="va">combined_iso_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    c1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">d13c_b1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
@@ -402,7 +407,7 @@ with <code>l2</code> needed if using two
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s view our combined data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_os</span></span>
+<code class="sourceCode R"><span><span class="va">combined_iso_ts_1</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 14</span></span></span>
 <span><span class="co">#&gt;       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1 d13c_b2 d15n_b2    c1</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -538,7 +543,7 @@ frameworks and your study system and species.</p>
 <span>  formula <span class="op">=</span> <span class="fu"><a href="../reference/two_source_model.html">two_source_model</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  prior <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors.html">two_source_priors</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  stanvars <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors_params.html">two_source_priors_params</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  data <span class="op">=</span> <span class="va">combined_iso_os</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">combined_iso_ts_1</span>,</span>
 <span>  family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html" class="external-link">gaussian</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  chains <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  iter <span class="op">=</span> <span class="fl">4000</span>,</span>
@@ -565,7 +570,7 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt;          alpha ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_ts_1 (Number of observations: 30) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -607,7 +612,7 @@ and fitting accordingly.</p>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-14-1.png" width="700"><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-14-2.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -626,7 +631,7 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">m</span>, resp <span class="op">=</span> <span class="st">"d13c"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are not effectively modeling
@@ -649,7 +654,7 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">m</span>, resp <span class="op">=</span> <span class="st">"d15n"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
@@ -674,7 +679,7 @@ dark line).</p>
 <span><span class="co">#&gt;          alpha ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_os (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_ts_1 (Number of observations: 30) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -849,7 +854,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>, </span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
@@ -870,7 +875,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>, </span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-24-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
 <p>Congratulations we have estimated the trophic position for Lake
 Trout!</p>
 <p>Again, you will notice estimates of
