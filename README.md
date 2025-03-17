@@ -60,22 +60,47 @@ To view the overall progress of the package please see
 
 I highly suggest going through the vignettes as they will walk you
 through how to use create each trophic position model using {trps} and
-{brms}.
+{brms}. The first vignette to walk through is [Getting started with
+trps](https://benjaminhlina.github.io/trps/articles/trps.html). This
+vignette will introudce you to
+[{trps}](https://benjaminhlina.github.io/trps/) and estimating trophic
+position usinga one source model. You can also access this vignette
+using the following code.
 
 ``` r
-vignette("estimate_trophic_position_one_source_model")
+vignette("trps")
+#> starting httpd help server ... done
 ```
 
-You can also use the following to see vignettes:
+Please go through [Getting started with
+trps](https://benjaminhlina.github.io/trps/articles/trps.html) prior to
+walking through the other vignettes.
+
+The next vignette will walk you through how to apply
+[{trps}](https://benjaminhlina.github.io/trps/) with iterative
+processes. This vignette is titled [Estimate Trophic Position - One
+Source Model - Multiple
+Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html)
+and can be accessed using the following code.
+
+``` r
+vignette("estimate_trophic_position_one_source_multiple_groups")
+```
+
+The last vignette to walk through is [Estimating Trophic Postion - Two
+Source
+Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html)
+and can be accessed using the following code.
+
+``` r
+vignette("estimate_trophic_position_two_source_model")
+```
+
+To view all of the vignettes you can use following code:
 
 ``` r
 browseVignettes("trps")
 ```
-
-The vignettes are currently available online under the articles section
-of the website. See the following links, [Estimate trophic position -
-one
-source](https://benjaminhlina.github.io/trps/articles/Estimate_trophic_position_one_source_model.html).
 
 ## Citations
 
