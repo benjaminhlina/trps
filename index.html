@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Bayesian trophic position models using stan">
-<meta name="description" content="Bayesian trophic position models using stan by leveraging brms for stable isotope data. Trophic position models are derived by using equations from Post (2002) &lt;doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2&gt;, and Huevel et al. (2024) &lt;doi:10.1139/cjfas-2024-0028&gt;.">
-<meta property="og:description" content="Bayesian trophic position models using stan by leveraging brms for stable isotope data. Trophic position models are derived by using equations from Post (2002) &lt;doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2&gt;, and Huevel et al. (2024) &lt;doi:10.1139/cjfas-2024-0028&gt;.">
+<meta name="description" content="Bayesian trophic position models using stan by leveraging brms for stable isotope data. Trophic position models are derived by using equations from Post (2002) &lt;doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2&gt;, Vander Zanden and Vadeboncoeur (2002) &lt;doi:10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2&gt;, and Huevel et al. (2024) &lt;doi:10.1139/cjfas-2024-0028&gt;.">
+<meta property="og:description" content="Bayesian trophic position models using stan by leveraging brms for stable isotope data. Trophic position models are derived by using equations from Post (2002) &lt;doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2&gt;, Vander Zanden and Vadeboncoeur (2002) &lt;doi:10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2&gt;, and Huevel et al. (2024) &lt;doi:10.1139/cjfas-2024-0028&gt;.">
 <meta property="og:image" content="https://benjaminhlina.github.io/trps/logo.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
@@ -21,7 +21,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">trps</a>
 
@@ -35,13 +35,14 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="articles/trps.html">Get started</a></li>
-<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate trophic position - one source - multiple groups</a></li>
+    <li><a class="dropdown-item" href="articles/estimate_trophic_position_two_source_model.html">estimate_trophic_position_two_source_model</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -64,7 +65,7 @@
 </div>
 <!-- badges: start -->
 
-<p>Bayesian trophic position models using stan (pronounced trips) by leveraging <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a> and <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a> and are to be used with stable isotope data for different species.</p>
+<p>Bayesian trophic position models using stan (pronounced trips) by leveraging <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a>, <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander Zanden and Vadeboncoeur 2002</a>, and <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a> and are to be used with stable isotope data for different species.</p>
 <div class="section level2">
 <h2 id="trophic-models-in-trps">Trophic Models in {trps}<a class="anchor" aria-label="anchor" href="#trophic-models-in-trps"></a>
 </h2>
@@ -72,8 +73,8 @@
 <ol style="list-style-type: decimal">
 <li><p>One Source Model - <code><a href="reference/one_source_model.html">one_source_model()</a></code></p></li>
 <li><p>Two Source Model - <code><a href="reference/two_source_model.html">two_source_model()</a></code></p></li>
-<li><p>Two Source Model - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> corrected (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>) using <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. 2024</a> - <code><a href="reference/two_source_model_ar.html">two_source_model_ar()</a></code></p></li>
-<li><p>Two Source Model - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> corrected (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>) - with carbon mixing model - <code><a href="reference/two_source_model_arc.html">two_source_model_arc()</a></code></p></li>
+<li><p>Two Source Model - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> corrected (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>) - <code><a href="reference/two_source_model_ar.html">two_source_model_ar()</a></code></p></li>
+<li><p>Two Source Model - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> corrected (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>) - carbon mixing model - <code><a href="reference/two_source_model_arc.html">two_source_model_arc()</a></code></p></li>
 </ol>
 </div>
 <div class="section level2">

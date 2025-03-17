@@ -18,7 +18,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">trps</a>
 
@@ -32,13 +32,14 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../articles/trps.html">Get started</a></li>
-<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate trophic position - one source - multiple groups</a></li>
+    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">estimate_trophic_position_two_source_model</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -71,7 +72,7 @@
 <h2 id="our-objectives">Our Objectives<a class="anchor" aria-label="anchor" href="#our-objectives"></a>
 </h2>
 <p>The purpose of this vignette is to learn how to estimate trophic
-position of a species using stable isotope data
+position of multiple species or groups using stable isotope data
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>).
@@ -145,8 +146,8 @@ provided by <a href="https://sjmgarnier.github.io/viridis/" class="external-link
 </h2>
 <p>In <a href="https://benjaminhlina.github.io/trps/">{trps}</a> we have
 a data set that has consumer and baseline data already joined for two
-ecoregions (<code>combined_iso</code>) using the same methods above.
-Let’s look at this data frame.</p>
+ecoregions (<code>combined_iso</code>) using the same methods in <a href="estimate_trophic_position_one_source.html">estimating trophic
+position - one source</a>. Let’s look at this data frame.</p>
 <div class="section level3">
 <h3 id="organize-data---multiple-groups">Organize data - multiple groups<a class="anchor" aria-label="anchor" href="#organize-data---multiple-groups"></a>
 </h3>
