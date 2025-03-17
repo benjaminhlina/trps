@@ -257,7 +257,7 @@ two_source_priors_params <- function(
 
   # create error message for dn priors
   if (is.null(dn_sigma)) {
-    dn_sigma <- 0.5
+    dn_sigma <- 0.25
   }
 
   if  (!is.numeric(dn_sigma)) {
