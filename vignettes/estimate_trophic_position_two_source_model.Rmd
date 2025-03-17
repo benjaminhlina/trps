@@ -13,21 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
----
-title: "Getting started with trps"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Getting started with trps}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-collapse = TRUE,
-comment = "#>"
-)
-```
 
 ## Our Objectives
 
@@ -178,7 +164,7 @@ To do this we first need to make an `id` column in each data set, which will all
 Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
-consumer_iso <- consumer_iso %>% 
+consumer_iso_2 <- consumer_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -194,7 +180,7 @@ consumer_iso <- consumer_iso %>%
 Next let's add `id` to `baseline_1_iso` data frame. For joining purposes we are going to drop `common_name` from this data frame.
 
 ```{r}
-baseline_1_iso <- baseline_1_iso %>% 
+baseline_1_iso_2 <- baseline_1_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -210,7 +196,7 @@ Next let's add `id` to `baseline_2_iso` data frame. For joining purposes
 we are going to drop `common_name` from this data frame.
 
 ```{r}
-baseline_2_iso <- baseline_2_iso %>% 
+baseline_2_iso_2 <- baseline_2_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -226,7 +212,7 @@ Now that we have the consumer and baseline data sets in a consistent
 format we can join them by `"id"` and `"ecoregion"` using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
-combined_iso_os <- consumer_iso %>% 
+combined_iso_ts <- consumer_iso %>% 
   left_join(baseline_1_iso, by = c("id", "ecoregion")) %>% 
   left_join(baseline_2_iso, by = c("id", "ecoregion")) 
 ```
@@ -243,7 +229,7 @@ named `d13c`, `c1`, `c2`, `d15n`, `n1`, `n2`, and `l1` with `l2` needed if using
 two $\lambda s$.
 
 ```{r}
-combined_iso_os <- combined_iso_os %>% 
+combined_iso_ts_2 <- combined_iso_ts_1 %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
     c1 = mean(d13c_b1, na.rm = TRUE),
@@ -258,7 +244,7 @@ combined_iso_os <- combined_iso_os %>%
 Let's view our combined data.
 
 ```{r}
-combined_iso_os
+combined_iso_ts_2
 ```
 
 It is now ready to be analyzed!
@@ -324,7 +310,7 @@ m <- brm(
   formula = two_source_model(),
   prior = two_source_priors(),
   stanvars = two_source_priors_params(),
-  data = combined_iso_os,
+  data = combined_iso_ts_2,
   family = gaussian(),
   chains = 2,
   iter = 4000,
