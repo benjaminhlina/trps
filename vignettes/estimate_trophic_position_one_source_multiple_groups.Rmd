@@ -1,8 +1,8 @@
 ---
-title: "Estimate trophic position - one source - multiple groups"
+title: "Estimate Trophic Position - One Source Model - Multiple Groups"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{estimate_trophic_position_one_source_multiple_groups}
+  %\VignetteIndexEntry{Estimate Trophic Position - One Source Model - Multiple Groups}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
