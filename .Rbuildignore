@@ -8,3 +8,4 @@
 ^pkgdown$
 ^data-raw$
 ^tests/testthat/test-one_source_brms\.R$
+^.lintr$
