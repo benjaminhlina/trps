@@ -50,9 +50,10 @@ $$
  isotope value of the second baseline. For aquatic ecosystems, often 
  $\delta^{15}C_{b1}$ is from a benthic source and $\delta^{15}C_{b2}$ is from a
  pelagic source. Lastly, $\alpha$ is the proportion of carbon that comes from 
- each source and should be bound by 0 and 1. We will see later on that this 
- does not always happen which can be problematic with [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) proposing an new 
- method to correct (i.e., scale) these values. $\alpha$ is then used the equation below. 
+ each source and should be bound by 0 and 1. We will see later that this 
+ does not always happen which can be problematic with [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) 
+proposing a new 
+method to correct (i.e., scale) these values. $\alpha$ is then used the equation below. 
 
 
 $$
