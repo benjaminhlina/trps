@@ -101,7 +101,7 @@ To do this we first need to make an `id` column in each data set, which will all
 Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
-consumer_iso <- consumer_iso %>% 
+consumer_iso_1 <- consumer_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -116,7 +116,7 @@ consumer_iso <- consumer_iso %>%
 Next let's add `id` to `baseline_1_iso` data frame. For joining purposes we are going to drop `common_name` from this data frame.
 
 ```{r}
-baseline_1_iso <- baseline_1_iso %>% 
+baseline_1_iso_1 <- baseline_1_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -131,8 +131,8 @@ baseline_1_iso <- baseline_1_iso %>%
 Now that we have the consumer and baseline data sets in a consistent format we can join them by `"id"` and `"ecoregion"` using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
-combined_iso_os <- consumer_iso %>% 
-  left_join(baseline_1_iso, by = c("id", "ecoregion"))
+combined_iso_os <- consumer_iso_1 %>% 
+  left_join(baseline_1_iso_1, by = c("id", "ecoregion"))
 ```
 
 We can see that we have successfully combined our consumer and baseline data. We need to do one last thing prior to analyzing the data, and that is calculate the mean $\delta^{13}C$ (`c1`) and $\delta^{15}N$ (`n1`) for the baseline and add in the constant $\lambda$ (`l1`) to our data frame. We do this by using `groub_by()` to group the data by our two groups, then using `mutate()` and `mean()` to calculate the mean values.
@@ -140,7 +140,7 @@ We can see that we have successfully combined our consumer and baseline data. We
 Important note, to run the model successfully, columns need to be named `d15n`, `n1`, and `l1`.
 
 ```{r}
-combined_iso_os <- combined_iso_os %>% 
+combined_iso_os_1 <- combined_iso_os %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
     c1 = mean(d13c_b1, na.rm = TRUE),
@@ -153,7 +153,7 @@ combined_iso_os <- combined_iso_os %>%
 Let's view our combined data.
 
 ```{r}
-combined_iso_os
+combined_iso_os_1
 ```
 
 It is now ready to be analyzed!
@@ -204,7 +204,7 @@ m <- brm(
   formula = one_source_model(),
   prior = one_source_priors(),
   stanvars = one_source_priors_params(),
-  data = combined_iso_os,
+  data = combined_iso_os_1,
   family = gaussian(),
   chains = 2,
   iter = 4000,
