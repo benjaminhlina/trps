@@ -78,8 +78,8 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>).
 We can estimate trophic position using a two source model that is based
 on equations from <a href="ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2">Post
-2002</a> and <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander
-Zaden and (2002)</a>.</p>
+(2002)</a> and <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander
+Zaden and Vadeboncoeur (2002)</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="trophic-position-model">Trophic Position Model<a class="anchor" aria-label="anchor" href="#trophic-position-model"></a>
@@ -104,9 +104,9 @@ is the proportion of carbon that comes from each source and should be
 bound by 0 and 1. We will see later that this does not always happen
 which can be problematic with <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
 al. 2024</a> proposing a new method to correct (i.e., scale) these
-values.
+values. Estimates of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-is then used the equation below.</p>
+are used in the equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
 [(\delta^{15}N_{b1} \times \alpha) - (\delta^{15}N_{b1} \times (1 - \alpha))]}{\Delta N}
@@ -131,8 +131,8 @@ is estimated above, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is the trophic enrichment factor (e.g., 3.4).</p>
 <p>There is a variation of this model that uses a mixing model to
-consider different trophic positions of baseline
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>.
+consider different trophic position for each baseline
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>).
 The equation replaces
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 with the following:</p>
@@ -170,7 +170,9 @@ in the rearranged equation for trophic position.</p>
 equation. If using baselines from two different trophic levels, you can
 set <code>lambda</code> to <code>2</code> to replace
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
-(<code>l1</code>) with the mixing model equation above.</p>
+(<code>l1</code>) with the mixing model for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
+above.</p>
 </div>
 </div>
 <div class="section level2">
@@ -641,7 +643,8 @@ of the consumer (
 dark line). We can correct (i.e., scale) using another model
 <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
 al. 2024</a> that corrects (i.e., scales) this equation providing better
-and more meaningful estimates.</p>
+and more meaningful estimates. I will demostrate how to use this model
+in another vignette.</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
