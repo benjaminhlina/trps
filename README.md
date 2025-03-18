@@ -21,7 +21,7 @@ trophic position models are derived from [Post
 (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
 and [Heuvel et
 al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and
-are to be used with stable isotope data for different species.
+are to be used with stable isotope data.
 
 ## Trophic Models in {trps}
 
