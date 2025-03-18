@@ -3,10 +3,10 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   estimate_trophic_position_one_source_multiple_groups: estimate_trophic_position_one_source_multiple_groups.html
+  estimate_trophic_position_two_source_model_ar: estimate_trophic_position_two_source_model_ar.html
   estimate_trophic_position_two_source_model: estimate_trophic_position_two_source_model.html
-  articles/estimate_trophic_position_two_source_modle_ar: estimate_trophic_position_two_source_modle_ar.html
   trps: trps.html
-last_built: 2025-03-18T15:36Z
+last_built: 2025-03-18T21:43Z
 urls:
   reference: https://benjaminhlina.github.io/trps/reference
   article: https://benjaminhlina.github.io/trps/articles

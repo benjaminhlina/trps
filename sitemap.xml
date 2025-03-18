@@ -3,7 +3,7 @@
 <url><loc>https://benjaminhlina.github.io/trps/LICENSE.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html</loc></url>
-<url><loc>https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_modle_ar.html</loc></url>
+<url><loc>https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/articles/index.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/articles/trps.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/authors.html</loc></url>
@@ -15,6 +15,10 @@
 <url><loc>https://benjaminhlina.github.io/trps/reference/combined_iso.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/reference/consumer_iso.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/reference/index.html</loc></url>
+<url><loc>https://benjaminhlina.github.io/trps/reference/model_output_os.html</loc></url>
+<url><loc>https://benjaminhlina.github.io/trps/reference/model_output_os_mg.html</loc></url>
+<url><loc>https://benjaminhlina.github.io/trps/reference/model_output_ts.html</loc></url>
+<url><loc>https://benjaminhlina.github.io/trps/reference/model_output_tsar.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/reference/one_source_model.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/reference/one_source_priors.html</loc></url>
 <url><loc>https://benjaminhlina.github.io/trps/reference/one_source_priors_params.html</loc></url>

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Estimate Trophic Position - Two Source Model • trps</title>
+<title>Estimate Trophic Position - Two Source Model - ar • trps</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estimate Trophic Position - Two Source Model">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estimate Trophic Position - Two Source Model - ar">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 </head>
@@ -66,14 +66,14 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Estimate Trophic Position - Two Source Model</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Estimate Trophic Position - Two Source Model - ar</h1>
                         <h4 data-toc-skip class="author">Benjamin L.
 Hlina</h4>
             
-            <h4 data-toc-skip class="date">2025-03-17</h4>
+            <h4 data-toc-skip class="date">2025-03-18</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/estimate_trophic_position_two_source_model.Rmd" class="external-link"><code>vignettes/estimate_trophic_position_two_source_model.Rmd</code></a></small>
-      <div class="d-none name"><code>estimate_trophic_position_two_source_model.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/vignettes/estimate_trophic_position_two_source_model_ar.Rmd" class="external-link"><code>vignettes/estimate_trophic_position_two_source_model_ar.Rmd</code></a></small>
+      <div class="d-none name"><code>estimate_trophic_position_two_source_model_ar.Rmd</code></div>
     </div>
 
     
@@ -88,8 +88,9 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>).
 We can estimate trophic position using a two source model that is based
 on equations from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post
-(2002)</a> and <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander
-Zaden and Vadeboncoeur (2002)</a>.</p>
+(2002)</a>, <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander
+Zaden and Vadeboncoeur (2002)</a>, and <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
+al. (2024)</a></p>
 </div>
 <div class="section level2">
 <h2 id="trophic-position-model">Trophic Position Model<a class="anchor" aria-label="anchor" href="#trophic-position-model"></a>
@@ -111,17 +112,33 @@ is from a benthic source and
 is from a pelagic source. Lastly,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 is the proportion of carbon that comes from each source and should be
-bound by 0 and 1. We will see later that this does not always happen
-which can be problematic with <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et al., (2024)</a>
-proposing a new method to correct (i.e., scale) these values. Estimates
-of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-are used in the two source trophic postion equation below.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
-\text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
-[(\delta^{15}N_{b1} \times \alpha) - (\delta^{15}N_{b1} \times (1 - \alpha))]}{\Delta N}
+bound by 0 and 1. We will correct (i.e., scale) these values using an
+equation in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
+al., (2024)</a></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mi>r</mi></msub><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mo>−</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex"> 
+\alpha_r = \frac{(\alpha - \alpha_{min})}{(\alpha_{max}-\alpha_{min})}
 </annotation></semantics></math></p>
-<p>Where
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
+is the corrected (i.e., scaled)
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+is derived from above,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\alpha_{min}</annotation></semantics></math>
+is the minimum value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+calculated above, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\alpha_{max}</annotation></semantics></math>
+is the maximum value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+calculated above,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
+is then used in the trophic position equation below.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+\text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
+[(\delta^{15}N_{b1} \times \alpha_r) - (\delta^{15}N_{b1} \times (1 - \alpha_r))]}{\Delta N}
+</annotation></semantics></math></p>
+<p>where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 is the trophic position of the baseline (e.g., <code>2</code>),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\delta^{15}N_c</annotation></semantics></math>
@@ -136,7 +153,7 @@ of the first baseline (e.g., benthic),
 is the mean
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
 of the second baseline (e.g., pelagic),
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 is estimated above, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is the trophic enrichment factor (e.g., 3.4).</p>
@@ -146,35 +163,39 @@ consider different trophic position for each baseline
 The equation replaces
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 with the following:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
-\lambda = (\lambda_1 \times \alpha) - (\lambda_2\times (1 - \alpha))
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>λ</mi><mn>2</mn></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\lambda = (\lambda_1 \times \alpha_r) - (\lambda_2\times (1 - \alpha_r))
 </annotation></semantics></math></p>
 <p>Where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\lambda_1</annotation></semantics></math>
 is the trophic level of the first baseline (e.g., 2),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\lambda_2</annotation></semantics></math>
 is the trophic level of the second baseline (e.g., 2.5), and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 is from above. Only use this replacement equation for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 if you have baselines from two different trophic levels.</p>
 <div class="section level3">
 <h3 id="bayesian-model">Bayesian model<a class="anchor" aria-label="anchor" href="#bayesian-model"></a>
 </h3>
-<p>To use these model with a Bayesian framework, we need to rearrange
-the equation for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-to the following:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mi>c</mi></msub><mo>=</mo><mi>α</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
-\delta^{13}C_c = \alpha \times (\delta^{13}C_{b1} - \delta^{13}C_{b2}) + 
-\delta^{13}C_{b2}
+<p>To use these model with a Bayesian framework, we need to calculate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\alpha_{min}</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\alpha_{max}</annotation></semantics></math>
+which can be done using <code><a href="../reference/add_alpha.html">add_alpha()</a></code>. We then can use the
+rearrange equation for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><msub><mi>α</mi><mi>r</mi></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>α</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">
+\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + 
+\alpha_{min}
 </annotation></semantics></math></p>
 <p>Estimates of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 are then used in the rearranged equation for trophic position below.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><mi>Δ</mi><mi>N</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Trophic Position</mtext><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo>+</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><mi>Δ</mi><mi>N</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mtext mathvariant="normal">Trophic Position</mtext><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo>+</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
 \delta^{15}N_c = \Delta N \times (\text{Trophic Position} - \lambda) + 
-\delta^{15}N_{b1} \times \alpha + \delta^{15}N_{b2} \times (1 - \alpha)
+\delta^{15}N_{b1} \times \alpha_r + \delta^{15}N_{b2} \times (1 - \alpha_r)
 </annotation></semantics></math></p>
 <p>The function <code><a href="../reference/two_source_model.html">two_source_model()</a></code> uses both of these
 rearranged equation. If using baselines from two different trophic
@@ -333,7 +354,7 @@ columns.</p>
 <p>Let’s first add <code>id</code> to <code>consumer_iso</code> data
 frame.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">con_ts</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">con_tsar</span> <span class="op">&lt;-</span> <span class="va">consumer_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -342,7 +363,7 @@ frame.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">common_name</span><span class="op">:</span><span class="va">d15n</span><span class="op">)</span></span></code></pre></div>
 <p>You will notice that I have renamed this object to
-<code>con_ts</code> this is because we are modifying
+<code>consumer_iso_2</code> this is because we are modifying
 <code>consumer_iso</code> and should make a new object. I have continued
 with the same renaming nomenclature for objects below.</p>
 </div>
@@ -353,7 +374,7 @@ with the same renaming nomenclature for objects below.</p>
 frame. For joining purposes we are going to drop
 <code>common_name</code> from this data frame.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">b1_ts</span> <span class="op">&lt;-</span> <span class="va">baseline_1_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">b1_tsar</span> <span class="op">&lt;-</span> <span class="va">baseline_1_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -369,7 +390,7 @@ frame. For joining purposes we are going to drop
 frame. For joining purposes we are going to drop
 <code>common_name</code> from this data frame.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">b2_ts</span> <span class="op">&lt;-</span> <span class="va">baseline_2_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">b2_tsar</span> <span class="op">&lt;-</span> <span class="va">baseline_2_iso</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -385,9 +406,9 @@ frame. For joining purposes we are going to drop
 format we can join them by <code>"id"</code> and
 <code>"ecoregion"</code> using <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> from <a href="https://dplyr.tidyverse.org/" class="external-link">{dplyr}</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_ts</span> <span class="op">&lt;-</span> <span class="va">con_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">b1_ts</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">b2_ts</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">combined_iso_tsar</span> <span class="op">&lt;-</span> <span class="va">con_tsar</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">b1_tsar</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">b2_tsar</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"ecoregion"</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
 <p>We can see that we have successfully combined our consumer and
 baseline data. We need to do one last thing prior to analyzing the data,
 and that is calculate the mean
@@ -406,8 +427,9 @@ named <code>d13c</code>, <code>c1</code>, <code>c2</code>,
 <code>d15n</code>, <code>n1</code>, <code>n2</code>, and <code>l1</code>
 with <code>l2</code> needed if using two
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">\lambda s</annotation></semantics></math>.</p>
+<p>We will also <code><a href="../reference/add_alpha.html">add_alpha()</a></code> to the data frame.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_ts_1</span> <span class="op">&lt;-</span> <span class="va">combined_iso_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">combined_iso_tsar_1</span> <span class="op">&lt;-</span> <span class="va">combined_iso_tsar</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ecoregion</span>, <span class="va">common_name</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    c1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">d13c_b1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
@@ -416,11 +438,12 @@ with <code>l2</code> needed if using two
 <span>    n2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">d15n_b2</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    l1 <span class="op">=</span> <span class="fl">2</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/add_alpha.html">add_alpha</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s view our combined data.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">combined_iso_ts_1</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 14</span></span></span>
+<code class="sourceCode R"><span><span class="va">combined_iso_tsar_1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 30 × 17</span></span></span>
 <span><span class="co">#&gt;       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1 d13c_b2 d15n_b2    c1</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  15.9   -<span style="color: #BB0000;">26.2</span>    8.44   -<span style="color: #BB0000;">23.4</span>    7.81 -<span style="color: #BB0000;">24.6</span></span></span>
@@ -434,7 +457,8 @@ with <code>l2</code> needed if using two
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 Lake Trout  Embayment -<span style="color: #BB0000;">22.9</span>  16.4   -<span style="color: #BB0000;">24.6</span>    6.97   -<span style="color: #BB0000;">22.7</span>    7.32 -<span style="color: #BB0000;">24.6</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3   -<span style="color: #BB0000;">22.1</span>    7.95   -<span style="color: #BB0000;">26.9</span>   10.2  -<span style="color: #BB0000;">24.6</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: n1 &lt;dbl&gt;, c2 &lt;dbl&gt;, n2 &lt;dbl&gt;, l1 &lt;dbl&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 7 more variables: n1 &lt;dbl&gt;, c2 &lt;dbl&gt;, n2 &lt;dbl&gt;, l1 &lt;dbl&gt;, alpha &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   min_alpha &lt;dbl&gt;, max_alpha &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>It is now ready to be analyzed!</p>
 </div>
 </div>
@@ -465,7 +489,7 @@ Schoot et al., (2021)</a></li>
 <p>Bayesian analyses rely on supplying uninformed or informed prior
 distributions for each parameter (coefficient; predictor) in the model.
 The default informed priors for a two source model are the following,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 is bound by 0 and 1 and assumes an unformed beta distribution
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\alpha = 1</annotation></semantics></math>
 and
@@ -554,11 +578,11 @@ frameworks and your study system and species.</p>
 </h3>
 <p>Let’s run the model!</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_output_ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm</a></span><span class="op">(</span></span>
-<span>  formula <span class="op">=</span> <span class="fu"><a href="../reference/two_source_model.html">two_source_model</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  prior <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors.html">two_source_priors</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  stanvars <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors_params.html">two_source_priors_params</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  data <span class="op">=</span> <span class="va">combined_iso_ts_1</span>,</span>
+<code class="sourceCode R"><span><span class="va">model_output_tsar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm</a></span><span class="op">(</span></span>
+<span>  formula <span class="op">=</span> <span class="fu"><a href="../reference/two_source_model_ar.html">two_source_model_ar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  prior <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors_ar.html">two_source_priors_ar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  stanvars <span class="op">=</span> <span class="fu"><a href="../reference/two_source_priors_params_ar.html">two_source_priors_params_ar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">combined_iso_tsar_1</span>,</span>
 <span>  family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html" class="external-link">gaussian</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  chains <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  iter <span class="op">=</span> <span class="fl">4000</span>,</span>
@@ -573,40 +597,35 @@ frameworks and your study system and species.</p>
 </h3>
 <p>Let’s view the summary of the model.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_output_ts</span></span>
+<code class="sourceCode R"><span><span class="va">model_output_tsar</span></span>
 <span><span class="co">#&gt;  Family: MV(gaussian, gaussian) </span></span>
 <span><span class="co">#&gt;   Links: mu = identity; sigma = identity</span></span>
 <span><span class="co">#&gt;          mu = identity; sigma = identity </span></span>
-<span><span class="co">#&gt; Formula: d13c ~ alpha * (c1 - c2) + c2 </span></span>
-<span><span class="co">#&gt;          alpha ~ 1</span></span>
-<span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * alpha + n2 * (1 - alpha) </span></span>
-<span><span class="co">#&gt;          alpha ~ 1</span></span>
+<span><span class="co">#&gt; Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha </span></span>
+<span><span class="co">#&gt;          ar ~ 1</span></span>
+<span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) </span></span>
+<span><span class="co">#&gt;          ar ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_ts_1 (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_tsar_1 (Number of observations: 30) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
-<span><span class="co">#&gt;                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.19 1.00     3660</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     0.50      0.29     0.03     0.97 1.00     4212</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2451</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.86 1.00     2679</span></span>
-<span><span class="co">#&gt;                      Tail_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     2391</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     2939</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        3056</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3199</span></span>
+<span><span class="co">#&gt;                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; alpha_ar_Intercept     0.56      0.04     0.47     0.65 1.00     4098     3034</span></span>
+<span><span class="co">#&gt; d15n_ar_Intercept      0.50      0.29     0.02     0.98 1.00     4809     3013</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept      4.71      0.47     4.03     5.77 1.00     2784     2245</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept      3.32      0.51     2.33     4.29 1.00     2802     2261</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
-<span><span class="co">#&gt;            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma_d13c     1.41      0.20     1.07     1.86 1.00     3489     3662</span></span>
-<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.94 1.00     3010     2704</span></span>
+<span><span class="co">#&gt;             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; sigma_alpha     0.59      0.08     0.45     0.78 1.00     3936     3498</span></span>
+<span><span class="co">#&gt; sigma_d15n      0.62      0.09     0.48     0.82 1.00     4143     3482</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residual Correlations: </span></span>
-<span><span class="co">#&gt;                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; rescor(d13c,d15n)     0.21      0.31    -0.45     0.72 1.00     2257     3026</span></span>
+<span><span class="co">#&gt;                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; rescor(alpha,d15n)    -0.13      0.18    -0.45     0.24 1.00     4277     3790</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -624,8 +643,8 @@ and fitting accordingly.</p>
 </h3>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">model_output_ts</span><span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">model_output_tsar</span><span class="op">)</span></span></code></pre></div>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -634,29 +653,22 @@ converging!</p>
 <h2 id="predictive-posterior-check">Predictive posterior check<a class="anchor" aria-label="anchor" href="#predictive-posterior-check"></a>
 </h2>
 <div class="section level3">
-<h3 id="delta13c">
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math><a class="anchor" aria-label="anchor" href="#delta13c"></a>
+<h3 id="section">$<a class="anchor" aria-label="anchor" href="#section"></a>
 </h3>
 <p>We can check how well the model is predicting the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check()</a></code> from
 <a href="https://mc-stan.org/bayesplot/" class="external-link">bayesplot</a>.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_ts</span>, resp <span class="op">=</span> <span class="st">"d13c"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_tsar</span>, resp <span class="op">=</span> <span class="st">"alpha"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
-light lines) are not effectively modeling
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
-of the consumer
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
-dark line). We can correct (i.e., scale) these values using another
-model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et al., (2024)</a>
-that corrects (i.e., scales)
+light lines) are effectively modeling
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-providing better and more meaningful estimates. I will demostrate how to
-use this model in another vignette.</p>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
+dark line).</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
@@ -667,9 +679,9 @@ use this model in another vignette.</p>
 of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check()</a></code> from
 <a href="https://mc-stan.org/bayesplot/" class="external-link">bayesplot</a>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_ts</span>, resp <span class="op">=</span> <span class="st">"d15n"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_tsar</span>, resp <span class="op">=</span> <span class="st">"d15n"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
@@ -684,62 +696,53 @@ dark line).</p>
 </h2>
 <p>Let’s again look at the summary output from the model.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_output_ts</span></span>
+<code class="sourceCode R"><span><span class="va">model_output_tsar</span></span>
 <span><span class="co">#&gt;  Family: MV(gaussian, gaussian) </span></span>
 <span><span class="co">#&gt;   Links: mu = identity; sigma = identity</span></span>
 <span><span class="co">#&gt;          mu = identity; sigma = identity </span></span>
-<span><span class="co">#&gt; Formula: d13c ~ alpha * (c1 - c2) + c2 </span></span>
-<span><span class="co">#&gt;          alpha ~ 1</span></span>
-<span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * alpha + n2 * (1 - alpha) </span></span>
-<span><span class="co">#&gt;          alpha ~ 1</span></span>
+<span><span class="co">#&gt; Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha </span></span>
+<span><span class="co">#&gt;          ar ~ 1</span></span>
+<span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) </span></span>
+<span><span class="co">#&gt;          ar ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
-<span><span class="co">#&gt;    Data: combined_iso_ts_1 (Number of observations: 30) </span></span>
+<span><span class="co">#&gt;    Data: combined_iso_tsar_1 (Number of observations: 30) </span></span>
 <span><span class="co">#&gt;   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;</span></span>
 <span><span class="co">#&gt;          total post-warmup draws = 6000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
-<span><span class="co">#&gt;                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.19 1.00     3660</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     0.50      0.29     0.03     0.97 1.00     4212</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2451</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.86 1.00     2679</span></span>
-<span><span class="co">#&gt;                      Tail_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     2391</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     2939</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        3056</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3199</span></span>
+<span><span class="co">#&gt;                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; alpha_ar_Intercept     0.56      0.04     0.47     0.65 1.00     4098     3034</span></span>
+<span><span class="co">#&gt; d15n_ar_Intercept      0.50      0.29     0.02     0.98 1.00     4809     3013</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept      4.71      0.47     4.03     5.77 1.00     2784     2245</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept      3.32      0.51     2.33     4.29 1.00     2802     2261</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
-<span><span class="co">#&gt;            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma_d13c     1.41      0.20     1.07     1.86 1.00     3489     3662</span></span>
-<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.94 1.00     3010     2704</span></span>
+<span><span class="co">#&gt;             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; sigma_alpha     0.59      0.08     0.45     0.78 1.00     3936     3498</span></span>
+<span><span class="co">#&gt; sigma_d15n      0.62      0.09     0.48     0.82 1.00     4143     3482</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residual Correlations: </span></span>
-<span><span class="co">#&gt;                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; rescor(d13c,d15n)     0.21      0.31    -0.45     0.72 1.00     2257     3026</span></span>
+<span><span class="co">#&gt;                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
+<span><span class="co">#&gt; rescor(alpha,d15n)    -0.13      0.18    -0.45     0.24 1.00     4277     3790</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
 <span><span class="co">#&gt; scale reduction factor on split chains (at convergence, Rhat = 1).</span></span></code></pre></div>
 <p>We can see that
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-is estimated to be <code>0.05</code> with <code>l-95% CI</code> of
-<code>0.00</code> and <code>u-95% CI</code> of <code>0.19</code>. These
-values do not make a lot sense as this indicates the lake trout are
-heavily using benthic resource which we know from previous work is not
-true. In another vignette I’ll demonstrate how to use a model that
-corrects or scales
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-appropriately using an equation in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
-al. (2024)</a>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
+is estimated to be <code>0.56</code> with <code>l-95% CI</code> of
+<code>0.47</code> and <code>u-95% CI</code> of <code>0.65</code>. These
+values do make more sense as this indicates the lake trout are using
+both bethic and pelagic resource which we know from previous work
+istrue.</p>
 <p>Moving down to the trophic position model we can see
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
 <code>2.89</code>, and <code>u-95% CI</code> of <code>3.85</code>. If we
 move down to trophic position (<code>tp</code>) we see trophic position
-is estimated to be <code>4.57</code> with <code>l-95% CI</code> of
-<code>4.20</code>, and <code>u-95% CI</code> of <code>5.02</code>.</p>
+is estimated to be <code>4.61</code> with <code>l-95% CI</code> of
+<code>4.26</code>, and <code>u-95% CI</code> of <code>5.05</code>.</p>
 <div class="section level3">
 <h3 id="extract-posterior-draws">Extract posterior draws<a class="anchor" aria-label="anchor" href="#extract-posterior-draws"></a>
 </h3>
@@ -747,27 +750,27 @@ is estimated to be <code>4.57</code> with <code>l-95% CI</code> of
 work. First we look at the the names of the variables we want to extract
 using <code><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables()</a></code>.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables</a></span><span class="op">(</span><span class="va">model_output_ts</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "b_d13c_alpha_Intercept" "b_d15n_alpha_Intercept" "b_d15n_tp_Intercept"   </span></span>
-<span><span class="co">#&gt;  [4] "b_d15n_dn_Intercept"    "sigma_d13c"             "sigma_d15n"            </span></span>
-<span><span class="co">#&gt;  [7] "rescor__d13c__d15n"     "lprior"                 "lp__"                  </span></span>
-<span><span class="co">#&gt; [10] "accept_stat__"          "stepsize__"             "treedepth__"           </span></span>
-<span><span class="co">#&gt; [13] "n_leapfrog__"           "divergent__"            "energy__"</span></span></code></pre></div>
-<p>You will notice that <code>"b_d13c_alpha_Intercept"</code> and
+<code class="sourceCode R"><span><span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/get_variables.html" class="external-link">get_variables</a></span><span class="op">(</span><span class="va">model_output_tsar</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "b_alpha_ar_Intercept" "b_d15n_ar_Intercept"  "b_d15n_tp_Intercept" </span></span>
+<span><span class="co">#&gt;  [4] "b_d15n_dn_Intercept"  "sigma_alpha"          "sigma_d15n"          </span></span>
+<span><span class="co">#&gt;  [7] "rescor__alpha__d15n"  "lprior"               "lp__"                </span></span>
+<span><span class="co">#&gt; [10] "accept_stat__"        "stepsize__"           "treedepth__"         </span></span>
+<span><span class="co">#&gt; [13] "n_leapfrog__"         "divergent__"          "energy__"</span></span></code></pre></div>
+<p>You will notice that <code>"b_alpha_ar_Intercept"</code> and
 <code>"b_d15n_tp_Intercept"</code> are the names of the variable that we
 are wanting to extract. We extract posterior draws using
 <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code>, and rename
-<code>"b_d15n_tp_Intercept"</code> to <code>tp</code> and
-<code>"b_d13c_alpha_Intercept"</code> to <code>alpha</code>.</p>
+<code>"b_alpha_ar_Intercept"</code> to <code>tp</code> and
+<code>"b_d13c_alpha_Intercept"</code> to <code>ar</code>.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">post_draws</span> <span class="op">&lt;-</span> <span class="va">model_output_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_d13c_alpha_Intercept</span>, <span class="va">b_d15n_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<code class="sourceCode R"><span><span class="va">post_draws</span> <span class="op">&lt;-</span> <span class="va">model_output_tsar</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_alpha_ar_Intercept</span>, <span class="va">b_d15n_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    ecoregion <span class="op">=</span> <span class="st">"Embayment"</span>,</span>
 <span>    common_name <span class="op">=</span> <span class="st">"Lake Trout"</span>,</span>
 <span>    .variable <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
 <span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_d15n_tp_Intercept"</span> <span class="op">~</span> <span class="st">"tp"</span>,</span>
-<span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_d13c_alpha_Intercept"</span> <span class="op">~</span> <span class="st">"alpha"</span></span>
+<span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_alpha_ar_Intercept"</span> <span class="op">~</span> <span class="st">"ar"</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">common_name</span>, <span class="va">ecoregion</span>, <span class="va">.chain</span><span class="op">:</span><span class="va">.value</span><span class="op">)</span></span></code></pre></div>
@@ -776,18 +779,18 @@ are wanting to extract. We extract posterior draws using
 <code class="sourceCode R"><span><span class="va">post_draws</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12,000 × 7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [2]</span></span></span>
-<span><span class="co">#&gt;    common_name ecoregion .chain .iteration .draw .variable  .value</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 alpha     0.058<span style="text-decoration: underline;">4</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 alpha     0.042<span style="text-decoration: underline;">8</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 alpha     0.033<span style="text-decoration: underline;">6</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 alpha     0.133  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 alpha     0.074<span style="text-decoration: underline;">6</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 alpha     0.068<span style="text-decoration: underline;">1</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 alpha     0.090<span style="text-decoration: underline;">5</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 alpha     0.010<span style="text-decoration: underline;">5</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 alpha     0.006<span style="text-decoration: underline;">90</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 alpha     0.013<span style="text-decoration: underline;">3</span> </span></span>
+<span><span class="co">#&gt;    common_name ecoregion .chain .iteration .draw .variable .value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 ar         0.573</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 ar         0.524</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 ar         0.547</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 ar         0.588</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 ar         0.593</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 ar         0.559</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 ar         0.585</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 ar         0.574</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 ar         0.542</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 ar         0.557</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 11,990 more rows</span></span></span></code></pre></div>
 <p>We can see that this consists of seven variables:</p>
 <ol style="list-style-type: decimal">
@@ -815,13 +818,13 @@ intervals (e.g., equal-tailed intervals; ETI). We can extract and export
 these values using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code> and
 <code>median_qi</code> from <a href="http://mjskay.github.io/tidybayes/" class="external-link">{tidybayes}</a>.</p>
 <p>We rename <code>d15n_tp_Intercept</code> to <code>tp</code> and
-<code>b_d13c_alpha_Intercept</code> to <code>alpha</code>, add the
-grouping columns, round all columns that are numeric to two decimal
-points using <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_if()</a></code>, and rearrange the order of the
-columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>.</p>
+<code>b_alpha_ar_Intercept</code> to <code>ar</code>, add the grouping
+columns, round all columns that are numeric to two decimal points using
+<code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_if()</a></code>, and rearrange the order of the columns using
+<code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">medians_ci</span> <span class="op">&lt;-</span> <span class="va">model_output_ts</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>        <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_d13c_alpha_Intercept</span>, </span>
+<code class="sourceCode R"><span><span class="va">medians_ci</span> <span class="op">&lt;-</span> <span class="va">model_output_tsar</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>        <span class="fu"><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws</a></span><span class="op">(</span><span class="va">b_alpha_ar_Intercept</span>, </span>
 <span>                     <span class="va">b_d15n_tp_Intercept</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>        <span class="fu"><a href="http://mjskay.github.io/ggdist/reference/point_interval.html" class="external-link">median_qi</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -829,7 +832,7 @@ columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" 
 <span>    common_name <span class="op">=</span> <span class="st">"Lake Trout"</span>, </span>
 <span>    .variable <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span></span>
 <span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_d15n_tp_Intercept"</span> <span class="op">~</span> <span class="st">"tp"</span>,</span>
-<span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_d13c_alpha_Intercept"</span> <span class="op">~</span> <span class="st">"alpha"</span></span>
+<span>      <span class="va">.variable</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"b_alpha_ar_Intercept"</span> <span class="op">~</span> <span class="st">"ar"</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_if</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">round</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
@@ -839,8 +842,8 @@ columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" 
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 9</span></span></span>
 <span><span class="co">#&gt;   .variable .value .lower .upper .width .point .interval ecoregion common_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> alpha       0.03    0     0.19   0.95 median qi        Embayment Lake Trout </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> tp          4.56    4.2   5.02   0.95 median qi        Embayment Lake Trout</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ar          0.57   0.47   0.65   0.95 median qi        Embayment Lake Trout </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> tp          4.63   4.03   5.77   0.95 median qi        Embayment Lake Trout</span></span></code></pre></div>
 <p>I like to use <a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">{openxlsx}</a> to
 export these values into a table that I can use for presentations and
 papers. For the vignette I am not going to demonstrate how to do this
@@ -870,7 +873,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>, </span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
@@ -891,15 +894,13 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>, </span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
 <p>Congratulations we have estimated the trophic position for Lake
-Trout!</p>
-<p>Again, you will notice estimates of
+Trout! Again, you will notice estimates of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
+do make sense and this model is estimating
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-do not really make sense which we can correct (i.e., scale) using
-another model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation
-in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
-al. (2024)</a>.</p>
+on the correct scale.</p>
 <p>You can use iterative process to produce estimates of trophic
 position for more than one group (e.g., comparing trophic position among
 species or in this case different ecoregions) using iterative processes

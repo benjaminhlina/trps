@@ -45,8 +45,8 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
+    <li><a class="dropdown-item" href="articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - ar</a></li>
     <li><a class="dropdown-item" href="articles/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
-    <li><a class="dropdown-item" href="articles/estimate_trophic_position_two_source_modle_ar.html">Estimate Trophic Position - Two Source Model - ar</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
@@ -73,7 +73,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>Bayesian trophic position models using stan (pronounced trips) by leveraging <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post (2002)</a>, <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander Zanden and Vadeboncoeur (2002)</a>, and <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. (2024)</a> and are to be used with stable isotope data.</p>
+<p>Bayesian trophic position models using stan (pronounced trips) by leveraging <a href="https://paulbuerkner.com/brms/" class="external-link">{brms}</a>. Equations for trophic position models are derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post (2002)</a>, <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2" class="external-link">Vander Zanden and Vadeboncoeur (2002)</a>, and <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et al. (2024)</a> and are to be used with stable isotope data.</p>
 <div class="section level2">
 <h2 id="trophic-models-in-trps">Trophic Models in {trps}<a class="anchor" aria-label="anchor" href="#trophic-models-in-trps"></a>
 </h2>
@@ -108,11 +108,15 @@
 <p>The next vignette will walk you through how to apply <a href="https://benjaminhlina.github.io/trps/">{trps}</a> with iterative processes. This vignette is titled <a href="https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a> and can be accessed under the article tab on the website or by using the following code.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"estimate_trophic_position_one_source_multiple_groups"</span><span class="op">)</span></span></code></pre></div>
-<p>The last vignette to walk through is <a href="https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html">Estimating Trophic Postion - Two Source Model</a> and can be accessed under the article tab on the website or by using the following code.</p>
+<p>The third vignette to walk through is <a href="https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html">Estimating Trophic Postion - Two Source Model</a> and can be accessed under the article tab on the website or by using the following code.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"estimate_trophic_position_two_source_model"</span><span class="op">)</span></span></code></pre></div>
-<p>To view all of the vignettes you can use following code:</p>
+<p>The last vignette to walk through is <a href="https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html">Estimating Trophic Postion - Two Source Model - ar</a> and can be accessed under the article tab on the website or by using the following code.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/vignette.html" class="external-link">vignette</a></span><span class="op">(</span><span class="st">"estimate_trophic_position_two_source_model_ar"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: vignette 'estimate_trophic_position_two_source_model_ar' not found</span></span></code></pre></div>
+<p>To view all of the vignettes you can use following code:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/browseVignettes.html" class="external-link">browseVignettes</a></span><span class="op">(</span><span class="st">"trps"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
