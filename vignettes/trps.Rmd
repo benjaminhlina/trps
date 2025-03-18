@@ -16,10 +16,15 @@ comment = "#>"
 
 ## Our Objectives
 
-The purpose of this vignette is to learn how to estimate trophic position of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). We can estimate trophic position using several different models but for the purpose of getting started a one source model is the simplist and easiest to implement. The one source model is based on equations from [Post (2002)](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
+The purpose of this vignette is to learn how to estimate trophic position 
+of a species using stable isotope data ($\delta^{13}C$ and $\delta^{15}N$). 
+We can estimate trophic position using several different models but for the purpose 
+of getting started a one source model is the simplist and easiest to implement. 
+The one source model is based on equations from [Post (2002)](ttps://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2).
 
-We are starting out with the simplest model. If you are wanting to use other trophic position models 
-please check out those vignettes under the article section of the webpage. 
+We are starting out with the simplest model. If you are wanting to use other 
+trophic position models please walk through this vignette and then
+check out those vignettes under the article section of the webpage. 
 
 ## Trophic Position Model
 
@@ -251,7 +256,7 @@ pp_check(m)
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
-modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
 
 ## Posterior draws
 
@@ -379,6 +384,6 @@ I'll demonstrate in another vignette (i.e, [one source - multiple groups](estima
 Now that you have gone through a one source model, you may be looking 
 to model trophic position using a two source model. Please see the following 
 vignette on how to setup and run a two source model 
-[Esttimae trophic position - two source model](estimate_trophic_position_two_source_model.html). 
-The same iterative processes used in [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)) 
+[Estimate trophic position - two source model](estimate_trophic_position_two_source_model.html). 
+The same iterative processes used in [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)
 can be applied to the two sorce model. 
