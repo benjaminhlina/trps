@@ -211,8 +211,8 @@ We will use functions from [{trps}](https://benjaminhlina.github.io/trps/) that 
 
 Let's run the model!
 
-```{r}
-m <- brm(
+```{r, eval = FALSE}
+model_output_os <- brm(
   formula = one_source_model(),
   prior = one_source_priors(),
   stanvars = one_source_priors_params(),
@@ -232,7 +232,7 @@ m <- brm(
 Let's view the summary of the model.
 
 ```{r}
-m
+model_output_os
 ```
 
 We can see that $\hat R$ is 1 meaning that variance among and within chains are equal (see [{rstan} documentation on $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is quite large. Overall, this means the model is converging and fitting accordingly.
@@ -242,7 +242,7 @@ We can see that $\hat R$ is 1 meaning that variance among and within chains are 
 Let's view trace plots and posterior distributions for the model.
 
 ```{r}
-plot(m)
+plot(model_output_os)
 ```
 
 We can see that the trace plots look "grassy" meaning the model is converging!
@@ -253,7 +253,7 @@ We can check how well the model is predicting the $\delta^{15}N$ of the consumer
 using `pp_check()` from `{bayesplot}`. 
 
 ```{r}
-pp_check(m)
+pp_check(model_output_os)
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
@@ -264,7 +264,7 @@ modeling $\delta^{15}N$ of the consumer ($y$; dark line).
 Let's again look at the summary output from the model.
 
 ```{r}
-m
+model_output_os
 ```
 
 We can see that $\Delta N$ is estimated to be `3.37` with `l-95% CI` of `2.89`, 
@@ -278,13 +278,13 @@ We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/)
 to do this work. First we look at the the names of the variables we want to extract using `get_variables()`.
 
 ```{r}
-get_variables(m)
+get_variables(model_output_os)
 ```
 
 You will notice that `"b_tp_Intercept"` is the name of the variable that we are wanting to extract. We extract posterior draws using `gather_draws()`, and rename `"b_tp_Intercept"` to `tp`.
 
 ```{r}
-post_draws <- m %>% 
+post_draws <- model_output_os %>% 
   gather_draws(b_tp_Intercept) %>% 
   mutate(
     ecoregion = "Embayment",
@@ -317,7 +317,7 @@ Considering we are likely using this information for a paper or presentation, it
 We rename `b_tp_Intercept` to `tp`, add the grouping columns, round all columns that are numeric to two decimal points using `mutate_if()`, and rearrange the order of the columns using `dplyr::select()`.
 
 ```{r, message=FALSE}
-medians_ci <- m %>%
+medians_ci <- model_output_os %>%
         spread_draws(b_tp_Intercept) %>%
         median_qi() %>% 
         rename(
