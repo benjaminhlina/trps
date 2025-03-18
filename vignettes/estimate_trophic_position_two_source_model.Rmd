@@ -167,7 +167,7 @@ To do this we first need to make an `id` column in each data set, which will all
 Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
-consumer_iso_2 <- consumer_iso %>% 
+con_ts <- consumer_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -177,7 +177,7 @@ consumer_iso_2 <- consumer_iso %>%
   dplyr::select(id, common_name:d15n)
 ```
 
-You will notice that I have renamed this object to `consumer_iso_2` this is because
+You will notice that I have renamed this object to `con_ts` this is because
 we are modifying `consumer_iso` and should make 
 a new object. I have continued with the same renaming nomenclature for objects 
 below. 
@@ -189,7 +189,7 @@ Next let's add `id` to `baseline_1_iso` data frame.
 For joining purposes we are going to drop `common_name` from this data frame.
 
 ```{r}
-baseline_1_iso_2 <- baseline_1_iso %>% 
+b1_ts <- baseline_1_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -205,7 +205,7 @@ Next let's add `id` to `baseline_2_iso` data frame. For joining purposes
 we are going to drop `common_name` from this data frame.
 
 ```{r}
-baseline_2_iso_2 <- baseline_2_iso %>% 
+b2_ts <- baseline_2_iso %>% 
   arrange(ecoregion, common_name) %>% 
   group_by(ecoregion, common_name) %>% 
   mutate(
@@ -221,9 +221,9 @@ Now that we have the consumer and baseline data sets in a consistent
 format we can join them by `"id"` and `"ecoregion"` using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
-combined_iso_ts <- consumer_iso_2 %>% 
-  left_join(baseline_1_iso_2, by = c("id", "ecoregion")) %>% 
-  left_join(baseline_2_iso_2, by = c("id", "ecoregion")) 
+combined_iso_ts <- con_ts %>% 
+  left_join(b1_ts, by = c("id", "ecoregion")) %>% 
+  left_join(b2_ts, by = c("id", "ecoregion")) 
 ```
 
 We can see that we have successfully combined our consumer and baseline data. 
