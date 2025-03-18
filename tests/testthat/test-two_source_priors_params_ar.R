@@ -243,7 +243,7 @@ test_that("test two-source priors fails dn", {
 test_that("test two-source priors dn_sigma", {
 
   pri_pram <- two_source_priors_params_ar(bp = TRUE)
-  expected_dn_sigma <- 0.5
+  expected_dn_sigma <- 0.25
 
   results_dn_sigma <- pri_pram$dn_sigma$sdata
 
@@ -412,7 +412,7 @@ test_that("test two-source priors fails dn", {
 test_that("test two-source priors dn_sigma", {
 
   pri_pram <- two_source_priors_params_ar()
-  expected_dn_sigma <- 0.5
+  expected_dn_sigma <- 0.25
 
   results_dn_sigma <- pri_pram$dn_sigma$sdata
 
