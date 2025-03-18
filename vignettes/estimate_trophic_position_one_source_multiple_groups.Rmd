@@ -68,7 +68,7 @@ library(viridis)
 ## Working with multiple groups
 
 In [{trps}](https://benjaminhlina.github.io/trps/) we have a data set that has consumer and baseline data already joined for two ecoregions (`combined_iso`) using the same methods in 
-[estimating trophic position - one source](estimate_trophic_position_one_source.html). 
+[getting started with trps](trps.html). 
 Let's look at this data frame.
 
 ### Organize data - multiple groups
@@ -113,9 +113,18 @@ This example data is now ready to be analyzed.
 
 ## Estimate trophic position - multiple groups
 
-We will use similar structure as before to model trophic position, however, we first `split()` the data into a list for all groups and then use `map()` from [{purrr}](https://purrr.tidyverse.org/) to run the model for each group.
+We will use similar structure used in [getting started with trps](trps.html) 
+to model trophic position, however, we first `split()` the data into a list 
+for all groups and then use `map()` from [{purrr}](https://purrr.tidyverse.org/) 
+to run the model for each group.
 
-You will notice that the `brm()` call is exactly the same as when we ran the model for one group. The only difference here is when using `map()`, the `data` argument in `brm()` needs to be replaced with `.x` to tell `brm()` where to get the data.
+You will notice that the `brm()` call is 
+exactly the same as 
+when we ran the model for one group. 
+The only difference here is when using `map()`, 
+the `data` argument in `brm()` needs to be 
+replaced with `.x` to tell `brm()` where 
+to get the data.
 
 ### Model - multiple groups
 
@@ -191,7 +200,7 @@ m1 %>%
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) for both groups are
-are effectively modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+are effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
 
 ## Extract posterior draws - multiple groups
 
