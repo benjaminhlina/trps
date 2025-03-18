@@ -84,8 +84,8 @@ $$
 $$
 
 
-and then the use estimates of $\alpha$ in the rearranged equation for trophic 
-position. 
+Estimates of $\alpha$ are then used in the rearranged equation for trophic 
+position below. 
 
 
 $$
@@ -93,7 +93,7 @@ $$
 \delta^{15}N_{b1} \times \alpha + \delta^{15}N_{b2} \times (1 - \alpha)
 $$
 
-The function `two_source_model()` uses this rearranged equation. If using 
+The function `two_source_model()` uses both of these rearranged equation. If using 
 baselines from two different trophic levels, you can set `lambda` to `2` to 
 replace $\lambda$ (`l1`) with the mixing model for $\lambda$ above. 
 
@@ -177,10 +177,11 @@ consumer_iso_2 <- consumer_iso %>%
   dplyr::select(id, common_name:d15n)
 ```
 
-You will notice that I have renamed this object to `conusmer_iso_2` this is for 
+You will notice that I have renamed this object to `consumer_iso_2` this is for 
 two reasons the first being that we are modifying `consumer_iso` and should make 
 a new object and second is that to render these vignettes it needs them to 
-be new objects. 
+be new objects. I have continued witb the same renaming nomenclature for objects 
+below. 
 
 ### Baseline 1 data
 
@@ -362,8 +363,8 @@ pp_check(m, resp = "d13c")
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are not
-effectively modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
-We can correct (i.e., scale) using another model `two_source_model_ar()` 
+effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
+We can correct (i.e., scale) these values using another model `two_source_model_ar()` 
 that uses an equation in 
 [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
 that corrects (i.e., scales) this equation providing better and more meaningful
@@ -532,4 +533,4 @@ uses an equation in
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
 species or in this case different ecoregions) that are 
-demonstrated in another vignette (i.e, [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html)).
+demonstrated in [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
