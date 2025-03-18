@@ -33,16 +33,14 @@ $$
 $$
  
  
- $\delta^{15}C_c$ is the isotope value of the consumer, $\delta^{15}C_{b1}$ is 
- the mean isotope value of the first baseline, $\delta^{15}C_{b2}$ is the mean 
- isotope value of the second baseline. For aquatic ecosystems, often 
- $\delta^{15}C_{b1}$ is from a benthic source and $\delta^{15}C_{b2}$ is from a
- pelagic source. Lastly, $\alpha$ is the proportion of carbon that comes from 
- each source and should be bound by 0 and 1. We will see later that this 
- does not always happen which can be problematic with [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) 
-proposing a new 
-method to correct (i.e., scale) these values. Estimates of $\alpha$ are used 
-in the equation below. 
+$\delta^{15}C_c$ is the isotope value of the consumer, $\delta^{15}C_{b1}$ is 
+the mean isotope value of the first baseline, $\delta^{15}C_{b2}$ is the mean isotope value of the second baseline. For aquatic ecosystems, often 
+$\delta^{15}C_{b1}$ is from a benthic source and $\delta^{15}C_{b2}$ is from a
+pelagic source. Lastly, $\alpha$ is the proportion of carbon that comes from 
+each source and should be bound by 0 and 1. We will see later that this 
+does not always happen which can be problematic with [Heuvel et al., (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) 
+proposing a new method to correct (i.e., scale) these values. 
+Estimates of $\alpha$ are used in the two source trophic postion equation below. 
 
 
 $$
@@ -73,7 +71,7 @@ is from above. Only use this replacement equation
 for $\lambda$ if you have baselines from two different trophic levels. 
 
 ### Bayesian model 
-To use this model with a Bayesian framework, we need to rearrange the 
+To use these model with a Bayesian framework, we need to rearrange the 
 equation for $\alpha$ to the following:
 
 
@@ -94,8 +92,8 @@ $$
 $$
 
 The function `two_source_model()` uses both of these rearranged equation. If using 
-baselines from two different trophic levels, you can set `lambda` to `2` to 
-replace $\lambda$ (`l1`) with the mixing model for $\lambda$ above. 
+baselines from two different trophic levels, you can set the argument `lambda` to `2` 
+to replace $\lambda$ (`l1`) with the mixing model for $\lambda$ above. 
 
 ## Vignette structure
 
@@ -136,7 +134,7 @@ We check out each data set with the first being the consumer.
 consumer_iso
 ```
 
-We can see that this data set contains the `common_name` of the consumer , the `ecoregion` samples were collected from, and $\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`).
+We can see that this data set contains the `common_name` of the consumer, the `ecoregion` samples were collected from, and $\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`).
 
 ### Baseline data
 
@@ -177,10 +175,9 @@ consumer_iso_2 <- consumer_iso %>%
   dplyr::select(id, common_name:d15n)
 ```
 
-You will notice that I have renamed this object to `consumer_iso_2` this is for 
-two reasons the first being that we are modifying `consumer_iso` and should make 
-a new object and second is that to render these vignettes it needs them to 
-be new objects. I have continued witb the same renaming nomenclature for objects 
+You will notice that I have renamed this object to `consumer_iso_2` this is because
+we are modifying `consumer_iso` and should make 
+a new object. I have continued with the same renaming nomenclature for objects 
 below. 
 
 ### Baseline 1 data
@@ -270,15 +267,15 @@ There are a few things to know about running a Bayesian analysis, I suggest read
 3.  [Estimating non-linear models with brms](https://paulbuerkner.com/brms/articles/brms_nonlinear.html)
 4.  [Nonlinear modelling using nls nlme and brms](https://www.granvillematheson.com/post/nonlinear-modelling-using-nls-nlme-and-brms/)
 5.  [Andrew Proctor's - Module 6](https://andrewproctor.github.io/rcourse/module6.html)
-6.  [van de Schoot et al., 2021](https://www.nature.com/articles/s43586-020-00001-2)
+6.  [van de Schoot et al., (2021)](https://www.nature.com/articles/s43586-020-00001-2)
 
 ### Priors
 
 Bayesian analyses rely on supplying uninformed or informed prior distributions 
 for each parameter (coefficient; predictor) in the model. The default 
 informed priors for a two source model are the following, $\alpha$ is bound
-by 0 and 1 and assumes a beta distribution, $\Delta N$ 
-assumes a normal distribution (`dn`; $\mu = 3.4$; $\sigma = 0.25$), 
+by 0 and 1 and assumes an unformed beta distribution ($\alpha = 1$ and $\beta = 1$),
+$\Delta N$ assumes a normal distribution (`dn`; $\mu = 3.4$; $\sigma = 0.25$), 
 trophic position assumes a uniform distribution (lower bound = 2 and 
 upper bound = 10), $\sigma$ assumes a uniform distribution (lower bound = 0 
 and upper bound = 10), and if informed priors are desired for 
@@ -366,8 +363,8 @@ We can see that posteriors draws ($y_{rep}$; light lines) are not
 effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
 We can correct (i.e., scale) these values using another model `two_source_model_ar()` 
 that uses an equation in 
-[Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
-that corrects (i.e., scales) this equation providing better and more meaningful
+[Heuvel et al., (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
+that corrects (i.e., scales) $\alpha$ providing better and more meaningful
 estimates. I will demostrate how to use this model in another vignette. 
 
 ### $\delta^{15}N$ 
@@ -379,7 +376,7 @@ pp_check(m, resp = "d15n")
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
-modeling $\delta^{15}N$ of the consumer ( $y$; dark line). 
+modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
 
 ## Posterior draws
 
@@ -394,12 +391,13 @@ and `u-95% CI` of `0.19`. These values do not make a lot sense as
 this indicates the lake trout are heavily using 
 benthic resource which we know from previous work is not true. 
 In another vignette I'll demonstrate how to use a model 
-that corrects or scales $\alpha$ appropriately using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+that corrects or scales $\alpha$ appropriately using 
+an equation in [Heuvel et al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
 
 
 Moving down to the trophic position model we can see 
 $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.89`, 
-and `u-95% CI` of `3.86`. If we move down to trophic position (`tp`) 
+and `u-95% CI` of `3.85`. If we move down to trophic position (`tp`) 
 we see trophic position is estimated to be `4.57` 
 with `l-95% CI` of `4.20`, and `u-95% CI` of `5.02`.
 
@@ -452,7 +450,10 @@ We can see that this consists of seven variables:
 
 Considering we are likely using this information for a paper or presentation, it is nice to be able to report the median and credible intervals (e.g., equal-tailed intervals; ETI). We can extract and export these values using `gather_draws()` and `median_qi` from [{tidybayes}](http://mjskay.github.io/tidybayes/).
 
-We rename `d15n_tp_Intercept` to `tp`, add the grouping columns, round all columns that are numeric to two decimal points using `mutate_if()`, and rearrange the order of the columns using `dplyr::select()`.
+We rename `d15n_tp_Intercept` to `tp` and `b_d13c_alpha_Intercept` to `alpha`, 
+add the grouping columns, round all columns that are numeric to two decimal 
+points using `mutate_if()`, and rearrange the order of the columns 
+using `dplyr::select()`.
 
 ```{r, message=FALSE}
 medians_ci <- m %>%
@@ -528,9 +529,10 @@ Congratulations we have estimated the trophic position for Lake Trout!
 Again, you will notice estimates of $\alpha$ do not really make sense which 
 we can correct (i.e., scale) using another model `two_source_model_ar()` that 
 uses an equation in 
-[Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+[Heuvel et al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
 
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
-species or in this case different ecoregions) that are 
-demonstrated in [one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
+species or in this case different ecoregions) using iteratstive 
+processes that are 
+demonstrated in [estimate trophic position - one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
