@@ -1,7 +1,7 @@
 #' Bayesian model - Two Source Trophic Position with \eqn{\alpha_r} and carbon mixing model
 #'
 #' Estimate trophic position using a two source model with \eqn{\alpha_r} derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028) using a Bayesian framework.
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](\doi{doi:10.1139/cjfas-2024-0028}) using a Bayesian framework.
 #'
 #' @param bp logical value that controls whether informed priors are
 #' supplied to the model for both \eqn{\delta^{15}}N and
@@ -17,7 +17,7 @@
 #' @details
 #'
 #' We will use the following equations derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028):
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and [Heuvel et al. 2024](\doi{doi:10.1139/cjfas-2024-0028}):
 #'
 #' \enumerate{
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
@@ -43,7 +43,7 @@
 #' **For equation 2)**
 #'
 #' \eqn{\alpha} is being corrected using equations in
-#' [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028).
+#' [Heuvel et al. 2024](\doi{doi:10.1139/cjfas-2024-0028}).
 #' with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}
