@@ -1,5 +1,26 @@
 # trps 0.1.0
 
+### 18-Mar-2025
+
+- [x] a one-source model  
+    - [x] priors for a one-source model  
+    - [x] parameters for priors for a one-source model  
+- [x] a two-source model without different lambda 
+    - [x] priors for a two-source model without different lambda
+    - [x] parameters for priors for a two-source model without different lambda
+- [x] a two-source model with different lambda
+    - [x] priors for two-source model w/ different lambda (priors are the same as 
+    a two-source)
+    - [x] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
+- [x] a two-source carbon mixing model 
+    - [x] priors and parameters for priors 
+- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+    - [x] priors 
+    - [x] parameters for priors 
+- [x] vignettes for one source
+- [x] vignettes for two source
+- [x] vignettes for twp source ar
+
 ### 17-Mar-2025
 
 - [x] a one-source model  
