@@ -9,3 +9,5 @@
 ^data-raw$
 ^tests/testthat/test-one_source_brms\.R$
 ^.lintr$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
