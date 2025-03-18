@@ -4,11 +4,11 @@
 \name{trps-package}
 \alias{trps}
 \alias{trps-package}
-\title{trps: Bayesian trophic position models using stan}
+\title{trps: Bayesian Trophic Position Models using 'stan'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Bayesian trophic position models using stan by leveraging 'brms' for stable isotope data. Trophic position models are derived by using equations from Post (2002) \doi{10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2}, Vander Zanden and Vadeboncoeur (2002) \doi{10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2}, and Huevel et al. (2024) \doi{10.1139/cjfas-2024-0028}.
+Bayesian trophic position models using stan by leveraging 'brms' for stable isotope data. Trophic position models are derived by using equations from Post (2002) \doi{10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2}, Vander Zanden and Vadeboncoeur (2002) \doi{10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2}, and Heuvel et al. (2024) \doi{10.1139/cjfas-2024-0028}.
 }
 \seealso{
 Useful links:
