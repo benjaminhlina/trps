@@ -42,10 +42,12 @@ each source and should be bound by 0 and 1. We will correct (i.e., scale)
 these values using an equation in  [Heuvel et al., (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) 
 
 
+
 $$ 
 \alpha_r = \frac{(\alpha - \alpha_{min})}{(\alpha_{max}-\alpha_{min})}
-
 $$
+
+
 where $\alpha_r$ is the corrected (i.e., scaled) $\alpha$, $\alpha$ is derived 
 from above, $\alpha_{min}$ is the minimum value of $\alpha$ calculated above, and 
  $\alpha_{max}$ is the maximum value of $\alpha$ calculated above. $\alpha_r$ 
@@ -99,7 +101,7 @@ position below.
 
 $$
 \delta^{15}N_c = \Delta N \times (\text{Trophic Position} - \lambda) + 
-\delta^{15}N_{b1} \times \alpha + \delta^{15}N_{b2} \times (1 - \alpha)
+\delta^{15}N_{b1} \times \alpha_r + \delta^{15}N_{b2} \times (1 - \alpha_r)
 $$
 
 The function `two_source_model()` uses both of these rearranged equation. If using 
@@ -286,7 +288,7 @@ There are a few things to know about running a Bayesian analysis, I suggest read
 
 Bayesian analyses rely on supplying uninformed or informed prior distributions 
 for each parameter (coefficient; predictor) in the model. The default 
-informed priors for a two source model are the following, $\alpha$ is bound
+informed priors for a two source model are the following, $\alpha_r$ is bound
 by 0 and 1 and assumes an unformed beta distribution ($\alpha = 1$ and $\beta = 1$),
 $\Delta N$ assumes a normal distribution (`dn`; $\mu = 3.4$; $\sigma = 0.25$), 
 trophic position assumes a uniform distribution (lower bound = 2 and 
@@ -394,7 +396,7 @@ Let's again look at the summary output from the model.
 m
 ```
 
-We can see that $\alpha$ is estimated to be `0.56` with `l-95% CI` of `0.47` 
+We can see that $\alpha_r$ is estimated to be `0.56` with `l-95% CI` of `0.47` 
 and `u-95% CI` of `0.65`. These values do make more sense as 
 this indicates the lake trout are using 
 both bethic and pelagic resource which we know from previous work istrue.
