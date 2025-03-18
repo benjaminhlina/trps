@@ -16,12 +16,12 @@ coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app
 Bayesian trophic position models using stan (pronounced trips) by
 leveraging [{brms}](https://paulbuerkner.com/brms/). Equations for
 trophic position models are derived from [Post
-2002](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2),
+(2002)](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2),
 [Vander Zanden and Vadeboncoeur
-2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
+(2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
 and [Heuvel et
-al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and are
-to be used with stable isotope data for different species.
+al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028) and
+are to be used with stable isotope data for different species.
 
 ## Trophic Models in {trps}
 
@@ -59,19 +59,21 @@ To view the overall progress of the package please see
 ## Vignettes
 
 I highly suggest going through the vignettes as they will walk you
-through how to use create each trophic position model using {trps} and
-{brms}. The first vignette to walk through is [Getting started with
+through how to use each trophic position model using {trps} and {brms}.
+The first vignette to walk through is [getting started with
 trps](https://benjaminhlina.github.io/trps/articles/trps.html). This
 vignette will introduce you to
-[{trps}](https://benjaminhlina.github.io/trps/) and estimating trophic
-position using a one source model. You can also access this vignette
-using the following code.
+[{trps}](https://benjaminhlina.github.io/trps/) and methods of how to
+estimate trophic position using a one source model. You can access the
+vignette by visiting the [get
+started](https://benjaminhlina.github.io/trps/articles/trps.html) page
+on the website or by using the following code.
 
 ``` r
 vignette("trps")
 ```
 
-Please go through [Getting started with
+Please go through [getting started with
 trps](https://benjaminhlina.github.io/trps/articles/trps.html) prior to
 walking through the other vignettes.
 
@@ -80,7 +82,8 @@ The next vignette will walk you through how to apply
 processes. This vignette is titled [Estimate Trophic Position - One
 Source Model - Multiple
 Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html)
-and can be accessed using the following code.
+and can be accessed under the article tab on the website or by using the
+following code.
 
 ``` r
 vignette("estimate_trophic_position_one_source_multiple_groups")
@@ -89,7 +92,8 @@ vignette("estimate_trophic_position_one_source_multiple_groups")
 The last vignette to walk through is [Estimating Trophic Postion - Two
 Source
 Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html)
-and can be accessed using the following code.
+and can be accessed under the article tab on the website or by using the
+following code.
 
 ``` r
 vignette("estimate_trophic_position_two_source_model")
