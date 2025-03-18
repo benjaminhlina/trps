@@ -50,7 +50,7 @@ $$
 
 where $\alpha_r$ is the corrected (i.e., scaled) $\alpha$, $\alpha$ is derived 
 from above, $\alpha_{min}$ is the minimum value of $\alpha$ calculated above, and 
- $\alpha_{max}$ is the maximum value of $\alpha$ calculated above. $\alpha_r$ 
+ $\alpha_{max}$ is the maximum value of $\alpha$ calculated above, $\alpha_r$ 
  is then used in the trophic position equation below. 
 
 
@@ -365,7 +365,7 @@ We can see that the trace plots look "grassy" meaning the model is converging!
 
 ## Predictive posterior check 
 
-### $\alha
+### $\alpha
 
 We can check how well the model is predicting the $\alpha$ of the consumer
 using `pp_check()` from `{bayesplot}`. 
@@ -404,8 +404,8 @@ both bethic and pelagic resource which we know from previous work istrue.
 Moving down to the trophic position model we can see 
 $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.89`, 
 and `u-95% CI` of `3.85`. If we move down to trophic position (`tp`) 
-we see trophic position is estimated to be `4.57` 
-with `l-95% CI` of `4.20`, and `u-95% CI` of `5.02`.
+we see trophic position is estimated to be `4.61` 
+with `l-95% CI` of `4.26`, and `u-95% CI` of `5.05`.
 
 ### Extract posterior draws
 
@@ -530,9 +530,9 @@ ggplot(data = post_draws, aes(y = .value,
   )
 ```
 
-Congratulations we have estimated the trophic position for Lake Trout!
-
-Again, you will notice estimates of $\alpha_r$ do make sense. 
+Congratulations we have estimated the trophic position for Lake Trout! Again, 
+you will notice estimates of $\alpha_r$ do make sense and this model is estimating
+$\alpha$ on the correct scale. 
 
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
