@@ -77,4 +77,31 @@
 #'
 "combined_iso"
 
+#' Model Output - One Source Model
+#' One source model output from `{brms}` model.
+#'
+#' @format `brms` object
+#'
+"model_output_os"
 
+#' Model Output - One Source Model - Multiple Groups
+#' One source model output from `{brms}` model for multiple groups.
+#'
+#' @format `brms` object
+#'
+"model_output_os_mg"
+
+#' Model Output - Two Source Model
+#' Two source model output from `{brms}` model. .
+#'
+#' @format `brms` object
+#'
+"model_output_ts"
+
+
+#' Model Output - Two Source Model - \eqn{\alpha_r}
+#' Two source model with \eqn{\alpha_r} output from `{brms}` model. .
+#'
+#' @format `brms` object
+#'
+"model_output_tsar"
