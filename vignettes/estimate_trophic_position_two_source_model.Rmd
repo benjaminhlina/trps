@@ -362,7 +362,7 @@ pp_check(m, resp = "d13c")
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are not
-effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
+effectively modeling $\delta^{13}C$ of the consumer ($y$; dark line). 
 We can correct (i.e., scale) these values using another model `two_source_model_ar()` 
 that uses an equation in 
 [Heuvel et al., (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028)
@@ -535,6 +535,6 @@ uses an equation in
 
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
-species or in this case different ecoregions) using iteratstive 
+species or in this case different ecoregions) using iterative 
 processes that are 
 demonstrated in [estimate trophic position - one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
