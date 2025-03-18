@@ -146,8 +146,8 @@ provided by <a href="https://sjmgarnier.github.io/viridis/" class="external-link
 </h2>
 <p>In <a href="https://benjaminhlina.github.io/trps/">{trps}</a> we have
 a data set that has consumer and baseline data already joined for two
-ecoregions (<code>combined_iso</code>) using the same methods in <a href="estimate_trophic_position_one_source.html">estimating trophic
-position - one source</a>. Let’s look at this data frame.</p>
+ecoregions (<code>combined_iso</code>) using the same methods in <a href="trps.html">getting started with trps</a>. Let’s look at this data
+frame.</p>
 <div class="section level3">
 <h3 id="organize-data---multiple-groups">Organize data - multiple groups<a class="anchor" aria-label="anchor" href="#organize-data---multiple-groups"></a>
 </h3>
@@ -224,9 +224,10 @@ are doing this to make the iterative processes easier.</p>
 <div class="section level2">
 <h2 id="estimate-trophic-position---multiple-groups">Estimate trophic position - multiple groups<a class="anchor" aria-label="anchor" href="#estimate-trophic-position---multiple-groups"></a>
 </h2>
-<p>We will use similar structure as before to model trophic position,
-however, we first <code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> the data into a list for all
-groups and then use <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> from <a href="https://purrr.tidyverse.org/" class="external-link">{purrr}</a> to run the model for
+<p>We will use similar structure used in <a href="trps.html">getting
+started with trps</a> to model trophic position, however, we first
+<code><a href="https://rdrr.io/r/base/split.html" class="external-link">split()</a></code> the data into a list for all groups and then use
+<code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map()</a></code> from <a href="https://purrr.tidyverse.org/" class="external-link">{purrr}</a> to run the model for
 each group.</p>
 <p>You will notice that the <code><a href="https://paulbuerkner.com/brms/reference/brm.html" class="external-link">brm()</a></code> call is exactly the same
 as when we ran the model for one group. The only difference here is when
@@ -435,8 +436,8 @@ objects.</p>
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) for both groups are are effectively modeling
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
-of the consumer (
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
+of the consumer
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
 dark line).</p>
 </div>
 <div class="section level2">
