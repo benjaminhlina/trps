@@ -1,5 +1,7 @@
 ---
 title: "Getting started with trps"
+author: Benjamin L. Hlina
+date: "2025-02-25"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting started with trps}
