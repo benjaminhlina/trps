@@ -1,0 +1,21 @@
+/* Change the top navigation bar (banner) background color */
+.navbar-default {
+  background-color: #2e86c1;
+}
+
+/* Change the text color in the navigation bar */
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+/* Change the hover effect for navbar links */
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ffcc00;
+}
+
+/* Optional: Change the active tab color */
+.navbar-default .navbar-nav > .active > a {
+  background-color: #217dbb;
+  color: #ffffff;
+}
