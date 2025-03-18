@@ -24,7 +24,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">trps</a>
 
@@ -131,7 +131,7 @@ calculated above, and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">\alpha_{max}</annotation></semantics></math>
 is the maximum value of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-calculated above.
+calculated above,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 is then used in the trophic position equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
@@ -743,8 +743,8 @@ istrue.</p>
 is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
 <code>2.89</code>, and <code>u-95% CI</code> of <code>3.85</code>. If we
 move down to trophic position (<code>tp</code>) we see trophic position
-is estimated to be <code>4.57</code> with <code>l-95% CI</code> of
-<code>4.20</code>, and <code>u-95% CI</code> of <code>5.02</code>.</p>
+is estimated to be <code>4.61</code> with <code>l-95% CI</code> of
+<code>4.26</code>, and <code>u-95% CI</code> of <code>5.05</code>.</p>
 <div class="section level3">
 <h3 id="extract-posterior-draws">Extract posterior draws<a class="anchor" aria-label="anchor" href="#extract-posterior-draws"></a>
 </h3>
@@ -898,10 +898,11 @@ plots.</p>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="estimate_trophic_position_two_source_modle_ar_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
 <p>Congratulations we have estimated the trophic position for Lake
-Trout!</p>
-<p>Again, you will notice estimates of
+Trout! Again, you will notice estimates of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
-do make sense.</p>
+do make sense and this model is estimating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+on the correct scale.</p>
 <p>You can use iterative process to produce estimates of trophic
 position for more than one group (e.g., comparing trophic position among
 species or in this case different ecoregions) using iterative processes
