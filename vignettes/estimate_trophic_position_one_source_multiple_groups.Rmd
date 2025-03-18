@@ -132,8 +132,8 @@ to get the data.
 
 Let's run the model!
 
-```{r}
-m1 <- combined_iso_update %>% 
+```{r, eval = FALSE}
+model_output_os_mg <- combined_iso_update %>% 
   split(.$name) %>% 
   map( ~ brm(
     formula = one_source_model(),
@@ -157,7 +157,7 @@ m1 <- combined_iso_update %>%
 Let's look at the summary of both models.
 
 ```{r}
-m1
+model_output_os_mg
 ```
 
 We can see that $\hat R$ is 1, meaning that the variance among and within chains are equal (see [{rstan} docmentation on $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is quite large for both groups. Overall, this means that both models are converging and fitting accordingly.
@@ -167,7 +167,7 @@ We can see that $\hat R$ is 1, meaning that the variance among and within chains
 Let's look at the trace plots and distributions. We use `iwalk()` instead of `map()`, as `iwalk()` invisibly returns `.x` which is handy when you want to call a function (e.g., `plot()`) for its side effects rather than its returned value. I have also added `grid.text()` from `{grid}` to add the group names to each plot.
 
 ```{r}
-m1 %>% 
+model_output_os_mg %>% 
   iwalk(~ {
     plot(.x) 
     grid.text(.y, x = 0.50, y = 0.98)
@@ -181,7 +181,7 @@ We can see that the trace plots look "grassy" meaning the model is converging!
 Let's again look at the summary output from the model.
 
 ```{r}
-m1
+model_output_os_mg
 ```
 
 We can see that, for lake trout from the `Anthropogenic` ecoregion, $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.88`, and `u-95% CI` of `3.87`. If we move down to trophic position (`tp`) we see trophic position is estimated to be `4.82` with `l-95% CI` of `4.44`, and `u-95% CI` of `5.29`.
@@ -195,7 +195,7 @@ using `pp_check()` from `{bayesplot}`. We have to use `map()` from `{purrr}`
 to iterate over the list that has our model objects. 
 
 ```{r}
-m1 %>% 
+model_output_os_mg %>% 
   map(~ .x %>% 
         pp_check()
   )
@@ -206,20 +206,20 @@ are effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line).
 
 ## Extract posterior draws - multiple groups
 
-We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we look at the the names of the variables we want to extract using `get_variables()`. Considering we have multiple models in `m1` that all have the same structure, we can just look at the names of the first model object in `m1`.
+We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) to do this work. First we look at the the names of the variables we want to extract using `get_variables()`. Considering we have multiple models in `model_output_os_mg` that all have the same structure, we can just look at the names of the first model object in `model_output_os_mg`.
 
 ```{r}
-get_variables(m1[[1]])
+get_variables(model_output_os_mg[[1]])
 ```
 
 You will notice that `"b_tp_Intercept"` is the name of the variable that we are wanting to extract. Next we extract posterior draws using `gather_draws()`, and rename `"b_tp_Intercept"` to `tp`.
 
-Again, considering we have multiple models in `m1` we need to use `map()` to iterate over `m1` to get the posterior draws. Once we have iterated over `m1` to extract draws we can combine the results using `bind_rows()` from [{dplyr}](https://dplyr.tidyverse.org/). The variable `name` will have the name of the ecoregion and common name of the species pasted to together by a `_`. We need to separate this string into the two variables we want, being `ecoregion` and `common_name`. We can do this by using `separate_wider_delim()` from [{tidyr}](https://tidyr.tidyverse.org/). When using this function it will separate the columns and keep them as `characters`, hence why the last step is to convert `ecoregion` into a `factor`.
+Again, considering we have multiple models in `model_output_os_mg` we need to use `map()` to iterate over `model_output_os_mg` to get the posterior draws. Once we have iterated over `model_output_os_mg` to extract draws we can combine the results using `bind_rows()` from [{dplyr}](https://dplyr.tidyverse.org/). The variable `name` will have the name of the ecoregion and common name of the species pasted to together by a `_`. We need to separate this string into the two variables we want, being `ecoregion` and `common_name`. We can do this by using `separate_wider_delim()` from [{tidyr}](https://tidyr.tidyverse.org/). When using this function it will separate the columns and keep them as `characters`, hence why the last step is to convert `ecoregion` into a `factor`.
 
 For your data you will likely have category names other than `ecoregion` and `common_name`. Please replace with the columns that fit your data structure.
 
 ```{r}
-post_draws_mg <- m1 %>%
+post_draws_mg <- model_output_os_mg %>%
   map(~ .x %>% 
         gather_draws(b_tp_Intercept) %>% 
         mutate(
@@ -258,10 +258,10 @@ Note - the names of and items in the first two columns will vary depending on th
 
 Considering we are likely using this information for a paper or presentation, it is nice to be able to report the median and credible intervals (e.g., equal-tailed intervals; ETI). We can extract and export these values using `spread_draws()` and `median_qi` from [{tidybayes}](http://mjskay.github.io/tidybayes/).
 
-Again, because `m1` is a `list` of our model objects, we need to `map()` over the list to calculate these values. Then we do the same procedures we have done before to combine and restructure the outputs. Lastly, we use `mutate_if()` to round all columns that are numeric to two decimal points.
+Again, because `model_output_os_mg` is a `list` of our model objects, we need to `map()` over the list to calculate these values. Then we do the same procedures we have done before to combine and restructure the outputs. Lastly, we use `mutate_if()` to round all columns that are numeric to two decimal points.
 
 ```{r, message=FALSE}
-post_medians_ci <- m1 %>%
+post_medians_ci <- model_output_os_mg %>%
   map(~ .x %>% 
         spread_draws(b_tp_Intercept) %>%
         median_qi() %>% 
