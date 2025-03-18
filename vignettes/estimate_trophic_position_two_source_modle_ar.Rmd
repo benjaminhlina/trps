@@ -371,17 +371,9 @@ using `pp_check()` from `{bayesplot}`.
 ```{r}
 pp_check(m, resp = "alpha")
 ```
-### $\delta^{13}C$ 
-
-We can check how well the model is predicting the $\delta^{13}C$ of the consumer
-using `pp_check()` from `{bayesplot}`. 
-
-```{r}
-pp_check(m, resp = "d13c")
-```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are 
-effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
+effectively modeling $\alpha$ ($y$; dark line). 
 
 ### $\delta^{15}N$ 
 Next We can check how well the model is predicting the $\delta^{15}N$ of the consumer
@@ -402,14 +394,10 @@ Let's again look at the summary output from the model.
 m
 ```
 
-We can see that $\alpha$ is estimated to be `0.05` with `l-95% CI` of `0.00` 
-and `u-95% CI` of `0.19`. These values do make more sense as 
-this indicates the lake trout are heavily using 
-benthic resource which we know from previous work is not true. 
-In another vignette I'll demonstrate how to use a model 
-that corrects or scales $\alpha$ appropriately using 
-an equation in [Heuvel et al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
-
+We can see that $\alpha$ is estimated to be `0.56` with `l-95% CI` of `0.47` 
+and `u-95% CI` of `0.65`. These values do make more sense as 
+this indicates the lake trout are using 
+both bethic and pelagic resource which we know from previous work istrue.
 
 Moving down to the trophic position model we can see 
 $\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.89`, 
@@ -426,21 +414,21 @@ to do this work. First we look at the the names of the variables we want to extr
 get_variables(m)
 ```
 
-You will notice that `"b_d13c_alpha_Intercept"` and `"b_d15n_tp_Intercept"` are 
+You will notice that `"b_alpha_ar_Intercept"` and `"b_d15n_tp_Intercept"` are 
 the names of the variable that we are wanting to extract. 
 We extract posterior draws using `gather_draws()`, and 
-rename `"b_d15n_tp_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to 
-`alpha`.
+rename `"b_alpha_ar_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to 
+`ar`.
 
 ```{r}
 post_draws <- m %>% 
-  gather_draws(b_d13c_alpha_Intercept, b_d15n_tp_Intercept) %>% 
+  gather_draws(b_alpha_ar_Intercept, b_d15n_tp_Intercept) %>% 
   mutate(
     ecoregion = "Embayment",
     common_name = "Lake Trout",
     .variable = case_when(
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
-      .variable %in% "b_d13c_alpha_Intercept" ~ "alpha"
+      .variable %in% "b_alpha_ar_Intercept" ~ "ar"
     )
   ) %>% 
   dplyr::select(common_name, ecoregion, .chain:.value)
@@ -466,14 +454,14 @@ We can see that this consists of seven variables:
 
 Considering we are likely using this information for a paper or presentation, it is nice to be able to report the median and credible intervals (e.g., equal-tailed intervals; ETI). We can extract and export these values using `gather_draws()` and `median_qi` from [{tidybayes}](http://mjskay.github.io/tidybayes/).
 
-We rename `d15n_tp_Intercept` to `tp` and `b_d13c_alpha_Intercept` to `alpha`, 
+We rename `d15n_tp_Intercept` to `tp` and `b_alpha_ar_Intercept` to `ar`, 
 add the grouping columns, round all columns that are numeric to two decimal 
 points using `mutate_if()`, and rearrange the order of the columns 
 using `dplyr::select()`.
 
 ```{r, message=FALSE}
 medians_ci <- m %>%
-        gather_draws(b_d13c_alpha_Intercept, 
+        gather_draws(b_alpha_ar_Intercept, 
                      b_d15n_tp_Intercept) %>%
         median_qi() %>% 
   mutate(
@@ -481,7 +469,7 @@ medians_ci <- m %>%
     common_name = "Lake Trout", 
     .variable = case_when(
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
-      .variable %in% "b_d13c_alpha_Intercept" ~ "alpha"
+      .variable %in% "b_alpha_ar_Intercept" ~ "ar"
     )
   ) %>% 
   mutate_if(is.numeric, round, digits = 2)
@@ -542,13 +530,10 @@ ggplot(data = post_draws, aes(y = .value,
 
 Congratulations we have estimated the trophic position for Lake Trout!
 
-Again, you will notice estimates of $\alpha$ do not really make sense which 
-we can correct (i.e., scale) using another model `two_source_model_ar()` that 
-uses an equation in 
-[Heuvel et al. (2024)](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+Again, you will notice estimates of $\alpha_r$ do make sense. 
 
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
-species or in this case different ecoregions) using iteratstive 
+species or in this case different ecoregions) using iterative 
 processes that are 
 demonstrated in [estimate trophic position - one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
