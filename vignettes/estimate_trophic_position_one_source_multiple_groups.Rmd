@@ -1,5 +1,7 @@
 ---
 title: "Estimate Trophic Position - One Source Model - Multiple Groups"
+author: Benjamin L. Hlina
+date: "2025-03-02"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Estimate Trophic Position - One Source Model - Multiple Groups}
