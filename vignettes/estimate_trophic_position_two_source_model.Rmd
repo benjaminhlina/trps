@@ -314,8 +314,8 @@ We will use functions from [{trps}](https://benjaminhlina.github.io/trps/) that 
 
 Let's run the model!
 
-```{r}
-m <- brm(
+```{r, eval = FALSE}
+model_output_ts <- brm(
   formula = two_source_model(),
   prior = two_source_priors(),
   stanvars = two_source_priors_params(),
@@ -335,7 +335,7 @@ m <- brm(
 Let's view the summary of the model.
 
 ```{r}
-m
+model_output_ts
 ```
 
 We can see that $\hat R$ is 1 meaning that variance among and within chains are equal (see [{rstan} documentation on $\hat R$](https://mc-stan.org/rstan/reference/Rhat.html)) and that ESS is quite large. Overall, this means the model is converging and fitting accordingly.
@@ -345,7 +345,7 @@ We can see that $\hat R$ is 1 meaning that variance among and within chains are 
 Let's view trace plots and posterior distributions for the model.
 
 ```{r}
-plot(m)
+plot(model_output_ts)
 ```
 
 We can see that the trace plots look "grassy" meaning the model is converging!
@@ -358,7 +358,7 @@ We can check how well the model is predicting the $\delta^{13}C$ of the consumer
 using `pp_check()` from `{bayesplot}`. 
 
 ```{r}
-pp_check(m, resp = "d13c")
+pp_check(model_output_ts, resp = "d13c")
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are not
@@ -374,7 +374,7 @@ Next We can check how well the model is predicting the $\delta^{15}N$ of the con
 using `pp_check()` from `{bayesplot}`. 
 
 ```{r}
-pp_check(m, resp = "d15n")
+pp_check(model_output_ts, resp = "d15n")
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
@@ -385,7 +385,7 @@ modeling $\delta^{15}N$ of the consumer ($y$; dark line).
 Let's again look at the summary output from the model.
 
 ```{r}
-m
+model_output_ts
 ```
 
 We can see that $\alpha$ is estimated to be `0.05` with `l-95% CI` of `0.00` 
@@ -409,7 +409,7 @@ We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/)
 to do this work. First we look at the the names of the variables we want to extract using `get_variables()`.
 
 ```{r}
-get_variables(m)
+get_variables(model_output_ts)
 ```
 
 You will notice that `"b_d13c_alpha_Intercept"` and `"b_d15n_tp_Intercept"` are 
@@ -419,7 +419,7 @@ rename `"b_d15n_tp_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to
 `alpha`.
 
 ```{r}
-post_draws <- m %>% 
+post_draws <- model_output_ts %>% 
   gather_draws(b_d13c_alpha_Intercept, b_d15n_tp_Intercept) %>% 
   mutate(
     ecoregion = "Embayment",
@@ -458,7 +458,7 @@ points using `mutate_if()`, and rearrange the order of the columns
 using `dplyr::select()`.
 
 ```{r, message=FALSE}
-medians_ci <- m %>%
+medians_ci <- model_output_ts %>%
         gather_draws(b_d13c_alpha_Intercept, 
                      b_d15n_tp_Intercept) %>%
         median_qi() %>% 
