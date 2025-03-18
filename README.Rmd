@@ -87,13 +87,22 @@ or by using the following code.
 vignette("estimate_trophic_position_one_source_multiple_groups")
 ```
 
-The last vignette to walk through is 
+The third vignette to walk through is 
 [Estimating Trophic Postion - Two Source Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html) 
 and can be accessed under the article tab on the website or by 
 using the following code. 
 
 ```{r}
 vignette("estimate_trophic_position_two_source_model")
+```
+
+The last vignette to walk through is 
+[Estimating Trophic Postion - Two Source Model - ar](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html) 
+and can be accessed under the article tab on the website or by 
+using the following code. 
+
+```{r}
+vignette("estimate_trophic_position_two_source_model_ar")
 ```
 
 To view all of the vignettes you can use following code: 
