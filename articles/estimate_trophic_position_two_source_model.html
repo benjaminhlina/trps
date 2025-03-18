@@ -103,10 +103,10 @@ is from a pelagic source. Lastly,
 is the proportion of carbon that comes from each source and should be
 bound by 0 and 1. We will see later that this does not always happen
 which can be problematic with <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
-al. 2024</a> proposing a new method to correct (i.e., scale) these
+al., (2024)</a> proposing a new method to correct (i.e., scale) these
 values. Estimates of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-are used in the equation below.</p>
+are used in the two source trophic postion equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
 [(\delta^{15}N_{b1} \times \alpha) - (\delta^{15}N_{b1} \times (1 - \alpha))]}{\Delta N}
@@ -151,8 +151,8 @@ if you have baselines from two different trophic levels.</p>
 <div class="section level3">
 <h3 id="bayesian-model">Bayesian model<a class="anchor" aria-label="anchor" href="#bayesian-model"></a>
 </h3>
-<p>To use this model with a Bayesian framework, we need to rearrange the
-equation for
+<p>To use these model with a Bayesian framework, we need to rearrange
+the equation for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 to the following:</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mi>c</mi></msub><mo>=</mo><mi>α</mi><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>−</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>δ</mi><mn>13</mn></msup><msub><mi>C</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">
@@ -168,7 +168,8 @@ are then used in the rearranged equation for trophic position below.</p>
 </annotation></semantics></math></p>
 <p>The function <code><a href="../reference/two_source_model.html">two_source_model()</a></code> uses both of these
 rearranged equation. If using baselines from two different trophic
-levels, you can set <code>lambda</code> to <code>2</code> to replace
+levels, you can set the argument <code>lambda</code> to <code>2</code>
+to replace
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
 (<code>l1</code>) with the mixing model for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
@@ -238,8 +239,8 @@ ecoregion in Lake Ontario.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment -<span style="color: #BB0000;">22.3</span>  16.3</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 20 more rows</span></span></span></code></pre></div>
 <p>We can see that this data set contains the <code>common_name</code>
-of the consumer , the <code>ecoregion</code> samples were collected
-from, and
+of the consumer, the <code>ecoregion</code> samples were collected from,
+and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>13</mn></msup><mi>C</mi></mrow><annotation encoding="application/x-tex">\delta^{13}C</annotation></semantics></math>
 (<code>d13c</code>) and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
@@ -331,11 +332,9 @@ frame.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">common_name</span><span class="op">:</span><span class="va">d15n</span><span class="op">)</span></span></code></pre></div>
 <p>You will notice that I have renamed this object to
-<code>consumer_iso_2</code> this is for two reasons the first being that
-we are modifying <code>consumer_iso</code> and should make a new object
-and second is that to render these vignettes it needs them to be new
-objects. I have continued witb the same renaming nomenclature for
-objects below.</p>
+<code>consumer_iso_2</code> this is because we are modifying
+<code>consumer_iso</code> and should make a new object. I have continued
+with the same renaming nomenclature for objects below.</p>
 </div>
 <div class="section level3">
 <h3 id="baseline-1-data">Baseline 1 data<a class="anchor" aria-label="anchor" href="#baseline-1-data"></a>
@@ -448,7 +447,7 @@ modelling using nls nlme and brms</a></li>
 <li><a href="https://andrewproctor.github.io/rcourse/module6.html" class="external-link">Andrew
 Proctor’s - Module 6</a></li>
 <li><a href="https://www.nature.com/articles/s43586-020-00001-2" class="external-link">van de
-Schoot et al., 2021</a></li>
+Schoot et al., (2021)</a></li>
 </ol>
 <div class="section level3">
 <h3 id="priors">Priors<a class="anchor" aria-label="anchor" href="#priors"></a>
@@ -457,7 +456,10 @@ Schoot et al., 2021</a></li>
 distributions for each parameter (coefficient; predictor) in the model.
 The default informed priors for a two source model are the following,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-is bound by 0 and 1 and assumes a beta distribution,
+is bound by 0 and 1 and assumes an unformed beta distribution
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\alpha = 1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\beta = 1</annotation></semantics></math>),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 assumes a normal distribution (<code>dn</code>;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>3.4</mn></mrow><annotation encoding="application/x-tex">\mu = 3.4</annotation></semantics></math>;
@@ -643,9 +645,10 @@ of the consumer
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
 dark line). We can correct (i.e., scale) these values using another
 model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
-al. 2024</a> that corrects (i.e., scales) this equation providing better
-and more meaningful estimates. I will demostrate how to use this model
-in another vignette.</p>
+al., (2024)</a> that corrects (i.e., scales)
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+providing better and more meaningful estimates. I will demostrate how to
+use this model in another vignette.</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
@@ -663,8 +666,8 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>δ</mi><mn>15</mn></msup><mi>N</mi></mrow><annotation encoding="application/x-tex">\delta^{15}N</annotation></semantics></math>
-of the consumer (
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
+of the consumer
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
 dark line).</p>
 </div>
 </div>
@@ -720,12 +723,12 @@ heavily using benthic resource which we know from previous work is not
 true. In another vignette I’ll demonstrate how to use a model that
 corrects or scales
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-appropriately using <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
-al. 2024</a>.</p>
+appropriately using an equation in <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
+al. (2024)</a>.</p>
 <p>Moving down to the trophic position model we can see
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
-<code>2.89</code>, and <code>u-95% CI</code> of <code>3.86</code>. If we
+<code>2.89</code>, and <code>u-95% CI</code> of <code>3.85</code>. If we
 move down to trophic position (<code>tp</code>) we see trophic position
 is estimated to be <code>4.57</code> with <code>l-95% CI</code> of
 <code>4.20</code>, and <code>u-95% CI</code> of <code>5.02</code>.</p>
@@ -803,7 +806,8 @@ presentation, it is nice to be able to report the median and credible
 intervals (e.g., equal-tailed intervals; ETI). We can extract and export
 these values using <code><a href="https://mjskay.github.io/tidybayes/reference/spread_draws.html" class="external-link">gather_draws()</a></code> and
 <code>median_qi</code> from <a href="http://mjskay.github.io/tidybayes/" class="external-link">{tidybayes}</a>.</p>
-<p>We rename <code>d15n_tp_Intercept</code> to <code>tp</code>, add the
+<p>We rename <code>d15n_tp_Intercept</code> to <code>tp</code> and
+<code>b_d13c_alpha_Intercept</code> to <code>alpha</code>, add the
 grouping columns, round all columns that are numeric to two decimal
 points using <code><a href="https://dplyr.tidyverse.org/reference/mutate_all.html" class="external-link">mutate_if()</a></code>, and rearrange the order of the
 columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>.</p>
@@ -887,12 +891,12 @@ Trout!</p>
 do not really make sense which we can correct (i.e., scale) using
 another model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation
 in <a href="https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
-al. 2024</a>.</p>
+al. (2024)</a>.</p>
 <p>You can use iterative process to produce estimates of trophic
 position for more than one group (e.g., comparing trophic position among
-species or in this case different ecoregions) that are demonstrated in
-<a href="estimate_trophic_position_one_source_multiple_groups.html">one
-source - multiple groups</a>.</p>
+species or in this case different ecoregions) using iteratstive
+processes that are demonstrated in <a href="estimate_trophic_position_one_source_multiple_groups.html">estimate
+trophic position - one source - multiple groups</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
