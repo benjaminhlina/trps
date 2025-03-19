@@ -40,7 +40,7 @@ the mean isotope value of the first baseline, $\delta^{15}C_{b2}$ is the mean is
 $\delta^{15}C_{b1}$ is from a benthic source and $\delta^{15}C_{b2}$ is from a
 pelagic source. Lastly, $\alpha$ is the proportion of carbon that comes from 
 each source and should be bound by 0 and 1. We will see later that this 
-does not always happen which can be problematic with Heuvel et al., (2024 \doi{doi:10.1139/cjfas-2024-0028}) 
+does not always happen which can be problematic with [Heuvel et al., (2024)](https://doi.org/10.1139/cjfas-2024-0028) 
 proposing a new method to correct (i.e., scale) these values. 
 Estimates of $\alpha$ are used in the two source trophic postion equation below. 
 
@@ -365,10 +365,10 @@ We can see that posteriors draws ($y_{rep}$; light lines) are not
 effectively modeling $\delta^{13}C$ of the consumer ($y$; dark line). 
 We can correct (i.e., scale) these values using another model `two_source_model_ar()` 
 that uses an equation in 
-Heuvel et al., (2024 \doi{doi:10.1139/cjfas-2024-0028})
+[Heuvel et al., (2024)](https://doi.org/10.1139/cjfas-2024-0028)
 that corrects (i.e., scales) $\alpha$ providing better and more meaningful
 estimates. I will demostrate how to use this model in  
-[Estimate Trophic Position - Two Source Model - αᵣ](estimate_trophic_position_two_source_model_ar.html). . 
+[Estimate Trophic Position - Two Source Model - ar](estimate_trophic_position_two_source_model_ar.html). . 
 
 ### $\delta^{15}N$ 
 Next We can check how well the model is predicting the $\delta^{15}N$ of the consumer
@@ -395,7 +395,8 @@ this indicates the lake trout are heavily using
 benthic resource which we know from previous work is not true. 
 In another vignette,  I'll demonstrate how to use a model 
 that corrects or scales $\alpha$ appropriately using 
-an equation in Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028}).
+an equation in [Heuvel et al. (2024)](https://doi.org/10.1139/cjfas-2024-0028) 
+<!-- \doi{doi:10.1139/cjfas-2024-0028}). -->
 
 
 Moving down to the trophic position model we can see 
@@ -532,7 +533,7 @@ Congratulations we have estimated the trophic position for Lake Trout!
 Again, you will notice estimates of $\alpha$ do not really make sense which 
 we can correct (i.e., scale) using another model `two_source_model_ar()` that 
 uses an equation in 
-Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028}). 
+[Heuvel et al. (2024)](https://doi.org/10.1139/cjfas-2024-0028)
 
 You can use iterative process to produce estimates of trophic position 
 for more than one group (e.g., comparing trophic position among 
