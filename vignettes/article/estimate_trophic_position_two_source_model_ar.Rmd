@@ -327,7 +327,7 @@ We will use functions from [{trps}](https://benjaminhlina.github.io/trps/) that 
 
 Let's run the model!
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 model_output_tsar <- brm(
   formula = two_source_model_ar(),
   prior = two_source_priors_ar(),
