@@ -44,3 +44,4 @@ Depends:
 URL: https://benjaminhlina.github.io/trps/, https://github.com/benjaminhlina/trps
 BugReports: https://github.com/benjaminhlina/trps/issues
 VignetteBuilder: knitr
+LazyDataCompression: xz
