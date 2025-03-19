@@ -25,6 +25,6 @@ navbar:
       - text: "Estimate Trophic Position - One Source Model - Multiple Groups"
         href: "articles/estimate_trophic_position_one_source_multiple_groups.html"
       - text: "Estimate Trophic Position - Two Source Model"
-        href: "articles/estimate_trophic_position_two_source_model"
+        href: "articles/estimate_trophic_position_two_source_model.html"
       - text: "Estimate Trophic Position - Two Source Model - ar"
-        href: "articles/estimate_trophic_position_two_source_model_ar"
+        href: "articles/estimate_trophic_position_two_source_model_ar.html"
