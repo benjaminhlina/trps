@@ -37,7 +37,7 @@ bibentry(
 
 bibentry(
   bibtype  = "Manual",
-  title    = "trps: Bayesian trophic position models using stan",
+  title    = "trps: Bayesian Trophic Position Models using 'Stan'",
   author   =  c("Benjamin L. Hlina"),
   year     = "2025",
   note     = "R package version 0.1.0 ('one-skate')",
