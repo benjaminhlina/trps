@@ -59,39 +59,48 @@ To view the overall progress of the package please see
 
 ## Vignettes
 
+### Introduction
+
 I highly suggest going through the vignettes as they will walk you
 through how to use each trophic position model using {trps} and {brms}.
 The first vignette to walk through is [getting started with
 trps](https://benjaminhlina.github.io/trps/articles/trps.html). This
 vignette will introduce you to
-[{trps}](https://benjaminhlina.github.io/trps/) and methods of how to
-estimate trophic position using a one source model. You can access the
-vignette by visiting the [get
+[{trps}](https://benjaminhlina.github.io/trps/) and how to estimate
+trophic position using a one source model. You can access the vignette
+by visiting the [get
 started](https://benjaminhlina.github.io/trps/articles/trps.html) page
 on the website or by using the following code.
 
 ``` r
 vignette("trps")
-#> Warning: vignette 'trps' not found
 ```
 
 Please go through [getting started with
 trps](https://benjaminhlina.github.io/trps/articles/trps.html) prior to
 walking through the other vignettes.
 
-The next vignette will walk you through how to apply
-[{trps}](https://benjaminhlina.github.io/trps/) with iterative
-processes. This vignette is titled [Estimate Trophic Position - One
-Source Model - Multiple
-Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html).
+### Supplementary Vignettes
 
-The third vignette to walk through is [Estimating Trophic Postion - Two
-Source
-Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html).
+1.  The next vignette will walk you through how to apply
+    [{trps}](https://benjaminhlina.github.io/trps/) with iterative
+    processes. This vignette is titled [Estimate Trophic Position - One
+    Source Model - Multiple
+    Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html).
 
-The last vignette to walk through is [Estimating Trophic Postion - Two
-Source Model -
-ar](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html)
+2.  The third vignette to walk through is [Estimating Trophic Postion -
+    Two Source
+    Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html).
+    which will demonstrate how to estimate trophic position using a two
+    source model.
+
+3.  The last vignette to walk through is [Estimating Trophic Postion -
+    Two Source Model -
+    ar](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html).
+    This vignette will guide you through estimating trophic position
+    using a two source model using an equation based on [Heuvel et
+    al. 2024](https://doi.org/10.1139/cjfas-2024-0028) that corrects
+    (i.e., scales) $\alpha$ ($\alpha_r$).
 
 ## Citations
 
@@ -109,8 +118,8 @@ To cite this package please cite the following publications
 - Heuvel, C., Zhao, Y., and Fisk, A.T. 2025. Food web structure across
   basins in Lake Erie, a large freshwater ecosystem. Canadian Journal of
   Fisheries and Aquatic Sciences 82:1-16. doi:
-  [10.1139/cjfas-2024-0028](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028).
+  [10.1139/cjfas-2024-0028]((https://doi.org/10.1139/cjfas-2024-0028)).
 
-- Hlina B.L. 2025. trps: Bayesian trophic position models using stan. R
-  package version 0.1.0 (‘one-skate’).
+- Hlina B.L. 2025. trps: Bayesian Trophic Position Models using ‘Stan’.
+  R package version 0.1.0 (‘one-skate’).
   <https://benjaminhlina.github.io/trps/>
