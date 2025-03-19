@@ -13,18 +13,16 @@ authors:
   Benjamin L. Hlina:
     href: https://benjaminhlina.com
 
-articles:
-  - title: "Estimate Trophic Position - One Source Model - Multiple Groups"
-    contents:
-      - "articles/estimate_trophic_position_one_source_multiple_groups"
-  - title: "Estimate Trophic Position - Two Source Model"
-    contents:
-      - "articles/estimate_trophic_position_two_source_model"
-  - title: "Estimate Trophic Position - Two Source Model - ar"
-    contents:
-      - "articles/estimate_trophic_position_two_source_model_ar"
+
 navbar:
   structure:
     left: [intro, articles, reference, news]
     right: [search, github]
-
+  components:
+    articles:
+  - title: "Estimate Trophic Position - One Source Model - Multiple Groups"
+    contents: "articles/estimate_trophic_position_one_source_multiple_groups"
+  - title: "Estimate Trophic Position - Two Source Model"
+    contents: "articles/estimate_trophic_position_two_source_model"
+  - title: "Estimate Trophic Position - Two Source Model - ar"
+    contents: "articles/estimate_trophic_position_two_source_model_ar"
