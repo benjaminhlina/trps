@@ -211,7 +211,7 @@ We will use functions from [{trps}](https://benjaminhlina.github.io/trps/) that 
 
 Let's run the model!
 
-```{r, eval = FALSE}
+```{r}
 model_output_os <- brm(
   formula = one_source_model(),
   prior = one_source_priors(),
