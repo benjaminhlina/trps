@@ -314,7 +314,7 @@ We will use functions from [{trps}](https://benjaminhlina.github.io/trps/) that 
 
 Let's run the model!
 
-```{r, eval = FALSE}
+```{r}
 model_output_ts <- brm(
   formula = two_source_model(),
   prior = two_source_priors(),
