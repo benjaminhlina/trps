@@ -21,8 +21,7 @@ trophic position models are derived from [Post
 (2002)](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2),
 [Vander Zanden and Vadeboncoeur
 (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
-and [Heuvel et al. (2024)](\doi%7Bdoi:10.1139/cjfas-2024-0028%7D) and
-are to be used with stable isotope data.
+and Heuvel et al. (2024) and are to be used with stable isotope data.
 
 ## Trophic Models in {trps}
 
@@ -72,6 +71,7 @@ on the website or by using the following code.
 
 ``` r
 vignette("trps")
+#> Warning: vignette 'trps' not found
 ```
 
 Please go through [getting started with
@@ -88,6 +88,8 @@ following code.
 
 ``` r
 vignette("estimate_trophic_position_one_source_multiple_groups")
+#> Warning: vignette 'estimate_trophic_position_one_source_multiple_groups' not
+#> found
 ```
 
 The third vignette to walk through is [Estimating Trophic Postion - Two
@@ -98,6 +100,7 @@ following code.
 
 ``` r
 vignette("estimate_trophic_position_two_source_model")
+#> Warning: vignette 'estimate_trophic_position_two_source_model' not found
 ```
 
 The last vignette to walk through is [Estimating Trophic Postion - Two
