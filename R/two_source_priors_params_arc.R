@@ -2,7 +2,7 @@
 #'
 #' Adjust priors for trophic position using a two source model
 #' with \eqn{\alpha_r} derived from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
-#' and Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028})
+#' and Heuvel et al. (2024) \doi{doi:10.1139/cjfas-2024-0028}
 #'
 #' @param a (\eqn{\alpha}) exponent of the random variable for beta distribution.
 #' Defaults to `1`. See beta distribution for more information.
@@ -41,7 +41,7 @@
 #'
 #' @details
 #' We will use the following equations derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028}):
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and Heuvel et al. (2024) \doi{doi:10.1139/cjfas-2024-0028}:
 #'
 #' \enumerate{
 #'   \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
@@ -67,7 +67,7 @@
 #' **For equation 2)**
 #'
 #' \eqn{\alpha} is being corrected using equations in
-#' Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028}).
+#' Heuvel et al. (2024) \doi{doi:10.1139/cjfas-2024-0028}.
 #' with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 #' \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 #' using `add_alpha()` and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}

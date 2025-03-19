@@ -25,12 +25,12 @@ returns model structure for two source model to be used in a
 Estimate trophic position using a two source model with \eqn{\alpha_r}
 derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and Heuvel et al.
-(2024 \doi{doi:10.1139/cjfas-2024-0028}) using a Bayesian framework.
+(2024) \doi{doi:10.1139/cjfas-2024-0028} using a Bayesian framework.
 }
 \details{
 We will use the following equations derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and Heuvel et al.
-(2024 \doi{doi:10.1139/cjfas-2024-0028}):
+(2024) \doi{doi:10.1139/cjfas-2024-0028}:
 
 \enumerate{
 \item \deqn{\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
@@ -54,7 +54,7 @@ equation is added to the data frame using \code{add_alpha()}.
 \strong{For equation 2)}
 
 \eqn{\alpha} is being corrected using equations in
-Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028})
+Heuvel et al. (2024) \doi{doi:10.1139/cjfas-2024-0028}
 with \eqn{\alpha_r} being the corrected value (bound by 0 and 1),
 \eqn{\alpha_{min}} is the minimum \eqn{\alpha} value calculated
 using \code{add_alpha()} and \eqn{\alpha_{max}} being the maximum \eqn{\alpha}

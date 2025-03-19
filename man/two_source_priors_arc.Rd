@@ -20,7 +20,7 @@ returns priors for two source model to be used in a \code{brms()} call.
 \description{
 Create priors for trophic position using a two source model
 with \eqn{\alpha_r} derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}
-and Heuvel et al. (2024 \doi{doi:10.1139/cjfas-2024-0028}).
+and Heuvel et al. (2024) \doi{doi:10.1139/cjfas-2024-0028}.
 }
 \examples{
 two_source_priors_arc()
