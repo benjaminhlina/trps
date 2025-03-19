@@ -42,7 +42,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
-    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - ar</a></li>
+    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αᵣ</a></li>
     <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
   </ul>
 </li>
@@ -436,7 +436,9 @@ frameworks and your study system and species.</p>
 <span>  cores <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  seed <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>adapt_delta <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; Compiling Stan program...</span></span>
+<span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="model-output">Model output<a class="anchor" aria-label="anchor" href="#model-output"></a>
@@ -455,12 +457,12 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     1435     1836</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.19     4.20     4.95 1.00     1430     1885</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.08     0.48     0.80 1.00     2097     1929</span></span>
+<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -520,12 +522,12 @@ dark line).</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     1435     1836</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.19     4.20     4.95 1.00     1430     1885</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.08     0.48     0.80 1.00     2097     1929</span></span>
+<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -627,7 +629,7 @@ columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" 
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 8</span></span></span>
 <span><span class="co">#&gt;   ecoregion common_name    tp .lower .upper .width .point .interval</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Embayment Lake Trout   4.52    4.2   4.95   0.95 median qi</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Embayment Lake Trout   4.53   4.21   4.96   0.95 median qi</span></span></code></pre></div>
 <p>I like to use <a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">{openxlsx}</a> to
 export these values into a table that I can use for presentations and
 papers. For the vignette I am not going to demonstrate how to do this

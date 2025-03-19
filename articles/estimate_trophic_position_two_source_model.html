@@ -42,7 +42,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
-    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - ar</a></li>
+    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αᵣ</a></li>
     <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
   </ul>
 </li>
@@ -112,9 +112,8 @@ is from a pelagic source. Lastly,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 is the proportion of carbon that comes from each source and should be
 bound by 0 and 1. We will see later that this does not always happen
-which can be problematic with <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et al., (2024)</a>
-proposing a new method to correct (i.e., scale) these values. Estimates
-of
+which can be problematic with Heuvel et al., (2024 ) proposing a new
+method to correct (i.e., scale) these values. Estimates of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 are used in the two source trophic postion equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
@@ -566,7 +565,9 @@ frameworks and your study system and species.</p>
 <span>  cores <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  seed <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>adapt_delta <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; Compiling Stan program...</span></span>
+<span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="model-output">Model output<a class="anchor" aria-label="anchor" href="#model-output"></a>
@@ -589,24 +590,24 @@ frameworks and your study system and species.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.19 1.00     3660</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     0.50      0.29     0.03     0.97 1.00     4212</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2451</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.86 1.00     2679</span></span>
+<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.18 1.00     2805</span></span>
+<span><span class="co">#&gt; d15n_alpha_Intercept     0.49      0.29     0.02     0.97 1.00     4393</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2486</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.85 1.00     2562</span></span>
 <span><span class="co">#&gt;                      Tail_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     2391</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     2939</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        3056</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3199</span></span>
+<span><span class="co">#&gt; d13c_alpha_Intercept     2113</span></span>
+<span><span class="co">#&gt; d15n_alpha_Intercept     3571</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept        2928</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept        2720</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma_d13c     1.41      0.20     1.07     1.86 1.00     3489     3662</span></span>
-<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.94 1.00     3010     2704</span></span>
+<span><span class="co">#&gt; sigma_d13c     1.40      0.20     1.07     1.84 1.00     4034     3944</span></span>
+<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.93 1.00     3809     3066</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residual Correlations: </span></span>
 <span><span class="co">#&gt;                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; rescor(d13c,d15n)     0.21      0.31    -0.45     0.72 1.00     2257     3026</span></span>
+<span><span class="co">#&gt; rescor(d13c,d15n)     0.20      0.31    -0.44     0.71 1.00     2768     2882</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -652,11 +653,12 @@ light lines) are not effectively modeling
 of the consumer
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
 dark line). We can correct (i.e., scale) these values using another
-model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et al., (2024)</a>
-that corrects (i.e., scales)
+model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in Heuvel
+et al., (2024 ) that corrects (i.e., scales)
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 providing better and more meaningful estimates. I will demostrate how to
-use this model in another vignette.</p>
+use this model in<br><a href="estimate_trophic_position_two_source_model_ar.html">Estimate
+Trophic Position - Two Source Model - αᵣ</a>. .</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
@@ -700,24 +702,24 @@ dark line).</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.19 1.00     3660</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     0.50      0.29     0.03     0.97 1.00     4212</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2451</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.86 1.00     2679</span></span>
+<span><span class="co">#&gt; d13c_alpha_Intercept     0.05      0.05     0.00     0.18 1.00     2805</span></span>
+<span><span class="co">#&gt; d15n_alpha_Intercept     0.49      0.29     0.02     0.97 1.00     4393</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept        4.57      0.21     4.20     5.02 1.00     2486</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept        3.38      0.25     2.89     3.85 1.00     2562</span></span>
 <span><span class="co">#&gt;                      Tail_ESS</span></span>
-<span><span class="co">#&gt; d13c_alpha_Intercept     2391</span></span>
-<span><span class="co">#&gt; d15n_alpha_Intercept     2939</span></span>
-<span><span class="co">#&gt; d15n_tp_Intercept        3056</span></span>
-<span><span class="co">#&gt; d15n_dn_Intercept        3199</span></span>
+<span><span class="co">#&gt; d13c_alpha_Intercept     2113</span></span>
+<span><span class="co">#&gt; d15n_alpha_Intercept     3571</span></span>
+<span><span class="co">#&gt; d15n_tp_Intercept        2928</span></span>
+<span><span class="co">#&gt; d15n_dn_Intercept        2720</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma_d13c     1.41      0.20     1.07     1.86 1.00     3489     3662</span></span>
-<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.94 1.00     3010     2704</span></span>
+<span><span class="co">#&gt; sigma_d13c     1.40      0.20     1.07     1.84 1.00     4034     3944</span></span>
+<span><span class="co">#&gt; sigma_d15n     0.66      0.11     0.49     0.93 1.00     3809     3066</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Residual Correlations: </span></span>
 <span><span class="co">#&gt;                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; rescor(d13c,d15n)     0.21      0.31    -0.45     0.72 1.00     2257     3026</span></span>
+<span><span class="co">#&gt; rescor(d13c,d15n)     0.20      0.31    -0.44     0.71 1.00     2768     2882</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -728,11 +730,10 @@ is estimated to be <code>0.05</code> with <code>l-95% CI</code> of
 <code>0.00</code> and <code>u-95% CI</code> of <code>0.19</code>. These
 values do not make a lot sense as this indicates the lake trout are
 heavily using benthic resource which we know from previous work is not
-true. In another vignette I’ll demonstrate how to use a model that
+true. In another vignette, I’ll demonstrate how to use a model that
 corrects or scales
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-appropriately using an equation in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
-al. (2024)</a>.</p>
+appropriately using an equation in Heuvel et al. (2024 ).</p>
 <p>Moving down to the trophic position model we can see
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
@@ -776,18 +777,18 @@ are wanting to extract. We extract posterior draws using
 <code class="sourceCode R"><span><span class="va">post_draws</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12,000 × 7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   .variable [2]</span></span></span>
-<span><span class="co">#&gt;    common_name ecoregion .chain .iteration .draw .variable  .value</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 alpha     0.058<span style="text-decoration: underline;">4</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 alpha     0.042<span style="text-decoration: underline;">8</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 alpha     0.033<span style="text-decoration: underline;">6</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 alpha     0.133  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 alpha     0.074<span style="text-decoration: underline;">6</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 alpha     0.068<span style="text-decoration: underline;">1</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 alpha     0.090<span style="text-decoration: underline;">5</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 alpha     0.010<span style="text-decoration: underline;">5</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 alpha     0.006<span style="text-decoration: underline;">90</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 alpha     0.013<span style="text-decoration: underline;">3</span> </span></span>
+<span><span class="co">#&gt;    common_name ecoregion .chain .iteration .draw .variable   .value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lake Trout  Embayment      1          1     1 alpha     0.004<span style="text-decoration: underline;">64</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Lake Trout  Embayment      1          2     2 alpha     0.047<span style="text-decoration: underline;">2</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Lake Trout  Embayment      1          3     3 alpha     0.015<span style="text-decoration: underline;">3</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Lake Trout  Embayment      1          4     4 alpha     0.023<span style="text-decoration: underline;">6</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Lake Trout  Embayment      1          5     5 alpha     0.021<span style="text-decoration: underline;">2</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Lake Trout  Embayment      1          6     6 alpha     0.002<span style="text-decoration: underline;">27</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Lake Trout  Embayment      1          7     7 alpha     0.001<span style="text-decoration: underline;">94</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Lake Trout  Embayment      1          8     8 alpha     0.063<span style="text-decoration: underline;">4</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Lake Trout  Embayment      1          9     9 alpha     0.000<span style="text-decoration: underline;">480</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Lake Trout  Embayment      1         10    10 alpha     0.000<span style="text-decoration: underline;">134</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 11,990 more rows</span></span></span></code></pre></div>
 <p>We can see that this consists of seven variables:</p>
 <ol style="list-style-type: decimal">
@@ -839,7 +840,7 @@ columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html" 
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 9</span></span></span>
 <span><span class="co">#&gt;   .variable .value .lower .upper .width .point .interval ecoregion common_name</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> alpha       0.03    0     0.19   0.95 median qi        Embayment Lake Trout </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> alpha       0.03    0     0.18   0.95 median qi        Embayment Lake Trout </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> tp          4.56    4.2   5.02   0.95 median qi        Embayment Lake Trout</span></span></code></pre></div>
 <p>I like to use <a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">{openxlsx}</a> to
 export these values into a table that I can use for presentations and
@@ -898,8 +899,7 @@ Trout!</p>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 do not really make sense which we can correct (i.e., scale) using
 another model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation
-in <a href="%5Cdoi%7Bdoi:10.1139/cjfas-2024-0028%7D">Heuvel et
-al. (2024)</a>.</p>
+in Heuvel et al. (2024 ).</p>
 <p>You can use iterative process to produce estimates of trophic
 position for more than one group (e.g., comparing trophic position among
 species or in this case different ecoregions) using iterative processes
