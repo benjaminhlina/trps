@@ -102,7 +102,7 @@ To cite this package please cite the following publications
 
 - Vander Zanden, M.J., and Vadeboncoeur, Y. 2002. Fishes as integrators of benthic and pelagic food webs in lakes. Ecology 83(8): 2152–2161. [link here](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2).
 
-- Heuvel, C., Zhao, Y., and Fisk, A.T. 2025. Food web structure across basins in Lake Erie, a large freshwater ecosystem. Canadian Journal of Fisheries and Aquatic Sciences 82:1-16. doi: [10.1139/cjfas-2024-0028]((https://doi.org/10.1139/cjfas-2024-0028)).
+- Heuvel, C., Zhao, Y., and Fisk, A.T. 2025. Food web structure across basins in Lake Erie, a large freshwater ecosystem. Canadian Journal of Fisheries and Aquatic Sciences 82:1-16. doi: [10.1139/cjfas-2024-0028](https://doi.org/10.1139/cjfas-2024-0028).
 
 - Hlina B.L. 2025. trps: Bayesian Trophic Position Models using 'Stan'. R package 
 version 0.1.0 ('one-skate'). https://benjaminhlina.github.io/trps/
