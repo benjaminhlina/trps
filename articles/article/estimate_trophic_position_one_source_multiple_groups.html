@@ -42,8 +42,8 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../../articles/article/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
-    <li><a class="dropdown-item" href="../../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αr</a></li>
-    <li><a class="dropdown-item" href="../../articles/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
+    <li><a class="dropdown-item" href="../../articles/article/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αr</a></li>
+    <li><a class="dropdown-item" href="../../articles/article/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../../reference/index.html">Reference</a></li>
@@ -265,7 +265,12 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span>    control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>adapt_delta <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>, </span>
 <span>  .progress <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Compiling Stan program...</span></span>
+<span><span class="co">#&gt; Start sampling</span></span>
+<span><span class="co">#&gt;  <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span>  50% |  ETA:  1m</span></span>
+<span><span class="co">#&gt; Compiling Stan program...</span></span>
+<span><span class="co">#&gt; Start sampling</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="model-output---multiple-groups">Model output - multiple groups<a class="anchor" aria-label="anchor" href="#model-output---multiple-groups"></a>
@@ -285,12 +290,12 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.87     3.86 1.00     1683     2100</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.83      0.22     4.45     5.29 1.00     1686     2044</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.38      0.26     2.88     3.87 1.00     1645     1794</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.82      0.22     4.44     5.29 1.00     1644     1818</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.48      0.04     0.42     0.56 1.00     2459     2350</span></span>
+<span><span class="co">#&gt; sigma     0.48      0.04     0.42     0.57 1.00     2124     2125</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -308,12 +313,12 @@ using <code><a href="https://purrr.tidyverse.org/reference/map.html" class="exte
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     1435     1836</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.19     4.20     4.95 1.00     1430     1885</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.08     0.48     0.80 1.00     2097     1929</span></span>
+<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -366,12 +371,12 @@ converging!</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.87     3.86 1.00     1683     2100</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.83      0.22     4.45     5.29 1.00     1686     2044</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.38      0.26     2.88     3.87 1.00     1645     1794</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.82      0.22     4.44     5.29 1.00     1644     1818</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.48      0.04     0.42     0.56 1.00     2459     2350</span></span>
+<span><span class="co">#&gt; sigma     0.48      0.04     0.42     0.57 1.00     2124     2125</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -389,12 +394,12 @@ converging!</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Regression Coefficients:</span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; dn_Intercept     3.38      0.25     2.90     3.87 1.00     1435     1836</span></span>
-<span><span class="co">#&gt; tp_Intercept     4.54      0.19     4.20     4.95 1.00     1430     1885</span></span>
+<span><span class="co">#&gt; dn_Intercept     3.37      0.25     2.89     3.86 1.00     1506     1878</span></span>
+<span><span class="co">#&gt; tp_Intercept     4.54      0.20     4.21     4.96 1.00     1531     1891</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Further Distributional Parameters:</span></span>
 <span><span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sigma     0.61      0.08     0.48     0.80 1.00     2097     1929</span></span>
+<span><span class="co">#&gt; sigma     0.61      0.09     0.47     0.81 1.00     2145     1903</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span></span>
 <span><span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span></span>
@@ -501,16 +506,16 @@ the columns that fit your data structure.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12,000 × 8</span></span></span>
 <span><span class="co">#&gt;    ecoregion     common_name name       .chain .iteration .draw .variable .value</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Anthropogenic Lake Trout  Anthropog…      1          1     1 tp          4.87</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Anthropogenic Lake Trout  Anthropog…      1          2     2 tp          4.84</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Anthropogenic Lake Trout  Anthropog…      1          3     3 tp          4.72</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Anthropogenic Lake Trout  Anthropog…      1          4     4 tp          4.80</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Anthropogenic Lake Trout  Anthropog…      1          5     5 tp          4.60</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Anthropogenic Lake Trout  Anthropog…      1          6     6 tp          4.56</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Anthropogenic Lake Trout  Anthropog…      1          7     7 tp          5.05</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Anthropogenic Lake Trout  Anthropog…      1          8     8 tp          4.87</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Anthropogenic Lake Trout  Anthropog…      1          9     9 tp          4.91</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Anthropogenic Lake Trout  Anthropog…      1         10    10 tp          4.81</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Anthropogenic Lake Trout  Anthropog…      1          1     1 tp          4.49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Anthropogenic Lake Trout  Anthropog…      1          2     2 tp          4.90</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Anthropogenic Lake Trout  Anthropog…      1          3     3 tp          4.74</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Anthropogenic Lake Trout  Anthropog…      1          4     4 tp          4.87</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Anthropogenic Lake Trout  Anthropog…      1          5     5 tp          4.86</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Anthropogenic Lake Trout  Anthropog…      1          6     6 tp          5.17</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Anthropogenic Lake Trout  Anthropog…      1          7     7 tp          5.16</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Anthropogenic Lake Trout  Anthropog…      1          8     8 tp          5.11</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Anthropogenic Lake Trout  Anthropog…      1          9     9 tp          4.94</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Anthropogenic Lake Trout  Anthropog…      1         10    10 tp          4.95</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 11,990 more rows</span></span></span></code></pre></div>
 <p>We can see that the posterior draws data frame consists of seven
 variables:</p>
@@ -568,8 +573,8 @@ decimal points.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 9</span></span></span>
 <span><span class="co">#&gt;   ecoregion     common_name name        tp .lower .upper .width .point .interval</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Anthropogenic Lake Trout  Anthrop…  4.81   4.45   5.29   0.95 median qi       </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Embayment     Lake Trout  Embayme…  4.52   4.2    4.95   0.95 median qi</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Anthropogenic Lake Trout  Anthrop…  4.81   4.44   5.29   0.95 median qi       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Embayment     Lake Trout  Embayme…  4.53   4.21   4.96   0.95 median qi</span></span></code></pre></div>
 <p>I like to use <a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">{openxlsx}</a> to
 export these values into a table that I can use for presentations and
 papers. For the vignette I am not going to demonstrate how to do this
