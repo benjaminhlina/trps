@@ -21,7 +21,7 @@ trophic position models are derived from [Post
 (2002)](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2),
 [Vander Zanden and Vadeboncoeur
 (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
-and [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028) and
+and [Heuvel et al. (2024)](https://doi.org/10.1139/cjfas-2024-0028) and
 are to be used with stable isotope data.
 
 ## Trophic Models in {trps}
@@ -99,7 +99,7 @@ walking through the other vignettes.
     ar](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html).
     This vignette will guide you through estimating trophic position
     using a two source model using an equation based on [Heuvel et
-    al. 2024](https://doi.org/10.1139/cjfas-2024-0028) that corrects
+    al. (2024)](https://doi.org/10.1139/cjfas-2024-0028) that corrects
     (i.e., scales) $\alpha$ ($\alpha_r$).
 
 ## Citations
