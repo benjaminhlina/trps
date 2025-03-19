@@ -14,7 +14,7 @@
     - [x] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [x] a two-source carbon mixing model 
     - [x] priors and parameters for priors 
-- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [x] priors 
     - [x] parameters for priors 
 - [x] vignettes for one source
@@ -35,7 +35,7 @@
     - [x] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [x] a two-source carbon mixing model 
     - [x] priors and parameters for priors 
-- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [x] priors 
     - [x] parameters for priors 
 - [x] vignettes for one source
@@ -57,7 +57,7 @@
     - [x] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [x] a two-source carbon mixing model 
     - [x] priors and parameters for priors 
-- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [x] priors 
     - [x] parameters for priors 
 - [x] vignettes for one source
@@ -84,7 +84,7 @@ and parameters.
     - [x] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [] a two-source carbon mixing model 
     - [] priors and parameters for priors 
-- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [x] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [x] priors 
     - [] parameters for priors 
 - [x] vignettes for one source
@@ -106,7 +106,7 @@ and parameters.
     - [] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [] a two-source carbon mixing model 
     - [] priors and parameters for priors 
-- [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [] priors 
     - [] parameters for priors 
 - [] vignettes for one source
@@ -128,7 +128,7 @@ and parameters.
     - [] parameters for priors for a two-source model w/ different lambda (priors are the same as a two-source)
 - [] a two-source carbon mixing model 
     - [] priors and parameters for priors 
-- [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://cdnsciencepub.com/doi/10.1139/cjfas-2024-0028). 
+- [] a two-source model with different lambdas and alpha corrected using [Heuvel et al. 2024](https://doi.org/10.1139/cjfas-2024-0028). 
     - [] priors 
     - [] parameters for priors 
 - [] vignettes for one source
