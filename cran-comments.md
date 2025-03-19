@@ -7,4 +7,5 @@
 * Overall run time has been reduced by only having. one vignette in the 
 CRAN submission with the other three vignettes available on the pkgdown website. 
 * Description file has several words that pop up as issues but they are correct. 
+* The link in the README for the last submission has been correted. 
 
