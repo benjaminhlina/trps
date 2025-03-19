@@ -41,8 +41,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
-    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αᵣ</a></li>
+<li><a class="dropdown-item" href="../articles/article/estimate_trophic_position_one_source_multiple_groups.html">Estimate Trophic Position - One Source Model - Multiple Groups</a></li>
+    <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model_ar.html">Estimate Trophic Position - Two Source Model - αr</a></li>
     <li><a class="dropdown-item" href="../articles/estimate_trophic_position_two_source_model.html">Estimate Trophic Position - Two Source Model</a></li>
   </ul>
 </li>
@@ -112,8 +112,9 @@ is from a pelagic source. Lastly,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 is the proportion of carbon that comes from each source and should be
 bound by 0 and 1. We will see later that this does not always happen
-which can be problematic with Heuvel et al., (2024 ) proposing a new
-method to correct (i.e., scale) these values. Estimates of
+which can be problematic with <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al., (2024)</a>
+proposing a new method to correct (i.e., scale) these values. Estimates
+of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 are used in the two source trophic postion equation below.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
@@ -653,12 +654,12 @@ light lines) are not effectively modeling
 of the consumer
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>;
 dark line). We can correct (i.e., scale) these values using another
-model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in Heuvel
-et al., (2024 ) that corrects (i.e., scales)
+model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation in <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al., (2024)</a>
+that corrects (i.e., scales)
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 providing better and more meaningful estimates. I will demostrate how to
 use this model in<br><a href="estimate_trophic_position_two_source_model_ar.html">Estimate
-Trophic Position - Two Source Model - αᵣ</a>. .</p>
+Trophic Position - Two Source Model - ar</a>. .</p>
 </div>
 <div class="section level3">
 <h3 id="delta15n">
@@ -733,7 +734,8 @@ heavily using benthic resource which we know from previous work is not
 true. In another vignette, I’ll demonstrate how to use a model that
 corrects or scales
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
-appropriately using an equation in Heuvel et al. (2024 ).</p>
+appropriately using an equation in <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">Heuvel et al. (2024)</a>
+<!-- \doi{doi:10.1139/cjfas-2024-0028}). --></p>
 <p>Moving down to the trophic position model we can see
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta N</annotation></semantics></math>
 is estimated to be <code>3.38</code> with <code>l-95% CI</code> of
@@ -899,7 +901,8 @@ Trout!</p>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
 do not really make sense which we can correct (i.e., scale) using
 another model <code><a href="../reference/two_source_model_ar.html">two_source_model_ar()</a></code> that uses an equation
-in Heuvel et al. (2024 ).</p>
+in <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">Heuvel et
+al. (2024)</a></p>
 <p>You can use iterative process to produce estimates of trophic
 position for more than one group (e.g., comparing trophic position among
 species or in this case different ecoregions) using iterative processes
