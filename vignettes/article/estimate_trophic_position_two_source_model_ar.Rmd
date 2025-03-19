@@ -1,10 +1,10 @@
 ---
-title: "Estimate Trophic Position - Two Source Model - αr"
+title: "Estimate Trophic Position - Two Source Model - ar"
 author: Benjamin L. Hlina
 date: "2025-03-18"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Estimate Trophic Position - Two Source Model - αr}
+  %\VignetteIndexEntry{Estimate Trophic Position - Two Source Model - ar}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
