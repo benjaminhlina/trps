@@ -83,43 +83,15 @@ The next vignette will walk you through how to apply
 [{trps}](https://benjaminhlina.github.io/trps/) with iterative
 processes. This vignette is titled [Estimate Trophic Position - One
 Source Model - Multiple
-Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html)
-and can be accessed under the article tab on the website or by using the
-following code.
-
-``` r
-vignette("estimate_trophic_position_one_source_multiple_groups")
-#> Warning: vignette 'estimate_trophic_position_one_source_multiple_groups' not
-#> found
-```
+Groups](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_one_source_multiple_groups.html).
 
 The third vignette to walk through is [Estimating Trophic Postion - Two
 Source
-Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html)
-and can be accessed under the article tab on the website or by using the
-following code.
-
-``` r
-vignette("estimate_trophic_position_two_source_model")
-#> Warning: vignette 'estimate_trophic_position_two_source_model' not found
-```
+Model](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model.html).
 
 The last vignette to walk through is [Estimating Trophic Postion - Two
 Source Model -
 ar](https://benjaminhlina.github.io/trps/articles/estimate_trophic_position_two_source_model_ar.html)
-and can be accessed under the article tab on the website or by using the
-following code.
-
-``` r
-vignette("estimate_trophic_position_two_source_model_ar")
-#> Warning: vignette 'estimate_trophic_position_two_source_model_ar' not found
-```
-
-To view all of the vignettes you can use following code:
-
-``` r
-browseVignettes("trps")
-```
 
 ## Citations
 
