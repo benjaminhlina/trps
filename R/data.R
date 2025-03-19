@@ -84,7 +84,6 @@
 #'
 "model_output_os_mg"
 
-
 #' Model Output - Two Source Model - \eqn{\alpha_r}
 #' Two source model with \eqn{\alpha_r} output from `{brms}` model. .
 #'
