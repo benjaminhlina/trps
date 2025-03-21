@@ -6,9 +6,10 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)[![CRAN
-status](https://www.r-pkg.org/badges/version/trps)](https://CRAN.R-project.org/package=trps)[![trps
-status
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/trps)](https://CRAN.R-project.org/package=trps)
+[![trps status
 badge](https://benjaminhlina.r-universe.dev/trps/badges/version)](https://benjaminhlina.r-universe.dev/trps)[![R-CMD-check](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benjaminhlina/trps/actions/workflows/R-CMD-check.yaml)[![Codecov
 test
 coverage](https://codecov.io/gh/benjaminhlina/trps/graph/badge.svg)](https://app.codecov.io/gh/benjaminhlina/trps)
@@ -40,7 +41,18 @@ Currently {trps} supports the following models:
 
 ## Installation
 
-You can install the R-Universe version of {trps} using the following:
+You can install the [CRAN
+version](https://CRAN.R-project.org/package=trps) of {trps} using the
+following:
+
+``` r
+install.packages("trps")
+  
+```
+
+You can install the [R-Universe
+version](https://benjaminhlina.r-universe.dev/trps) of {trps} using the
+following:
 
 ``` r
 install.packages("trps", 
@@ -48,7 +60,9 @@ install.packages("trps",
                             "https://cloud.r-project.org"))
 ```
 
-You can install the development version of {trps} using the following:
+You can install the [development
+version](https://github.com/benjaminhlina/trps) of {trps} using the
+following:
 
 ``` r
 devtools::install_github("benjaminhlina/trps")
