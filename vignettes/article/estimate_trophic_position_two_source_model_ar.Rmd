@@ -122,16 +122,16 @@ First we load all the packages needed to carry out the analysis.
 
 ```{r setup, message=FALSE}
 {
-library(bayesplot)
-library(brms)
-library(dplyr)
-library(ggplot2)
-library(ggdist)
-library(grid)
-library(tidybayes)
-library(tidyr)
-library(trps)
-library(viridis)
+  library(bayesplot)
+  library(brms)
+  library(dplyr)
+  library(ggplot2)
+  library(ggdist)
+  library(grid)
+  library(tidybayes)
+  library(tidyr)
+  library(trps)
+  library(viridis)
 }
 ```
 
@@ -178,13 +178,13 @@ To do this we first need to make an `id` column in each data set, which will all
 Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
-con_tsar <- consumer_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+con_tsar <- consumer_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, common_name:d15n)
 ```
 
@@ -200,13 +200,13 @@ Next let's add `id` to `baseline_1_iso` data frame.
 For joining purposes we are going to drop `common_name` from this data frame.
 
 ```{r}
-b1_tsar <- baseline_1_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+b1_tsar <- baseline_1_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, ecoregion:d15n_b1)
 ```
 
@@ -216,13 +216,13 @@ Next let's add `id` to `baseline_2_iso` data frame. For joining purposes
 we are going to drop `common_name` from this data frame.
 
 ```{r}
-b2_tsar <- baseline_2_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+b2_tsar <- baseline_2_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, ecoregion:d15n_b2)
 ```
 
@@ -232,9 +232,9 @@ Now that we have the consumer and baseline data sets in a consistent
 format we can join them by `"id"` and `"ecoregion"` using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
-combined_iso_tsar <- con_tsar %>% 
-  left_join(b1_tsar, by = c("id", "ecoregion")) %>% 
-  left_join(b2_tsar, by = c("id", "ecoregion")) 
+combined_iso_tsar <- con_tsar %>%
+  left_join(b1_tsar, by = c("id", "ecoregion")) %>%
+  left_join(b2_tsar, by = c("id", "ecoregion"))
 ```
 
 We can see that we have successfully combined our consumer and baseline data. 
@@ -250,16 +250,16 @@ two $\lambda s$.
 
 We will also `add_alpha()` to the data frame.
 ```{r}
-combined_iso_tsar_1 <- combined_iso_tsar %>% 
-  group_by(ecoregion, common_name) %>% 
+combined_iso_tsar_1 <- combined_iso_tsar %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     c1 = mean(d13c_b1, na.rm = TRUE),
     n1 = mean(d15n_b1, na.rm = TRUE),
     c2 = mean(d13c_b2, na.rm = TRUE),
     n2 = mean(d15n_b2, na.rm = TRUE),
     l1 = 2
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   add_alpha()
 ```
 
@@ -363,30 +363,30 @@ plot(model_output_tsar)
 
 We can see that the trace plots look "grassy" meaning the model is converging!
 
-## Predictive posterior check 
+## Predictive posterior check
 
-### $\alpha
+### $\alpha$
 
 We can check how well the model is predicting the $\alpha$ of the consumer
-using `pp_check()` from `{bayesplot}`. 
+using `pp_check()` from `{bayesplot}`.
 
 ```{r}
 pp_check(model_output_tsar, resp = "alpha")
 ```
 
-We can see that posteriors draws ($y_{rep}$; light lines) are 
-effectively modeling $\alpha$ ($y$; dark line). 
+We can see that posteriors draws ($y_{rep}$; light lines) are
+effectively modeling $\alpha$ ($y$; dark line).
 
-### $\delta^{15}N$ 
+### $\delta^{15}N$
 Next We can check how well the model is predicting the $\delta^{15}N$ of the consumer
-using `pp_check()` from `{bayesplot}`. 
+using `pp_check()` from `{bayesplot}`.
 
 ```{r}
 pp_check(model_output_tsar, resp = "d15n")
 ```
 
-We can see that posteriors draws ($y_{rep}$; light lines) are effectively 
-modeling $\delta^{15}N$ of the consumer ($y$; dark line). 
+We can see that posteriors draws ($y_{rep}$; light lines) are effectively
+modeling $\delta^{15}N$ of the consumer ($y$; dark line).
 
 ## Posterior draws
 
@@ -396,35 +396,35 @@ Let's again look at the summary output from the model.
 model_output_tsar
 ```
 
-We can see that $\alpha_r$ is estimated to be `0.56` with `l-95% CI` of `0.47` 
-and `u-95% CI` of `0.65`. These values do make more sense as 
-this indicates the lake trout are using 
+We can see that $\alpha_r$ is estimated to be `0.56` with `l-95% CI` of `0.47`
+and `u-95% CI` of `0.65`. These values do make more sense as
+this indicates the lake trout are using
 both bethic and pelagic resource which we know from previous work istrue.
 
-Moving down to the trophic position model we can see 
-$\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.89`, 
-and `u-95% CI` of `3.85`. If we move down to trophic position (`tp`) 
-we see trophic position is estimated to be `4.61` 
+Moving down to the trophic position model we can see
+$\Delta N$ is estimated to be `3.38` with `l-95% CI` of `2.89`,
+and `u-95% CI` of `3.85`. If we move down to trophic position (`tp`)
+we see trophic position is estimated to be `4.61`
 with `l-95% CI` of `4.26`, and `u-95% CI` of `5.05`.
 
 ### Extract posterior draws
 
-We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/) 
+We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/)
 to do this work. First we look at the the names of the variables we want to extract using `get_variables()`.
 
 ```{r}
 get_variables(model_output_tsar)
 ```
 
-You will notice that `"b_alpha_ar_Intercept"` and `"b_d15n_tp_Intercept"` are 
-the names of the variable that we are wanting to extract. 
-We extract posterior draws using `gather_draws()`, and 
-rename `"b_alpha_ar_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to 
+You will notice that `"b_alpha_ar_Intercept"` and `"b_d15n_tp_Intercept"` are
+the names of the variable that we are wanting to extract.
+We extract posterior draws using `gather_draws()`, and
+rename `"b_alpha_ar_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to
 `ar`.
 
 ```{r}
-post_draws <- model_output_tsar %>% 
-  gather_draws(b_alpha_ar_Intercept, b_d15n_tp_Intercept) %>% 
+post_draws <- model_output_tsar %>%
+  gather_draws(b_alpha_ar_Intercept, b_d15n_tp_Intercept) %>%
   mutate(
     ecoregion = "Embayment",
     common_name = "Lake Trout",
@@ -432,7 +432,7 @@ post_draws <- model_output_tsar %>%
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
       .variable %in% "b_alpha_ar_Intercept" ~ "ar"
     )
-  ) %>% 
+  ) %>%
   dplyr::select(common_name, ecoregion, .chain:.value)
 ```
 
@@ -456,24 +456,26 @@ We can see that this consists of seven variables:
 
 Considering we are likely using this information for a paper or presentation, it is nice to be able to report the median and credible intervals (e.g., equal-tailed intervals; ETI). We can extract and export these values using `gather_draws()` and `median_qi` from [{tidybayes}](http://mjskay.github.io/tidybayes/).
 
-We rename `d15n_tp_Intercept` to `tp` and `b_alpha_ar_Intercept` to `ar`, 
-add the grouping columns, round all columns that are numeric to two decimal 
-points using `mutate_if()`, and rearrange the order of the columns 
+We rename `d15n_tp_Intercept` to `tp` and `b_alpha_ar_Intercept` to `ar`,
+add the grouping columns, round all columns that are numeric to two decimal
+points using `mutate_if()`, and rearrange the order of the columns
 using `dplyr::select()`.
 
 ```{r, message=FALSE}
 medians_ci <- model_output_tsar %>%
-        gather_draws(b_alpha_ar_Intercept, 
-                     b_d15n_tp_Intercept) %>%
-        median_qi() %>% 
+  gather_draws(
+    b_alpha_ar_Intercept,
+    b_d15n_tp_Intercept
+  ) %>%
+  median_qi() %>%
   mutate(
-    ecoregion = "Embayment", 
-    common_name = "Lake Trout", 
+    ecoregion = "Embayment",
+    common_name = "Lake Trout",
     .variable = case_when(
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
       .variable %in% "b_alpha_ar_Intercept" ~ "ar"
     )
-  ) %>% 
+  ) %>%
   mutate_if(is.numeric, round, digits = 2)
 ```
 
@@ -487,25 +489,25 @@ I like to use [{openxlsx}](https://ycphs.github.io/openxlsx/index.html) to expor
 
 ## Plotting posterior distributions – single species or group
 
-Now that we have our posterior draws extracted we can plot them. 
+Now that we have our posterior draws extracted we can plot them.
 To analyze *a single* species or group, I like using density plots.
 
 ### Density plot
 
-For this example we first plot the density for posterior draws using 
+For this example we first plot the density for posterior draws using
 `geom_density()`.
 
 ```{r}
-ggplot(data = post_draws, aes(x = .value)) + 
-  geom_density() + 
-  facet_wrap(~ .variable, scale = "free") +
+ggplot(data = post_draws, aes(x = .value)) +
+  geom_density() +
+  facet_wrap(~.variable, scale = "free") +
   theme_bw(base_size = 15) +
   theme(
-    panel.grid = element_blank(), 
+    panel.grid = element_blank(),
     strip.background = element_blank(),
-  ) + 
+  ) +
   labs(
-    x = "P(Estimate | X)", 
+    x = "P(Estimate | X)",
     y = "Density"
   )
 ```
@@ -515,27 +517,28 @@ ggplot(data = post_draws, aes(x = .value)) +
 Next we plot it as a point interval plot using `stat_pointinterval()`.
 
 ```{r}
-ggplot(data = post_draws, aes(y = .value, 
-                              x = common_name)) + 
-  stat_pointinterval() + 
-   facet_wrap(~ .variable, scale = "free") +
+ggplot(data = post_draws, aes(
+  y = .value,
+  x = common_name
+)) +
+  stat_pointinterval() +
+  facet_wrap(~.variable, scale = "free") +
   theme_bw(base_size = 15) +
   theme(
-    panel.grid = element_blank(), 
+    panel.grid = element_blank(),
     strip.background = element_blank(),
-  ) + 
+  ) +
   labs(
-    x = "P(Estimate | X)", 
+    x = "P(Estimate | X)",
     y = "Density"
   )
 ```
 
-Congratulations we have estimated the trophic position for Lake Trout! Again, 
+Congratulations we have estimated the trophic position for Lake Trout! Again,
 you will notice estimates of $\alpha_r$ do make sense and this model is estimating
-$\alpha$ on the correct scale. 
+$\alpha$ on the correct scale.
 
-You can use iterative process to produce estimates of trophic position 
-for more than one group (e.g., comparing trophic position among 
-species or in this case different ecoregions) using iterative 
-processes that are 
-demonstrated in [estimate trophic position - one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html). 
+You can use iterative process to produce estimates of trophic position
+for more than one group (e.g., comparing trophic position among
+species or in this case different ecoregions) that are
+demonstrated in [estimate trophic position - one source - multiple groups](estimate_trophic_position_one_source_multiple_groups.html).
