@@ -35,7 +35,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Adjust Bayesian priors - One Source Trophic Position</h1>
-      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/v0.1.0/R/one_source_priors_params.R" class="external-link"><code>R/one_source_priors_params.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/benjaminhlina/trps/blob/main/R/one_source_priors_params.R" class="external-link"><code>R/one_source_priors_params.R</code></a></small>
       <div class="d-none name"><code>one_source_priors_params.Rd</code></div>
     </div>
 
@@ -111,11 +111,11 @@ supplied to the model for \(\delta^{15}\)N baseline. Default is
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>$$\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda_1)$$</p>
-<p>This function allows the user to adjust the priors for the following variables
-in the equation above:</p>
-<ul><li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\)) for
-the mean \(\delta^{15}\)N for a given baseline (\(\delta^{15}N_1\)).
-This prior assumes a normal distribution.</p></li>
+<p>This function allows the user to adjust the priors for the following
+variables in the equation above:</p>
+<ul><li><p>The mean (<code>n1</code>; \(\mu\)) and variance (<code>n1_sigma</code>; \(\sigma\))
+for the mean \(\delta^{15}\)N for a given baseline
+(\(\delta^{15}N_1\)).This prior assumes a normal distribution.</p></li>
 <li><p>The mean (<code>dn</code>; \(\mu\)) and variance (<code>dn_sigma</code>; \(\sigma\)) of
 \(\Delta\)N (i.e, trophic enrichment
 factor). This prior assumes a normal distribution.</p></li>
