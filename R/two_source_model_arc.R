@@ -85,7 +85,6 @@ two_source_model_arc <- function(
     bp = FALSE,
     lambda = NULL) {
   if (!(is.logical(bp))) {
-
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
@@ -105,7 +104,6 @@ two_source_model_arc <- function(
 
   # ---- singe lambda ----
   if (lambda == 1) {
-
     # ---- no baseline priors -----
     if (isFALSE(bp)) {
       model <- brms::bf(
@@ -114,7 +112,7 @@ two_source_model_arc <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          d13c ~ (c1 * ar) + (c2 * (1 - ar)),
           ar ~ 1,
           nl = TRUE
         ) +
@@ -136,7 +134,7 @@ two_source_model_arc <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          d13c ~ (c1 * ar) + (c2 * (1 - ar)),
           ar ~ 1,
           c1 ~ 1,
           c2 ~ 1,
@@ -153,11 +151,9 @@ two_source_model_arc <- function(
         ) +
         brms::set_rescor()
     }
-
   }
   # ---- for two different lambda -----
   if (lambda == 2) {
-
     # ---- no baseline priors -----
     if (isFALSE(bp)) {
       model <- brms::bf(
@@ -166,7 +162,7 @@ two_source_model_arc <- function(
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          d13c ~ (c1 * ar) + (c2 * (1 - ar)),
           ar ~ 1,
           nl = TRUE
         ) +
@@ -181,14 +177,13 @@ two_source_model_arc <- function(
     }
     # ----- baseline priors -----
     if (isTRUE(bp)) {
-
       model <- brms::bf(
         alpha ~ ar * (max_alpha - min_alpha) + min_alpha,
         ar ~ 1,
         nl = TRUE
       ) +
         brms::bf(
-          d13c ~ (c1 * ar)  + (c2 * (1 - ar)),
+          d13c ~ (c1 * ar) + (c2 * (1 - ar)),
           ar ~ 1,
           c1 ~ 1,
           c2 ~ 1,
@@ -209,4 +204,3 @@ two_source_model_arc <- function(
 
   return(model)
 }
-

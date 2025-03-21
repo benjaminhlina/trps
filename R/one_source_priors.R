@@ -18,9 +18,7 @@
 #' @export
 
 one_source_priors <- function(bp = FALSE) {
-
   if (!(is.logical(bp))) {
-
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
@@ -29,17 +27,19 @@ one_source_priors <- function(bp = FALSE) {
 
 
   if (isFALSE(bp)) {
-
     #  set priors
     priors <- c(
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma),
-                  class = "b",
-                  coef = "Intercept",
-                  nlpar = "dn"),
+        class = "b",
+        coef = "Intercept",
+        nlpar = "dn"
+      ),
       # Trophic Position (tp)
-      brms::prior(uniform(tp_lb, tp_ub), class = "b", nlpar = "tp",
-                  lb = tp_lb, ub = tp_ub),
+      brms::prior(uniform(tp_lb, tp_ub),
+        class = "b", nlpar = "tp",
+        lb = tp_lb, ub = tp_ub
+      ),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub), class = "sigma", ub = sigma_ub)
     )
@@ -49,15 +49,23 @@ one_source_priors <- function(bp = FALSE) {
     #  set priors
     priors <- c(
       # Baseline δ15N (n1)
-      brms::prior(normal(n1, n1_sigma), class = "b", coef = "Intercept",
-                   nlpar = "n1"),
+      brms::prior(normal(n1, n1_sigma),
+        class = "b",
+        coef = "Intercept",
+        nlpar = "n1"
+      ),
       # Trophic enrichment factor (ΔN)
-      brms::prior(normal(dn, dn_sigma), class = "b",
-                  # coef = "Intercept",
-                  nlpar = "dn", lb = 3, ub = 4),
+      brms::prior(normal(dn, dn_sigma),
+        class = "b",
+        # coef = "Intercept",
+        nlpar = "dn", lb = 3, ub = 4
+      ),
       # Trophic Position (tp)
-      brms::prior(uniform(tp_lb, tp_ub), class = "b", nlpar = "tp",
-                  lb = tp_lb, ub = tp_ub),
+      brms::prior(uniform(tp_lb, tp_ub),
+        class = "b",
+        nlpar = "tp",
+        lb = tp_lb, ub = tp_ub
+      ),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub), class = "sigma", ub = sigma_ub)
     )
@@ -67,4 +75,3 @@ one_source_priors <- function(bp = FALSE) {
 
   return(priors)
 }
-

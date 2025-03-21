@@ -1,7 +1,8 @@
 #' Bayesian model - One Source Trophic Position
 #'
 #' Estimate trophic position using a one source model derived from
-#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) using a Bayesian framework.
+#' [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2)
+#' using a Bayesian framework.
 #'
 #
 #' @param bp logical value that controls whether informed priors are
@@ -33,9 +34,7 @@
 #' @export
 
 one_source_model <- function(bp = FALSE) {
-
   if (!(is.logical(bp))) {
-
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
@@ -53,7 +52,6 @@ one_source_model <- function(bp = FALSE) {
       # Nonlinear model specification
       nl = TRUE
     )
-
   }
 
   if (isTRUE(bp)) {

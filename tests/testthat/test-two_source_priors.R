@@ -1,8 +1,5 @@
-
-
 # tests for the one_source_priors
 test_that("test two-source priors", {
-
   pri <- two_source_priors(bp = TRUE)
 
   expected <- c(
@@ -22,12 +19,9 @@ test_that("test two-source priors", {
 
 
   expect_equal(results, expected)
-}
-
-)
+})
 # tests for the one_source_priors
 test_that("test two-source priors without baseline", {
-
   pri <- two_source_priors()
 
   expected <- c(
@@ -43,15 +37,10 @@ test_that("test two-source priors without baseline", {
 
 
   expect_equal(results, expected)
-}
-
-)
+})
 test_that("test two-source priors fail if given not logical", {
-
   expect_error(
     two_source_priors(bp = "TRU"),
     regexp = "`bp` argument must be a logical value"
   )
-}
-
-)
+})

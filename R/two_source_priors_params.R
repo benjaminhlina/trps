@@ -83,27 +83,24 @@
 #' @export
 
 two_source_priors_params <- function(
-  a = NULL,
-  b = NULL,
-  c1 = NULL,
-  c1_sigma = NULL,
-  c2 = NULL,
-  c2_sigma = NULL,
-  n1 = NULL,
-  n1_sigma = NULL,
-  n2 = NULL,
-  n2_sigma = NULL,
-  dn = NULL,
-  dn_sigma = NULL,
-  tp_lb = NULL,
-  tp_ub = NULL,
-  sigma_lb = NULL,
-  sigma_ub = NULL,
-  bp = FALSE
-) {
-
+    a = NULL,
+    b = NULL,
+    c1 = NULL,
+    c1_sigma = NULL,
+    c2 = NULL,
+    c2_sigma = NULL,
+    n1 = NULL,
+    n1_sigma = NULL,
+    n2 = NULL,
+    n2_sigma = NULL,
+    dn = NULL,
+    dn_sigma = NULL,
+    tp_lb = NULL,
+    tp_ub = NULL,
+    sigma_lb = NULL,
+    sigma_ub = NULL,
+    bp = FALSE) {
   if (!(is.logical(bp))) {
-
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
@@ -118,7 +115,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for a priros
-  if  (!is.numeric(a)) {
+  if (!is.numeric(a)) {
     cli::cli_abort(c(
       "`a` argument must be a numerical value.",
       "i" = "Please provide a numerical value as a piror."
@@ -130,7 +127,7 @@ two_source_priors_params <- function(
     b <- 1
   }
   # create error message for b priors
-  if  (!is.numeric(b)) {
+  if (!is.numeric(b)) {
     cli::cli_abort(c(
       "`b` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -145,7 +142,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priros
-  if  (!is.numeric(c1)) {
+  if (!is.numeric(c1)) {
     cli::cli_abort(c(
       "`c1` argument must be a numerical value.",
       "i" = "Please provide a numerical value as a piror."
@@ -157,7 +154,7 @@ two_source_priors_params <- function(
     c1_sigma <- 1
   }
   # create error message for c1 priors
-  if  (!is.numeric(c1_sigma)) {
+  if (!is.numeric(c1_sigma)) {
     cli::cli_abort(c(
       "`c1_sigma` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -171,7 +168,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priros
-  if  (!is.numeric(c2)) {
+  if (!is.numeric(c2)) {
     cli::cli_abort(c(
       "`c2` argument must be a numerical value.",
       "i" = "Please provide a numerical value as a piror."
@@ -183,7 +180,7 @@ two_source_priors_params <- function(
     c2_sigma <- 1
   }
   # create error message for c1 priors
-  if  (!is.numeric(c2_sigma)) {
+  if (!is.numeric(c2_sigma)) {
     cli::cli_abort(c(
       "`c2_sigma` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -197,7 +194,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priros
-  if  (!is.numeric(n1)) {
+  if (!is.numeric(n1)) {
     cli::cli_abort(c(
       "`n1` argument must be a numerical value.",
       "i" = "Please provide a numerical value as a piror."
@@ -209,7 +206,7 @@ two_source_priors_params <- function(
     n1_sigma <- 1
   }
   # create error message for n1 priors
-  if  (!is.numeric(n1_sigma)) {
+  if (!is.numeric(n1_sigma)) {
     cli::cli_abort(c(
       "`n1_sigma` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -223,7 +220,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priros
-  if  (!is.numeric(n2)) {
+  if (!is.numeric(n2)) {
     cli::cli_abort(c(
       "`n2` argument must be a numerical value.",
       "i" = "Please provide a numerical value as a piror."
@@ -235,7 +232,7 @@ two_source_priors_params <- function(
     n2_sigma <- 1
   }
   # create error message for n1 priors
-  if  (!is.numeric(n2_sigma)) {
+  if (!is.numeric(n2_sigma)) {
     cli::cli_abort(c(
       "`n2_sigma` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -248,7 +245,7 @@ two_source_priors_params <- function(
     dn <- 3.4
   }
 
-  if  (!is.numeric(dn)) {
+  if (!is.numeric(dn)) {
     cli::cli_abort(c(
       "`dn` argument must be a numerical value",
       "i" = "Please provide a numerical value as a pirorr"
@@ -260,7 +257,7 @@ two_source_priors_params <- function(
     dn_sigma <- 0.25
   }
 
-  if  (!is.numeric(dn_sigma)) {
+  if (!is.numeric(dn_sigma)) {
     cli::cli_abort(c(
       "`dn_sigma` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -276,7 +273,7 @@ two_source_priors_params <- function(
 
   # create error message for tp priros
 
-  if  (!is.numeric(tp_lb)) {
+  if (!is.numeric(tp_lb)) {
     cli::cli_abort(c(
       "`tp_lb` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -288,7 +285,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priors
-  if  (!is.numeric(tp_ub)) {
+  if (!is.numeric(tp_ub)) {
     cli::cli_abort(c(
       "`tp_ub` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -303,7 +300,7 @@ two_source_priors_params <- function(
 
   # create error message for tp priros
 
-  if  (!is.numeric(sigma_lb)) {
+  if (!is.numeric(sigma_lb)) {
     cli::cli_abort(c(
       "`sigma_lb` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -315,7 +312,7 @@ two_source_priors_params <- function(
   }
 
   # create error message for n1 priors
-  if  (!is.numeric(sigma_ub)) {
+  if (!is.numeric(sigma_ub)) {
     cli::cli_abort(c(
       "`sigma_ub` argument must be a numerical value",
       "i" = "Please provide a numerical value as a piror"
@@ -324,45 +321,41 @@ two_source_priors_params <- function(
 
 
   if (isTRUE(bp)) {
-
     priors_params <-
-      brms::stanvar(a, name = 'a') +
-      brms::stanvar(b, 'b') +
-      brms::stanvar(c1, name = 'c1') +
-      brms::stanvar(c1_sigma, 'c1_sigma') +
-      brms::stanvar(c2, name = 'c2') +
-      brms::stanvar(c2_sigma, 'c2_sigma') +
-      brms::stanvar(n1, name = 'n1') +
-      brms::stanvar(n1_sigma, 'n1_sigma') +
-      brms::stanvar(n2, name = 'n2') +
-      brms::stanvar(n2_sigma, 'n2_sigma') +
-      brms::stanvar(dn, 'dn') +
-      brms::stanvar(dn_sigma, 'dn_sigma') +
-      brms::stanvar(tp_lb, 'tp_lb') +
-      brms::stanvar(tp_ub, 'tp_ub') +
-      brms::stanvar(sigma_lb, 'sigma_lb') +
-      brms::stanvar(sigma_ub, 'sigma_ub')
-
+      brms::stanvar(a, name = "a") +
+      brms::stanvar(b, "b") +
+      brms::stanvar(c1, name = "c1") +
+      brms::stanvar(c1_sigma, "c1_sigma") +
+      brms::stanvar(c2, name = "c2") +
+      brms::stanvar(c2_sigma, "c2_sigma") +
+      brms::stanvar(n1, name = "n1") +
+      brms::stanvar(n1_sigma, "n1_sigma") +
+      brms::stanvar(n2, name = "n2") +
+      brms::stanvar(n2_sigma, "n2_sigma") +
+      brms::stanvar(dn, "dn") +
+      brms::stanvar(dn_sigma, "dn_sigma") +
+      brms::stanvar(tp_lb, "tp_lb") +
+      brms::stanvar(tp_ub, "tp_ub") +
+      brms::stanvar(sigma_lb, "sigma_lb") +
+      brms::stanvar(sigma_ub, "sigma_ub")
   }
 
 
   # ----- dn -----
 
   if (isFALSE(bp)) {
-
     # ----- set prirors -----
 
     priors_params <-
-      brms::stanvar(a, name = 'a') +
-      brms::stanvar(b, 'b') +
-      brms::stanvar(dn, 'dn') +
-      brms::stanvar(dn_sigma, 'dn_sigma') +
-      brms::stanvar(tp_lb, 'tp_lb') +
-      brms::stanvar(tp_ub, 'tp_ub') +
-      brms::stanvar(sigma_lb, 'sigma_lb') +
-      brms::stanvar(sigma_ub, 'sigma_ub')
+      brms::stanvar(a, name = "a") +
+      brms::stanvar(b, "b") +
+      brms::stanvar(dn, "dn") +
+      brms::stanvar(dn_sigma, "dn_sigma") +
+      brms::stanvar(tp_lb, "tp_lb") +
+      brms::stanvar(tp_ub, "tp_ub") +
+      brms::stanvar(sigma_lb, "sigma_lb") +
+      brms::stanvar(sigma_ub, "sigma_ub")
   }
 
   return(priors_params)
-
 }

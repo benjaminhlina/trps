@@ -1,5 +1,4 @@
 test_that("test one-source model without baseline prior", {
-
   m <- one_source_model()
   # m$formula
   expected_wb <- formula(
@@ -8,14 +7,11 @@ test_that("test one-source model without baseline prior", {
 
   # class(m$formula)
   expect_equal(m$formula,
-               expected_wb,
-               ignore_attr = TRUE)
-
-
-}
-)
+    expected_wb,
+    ignore_attr = TRUE
+  )
+})
 test_that("test one-source model without baseline prior", {
-
   m <- one_source_model()
 
 
@@ -27,12 +23,11 @@ test_that("test one-source model without baseline prior", {
 
 
   expect_equal(m$pforms,
-               prform,
-               ignore_attr = TRUE)
-}
-)
+    prform,
+    ignore_attr = TRUE
+  )
+})
 test_that("test one-source model with baseline prior", {
-
   m <- one_source_model(bp = TRUE)
 
   el <- formula(d15n ~ n1 + dn * (tp - l1))
@@ -40,16 +35,13 @@ test_that("test one-source model with baseline prior", {
 
 
   expect_equal(m$formula,
-               el,
-               ignore_attr = TRUE)
-
-
-}
-)
+    el,
+    ignore_attr = TRUE
+  )
+})
 
 
 test_that("test one-source model with baseline prior", {
-
   m <- one_source_model(bp = TRUE)
 
 
@@ -61,17 +53,12 @@ test_that("test one-source model with baseline prior", {
 
 
   expect_equal(m$pforms,
-               prform,
-               ignore_attr = TRUE)
-}
-)
+    prform,
+    ignore_attr = TRUE
+  )
+})
 test_that("test one-source bp eorros", {
-
   expect_error(
     one_source_model(bp = "TRU")
   )
-
-
-
-}
-)
+})

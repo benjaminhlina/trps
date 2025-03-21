@@ -50,13 +50,13 @@ Adjust priors for one source trophic position model derived from \href{https://e
 \details{
 \deqn{\delta^{15}N = \delta^{15} N_1 + \delta N \times (tp - \lambda_1)}
 
-This function allows the user to adjust the priors for the following variables
-in the equation above:
+This function allows the user to adjust the priors for the following
+variables in the equation above:
 
 \itemize{
-\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma}) for
-the mean \eqn{\delta^{15}}N for a given baseline (\eqn{\delta^{15}N_1}).
-This prior assumes a normal distribution.
+\item The mean (\code{n1}; \eqn{\mu}) and variance (\code{n1_sigma}; \eqn{\sigma})
+for the mean \eqn{\delta^{15}}N for a given baseline
+(\eqn{\delta^{15}N_1}).This prior assumes a normal distribution.
 \item The mean (\code{dn}; \eqn{\mu}) and variance (\code{dn_sigma}; \eqn{\sigma}) of
 \eqn{\Delta}N (i.e, trophic enrichment
 factor). This prior assumes a normal distribution.

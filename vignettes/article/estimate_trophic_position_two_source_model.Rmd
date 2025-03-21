@@ -111,16 +111,16 @@ First we load all the packages needed to carry out the analysis.
 
 ```{r setup, message=FALSE}
 {
-library(bayesplot)
-library(brms)
-library(dplyr)
-library(ggplot2)
-library(ggdist)
-library(grid)
-library(tidybayes)
-library(tidyr)
-library(trps)
-library(viridis)
+  library(bayesplot)
+  library(brms)
+  library(dplyr)
+  library(ggplot2)
+  library(ggdist)
+  library(grid)
+  library(tidybayes)
+  library(tidyr)
+  library(trps)
+  library(viridis)
 }
 ```
 
@@ -167,13 +167,13 @@ To do this we first need to make an `id` column in each data set, which will all
 Let's first add `id` to `consumer_iso` data frame.
 
 ```{r}
-con_ts <- consumer_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+con_ts <- consumer_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, common_name:d15n)
 ```
 
@@ -189,13 +189,13 @@ Next let's add `id` to `baseline_1_iso` data frame.
 For joining purposes we are going to drop `common_name` from this data frame.
 
 ```{r}
-b1_ts <- baseline_1_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+b1_ts <- baseline_1_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, ecoregion:d15n_b1)
 ```
 
@@ -205,13 +205,13 @@ Next let's add `id` to `baseline_2_iso` data frame. For joining purposes
 we are going to drop `common_name` from this data frame.
 
 ```{r}
-b2_ts <- baseline_2_iso %>% 
-  arrange(ecoregion, common_name) %>% 
-  group_by(ecoregion, common_name) %>% 
+b2_ts <- baseline_2_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     id = row_number()
-  ) %>% 
-  ungroup() %>% 
+  ) %>%
+  ungroup() %>%
   dplyr::select(id, ecoregion:d15n_b2)
 ```
 
@@ -221,9 +221,9 @@ Now that we have the consumer and baseline data sets in a consistent
 format we can join them by `"id"` and `"ecoregion"` using `left_join()` from [{dplyr}](https://dplyr.tidyverse.org/).
 
 ```{r}
-combined_iso_ts <- con_ts %>% 
-  left_join(b1_ts, by = c("id", "ecoregion")) %>% 
-  left_join(b2_ts, by = c("id", "ecoregion")) 
+combined_iso_ts <- con_ts %>%
+  left_join(b1_ts, by = c("id", "ecoregion")) %>%
+  left_join(b2_ts, by = c("id", "ecoregion"))
 ```
 
 We can see that we have successfully combined our consumer and baseline data. 
@@ -238,15 +238,15 @@ named `d13c`, `c1`, `c2`, `d15n`, `n1`, `n2`, and `l1` with `l2` needed if using
 two $\lambda s$.
 
 ```{r}
-combined_iso_ts_1 <- combined_iso_ts %>% 
-  group_by(ecoregion, common_name) %>% 
+combined_iso_ts_1 <- combined_iso_ts %>%
+  group_by(ecoregion, common_name) %>%
   mutate(
     c1 = mean(d13c_b1, na.rm = TRUE),
     n1 = mean(d15n_b1, na.rm = TRUE),
     c2 = mean(d13c_b2, na.rm = TRUE),
     n2 = mean(d15n_b2, na.rm = TRUE),
     l1 = 2
-  ) %>% 
+  ) %>%
   ungroup()
 ```
 
@@ -421,8 +421,8 @@ rename `"b_d15n_tp_Intercept"` to `tp` and  `"b_d13c_alpha_Intercept"` to
 `alpha`.
 
 ```{r}
-post_draws <- model_output_ts %>% 
-  gather_draws(b_d13c_alpha_Intercept, b_d15n_tp_Intercept) %>% 
+post_draws <- model_output_ts %>%
+  gather_draws(b_d13c_alpha_Intercept, b_d15n_tp_Intercept) %>%
   mutate(
     ecoregion = "Embayment",
     common_name = "Lake Trout",
@@ -430,7 +430,7 @@ post_draws <- model_output_ts %>%
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
       .variable %in% "b_d13c_alpha_Intercept" ~ "alpha"
     )
-  ) %>% 
+  ) %>%
   dplyr::select(common_name, ecoregion, .chain:.value)
 ```
 
@@ -461,17 +461,19 @@ using `dplyr::select()`.
 
 ```{r, message=FALSE}
 medians_ci <- model_output_ts %>%
-        gather_draws(b_d13c_alpha_Intercept, 
-                     b_d15n_tp_Intercept) %>%
-        median_qi() %>% 
+  gather_draws(
+    b_d13c_alpha_Intercept,
+    b_d15n_tp_Intercept
+  ) %>%
+  median_qi() %>%
   mutate(
-    ecoregion = "Embayment", 
-    common_name = "Lake Trout", 
+    ecoregion = "Embayment",
+    common_name = "Lake Trout",
     .variable = case_when(
       .variable %in% "b_d15n_tp_Intercept" ~ "tp",
       .variable %in% "b_d13c_alpha_Intercept" ~ "alpha"
     )
-  ) %>% 
+  ) %>%
   mutate_if(is.numeric, round, digits = 2)
 ```
 
@@ -494,16 +496,16 @@ For this example we first plot the density for posterior draws using
 `geom_density()`.
 
 ```{r}
-ggplot(data = post_draws, aes(x = .value)) + 
-  geom_density() + 
-  facet_wrap(~ .variable, scale = "free") +
+ggplot(data = post_draws, aes(x = .value)) +
+  geom_density() +
+  facet_wrap(~.variable, scale = "free") +
   theme_bw(base_size = 15) +
   theme(
-    panel.grid = element_blank(), 
+    panel.grid = element_blank(),
     strip.background = element_blank(),
-  ) + 
+  ) +
   labs(
-    x = "P(Estimate | X)", 
+    x = "P(Estimate | X)",
     y = "Density"
   )
 ```
@@ -513,17 +515,19 @@ ggplot(data = post_draws, aes(x = .value)) +
 Next we plot it as a point interval plot using `stat_pointinterval()`.
 
 ```{r}
-ggplot(data = post_draws, aes(y = .value, 
-                              x = common_name)) + 
-  stat_pointinterval() + 
-   facet_wrap(~ .variable, scale = "free") +
+ggplot(data = post_draws, aes(
+  y = .value,
+  x = common_name
+)) +
+  stat_pointinterval() +
+  facet_wrap(~.variable, scale = "free") +
   theme_bw(base_size = 15) +
   theme(
-    panel.grid = element_blank(), 
+    panel.grid = element_blank(),
     strip.background = element_blank(),
-  ) + 
+  ) +
   labs(
-    x = "P(Estimate | X)", 
+    x = "P(Estimate | X)",
     y = "Density"
   )
 ```

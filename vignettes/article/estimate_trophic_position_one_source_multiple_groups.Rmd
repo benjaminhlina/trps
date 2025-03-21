@@ -52,17 +52,17 @@ First we load all the packages needed to carry out the analysis.
 
 ```{r setup, message=FALSE}
 {
-library(bayesplot)
-library(brms)
-library(dplyr)
-library(ggplot2)
-library(ggdist)
-library(grid)
-library(purrr)
-library(tidybayes)
-library(tidyr)
-library(trps)
-library(viridis)
+  library(bayesplot)
+  library(brms)
+  library(dplyr)
+  library(ggplot2)
+  library(ggdist)
+  library(grid)
+  library(purrr)
+  library(tidybayes)
+  library(tidyr)
+  library(trps)
+  library(viridis)
 }
 ```
 
@@ -96,12 +96,12 @@ unique(combined_iso$ecoregion)
 Let's remove the columns we don't need, `d13c_b2`, `d15n_b2`, `c2`, `n2`, and add $\lambda$ to the data frame (`l1`). To do so we make a `name` column that will be the two groups we have, `common_name` and `ecoregion` pasted together. We are doing this to make the iterative processes easier.
 
 ```{r}
-combined_iso_update <- combined_iso %>% 
-  dplyr::select(-c(d13c_b2, d15n_b2, c2, n2)) %>% 
+combined_iso_update <- combined_iso %>%
+  dplyr::select(-c(d13c_b2, d15n_b2, c2, n2)) %>%
   mutate(
-    l1 = 2, 
+    l1 = 2,
     name = paste(ecoregion, common_name, sep = "_")
-  ) %>% 
+  ) %>%
   dplyr::select(id, common_name, ecoregion, name, d13c:l1)
 ```
 
@@ -133,22 +133,23 @@ to get the data.
 Let's run the model!
 
 ```{r, eval = TRUE}
-model_output_os_mg <- combined_iso_update %>% 
-  split(.$name) %>% 
-  map( ~ brm(
-    formula = one_source_model(),
-    prior = one_source_priors(),
-    stanvars = one_source_priors_params(),
-    data = .x,
-    family = gaussian(),
-    chains = 2,
-    iter = 4000,
-    warmup = 1000,
-    cores = 4,
-    seed = 4,
-    control = list(adapt_delta = 0.95)
-  ), 
-  .progress = TRUE
+model_output_os_mg <- combined_iso_update %>%
+  split(.$name) %>%
+  map(
+    ~ brm(
+      formula = one_source_model(),
+      prior = one_source_priors(),
+      stanvars = one_source_priors_params(),
+      data = .x,
+      family = gaussian(),
+      chains = 2,
+      iter = 4000,
+      warmup = 1000,
+      cores = 4,
+      seed = 4,
+      control = list(adapt_delta = 0.95)
+    ),
+    .progress = TRUE
   )
 ```
 
@@ -167,9 +168,9 @@ We can see that $\hat R$ is 1, meaning that the variance among and within chains
 Let's look at the trace plots and distributions. We use `iwalk()` instead of `map()`, as `iwalk()` invisibly returns `.x` which is handy when you want to call a function (e.g., `plot()`) for its side effects rather than its returned value. I have also added `grid.text()` from `{grid}` to add the group names to each plot.
 
 ```{r}
-model_output_os_mg %>% 
+model_output_os_mg %>%
   iwalk(~ {
-    plot(.x) 
+    plot(.x)
     grid.text(.y, x = 0.50, y = 0.98)
   })
 ```
@@ -195,10 +196,9 @@ using `pp_check()` from `{bayesplot}`. We have to use `map()` from `{purrr}`
 to iterate over the list that has our model objects. 
 
 ```{r}
-model_output_os_mg %>% 
-  map(~ .x %>% 
-        pp_check()
-  )
+model_output_os_mg %>%
+  map(~ .x %>%
+    pp_check())
 ```
 
 We can see that posteriors draws ($y_{rep}$; light lines) for both groups are
@@ -220,19 +220,21 @@ For your data you will likely have category names other than `ecoregion` and `co
 
 ```{r}
 post_draws_mg <- model_output_os_mg %>%
-  map(~ .x %>% 
-        gather_draws(b_tp_Intercept) %>% 
-        mutate(
-          .variable = "tp"
-        ) %>% 
-        ungroup()
-  ) %>% 
-  bind_rows(.id = "name") %>% 
-  separate_wider_delim(name, names = c("ecoregion", "common_name"), 
-                       delim = "_", cols_remove = FALSE) %>% 
+  map(~ .x %>%
+    gather_draws(b_tp_Intercept) %>%
+    mutate(
+      .variable = "tp"
+    ) %>%
+    ungroup()) %>%
+  bind_rows(.id = "name") %>%
+  separate_wider_delim(name,
+    names = c("ecoregion", "common_name"),
+    delim = "_", cols_remove = FALSE
+  ) %>%
   mutate(
-    ecoregion = factor(ecoregion, 
-                       levels = c("Anthropogenic", "Embayment")), 
+    ecoregion = factor(ecoregion,
+      levels = c("Anthropogenic", "Embayment")
+    ),
   )
 ```
 
@@ -262,20 +264,22 @@ Again, because `model_output_os_mg` is a `list` of our model objects, we need to
 
 ```{r, message=FALSE}
 post_medians_ci <- model_output_os_mg %>%
-  map(~ .x %>% 
-        spread_draws(b_tp_Intercept) %>%
-        median_qi() %>% 
-        rename(
-          tp = b_tp_Intercept
-        ) 
-  ) %>% 
-  bind_rows(.id = "name") %>% 
-  separate_wider_delim(name, names = c("ecoregion", "common_name"), 
-                       delim = "_", cols_remove = FALSE) %>% 
+  map(~ .x %>%
+    spread_draws(b_tp_Intercept) %>%
+    median_qi() %>%
+    rename(
+      tp = b_tp_Intercept
+    )) %>%
+  bind_rows(.id = "name") %>%
+  separate_wider_delim(name,
+    names = c("ecoregion", "common_name"),
+    delim = "_", cols_remove = FALSE
+  ) %>%
   mutate(
-    ecoregion = factor(ecoregion, 
-                       levels = c("Anthropogenic", "Embayment")), 
-  ) %>% 
+    ecoregion = factor(ecoregion,
+      levels = c("Anthropogenic", "Embayment")
+    ),
+  ) %>%
   mutate_if(is.numeric, round, digits = 2)
 ```
 
@@ -296,26 +300,31 @@ Now that we have our posterior draws extracted we can plot them. For comparing t
 Let's first look at the violin plot.
 
 ```{r}
-ggplot(data = post_draws_mg, aes(x = common_name, 
-                                 y = .value, 
-                                 fill = ecoregion)) + 
-  geom_violin() + 
-  stat_summary(fun = median, geom = "point", 
-               size = 3, 
-               position = position_dodge(0.9)
-  ) + 
-  scale_fill_viridis_d(name = "Ecoregion", 
-                       option = "G", 
-                       begin = 0.35, 
-                       end = 0.75, alpha = 0.65) + 
-  theme_bw(base_size = 15) + 
+ggplot(data = post_draws_mg, aes(
+  x = common_name,
+  y = .value,
+  fill = ecoregion
+)) +
+  geom_violin() +
+  stat_summary(
+    fun = median, geom = "point",
+    size = 3,
+    position = position_dodge(0.9)
+  ) +
+  scale_fill_viridis_d(
+    name = "Ecoregion",
+    option = "G",
+    begin = 0.35,
+    end = 0.75, alpha = 0.65
+  ) +
+  theme_bw(base_size = 15) +
   theme(
     panel.grid = element_blank(),
-    legend.position = "inside", 
+    legend.position = "inside",
     legend.position.inside = c(0.85, 0.86)
   ) +
   labs(
-    x = "Species", 
+    x = "Species",
     y = "P(Trophic Position | X)"
   )
 ```
@@ -326,36 +335,41 @@ Next, we'll look at the point interval plot – but first we need to create our 
 
 ```{r}
 viridis_colours <- viridis(2,
-                           option = "G",
-                           begin = 0.35, 
-                           end = 0.75, 
-                           alpha = 0.65)
+  option = "G",
+  begin = 0.35,
+  end = 0.75,
+  alpha = 0.65
+)
 ```
 
 Now let's plot the point intervals.
 
 ```{r}
-ggplot(data = post_draws_mg, aes(x = common_name, 
-                                 y = .value, 
-                                 group = ecoregion)) + 
+ggplot(data = post_draws_mg, aes(
+  x = common_name,
+  y = .value,
+  group = ecoregion
+)) +
   stat_pointinterval(
     aes(point_fill = ecoregion),
     point_size = 4,
     interval_colour = "grey60",
     position = position_dodge(0.4),
     shape = 21,
-  ) + 
-  scale_fill_manual(aesthetics = "point_fill",
-                    values = viridis_colours,
-                    name = "Ecoregion") +
-  theme_bw(base_size = 15) + 
+  ) +
+  scale_fill_manual(
+    aesthetics = "point_fill",
+    values = viridis_colours,
+    name = "Ecoregion"
+  ) +
+  theme_bw(base_size = 15) +
   theme(
     panel.grid = element_blank(),
-    legend.position = "inside", 
+    legend.position = "inside",
     legend.position.inside = c(0.85, 0.86)
   ) +
   labs(
-    x = "Species", 
+    x = "Species",
     y = "P(Trophic Position | X)"
   )
 ```

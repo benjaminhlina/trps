@@ -20,9 +20,7 @@
 #' @export
 
 two_source_priors <- function(bp = FALSE) {
-
   if (!(is.logical(bp))) {
-
     cli::cli_abort(c(
       "`bp` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
@@ -31,7 +29,6 @@ two_source_priors <- function(bp = FALSE) {
 
 
   if (isFALSE(bp)) {
-
     #  set priors
     priors <- c(
 
@@ -41,13 +38,19 @@ two_source_priors <- function(bp = FALSE) {
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
-      brms::prior(uniform(tp_lb, tp_ub), lb = tp_lb, ub = tp_ub, resp = "d15n",
-                  nlpar = "tp"),
+      brms::prior(uniform(tp_lb, tp_ub),
+        lb = tp_lb, ub = tp_ub, resp = "d15n",
+        nlpar = "tp"
+      ),
       # Standard deviation prior
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d13c",
-                  class = "sigma", ub = sigma_ub),
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d15n",
-                  class = "sigma", ub = sigma_ub)
+      brms::prior(uniform(sigma_lb, sigma_ub),
+        resp = "d13c",
+        class = "sigma", ub = sigma_ub
+      ),
+      brms::prior(uniform(sigma_lb, sigma_ub),
+        resp = "d15n",
+        class = "sigma", ub = sigma_ub
+      )
     )
   }
 
@@ -57,28 +60,42 @@ two_source_priors <- function(bp = FALSE) {
       # alpha priors
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d13c", nlpar = "alpha"),
       brms::prior(beta(a, b), lb = 0, ub = 1, resp = "d15n", nlpar = "alpha"),
-        # Baseline 1 δ13N (c1)
-      brms::prior(normal(c1, c1_sigma), resp = "d13c",
-                  nlpar = "c1"),
+      # Baseline 1 δ13N (c1)
+      brms::prior(normal(c1, c1_sigma),
+        resp = "d13c",
+        nlpar = "c1"
+      ),
       # Baseline 2 δ13c (c2)
-      brms::prior(normal(c2, c2_sigma),  resp = "d13c",
-                  nlpar = "c2"),
+      brms::prior(normal(c2, c2_sigma),
+        resp = "d13c",
+        nlpar = "c2"
+      ),
       # Baseline 1 δ15N (n1)
-      brms::prior(normal(n1, n1_sigma), resp = "d15n",
-                  nlpar = "n1"),
+      brms::prior(normal(n1, n1_sigma),
+        resp = "d15n",
+        nlpar = "n1"
+      ),
       # Baseline 2 δ15N (n2)
-      brms::prior(normal(n2, n2_sigma),  resp = "d15n",
-                  nlpar = "n2"),
+      brms::prior(normal(n2, n2_sigma),
+        resp = "d15n",
+        nlpar = "n2"
+      ),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
-      brms::prior(uniform(tp_lb, tp_ub), lb = tp_lb, ub = tp_ub, resp = "d15n",
-                  nlpar = "tp"),
+      brms::prior(uniform(tp_lb, tp_ub),
+        lb = tp_lb, ub = tp_ub, resp = "d15n",
+        nlpar = "tp"
+      ),
       # Standard deviation prior
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d13c",
-                  class = "sigma", ub = sigma_ub),
-      brms::prior(uniform(sigma_lb, sigma_ub), resp = "d15n",
-                  class = "sigma", ub = sigma_ub)
+      brms::prior(uniform(sigma_lb, sigma_ub),
+        resp = "d13c",
+        class = "sigma", ub = sigma_ub
+      ),
+      brms::prior(uniform(sigma_lb, sigma_ub),
+        resp = "d15n",
+        class = "sigma", ub = sigma_ub
+      )
     )
   }
 
@@ -86,4 +103,3 @@ two_source_priors <- function(bp = FALSE) {
 
   return(priors)
 }
-
