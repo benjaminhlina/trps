@@ -366,7 +366,6 @@ We can see that the trace plots look "grassy" meaning the model is converging!
 ## Predictive posterior check
 
 ### $\alpha$
-
 We can check how well the model is predicting the $\alpha$ of the consumer
 using `pp_check()` from `{bayesplot}`.
 
