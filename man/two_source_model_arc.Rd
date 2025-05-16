@@ -36,16 +36,16 @@ We will use the following equations derived from
 
 \item \deqn{\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}}
 
-\item \deqn{\delta^{13}C = c_1 \times \alpha_c + c_2 \times (1 - \alpha_c)}
+\item \deqn{\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)}
 
-\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
+\item \deqn{\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 
-\item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)}
+\item \deqn{\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)}
 }
 
 \strong{For equation 1)}
 
-This equation is a carbon source mixing model with
+This equation is a carbon use model with
 \eqn{\delta^{13}C_c} is the isotopic value for consumer,
 \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2.
@@ -62,7 +62,7 @@ value calculated using \code{add_alpha()}.
 \strong{For equation 3)}
 
 This equation is a carbon source mixing model with \eqn{\delta^{13}}C being
-estimated using \code{c_1}, \code{c_2}  and \eqn{\alpha_c} calculated in equation 1.
+estimated using \code{c_1}, \code{c_2}  and \eqn{\alpha_r} calculated in equation 1.
 
 \strong{For equation 4) and 5)}
 
