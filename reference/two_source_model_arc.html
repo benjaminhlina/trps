@@ -86,11 +86,11 @@ Defaults to <code>1</code>.</p></dd>
 <ol><li><p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
   (\delta ^{13}C_1 - \delta ^{13}C_2)$$</p></li>
 <li><p>$$\alpha = \alpha_r \times (\alpha_{max} - \alpha_{min}) + \alpha_{min}$$</p></li>
-<li><p>$$\delta^{13}C = c_1 \times \alpha_c + c_2 \times (1 - \alpha_c)$$</p></li>
-<li><p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)$$</p></li>
-<li><p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_c + \lambda_2 \times (1 - \alpha_c))) + n_1 \times \alpha_c + n_2 \times (1 - \alpha_c)$$</p></li>
+<li><p>$$\delta^{13}C = c_1 \times \alpha_r + c_2 \times (1 - \alpha_r)$$</p></li>
+<li><p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)$$</p></li>
+<li><p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)$$</p></li>
 </ol><p><strong>For equation 1)</strong></p>
-<p>This equation is a carbon source mixing model with
+<p>This equation is a carbon use model with
 \(\delta^{13}C_c\) is the isotopic value for consumer,
 \(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
 \(\delta^{13}C_2\) is the mean isotopic value for baseline 2.</p>
@@ -104,7 +104,7 @@ using <code><a href="add_alpha.html">add_alpha()</a></code> and \(\alpha_{max}\)
 value calculated using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
 <p><strong>For equation 3)</strong></p>
 <p>This equation is a carbon source mixing model with \(\delta^{13}\)C being
-estimated using <code>c_1</code>, <code>c_2</code>  and \(\alpha_c\) calculated in equation 1.</p>
+estimated using <code>c_1</code>, <code>c_2</code>  and \(\alpha_r\) calculated in equation 1.</p>
 <p><strong>For equation 4) and 5)</strong></p>
 <p>\(\delta^{15}\)N are values from the consumer,
 \(n_1\) is \(\delta^{15}\)N values of baseline 1, \(n_2\) is
