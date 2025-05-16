@@ -29,7 +29,9 @@ derived from
 }
 \details{
 We will use the following equations derived from
-\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and Heuvel et al.
+\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002},
+\href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012}{Vander Zanden and Vadeboncoeur (2002)},
+and Heuvel et al.
 (2024) \doi{doi:10.1139/cjfas-2024-0028}:
 
 \enumerate{
@@ -45,10 +47,10 @@ We will use the following equations derived from
 
 \strong{For equation 1)}
 
-This equation is a carbon source mixing model with
-\eqn{\delta^{13}C_c} is the isotopic value for consumer,
-\eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1 and
-\eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2. This
+This equation is a carbon use model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012}{Vander Zanden and Vadeboncoeur (2002)} with
+\eqn{\delta^{13}C_c} as the isotopic value for consumer,
+\eqn{\delta^{13}C_1} as the mean isotopic value for baseline 1 and
+\eqn{\delta^{13}C_2} as the mean isotopic value for baseline 2. This
 equation is added to the data frame using \code{add_alpha()}.
 
 \strong{For equation 2)}
