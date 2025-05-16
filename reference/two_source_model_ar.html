@@ -86,7 +86,9 @@ Defaults to <code>1</code>.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>We will use the following equations derived from
-<a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a> and Heuvel et al.
+<a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2" class="external-link">Post 2002</a>,
+<a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012" class="external-link">Vander Zanden and Vadeboncoeur (2002)</a>,
+and Heuvel et al.
 (2024) <a href="https://doi.org/10.1139/cjfas-2024-0028" class="external-link">doi:10.1139/cjfas-2024-0028</a>
 :</p>
 <ol><li><p>$$\alpha = (\delta^{13} C_c - \delta ^{13}C_2) /
@@ -95,10 +97,10 @@ Defaults to <code>1</code>.</p></dd>
 <li><p>$$\delta^{15}N = \Delta N \times (tp - \lambda_1) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)$$</p></li>
 <li><p>$$\delta^{15}N = \Delta N \times (tp - (\lambda_1 \times \alpha_r + \lambda_2 \times (1 - \alpha_r))) + n_1 \times \alpha_r + n_2 \times (1 - \alpha_r)$$</p></li>
 </ol><p><strong>For equation 1)</strong></p>
-<p>This equation is a carbon source mixing model with
-\(\delta^{13}C_c\) is the isotopic value for consumer,
-\(\delta^{13}C_1\) is the mean isotopic value for baseline 1 and
-\(\delta^{13}C_2\) is the mean isotopic value for baseline 2. This
+<p>This equation is a carbon use model derived from <a href="https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012" class="external-link">Vander Zanden and Vadeboncoeur (2002)</a> with
+\(\delta^{13}C_c\) as the isotopic value for consumer,
+\(\delta^{13}C_1\) as the mean isotopic value for baseline 1 and
+\(\delta^{13}C_2\) as the mean isotopic value for baseline 2. This
 equation is added to the data frame using <code><a href="add_alpha.html">add_alpha()</a></code>.</p>
 <p><strong>For equation 2)</strong></p>
 <p>\(\alpha\) is being corrected using equations in
