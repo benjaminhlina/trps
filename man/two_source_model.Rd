@@ -27,7 +27,7 @@ Trophic position using a two source model derived from
 \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} using a Bayesian framework.
 }
 \details{
-We will use the following equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002}:
+We will use the following equations from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658\%282002\%29083\%5B0703\%3AUSITET\%5D2.0.CO\%3B2}{Post 2002} and  \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012}{Vander Zanden and Vadeboncoeur (2002)}:
 
 \enumerate{
 \item \deqn{\delta^{13}C_c = \alpha \times (\delta ^{13}C_1 - \delta ^{13}C_2) +
@@ -41,7 +41,7 @@ n_2 \times (1 - \alpha)}
 
 \strong{For equation 1)}
 
-where \eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
+is a carbon use model derived from \href{https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012}{Vander Zanden and Vadeboncoeur (2002)}-9658\%282002\%29083\%5B2152\%3AFAIOBA\%5D2.0.CO\%3B2),\eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
 is the ratio between baselines and consumer \eqn{\delta^{13}C},
 \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1,  and
 \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2

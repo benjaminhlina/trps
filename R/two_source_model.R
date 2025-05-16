@@ -16,7 +16,7 @@
 #'
 #' @details
 #'
-#' We will use the following equations from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2):
+#' We will use the following equations from [Post 2002](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2) and  [Vander Zanden and Vadeboncoeur (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012):
 #'
 #'  \enumerate{
 #'   \item \deqn{\delta^{13}C_c = \alpha \times (\delta ^{13}C_1 - \delta ^{13}C_2) +
@@ -30,7 +30,7 @@
 #'
 #' **For equation 1)**
 #'
-#' where \eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
+#' is a carbon use model derived from [Vander Zanden and Vadeboncoeur (2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012)-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),\eqn{\delta^{13}C_c} is the isotopic value for consumer, \eqn{\alpha}
 #' is the ratio between baselines and consumer \eqn{\delta^{13}C},
 #' \eqn{\delta^{13}C_1} is the mean isotopic value for baseline 1,  and
 #' \eqn{\delta^{13}C_2} is the mean isotopic value for baseline 2
