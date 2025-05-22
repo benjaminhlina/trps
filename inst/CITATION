@@ -38,8 +38,7 @@ bibentry(
 bibentry(
   bibtype  = "Article",
   title    = "Influence of lake volume on food web metrics in a freshwater fish assemblage across a small range of ecosystem sizes,
-  author   = c("A.M. Andersen", "P.J. Blanchfield", "C.E. Heuvel",
-  "K.S. McCann", "B.C. McMeans", "M.S. Ridgway", "A.T. Fisk"),
+  author   = c("A.M. Andersen", "P.J. Blanchfield", "C.E. Heuvel", "K.S. McCann", "B.C. McMeans", "M.S. Ridgway", "A.T. Fisk"),
   journal  = "Canadian Journal of Fisheries and Aquatic Sciences",
   year     = "2025",
   volume   = "82",
