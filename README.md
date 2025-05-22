@@ -135,6 +135,13 @@ To cite this package please cite the following publications
   Fisheries and Aquatic Sciences 82:1-16. doi:
   [10.1139/cjfas-2024-0028](https://doi.org/10.1139/cjfas-2024-0028).
 
+- Andersen, A.M., P.J. Blanchfield, C.E. Heuvel, K.S. McCann, B.C.
+  McMeans, M.S. Ridgway, and A.T. Fisk. 2025. Influence of lake volume
+  on food web metrics in a freshwater fish assemblage across a small
+  range of ecosystem sizes. Canadian Journal of Fisheries and Aquatic
+  Sciences 82: 1–14. doi:
+  [10.1139/cjfas-2024-0226](https://doi.org/10.1139/cjfas-2024-0226)
+
 - Hlina B.L. 2025. trps: Bayesian Trophic Position Models using ‘Stan’.
   R package version 0.1.0 (‘one-skate’).
   <https://benjaminhlina.github.io/trps/>
