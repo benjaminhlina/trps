@@ -2,26 +2,21 @@
 % Please edit documentation in R/utils.R
 \name{error_functions}
 \alias{error_functions}
-\alias{check_bp}
 \alias{check_column_names}
 \alias{check_data_frame}
 \alias{check_logical}
-\alias{check_prior_params}
+\alias{check_numerical}
 \title{Error functions}
 \usage{
-check_bp(bp)
-
 check_column_names(x)
 
 check_data_frame(x)
 
 check_logical(x)
 
-check_prior_params(x)
+check_numerical(x)
 }
 \arguments{
-\item{bp}{value of \code{TRUE} or \code{FALSE} or it errors.}
-
 \item{x}{prior to check}
 }
 \description{
