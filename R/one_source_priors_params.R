@@ -55,120 +55,35 @@ one_source_priors_params <- function(
     sigma_lb = NULL,
     sigma_ub = NULL,
     bp = FALSE) {
-  if (!(is.logical(bp))) {
-    cli::cli_abort(c(
-      "`bp` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
+  check_prior_params
+  check_logical(bp)
 
-  # ----- n1 -----
+# ---- defualt values
+  defaults <- list(
+  n1 = 9,
+  n1_sigma = 1,
+  dn = 3.4,
+  dn_sigma = 0.25,
+  tp_lb = 2,
+  tp_ub = 10,
+  sigma_lb = 0,
+  sigma_ub = 10
+  )
+  # nulls
+  supplied <- list(
+    n1 = n1,
+    n1_sigma = n1_sigma,
+    dn = dn,
+    dn_sigma = dn_sigma,
+    tp_lb = tp_lb,
+    tp_ub = tp_ub,
+    sigma_lb = sigma_lb,
+    sigma_ub = sigma_ub
+  )
 
-  # set n1 to 9
-  if (is.null(n1)) {
-    n1 <- 9
-  }
+  lapply(supplied, check_numerical)
 
-  # create error message for n1 priros
-  if (!is.numeric(n1)) {
-    cli::cli_abort(c(
-      "`n1` argument must be a numerical value.",
-      "i" = "Please provide a numerical value as a piror."
-    ))
-  }
-
-  # set n1_sigma to 1
-  if (is.null(n1_sigma)) {
-    n1_sigma <- 1
-  }
-  # create error message for n1 priors
-  if (!is.numeric(n1_sigma)) {
-    cli::cli_abort(c(
-      "`n1_sigma` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-  # create error message for dn priros
-
-
-  if (is.null(dn)) {
-    dn <- 3.4
-  }
-
-  if (!is.numeric(dn)) {
-    cli::cli_abort(c(
-      "`dn` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a pirorr"
-    ))
-  }
-
-  # create error message for dn priors
-  if (is.null(dn_sigma)) {
-    dn_sigma <- 0.25
-  }
-
-  if (!is.numeric(dn_sigma)) {
-    cli::cli_abort(c(
-      "`dn_sigma` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
-  # ----- tp -----
-
-  # set piror for tp
-  if (is.null(tp_lb)) {
-    tp_lb <- 2
-  }
-
-  # create error message for tp priros
-
-  if (!is.numeric(tp_lb)) {
-    cli::cli_abort(c(
-      "`tp_lb` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
-  if (is.null(tp_ub)) {
-    tp_ub <- 10
-  }
-
-  # create error message for n1 priors
-  if (!is.numeric(tp_ub)) {
-    cli::cli_abort(c(
-      "`tp_ub` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-  # ----- sigma -----
-
-  # set piror for tp
-  if (is.null(sigma_lb)) {
-    sigma_lb <- 0
-  }
-
-  # create error message for tp priros
-
-  if (!is.numeric(sigma_lb)) {
-    cli::cli_abort(c(
-      "`sigma_lb` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
-  if (is.null(sigma_ub)) {
-    sigma_ub <- 10
-  }
-
-  # create error message for n1 priors
-  if (!is.numeric(sigma_ub)) {
-    cli::cli_abort(c(
-      "`sigma_ub` argument must be a numerical value",
-      "i" = "Please provide a numerical value as a piror"
-    ))
-  }
-
+  params <- Map(function(x, d) if (is.null(x)) d else x, supplied, defaults)
 
   if (isTRUE(bp)) {
     priors_params <- brms::stanvar(n1, name = "n1") +
