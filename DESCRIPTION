@@ -1,7 +1,6 @@
 Package: trps
 Type: Package
-Title: Bayesian Trophic Position Models using 'stan'
-Version: 0.1.0
+Title: Bayesian Trophic Position Models using 'Stan'
 Version: 0.1.1
 Authors@R: c(
     person(
