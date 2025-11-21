@@ -8,9 +8,9 @@
 \alias{check_numerical}
 \title{Error functions}
 \usage{
-check_column_names(x)
+check_column_names(x, arg_name = NULL)
 
-check_data_frame(x)
+check_data_frame(x, arg_name = NULL)
 
 check_logical(x, arg_name = NULL)
 

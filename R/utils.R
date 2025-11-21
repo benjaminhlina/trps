@@ -1,5 +1,6 @@
 #' Error functions
 #' @param x prior to check
+#' @param arg_name the name of the argument to check.
 #'
 #' @name error_functions
 #' @keywords internal
@@ -17,14 +18,14 @@ check_column_names <- function(x,
     mv <- setdiff(rv, names(x))
 
     cli::cli_abort(c(
-      "The `{x}` is missing: {mv}",
+      "`{arg_name}` is missing: {mv}",
       "i" = "Please provide {mv}"
     ))
   }
 }
 
 #' @param x prior to check
-#'
+#' @param arg_name the name of the argument to check.
 #' @name error_functions
 #' @keywords internal
 
