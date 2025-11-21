@@ -4,7 +4,13 @@
 #' @name error_functions
 #' @keywords internal
 
-check_column_names <- function(x) {
+check_column_names <- function(x,
+                               arg_name = NULL) {
+
+  if (is.null(arg_name)) {
+    arg_name <- rlang::as_label(rlang::enexpr(x))
+  }
+
   rv <- c("d13c", "c1", "c2")
 
   if (!all(rv %in% names(x))) {
@@ -24,8 +30,16 @@ check_column_names <- function(x) {
 
 check_data_frame <- function(x) {
   if (!(inherits(data, c("data.frame", "tibble", "data.table")))) {
+check_data_frame <- function(x,
+                             arg_name = NULL) {
+
+  if (is.null(arg_name)) {
+    arg_name <- rlang::as_label(rlang::enexpr(x))
+  }
+
+  if (!(inherits(x, c("data.frame", "tibble", "data.table")))) {
     cli::cli_abort(c(
-      "`{x}` must be a data.frame, tibble, or data.table",
+      "`{arg_name}` must be a data.frame, tibble, or data.table",
       "i" = "Please provide data.frame"
     ))
   }
