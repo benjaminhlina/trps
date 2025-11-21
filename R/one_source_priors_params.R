@@ -55,19 +55,19 @@ one_source_priors_params <- function(
     sigma_lb = NULL,
     sigma_ub = NULL,
     bp = FALSE) {
-  check_prior_params
+
   check_logical(bp)
 
-# ---- defualt values
+  # ---- defualt values
   defaults <- list(
-  n1 = 9,
-  n1_sigma = 1,
-  dn = 3.4,
-  dn_sigma = 0.25,
-  tp_lb = 2,
-  tp_ub = 10,
-  sigma_lb = 0,
-  sigma_ub = 10
+    n1 = 9,
+    n1_sigma = 1,
+    dn = 3.4,
+    dn_sigma = 0.25,
+    tp_lb = 2,
+    tp_ub = 10,
+    sigma_lb = 0,
+    sigma_ub = 10
   )
   # nulls
   supplied <- list(
@@ -81,34 +81,43 @@ one_source_priors_params <- function(
     sigma_ub = sigma_ub
   )
 
-  lapply(supplied, check_numerical)
 
   params <- Map(function(x, d) if (is.null(x)) d else x, supplied, defaults)
 
-  if (isTRUE(bp)) {
-    priors_params <- brms::stanvar(n1, name = "n1") +
-      brms::stanvar(n1_sigma, "n1_sigma") +
-      brms::stanvar(dn, "dn") +
-      brms::stanvar(dn_sigma, "dn_sigma") +
-      brms::stanvar(tp_lb, "tp_lb") +
-      brms::stanvar(tp_ub, "tp_ub") +
-      brms::stanvar(sigma_lb, "sigma_lb") +
-      brms::stanvar(sigma_ub, "sigma_ub")
+  lapply(names(params), function(nm) {
+    check_numerical(params[[nm]], arg_name = nm)
+  })
+
+  params_env <- list2env(params, parent = environment())
+  priors_params <- with(params_env, {
+    if (isTRUE(bp)) {
+      brms::stanvar(n1, name = "n1") +
+        brms::stanvar(n1_sigma, "n1_sigma") +
+        brms::stanvar(dn, "dn") +
+        brms::stanvar(dn_sigma, "dn_sigma") +
+        brms::stanvar(tp_lb, "tp_lb") +
+        brms::stanvar(tp_ub, "tp_ub") +
+        brms::stanvar(sigma_lb, "sigma_lb") +
+        brms::stanvar(sigma_ub, "sigma_ub")
+    }
   }
+  )
 
 
   # ----- dn -----
+  priors_params <- with(params_env, {
+    if (isFALSE(bp)) {
+      # ----- set prirors -----
 
-  if (isFALSE(bp)) {
-    # ----- set prirors -----
-
-    priors_params <- brms::stanvar(dn, "dn") +
-      brms::stanvar(dn_sigma, "dn_sigma") +
-      brms::stanvar(tp_lb, "tp_lb") +
-      brms::stanvar(tp_ub, "tp_ub") +
-      brms::stanvar(sigma_lb, "sigma_lb") +
-      brms::stanvar(sigma_ub, "sigma_ub")
+      brms::stanvar(dn, "dn") +
+        brms::stanvar(dn_sigma, "dn_sigma") +
+        brms::stanvar(tp_lb, "tp_lb") +
+        brms::stanvar(tp_ub, "tp_ub") +
+        brms::stanvar(sigma_lb, "sigma_lb") +
+        brms::stanvar(sigma_ub, "sigma_ub")
+    }
   }
+  )
 
   return(priors_params)
 }
