@@ -44,6 +44,27 @@ check_data_frame <- function(x,
   }
 }
 
+
+#' @param x prior to check
+#' @param arg_name the name of the argument to check.
+#' @name error_functions
+#' @keywords internal
+check_lambda <- function(x,
+                         arg_name = NULL) {
+
+  if (is.null(arg_name)) {
+    arg_name <- rlang::as_label(rlang::enexpr(x))
+  }
+
+  if (!(is.numeric(x)) || !(x %in% c(1, 2))) {
+    cli::cli_abort(c(
+      "`{arg_name}` argument must be a numeric value and either `1` or `2`",
+      "i" = "Please provide `1` or `2`"
+    ))
+  }
+}
+
+
 #' @param x prior to check
 #' @param arg_name the name of the argument to check.
 #'
