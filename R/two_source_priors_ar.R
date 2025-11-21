@@ -21,7 +21,7 @@
 #' @export
 
 two_source_priors_ar <- function(bp = FALSE) {
-  check_logical(bp = bp)
+  check_logical(bp)
 
 
   if (isFALSE(bp)) {
