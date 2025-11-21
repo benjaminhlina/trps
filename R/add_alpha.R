@@ -32,7 +32,8 @@
 
 add_alpha <- function(
     data,
-    abs = FALSE) {
+    abs = FALSE
+) {
 
   check_data_frame(data)
   check_column_names(data)
