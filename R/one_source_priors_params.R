@@ -89,8 +89,11 @@ one_source_priors_params <- function(
   })
 
   params_env <- list2env(params, parent = environment())
-  priors_params <- with(params_env, {
-    if (isTRUE(bp)) {
+
+  # ---- set prior
+  priors_params <- if (isTRUE(bp)) {
+    with(params_env, {
+
       brms::stanvar(n1, name = "n1") +
         brms::stanvar(n1_sigma, "n1_sigma") +
         brms::stanvar(dn, "dn") +
@@ -100,15 +103,10 @@ one_source_priors_params <- function(
         brms::stanvar(sigma_lb, "sigma_lb") +
         brms::stanvar(sigma_ub, "sigma_ub")
     }
-  }
-  )
+    )
+  } else {
 
-
-  # ----- dn -----
-  priors_params <- with(params_env, {
-    if (isFALSE(bp)) {
-      # ----- set prirors -----
-
+    with(params_env, {
       brms::stanvar(dn, "dn") +
         brms::stanvar(dn_sigma, "dn_sigma") +
         brms::stanvar(tp_lb, "tp_lb") +
@@ -116,8 +114,9 @@ one_source_priors_params <- function(
         brms::stanvar(sigma_lb, "sigma_lb") +
         brms::stanvar(sigma_ub, "sigma_ub")
     }
+    )
   }
-  )
+
 
   return(priors_params)
 }
