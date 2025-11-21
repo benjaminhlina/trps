@@ -28,8 +28,6 @@ check_column_names <- function(x,
 #' @name error_functions
 #' @keywords internal
 
-check_data_frame <- function(x) {
-  if (!(inherits(data, c("data.frame", "tibble", "data.table")))) {
 check_data_frame <- function(x,
                              arg_name = NULL) {
 
