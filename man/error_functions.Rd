@@ -12,12 +12,15 @@ check_column_names(x)
 
 check_data_frame(x)
 
-check_logical(x)
+check_logical(x, arg_name = NULL)
 
-check_numerical(x)
+check_numerical(x, arg_name = NULL)
 }
 \arguments{
-\item{x}{prior to check}
+\item{x}{prior to check
+@param arg_name the name of the argument to check.}
+
+\item{arg_name}{the name of the argument to check.}
 }
 \description{
 Error functions
