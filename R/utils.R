@@ -1,19 +1,4 @@
 #' Error functions
-#'
-#' @param bp value of `TRUE` or `FALSE` or it errors.
-#'
-#' @name error_functions
-#' @keywords internal
-
-check_bp <- function(bp) {
-  if (!(is.logical(bp))) {
-    cli::cli_abort(c(
-      "`bp` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
-}
-
 #' @param x prior to check
 #'
 #' @name error_functions
