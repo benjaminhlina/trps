@@ -48,12 +48,12 @@ check_logical <- function(x) {
 #' @param x prior to check
 #'
 #' @name error_functions
-check_prior_params <- function(x) {
+check_numerical <- function(x) {
 
   if (!is.numeric(x) || length(x) != 1) {
     cli::cli_abort(c(
       "`{x}` argument must be a numerical value.",
-      "i" = "Please provide a numerical value as a piror."
+      "i" = "Please provide a numerical value"
     ))
   }
 }
