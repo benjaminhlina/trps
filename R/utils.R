@@ -32,31 +32,44 @@ check_data_frame <- function(x) {
 }
 
 #' @param x prior to check
+#' @param arg_name the name of the argument to check.
 #'
 #' @name error_functions
 #' @keywords internal
 
-check_logical <- function(x) {
+check_logical <- function(x, arg_name = NULL) {
+
+  if (is.null(arg_name)) {
+    arg_name <- rlang::as_label(rlang::enexpr(x))
+  }
+
   if (!(is.logical(x))) {
     cli::cli_abort(c(
-      "`{x}` argument must be a logical value",
+      "`{arg_name}` argument must be a logical value",
       "i" = "Please provide TRUE or FALSE"
     ))
   }
 }
 
 #' @param x prior to check
+#'  @param arg_name the name of the argument to check.
 #'
 #' @name error_functions
-check_numerical <- function(x) {
+check_numerical <- function(x, arg_name = NULL) {
+
+  if (is.null(arg_name)) {
+    arg_name <- rlang::as_label(rlang::enexpr(x))
+  }
 
   if (!is.numeric(x) || length(x) != 1) {
     cli::cli_abort(c(
-      "`{x}` argument must be a numerical value.",
+      "`{arg_name}` argument must be a numerical value.",
       "i" = "Please provide a numerical value"
     ))
   }
 }
+
+
 
 
 # args <- list(...)
