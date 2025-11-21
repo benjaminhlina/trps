@@ -4,7 +4,7 @@
 \name{trps-package}
 \alias{trps}
 \alias{trps-package}
-\title{trps: Bayesian Trophic Position Models using 'stan'}
+\title{trps: Bayesian Trophic Position Models using 'Stan'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
