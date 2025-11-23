@@ -23,7 +23,8 @@ Imports:
     brms,
     cli,
     dplyr,
-    lifecycle
+    lifecycle,
+    rlang
 Suggests: 
     bayesplot,
     ggdist,
