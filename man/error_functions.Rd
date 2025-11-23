@@ -4,6 +4,7 @@
 \alias{error_functions}
 \alias{check_column_names}
 \alias{check_data_frame}
+\alias{check_lambda}
 \alias{check_logical}
 \alias{check_numerical}
 \title{Error functions}
@@ -11,6 +12,8 @@
 check_column_names(x, arg_name = NULL)
 
 check_data_frame(x, arg_name = NULL)
+
+check_lambda(x, arg_name = NULL)
 
 check_logical(x, arg_name = NULL)
 
