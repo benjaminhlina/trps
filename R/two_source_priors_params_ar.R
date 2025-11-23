@@ -123,20 +123,7 @@ two_source_priors_params_ar <- function(
   check_logical(bp)
 
   # ----- set defaults -----
-  defaults <- list(
-    a = 1,
-    b = 1,
-    n1 = 8.0,
-    n1_sigma = 1,
-    n2 = 9.5,
-    n2_sigma = 1,
-    dn = 3.4,
-    dn_sigma = 0.25,
-    tp_lb = 2,
-    tp_ub = 10,
-    sigma_lb = 0,
-    sigma_ub = 10
-  )
+  defaults <- default_priors("two_source_ar")
 
 
   # ---- suplied -----

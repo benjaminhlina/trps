@@ -59,17 +59,10 @@ one_source_priors_params <- function(
   check_logical(bp)
 
   # ---- defualt values
-  defaults <- list(
-    n1 = 9,
-    n1_sigma = 1,
-    dn = 3.4,
-    dn_sigma = 0.25,
-    tp_lb = 2,
-    tp_ub = 10,
-    sigma_lb = 0,
-    sigma_ub = 10
-  )
-  # nulls
+
+  defaults <- default_priors("one_source")
+
+  # supplied <- supplied_priors("one_source")
   supplied <- list(
     n1 = n1,
     n1_sigma = n1_sigma,
