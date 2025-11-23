@@ -106,22 +106,4 @@ check_numerical <- function(x, arg_name = NULL) {
 
 
 
-# args <- list(...)
-#
-# for (arg_name in names(args)) {
-#   value <- args[[arg_name]]
-#
-#   # Skip NULLs if allowed
-#   if (.allow_null && is.null(value)) {
-#     next
-#   }
-#
-#   # Check numeric scalar
-#   if (!is.numeric(value) || length(value) != 1) {
-#     cli::cli_abort(c(
-#       "`{arg_name}` must be a numeric value of length 1.",
-#       "i" = "Please provide a numeric scalar as a prior."
-#     ))
-#   }
-# }
 
