@@ -56,7 +56,7 @@ from above, $\alpha_{min}$ is the minimum value of $\alpha$ calculated above, an
 
 $$
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
-[(\delta^{15}N_{b1} \times \alpha_r) - (\delta^{15}N_{b1} \times (1 - \alpha_r))]}{\Delta N}
+[(\delta^{15}N_{b1} \times \alpha_r) - (\delta^{15}N_{b2} \times (1 - \alpha_r))]}{\Delta N}
 $$
 
 
