@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">trps</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -442,7 +442,7 @@ frameworks and your study system and species.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_output_os</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
-<span><span class="co">#&gt;   Links: mu = identity; sigma = identity </span></span>
+<span><span class="co">#&gt;   Links: mu = identity </span></span>
 <span><span class="co">#&gt; Formula: d15n ~ n1 + dn * (tp - l1) </span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
@@ -476,7 +476,7 @@ and fitting accordingly.</p>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">model_output_os</span><span class="op">)</span></span></code></pre></div>
-<p><img src="trps_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<p><img src="trps_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -491,7 +491,7 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_os</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="trps_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
+<p><img src="trps_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
@@ -507,7 +507,7 @@ dark line).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_output_os</span></span>
 <span><span class="co">#&gt;  Family: gaussian </span></span>
-<span><span class="co">#&gt;   Links: mu = identity; sigma = identity </span></span>
+<span><span class="co">#&gt;   Links: mu = identity </span></span>
 <span><span class="co">#&gt; Formula: d15n ~ n1 + dn * (tp - l1) </span></span>
 <span><span class="co">#&gt;          dn ~ 1</span></span>
 <span><span class="co">#&gt;          tp ~ 1</span></span>
@@ -652,7 +652,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="trps_files/figure-html/unnamed-chunk-19-1.png" width="700"></p>
+<p><img src="trps_files/figure-html/unnamed-chunk-19-1.png" class="r-plt" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
@@ -673,7 +673,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Trophic Position | X)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="trps_files/figure-html/unnamed-chunk-20-1.png" width="700"></p>
+<p><img src="trps_files/figure-html/unnamed-chunk-20-1.png" class="r-plt" width="700"></p>
 <p>Congratulations we have estimated the trophic position for Lake
 Trout!</p>
 <p>I’ll demonstrate in another vignette (i.e, <a href="https://benjaminhlina.github.io/trps/articles/article/estimate_trophic_position_one_source_multiple_groups.html">one
@@ -701,7 +701,7 @@ source - multiple groups</a> can be applied to the two source model.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

@@ -1,0 +1,781 @@
+# Estimate Trophic Position - Two Source Model - αᵣ
+
+## Our Objectives
+
+The purpose of this vignette is to learn how to estimate trophic
+position of a species using stable isotope data ($\delta^{13}C$ and
+$\delta^{15}N$). We can estimate trophic position using a two source
+model that is based on equations from [Post
+(2002)](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/0012-9658%282002%29083%5B0703%3AUSITET%5D2.0.CO%3B2),
+[Vander Zaden and Vadeboncoeur
+(2002)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2152%3AFAIOBA%5D2.0.CO%3B2),
+and [Heuvel et al. (2024)](https://doi.org/10.1139/cjfas-2024-0028)
+
+## Trophic Position Model
+
+The equations for a two source model consists of the following:
+
+$$\alpha = \frac{\left( \delta^{13}C_{c} - \delta^{13}C_{b2} \right)}{\left( \delta^{13}C_{b1} - \delta^{13}C_{b2} \right)}$$
+
+$\delta^{15}C_{c}$ is the isotope value of the consumer,
+$\delta^{15}C_{b1}$ is the mean isotope value of the first baseline,
+$\delta^{15}C_{b2}$ is the mean isotope value of the second baseline.
+For aquatic ecosystems, often $\delta^{15}C_{b1}$ is from a benthic
+source and $\delta^{15}C_{b2}$ is from a pelagic source. Lastly,
+$\alpha$ is the proportion of carbon that comes from each source and
+should be bound by 0 and 1. We will correct (i.e., scale) these values
+using an equation in [Heuvel et al.,
+(2024)](https://doi.org/10.1139/cjfas-2024-0028).
+
+$$\alpha_{r} = \frac{\left( \alpha - \alpha_{min} \right)}{\left( \alpha_{max} - \alpha_{min} \right)}$$
+
+where $\alpha_{r}$ is the corrected (i.e., scaled) $\alpha$, $\alpha$ is
+derived from above, $\alpha_{min}$ is the minimum value of $\alpha$
+calculated above, and $\alpha_{max}$ is the maximum value of $\alpha$
+calculated above, $\alpha_{r}$ is then used in the trophic position
+equation below.
+
+$$\text{Trophic Position} = \lambda + \frac{(\delta^{15}N_{c} - \left\lbrack \left( \delta^{15}N_{b1} \times \alpha_{r} \right) + \left( \delta^{15}N_{b2} \times \left( 1 - \alpha_{r} \right) \right) \right\rbrack}{\Delta N}$$
+
+where $\lambda$ is the trophic position of the baseline (e.g., `2`),
+$\delta^{15}N_{c}$ is the $\delta^{15}N$ of the consumer,
+$\delta^{15}N_{b1}$ is the mean $\delta^{15}N$ of the first baseline
+(e.g., benthic), $\delta^{15}N_{b2}$ is the mean $\delta^{15}N$ of the
+second baseline (e.g., pelagic), $\alpha_{r}$ is estimated above, and
+$\Delta N$ is the trophic enrichment factor (e.g., 3.4).
+
+There is a variation of this model that uses a mixing model to consider
+different trophic position for each baseline ($\lambda$). The equation
+replaces $\lambda$ with the following:
+
+$$\lambda = \left( \lambda_{1} \times \alpha_{r} \right) - \left( \lambda_{2} \times \left( 1 - \alpha_{r} \right) \right)$$
+
+Where $\lambda_{1}$ is the trophic level of the first baseline (e.g.,
+2), $\lambda_{2}$ is the trophic level of the second baseline (e.g.,
+2.5), and $\alpha_{r}$ is from above. Only use this replacement equation
+for $\lambda$ if you have baselines from two different trophic levels.
+
+### Bayesian model
+
+To use these model with a Bayesian framework, we need to calculate
+$\alpha$, $\alpha_{min}$, and $\alpha_{max}$ which can be done using
+[`add_alpha()`](https://benjaminhlina.github.io/trps/reference/add_alpha.md).
+We then can use the rearrange equation for $\alpha_{r}$:
+
+$$\alpha = \alpha_{r} \times \left( \alpha_{max} - \alpha_{min} \right) + \alpha_{min}$$
+
+Estimates of $\alpha_{r}$ are then used in the rearranged equation for
+trophic position below.
+
+$$\delta^{15}N_{c} = \Delta N \times \left( \text{Trophic Position} - \lambda \right) + \delta^{15}N_{b1} \times \alpha_{r} + \delta^{15}N_{b2} \times \left( 1 - \alpha_{r} \right)$$
+
+The function
+[`two_source_model()`](https://benjaminhlina.github.io/trps/reference/two_source_model.md)
+uses both of these rearranged equation. If using baselines from two
+different trophic levels, you can set the argument `lambda` to `2` to
+replace $\lambda$ (`l1`) with the mixing model for $\lambda$ above.
+
+## Vignette structure
+
+First we need to organize the data prior to running the model. To do
+this work we will use [{dplyr}](https://dplyr.tidyverse.org/) and
+[{tidyr}](https://tidyr.tidyverse.org/) but we could also use
+[{data.table}](https://rdatatable.gitlab.io/data.table/).
+
+When running the model we will use
+[{trps}](https://benjaminhlina.github.io/trps/) and
+[{brms}](https://paulbuerkner.com/brms/).
+
+Once we have run the model we will use
+[{bayesplot}](https://mc-stan.org/bayesplot/) to assess models and then
+extract posterior draws using
+[{tidybayes}](http://mjskay.github.io/tidybayes/). Posterior
+distributions will be plotted using
+[{ggplot2}](https://ggplot2.tidyverse.org/) and
+[{ggdist}](https://mjskay.github.io/ggdist/) with colours provided by
+[{viridis}](https://sjmgarnier.github.io/viridis/).
+
+## Load packages
+
+First we load all the packages needed to carry out the analysis.
+
+``` r
+{
+  library(bayesplot)
+  library(brms)
+  library(dplyr)
+  library(ggplot2)
+  library(ggdist)
+  library(grid)
+  library(tidybayes)
+  library(tidyr)
+  library(trps)
+  library(viridis)
+}
+```
+
+## Assess data
+
+In [{trps}](https://benjaminhlina.github.io/trps/) we have several data
+sets, they include stable isotope data ($\delta^{13}C$ and
+$\delta^{15}N$) for a consumer, lake trout (*Salvelinus namaycush*), a
+benthic baseline, amphipods, and a pelagic baseline, dreissenids, for an
+ecoregion in Lake Ontario.
+
+### Consumer data
+
+We check out each data set with the first being the consumer.
+
+``` r
+consumer_iso
+#> # A tibble: 30 × 4
+#>    common_name ecoregion  d13c  d15n
+#>    <fct>       <fct>     <dbl> <dbl>
+#>  1 Lake Trout  Embayment -22.9  15.9
+#>  2 Lake Trout  Embayment -22.5  16.2
+#>  3 Lake Trout  Embayment -22.8  17.0
+#>  4 Lake Trout  Embayment -22.3  16.6
+#>  5 Lake Trout  Embayment -22.5  16.6
+#>  6 Lake Trout  Embayment -22.3  16.6
+#>  7 Lake Trout  Embayment -22.3  16.6
+#>  8 Lake Trout  Embayment -22.5  16.2
+#>  9 Lake Trout  Embayment -22.9  16.4
+#> 10 Lake Trout  Embayment -22.3  16.3
+#> # ℹ 20 more rows
+```
+
+We can see that this data set contains the `common_name` of the
+consumer, the `ecoregion` samples were collected from, and
+$\delta^{13}C$ (`d13c`) and $\delta^{15}N$ (`d15n`).
+
+### Baseline data
+
+Next we check out the benthic baseline data set.
+
+``` r
+baseline_1_iso
+#> # A tibble: 36 × 4
+#>    common_name ecoregion     d13c_b1 d15n_b1
+#>    <fct>       <fct>           <dbl>   <dbl>
+#>  1 Amphipoda   Anthropogenic   -20.3    8.85
+#>  2 Amphipoda   Anthropogenic   -20.1    8.77
+#>  3 Amphipoda   Anthropogenic   -20.3    8.85
+#>  4 Amphipoda   Anthropogenic   -20.1    8.77
+#>  5 Amphipoda   Anthropogenic   -20.5    8.38
+#>  6 Amphipoda   Anthropogenic   -20.1    8.34
+#>  7 Amphipoda   Anthropogenic   -19.7    8.04
+#>  8 Amphipoda   Anthropogenic   -20.1    8.56
+#>  9 Amphipoda   Anthropogenic   -18.7    8.95
+#> 10 Amphipoda   Anthropogenic   -20.8    9.28
+#> # ℹ 26 more rows
+```
+
+We can see that this data set contains the `common_name` of the
+baseline, the `ecoregion` samples were collected from, and
+$\delta^{13}C$ (`d13c_b1`) and $\delta^{15}N$ (`d15n_b1`).
+
+Next we check out the pelagic baseline data set.
+
+``` r
+baseline_2_iso
+#> # A tibble: 12 × 4
+#>    common_name ecoregion d13c_b2 d15n_b2
+#>    <fct>       <fct>       <dbl>   <dbl>
+#>  1 Dreissenids Embayment   -23.4    7.81
+#>  2 Dreissenids Embayment   -22.9    7.61
+#>  3 Dreissenids Embayment   -22.7    7.32
+#>  4 Dreissenids Embayment   -23.4    7.81
+#>  5 Dreissenids Embayment   -22.9    7.61
+#>  6 Dreissenids Embayment   -22.7    7.32
+#>  7 Dreissenids Embayment   -23.4    7.81
+#>  8 Dreissenids Embayment   -22.9    7.61
+#>  9 Dreissenids Embayment   -22.7    7.32
+#> 10 Dreissenids Embayment   -26.9   10.2 
+#> 11 Dreissenids Embayment   -23.5    7.68
+#> 12 Dreissenids Embayment   -23.7    7.64
+```
+
+We can see that this data set contains the `common_name` of the
+baseline, the `ecoregion` samples were collected from, and
+$\delta^{13}C$ (`d13c_b2`) and $\delta^{15}N$ (`d15n_b2`).
+
+## Organizing data
+
+Now that we understand the data we need to combine both data sets to
+estimate trophic position for our consumer.
+
+To do this we first need to make an `id` column in each data set, which
+will allow us to join them together. We first
+[`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) the
+data by `ecoregion` and `common_name`. Next we
+[`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) the
+same variables, and add `id` for each grouping using
+[`row_number()`](https://dplyr.tidyverse.org/reference/row_number.html).
+Always
+[`ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html) the
+`data.frame` after using
+[`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+Lastly, we use
+[`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)
+to rearrange the order of the columns.
+
+### Consumer data
+
+Let’s first add `id` to `consumer_iso` data frame.
+
+``` r
+con_tsar <- consumer_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
+  mutate(
+    id = row_number()
+  ) %>%
+  ungroup() %>%
+  dplyr::select(id, common_name:d15n)
+```
+
+You will notice that I have renamed this object to `consumer_iso_2` this
+is because we are modifying `consumer_iso` and should make a new object.
+I have continued with the same renaming nomenclature for objects below.
+
+### Baseline 1 data
+
+Next let’s add `id` to `baseline_1_iso` data frame. For joining purposes
+we are going to drop `common_name` from this data frame.
+
+``` r
+b1_tsar <- baseline_1_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
+  mutate(
+    id = row_number()
+  ) %>%
+  ungroup() %>%
+  dplyr::select(id, ecoregion:d15n_b1)
+```
+
+### Baseline 2 data
+
+Next let’s add `id` to `baseline_2_iso` data frame. For joining purposes
+we are going to drop `common_name` from this data frame.
+
+``` r
+b2_tsar <- baseline_2_iso %>%
+  arrange(ecoregion, common_name) %>%
+  group_by(ecoregion, common_name) %>%
+  mutate(
+    id = row_number()
+  ) %>%
+  ungroup() %>%
+  dplyr::select(id, ecoregion:d15n_b2)
+```
+
+### Joining isotope data
+
+Now that we have the consumer and baseline data sets in a consistent
+format we can join them by `"id"` and `"ecoregion"` using
+[`left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
+from [{dplyr}](https://dplyr.tidyverse.org/).
+
+``` r
+combined_iso_tsar <- con_tsar %>%
+  left_join(b1_tsar, by = c("id", "ecoregion")) %>%
+  left_join(b2_tsar, by = c("id", "ecoregion"))
+```
+
+We can see that we have successfully combined our consumer and baseline
+data. We need to do one last thing prior to analyzing the data, and that
+is calculate the mean $\delta^{13}C$ (`c1` and `c2`) and $\delta^{15}N$
+(`n1` and `n2`) for the baselines and add in the constant $\lambda$
+(`l1`) to our data frame. We do this by using `groub_by()` to group the
+data by our two groups, then using
+[`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) and
+[`mean()`](https://rdrr.io/r/base/mean.html) to calculate the mean
+values.
+
+Important note, to run the model successfully, columns need to be named
+`d13c`, `c1`, `c2`, `d15n`, `n1`, `n2`, and `l1` with `l2` needed if
+using two $\lambda s$.
+
+We will also
+[`add_alpha()`](https://benjaminhlina.github.io/trps/reference/add_alpha.md)
+to the data frame.
+
+``` r
+combined_iso_tsar_1 <- combined_iso_tsar %>%
+  group_by(ecoregion, common_name) %>%
+  mutate(
+    c1 = mean(d13c_b1, na.rm = TRUE),
+    n1 = mean(d15n_b1, na.rm = TRUE),
+    c2 = mean(d13c_b2, na.rm = TRUE),
+    n2 = mean(d15n_b2, na.rm = TRUE),
+    l1 = 2
+  ) %>%
+  ungroup() %>%
+  add_alpha()
+```
+
+Let’s view our combined data.
+
+``` r
+combined_iso_tsar_1
+#> # A tibble: 30 × 17
+#>       id common_name ecoregion  d13c  d15n d13c_b1 d15n_b1 d13c_b2 d15n_b2    c1
+#>    <int> <fct>       <fct>     <dbl> <dbl>   <dbl>   <dbl>   <dbl>   <dbl> <dbl>
+#>  1     1 Lake Trout  Embayment -22.9  15.9   -26.2    8.44   -23.4    7.81 -24.6
+#>  2     2 Lake Trout  Embayment -22.5  16.2   -26.6    8.77   -22.9    7.61 -24.6
+#>  3     3 Lake Trout  Embayment -22.8  17.0   -26.0    8.05   -22.7    7.32 -24.6
+#>  4     4 Lake Trout  Embayment -22.3  16.6   -22.1   13.6    -23.4    7.81 -24.6
+#>  5     5 Lake Trout  Embayment -22.5  16.6   -24.3    6.99   -22.9    7.61 -24.6
+#>  6     6 Lake Trout  Embayment -22.3  16.6   -22.1    7.95   -22.7    7.32 -24.6
+#>  7     7 Lake Trout  Embayment -22.3  16.6   -24.7    7.37   -23.4    7.81 -24.6
+#>  8     8 Lake Trout  Embayment -22.5  16.2   -26.6    6.93   -22.9    7.61 -24.6
+#>  9     9 Lake Trout  Embayment -22.9  16.4   -24.6    6.97   -22.7    7.32 -24.6
+#> 10    10 Lake Trout  Embayment -22.3  16.3   -22.1    7.95   -26.9   10.2  -24.6
+#> # ℹ 20 more rows
+#> # ℹ 7 more variables: n1 <dbl>, c2 <dbl>, n2 <dbl>, l1 <dbl>, alpha <dbl>,
+#> #   min_alpha <dbl>, max_alpha <dbl>
+```
+
+It is now ready to be analyzed!
+
+## Bayesian Analysis
+
+We can now estimate trophic position for lake trout in an ecoregion of
+Lake Ontario.
+
+There are a few things to know about running a Bayesian analysis, I
+suggest reading these resources:
+
+1.  [Basics of Bayesian Statistics -
+    Book](https://statswithr.github.io/book/)
+2.  [General Introduction to
+    brms](https://www.jstatsoft.org/article/view/v080i01)
+3.  [Estimating non-linear models with
+    brms](https://paulbuerkner.com/brms/articles/brms_nonlinear.html)
+4.  [Nonlinear modelling using nls nlme and
+    brms](https://www.granvillematheson.com/post/nonlinear-modelling-using-nls-nlme-and-brms/)
+5.  [Andrew Proctor’s - Module
+    6](https://andrewproctor.github.io/rcourse/module6.html)
+6.  [van de Schoot et al.,
+    (2021)](https://www.nature.com/articles/s43586-020-00001-2)
+
+### Priors
+
+Bayesian analyses rely on supplying uninformed or informed prior
+distributions for each parameter (coefficient; predictor) in the model.
+The default informed priors for a two source model are the following,
+$\alpha_{r}$ is bound by 0 and 1 and assumes an unformed beta
+distribution ($\alpha = 1$ and $\beta = 1$), $\Delta N$ assumes a normal
+distribution (`dn`; $\mu = 3.4$; $\sigma = 0.25$), trophic position
+assumes a uniform distribution (lower bound = 2 and upper bound = 10),
+$\sigma$ assumes a uniform distribution (lower bound = 0 and upper bound
+= 10), and if informed priors are desired for $\delta^{13}C_{b1}$ and
+$\delta^{13}C_{b2}$ (`c1` and `c2`; $\mu = - 21$ and $- 26$;
+$\sigma = 1$), and $\delta^{15}N_{b1}$ and $\delta^{15}N_{b2}$ (`n1` and
+`n2`; $\mu = 8$ and $9.5$; $\sigma = 1$), we can set the argument `bp`
+to `TRUE` in all `two_source_` functions.
+
+You can change these default priors using
+[`two_source_priors_params()`](https://benjaminhlina.github.io/trps/reference/two_source_priors_params.md),
+however, I would suggest becoming familiar with Bayesian analyses, your
+study species, and system prior to adjusting these values.
+
+### Model convergence
+
+It is important to always run the model with at least 2 chains. If the
+model does not converge you can try to increase the following:
+
+1.  The amount of samples that are burned-in (discarded; in
+    [`brm()`](https://paulbuerkner.com/brms/reference/brm.html) this can
+    be controlled by the argument `warmup`)
+
+2.  The number of iterative samples retained (in
+    [`brm()`](https://paulbuerkner.com/brms/reference/brm.html) this can
+    be controlled by the argument `iter`).
+
+3.  The number of samples drawn (in
+    [`brm()`](https://paulbuerkner.com/brms/reference/brm.html) this is
+    controlled by the argument `thin`).
+
+4.  The `adapt_delta` value using `control = list(adapt_delta = 0.95)`.
+
+When assessing the model we want $\widehat{R}$ to be 1 or within 0.05 of
+1, which indicates that the variance among and within chains are equal
+(see [{rstan} documentation on
+$\widehat{R}$](https://mc-stan.org/rstan/reference/Rhat.html)), a high
+value for effective sample size (ESS), trace plots to look “grassy” or
+“caterpillar like,” and posterior distributions to look relatively
+normal.
+
+## Estimating trophic position
+
+We will use functions from
+[{trps}](https://benjaminhlina.github.io/trps/) that drop into a
+[{brms}](https://paulbuerkner.com/brms/) model. These functions are
+[`two_source_model()`](https://benjaminhlina.github.io/trps/reference/two_source_model.md)
+which provides
+[`brm()`](https://paulbuerkner.com/brms/reference/brm.html) the formula
+structure needed to run a one source model. Next
+[`brm()`](https://paulbuerkner.com/brms/reference/brm.html) needs the
+structure of the priors which is supplied to the `prior` argument using
+[`two_source_priors()`](https://benjaminhlina.github.io/trps/reference/two_source_priors.md).
+Lastly, values for these priors are supplied through the `stanvars`
+argument using
+[`two_source_priors_params()`](https://benjaminhlina.github.io/trps/reference/two_source_priors_params.md).
+You can adjust the mean ($\mu$), variance ($\sigma$), or upper and lower
+bounds (`lb` and `ub`) for each prior of the model using
+[`two_source_priors_params()`](https://benjaminhlina.github.io/trps/reference/two_source_priors_params.md),
+however, only adjust priors if you have a good grasp of Bayesian
+frameworks and your study system and species.
+
+### Model
+
+Let’s run the model!
+
+``` r
+model_output_tsar <- brm(
+  formula = two_source_model_ar(),
+  prior = two_source_priors_ar(),
+  stanvars = two_source_priors_params_ar(),
+  data = combined_iso_tsar_1,
+  family = gaussian(),
+  chains = 2,
+  iter = 4000,
+  warmup = 1000,
+  cores = 4,
+  seed = 4,
+  control = list(adapt_delta = 0.95)
+)
+#> Compiling Stan program...
+#> Start sampling
+```
+
+### Model output
+
+Let’s view the summary of the model.
+
+``` r
+model_output_tsar
+#>  Family: MV(gaussian, gaussian) 
+#>   Links: mu = identity
+#>          mu = identity 
+#> Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha 
+#>          ar ~ 1
+#>          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) 
+#>          ar ~ 1
+#>          tp ~ 1
+#>          dn ~ 1
+#>    Data: combined_iso_tsar_1 (Number of observations: 30) 
+#>   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;
+#>          total post-warmup draws = 6000
+#> 
+#> Regression Coefficients:
+#>                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> alpha_ar_Intercept     0.56      0.04     0.48     0.65 1.00     5169     3901
+#> d15n_ar_Intercept      0.50      0.29     0.02     0.97 1.00     4949     3318
+#> d15n_tp_Intercept      4.61      0.20     4.26     5.05 1.00     2932     2993
+#> d15n_dn_Intercept      3.38      0.25     2.89     3.85 1.00     2938     2805
+#> 
+#> Further Distributional Parameters:
+#>             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> sigma_alpha     0.59      0.08     0.45     0.77 1.00     4000     3864
+#> sigma_d15n      0.62      0.09     0.48     0.82 1.00     4735     3853
+#> 
+#> Residual Correlations: 
+#>                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> rescor(alpha,d15n)    -0.13      0.18    -0.47     0.23 1.00     3637     3464
+#> 
+#> Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+#> and Tail_ESS are effective sample size measures, and Rhat is the potential
+#> scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+We can see that $\widehat{R}$ is 1 meaning that variance among and
+within chains are equal (see [{rstan} documentation on
+$\widehat{R}$](https://mc-stan.org/rstan/reference/Rhat.html)) and that
+ESS is quite large. Overall, this means the model is converging and
+fitting accordingly.
+
+### Trace plots
+
+Let’s view trace plots and posterior distributions for the model.
+
+``` r
+plot(model_output_tsar)
+```
+
+![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-1.png)![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-2.png)
+
+We can see that the trace plots look “grassy” meaning the model is
+converging!
+
+## Predictive posterior check
+
+### $\alpha$
+
+We can check how well the model is predicting the $\alpha$ of the
+consumer using
+[`pp_check()`](https://mc-stan.org/bayesplot/reference/pp_check.html)
+from [bayesplot](https://mc-stan.org/bayesplot/).
+
+``` r
+pp_check(model_output_tsar, resp = "alpha")
+#> Using 10 posterior draws for ppc type 'dens_overlay' by default.
+```
+
+![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-14-1.png)
+
+We can see that posteriors draws ($y_{rep}$; light lines) are
+effectively modeling $\alpha$ ($y$; dark line).
+
+### $\delta^{15}N$
+
+Next We can check how well the model is predicting the $\delta^{15}N$ of
+the consumer using
+[`pp_check()`](https://mc-stan.org/bayesplot/reference/pp_check.html)
+from [bayesplot](https://mc-stan.org/bayesplot/).
+
+``` r
+pp_check(model_output_tsar, resp = "d15n")
+#> Using 10 posterior draws for ppc type 'dens_overlay' by default.
+```
+
+![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-15-1.png)
+
+We can see that posteriors draws ($y_{rep}$; light lines) are
+effectively modeling $\delta^{15}N$ of the consumer ($y$; dark line).
+
+## Posterior draws
+
+Let’s again look at the summary output from the model.
+
+``` r
+model_output_tsar
+#>  Family: MV(gaussian, gaussian) 
+#>   Links: mu = identity
+#>          mu = identity 
+#> Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha 
+#>          ar ~ 1
+#>          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) 
+#>          ar ~ 1
+#>          tp ~ 1
+#>          dn ~ 1
+#>    Data: combined_iso_tsar_1 (Number of observations: 30) 
+#>   Draws: 2 chains, each with iter = 4000; warmup = 1000; thin = 1;
+#>          total post-warmup draws = 6000
+#> 
+#> Regression Coefficients:
+#>                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> alpha_ar_Intercept     0.56      0.04     0.48     0.65 1.00     5169     3901
+#> d15n_ar_Intercept      0.50      0.29     0.02     0.97 1.00     4949     3318
+#> d15n_tp_Intercept      4.61      0.20     4.26     5.05 1.00     2932     2993
+#> d15n_dn_Intercept      3.38      0.25     2.89     3.85 1.00     2938     2805
+#> 
+#> Further Distributional Parameters:
+#>             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> sigma_alpha     0.59      0.08     0.45     0.77 1.00     4000     3864
+#> sigma_d15n      0.62      0.09     0.48     0.82 1.00     4735     3853
+#> 
+#> Residual Correlations: 
+#>                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+#> rescor(alpha,d15n)    -0.13      0.18    -0.47     0.23 1.00     3637     3464
+#> 
+#> Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+#> and Tail_ESS are effective sample size measures, and Rhat is the potential
+#> scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+We can see that $\alpha_{r}$ is estimated to be `0.56` with `l-95% CI`
+of `0.47` and `u-95% CI` of `0.65`. These values do make more sense as
+this indicates the lake trout are using both bethic and pelagic resource
+which we know from previous work istrue.
+
+Moving down to the trophic position model we can see $\Delta N$ is
+estimated to be `3.38` with `l-95% CI` of `2.89`, and `u-95% CI` of
+`3.85`. If we move down to trophic position (`tp`) we see trophic
+position is estimated to be `4.61` with `l-95% CI` of `4.26`, and
+`u-95% CI` of `5.05`.
+
+### Extract posterior draws
+
+We use functions from [{tidybayes}](http://mjskay.github.io/tidybayes/)
+to do this work. First we look at the the names of the variables we want
+to extract using
+[`get_variables()`](https://mjskay.github.io/tidybayes/reference/get_variables.html).
+
+``` r
+get_variables(model_output_tsar)
+#>  [1] "b_alpha_ar_Intercept" "b_d15n_ar_Intercept"  "b_d15n_tp_Intercept" 
+#>  [4] "b_d15n_dn_Intercept"  "sigma_alpha"          "sigma_d15n"          
+#>  [7] "rescor__alpha__d15n"  "lprior"               "lp__"                
+#> [10] "accept_stat__"        "stepsize__"           "treedepth__"         
+#> [13] "n_leapfrog__"         "divergent__"          "energy__"
+```
+
+You will notice that `"b_alpha_ar_Intercept"` and
+`"b_d15n_tp_Intercept"` are the names of the variable that we are
+wanting to extract. We extract posterior draws using
+[`gather_draws()`](https://mjskay.github.io/tidybayes/reference/spread_draws.html),
+and rename `"b_alpha_ar_Intercept"` to `tp` and
+`"b_d13c_alpha_Intercept"` to `ar`.
+
+``` r
+post_draws <- model_output_tsar %>%
+  gather_draws(b_alpha_ar_Intercept, b_d15n_tp_Intercept) %>%
+  mutate(
+    ecoregion = "Embayment",
+    common_name = "Lake Trout",
+    .variable = case_when(
+      .variable %in% "b_d15n_tp_Intercept" ~ "tp",
+      .variable %in% "b_alpha_ar_Intercept" ~ "ar"
+    )
+  ) %>%
+  dplyr::select(common_name, ecoregion, .chain:.value)
+```
+
+Let’s view the `post_draws`
+
+``` r
+post_draws
+#> # A tibble: 12,000 × 7
+#> # Groups:   .variable [2]
+#>    common_name ecoregion .chain .iteration .draw .variable .value
+#>    <chr>       <chr>      <int>      <int> <int> <chr>      <dbl>
+#>  1 Lake Trout  Embayment      1          1     1 ar         0.614
+#>  2 Lake Trout  Embayment      1          2     2 ar         0.567
+#>  3 Lake Trout  Embayment      1          3     3 ar         0.572
+#>  4 Lake Trout  Embayment      1          4     4 ar         0.589
+#>  5 Lake Trout  Embayment      1          5     5 ar         0.610
+#>  6 Lake Trout  Embayment      1          6     6 ar         0.622
+#>  7 Lake Trout  Embayment      1          7     7 ar         0.494
+#>  8 Lake Trout  Embayment      1          8     8 ar         0.618
+#>  9 Lake Trout  Embayment      1          9     9 ar         0.511
+#> 10 Lake Trout  Embayment      1         10    10 ar         0.610
+#> # ℹ 11,990 more rows
+```
+
+We can see that this consists of seven variables:
+
+1.  `ecoregion`
+2.  `common_name`
+3.  `.chain`
+4.  `.iteration` (number of sample after burn-in)
+5.  `.draw` (number of samples from `iter`)
+6.  `.variable` (this will have different variables depending on what is
+    supplied to
+    [`gather_draws()`](https://mjskay.github.io/tidybayes/reference/spread_draws.html))
+7.  `.value` (estimated value)
+
+## Extracting credible intervals
+
+Considering we are likely using this information for a paper or
+presentation, it is nice to be able to report the median and credible
+intervals (e.g., equal-tailed intervals; ETI). We can extract and export
+these values using
+[`gather_draws()`](https://mjskay.github.io/tidybayes/reference/spread_draws.html)
+and `median_qi` from [{tidybayes}](http://mjskay.github.io/tidybayes/).
+
+We rename `d15n_tp_Intercept` to `tp` and `b_alpha_ar_Intercept` to
+`ar`, add the grouping columns, round all columns that are numeric to
+two decimal points using
+[`mutate_if()`](https://dplyr.tidyverse.org/reference/mutate_all.html),
+and rearrange the order of the columns using
+[`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html).
+
+``` r
+medians_ci <- model_output_tsar %>%
+  gather_draws(
+    b_alpha_ar_Intercept,
+    b_d15n_tp_Intercept
+  ) %>%
+  median_qi() %>%
+  mutate(
+    ecoregion = "Embayment",
+    common_name = "Lake Trout",
+    .variable = case_when(
+      .variable %in% "b_d15n_tp_Intercept" ~ "tp",
+      .variable %in% "b_alpha_ar_Intercept" ~ "ar"
+    )
+  ) %>%
+  mutate_if(is.numeric, round, digits = 2)
+```
+
+Let’s view the output.
+
+``` r
+medians_ci
+#> # A tibble: 2 × 9
+#>   .variable .value .lower .upper .width .point .interval ecoregion common_name
+#>   <chr>      <dbl>  <dbl>  <dbl>  <dbl> <chr>  <chr>     <chr>     <chr>      
+#> 1 ar          0.57   0.48   0.65   0.95 median qi        Embayment Lake Trout 
+#> 2 tp          4.59   4.26   5.05   0.95 median qi        Embayment Lake Trout
+```
+
+I like to use [{openxlsx}](https://ycphs.github.io/openxlsx/index.html)
+to export these values into a table that I can use for presentations and
+papers. For the vignette I am not going to demonstrate how to do this
+but please check out
+[openxlsx](https://ycphs.github.io/openxlsx/index.html).
+
+## Plotting posterior distributions – single species or group
+
+Now that we have our posterior draws extracted we can plot them. To
+analyze *a single* species or group, I like using density plots.
+
+### Density plot
+
+For this example we first plot the density for posterior draws using
+[`geom_density()`](https://ggplot2.tidyverse.org/reference/geom_density.html).
+
+``` r
+ggplot(data = post_draws, aes(x = .value)) +
+  geom_density() +
+  facet_wrap(~.variable, scale = "free") +
+  theme_bw(base_size = 15) +
+  theme(
+    panel.grid = element_blank(),
+    strip.background = element_blank(),
+  ) +
+  labs(
+    x = "P(Estimate | X)",
+    y = "Density"
+  )
+```
+
+![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-22-1.png)
+
+### Point interval
+
+Next we plot it as a point interval plot using
+[`stat_pointinterval()`](https://mjskay.github.io/ggdist/reference/stat_pointinterval.html).
+
+``` r
+ggplot(data = post_draws, aes(
+  y = .value,
+  x = common_name
+)) +
+  stat_pointinterval() +
+  facet_wrap(~.variable, scale = "free") +
+  theme_bw(base_size = 15) +
+  theme(
+    panel.grid = element_blank(),
+    strip.background = element_blank(),
+  ) +
+  labs(
+    x = "P(Estimate | X)",
+    y = "Density"
+  )
+```
+
+![](estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-23-1.png)
+
+Congratulations we have estimated the trophic position for Lake Trout!
+Again, you will notice estimates of $\alpha_{r}$ do make sense and this
+model is estimating $\alpha$ on the correct scale.
+
+You can use iterative process to produce estimates of trophic position
+for more than one group (e.g., comparing trophic position among species
+or in this case different ecoregions) that are demonstrated in [estimate
+trophic position - one source - multiple
+groups](https://benjaminhlina.github.io/trps/articles/article/estimate_trophic_position_one_source_multiple_groups.md).

@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../../index.html">trps</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,9 +133,9 @@ is the maximum value of
 calculated above,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
 is then used in the trophic position equation below.</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">Trophic Position</mtext><mo>=</mo><mi>λ</mi><mo>+</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mi>c</mi></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>1</mn></mrow></msub><mo>×</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>δ</mi><mn>15</mn></msup><msub><mi>N</mi><mrow><mi>b</mi><mn>2</mn></mrow></msub><mo>×</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>α</mi><mi>r</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>Δ</mi><mi>N</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 \text{Trophic Position} = \lambda + \frac{(\delta^{15}N_c - 
-[(\delta^{15}N_{b1} \times \alpha_r) - (\delta^{15}N_{b1} \times (1 - \alpha_r))]}{\Delta N}
+[(\delta^{15}N_{b1} \times \alpha_r) + (\delta^{15}N_{b2} \times (1 - \alpha_r))]}{\Delta N}
 </annotation></semantics></math></p>
 <p>where
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>
@@ -597,8 +597,8 @@ frameworks and your study system and species.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_output_tsar</span></span>
 <span><span class="co">#&gt;  Family: MV(gaussian, gaussian) </span></span>
-<span><span class="co">#&gt;   Links: mu = identity; sigma = identity</span></span>
-<span><span class="co">#&gt;          mu = identity; sigma = identity </span></span>
+<span><span class="co">#&gt;   Links: mu = identity</span></span>
+<span><span class="co">#&gt;          mu = identity </span></span>
 <span><span class="co">#&gt; Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha </span></span>
 <span><span class="co">#&gt;          ar ~ 1</span></span>
 <span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) </span></span>
@@ -642,7 +642,7 @@ and fitting accordingly.</p>
 <p>Let’s view trace plots and posterior distributions for the model.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">model_output_tsar</span><span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-1.png" width="700"><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-2.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="700"><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-13-2.png" class="r-plt" width="700"></p>
 <p>We can see that the trace plots look “grassy” meaning the model is
 converging!</p>
 </div>
@@ -661,7 +661,7 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_tsar</span>, resp <span class="op">=</span> <span class="st">"alpha"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
@@ -680,7 +680,7 @@ of the consumer using <code><a href="https://mc-stan.org/bayesplot/reference/pp_
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://mc-stan.org/bayesplot/reference/pp_check.html" class="external-link">pp_check</a></span><span class="op">(</span><span class="va">model_output_tsar</span>, resp <span class="op">=</span> <span class="st">"d15n"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Using 10 posterior draws for ppc type 'dens_overlay' by default.</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-15-1.png" class="r-plt" width="700"></p>
 <p>We can see that posteriors draws
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi></mrow></msub><annotation encoding="application/x-tex">y_{rep}</annotation></semantics></math>;
 light lines) are effectively modeling
@@ -697,8 +697,8 @@ dark line).</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">model_output_tsar</span></span>
 <span><span class="co">#&gt;  Family: MV(gaussian, gaussian) </span></span>
-<span><span class="co">#&gt;   Links: mu = identity; sigma = identity</span></span>
-<span><span class="co">#&gt;          mu = identity; sigma = identity </span></span>
+<span><span class="co">#&gt;   Links: mu = identity</span></span>
+<span><span class="co">#&gt;          mu = identity </span></span>
 <span><span class="co">#&gt; Formula: alpha ~ ar * (max_alpha - min_alpha) + min_alpha </span></span>
 <span><span class="co">#&gt;          ar ~ 1</span></span>
 <span><span class="co">#&gt;          d15n ~ dn * (tp - l1) + n1 * ar + n2 * (1 - ar) </span></span>
@@ -874,7 +874,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-22-1.png" class="r-plt" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="point-interval">Point interval<a class="anchor" aria-label="anchor" href="#point-interval"></a>
@@ -897,7 +897,7 @@ plots.</p>
 <span>    x <span class="op">=</span> <span class="st">"P(Estimate | X)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Density"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
+<p><img src="estimate_trophic_position_two_source_model_ar_files/figure-html/unnamed-chunk-23-1.png" class="r-plt" width="700"></p>
 <p>Congratulations we have estimated the trophic position for Lake
 Trout! Again, you will notice estimates of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mi>r</mi></msub><annotation encoding="application/x-tex">\alpha_r</annotation></semantics></math>
@@ -922,7 +922,7 @@ trophic position - one source - multiple groups</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
