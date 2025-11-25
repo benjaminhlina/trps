@@ -306,9 +306,9 @@ test_that("test one-source priors sigma_ub", {
 
 test_that("test priors fails sigma_ub ", {
   expect_error(
-    one_source_priors_params(,
+    one_source_priors_params(
       sigma_ub = "test"
     ),
-    regexp = "`sigma_ub` argument must be a numerical value"
+    regexp = "`sigma_ub` argument must be a numerical value."
   )
 })

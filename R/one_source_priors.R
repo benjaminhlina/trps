@@ -18,13 +18,7 @@
 #' @export
 
 one_source_priors <- function(bp = FALSE) {
-  if (!(is.logical(bp))) {
-    cli::cli_abort(c(
-      "`bp` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
-
+  check_logical(bp)
 
   if (isFALSE(bp)) {
     #  set priors
@@ -70,8 +64,6 @@ one_source_priors <- function(bp = FALSE) {
       brms::prior(uniform(sigma_lb, sigma_ub), class = "sigma", ub = sigma_ub)
     )
   }
-
-
 
   return(priors)
 }

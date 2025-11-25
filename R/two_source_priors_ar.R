@@ -21,12 +21,7 @@
 #' @export
 
 two_source_priors_ar <- function(bp = FALSE) {
-  if (!(is.logical(bp))) {
-    cli::cli_abort(c(
-      "`bp` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
+  check_logical(bp)
 
 
   if (isFALSE(bp)) {
@@ -41,17 +36,17 @@ two_source_priors_ar <- function(bp = FALSE) {
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
       brms::prior(uniform(tp_lb, tp_ub),
-        lb = tp_lb, ub = tp_ub, resp = "d15n",
-        nlpar = "tp"
+                  lb = tp_lb, ub = tp_ub, resp = "d15n",
+                  nlpar = "tp"
       ),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub),
-        resp = "alpha",
-        class = "sigma", ub = sigma_ub
+                  resp = "alpha",
+                  class = "sigma", ub = sigma_ub
       ),
       brms::prior(uniform(sigma_lb, sigma_ub),
-        resp = "d15n",
-        class = "sigma", ub = sigma_ub
+                  resp = "d15n",
+                  class = "sigma", ub = sigma_ub
       )
     )
   }
@@ -66,29 +61,29 @@ two_source_priors_ar <- function(bp = FALSE) {
 
       # Baseline 1 δ15N (n1)
       brms::prior(normal(n1, n1_sigma),
-        resp = "d15n",
-        nlpar = "n1"
+                  resp = "d15n",
+                  nlpar = "n1"
       ),
       # Baseline 2 δ15N (n2)
       brms::prior(normal(n2, n2_sigma),
-        resp = "d15n",
-        nlpar = "n2"
+                  resp = "d15n",
+                  nlpar = "n2"
       ),
       # Trophic enrichment factor (ΔN)
       brms::prior(normal(dn, dn_sigma), resp = "d15n", nlpar = "dn"),
       # Trophic Position (tp)
       brms::prior(uniform(tp_lb, tp_ub),
-        lb = tp_lb, ub = tp_ub, resp = "d15n",
-        nlpar = "tp"
+                  lb = tp_lb, ub = tp_ub, resp = "d15n",
+                  nlpar = "tp"
       ),
       # Standard deviation prior
       brms::prior(uniform(sigma_lb, sigma_ub),
-        resp = "alpha",
-        class = "sigma", ub = sigma_ub
+                  resp = "alpha",
+                  class = "sigma", ub = sigma_ub
       ),
       brms::prior(uniform(sigma_lb, sigma_ub),
-        resp = "d15n",
-        class = "sigma", ub = sigma_ub
+                  resp = "d15n",
+                  class = "sigma", ub = sigma_ub
       )
     )
   }

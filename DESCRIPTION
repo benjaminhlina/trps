@@ -1,7 +1,7 @@
 Package: trps
 Type: Package
-Title: Bayesian Trophic Position Models using 'stan'
-Version: 0.1.0
+Title: Bayesian Trophic Position Models using 'Stan'
+Version: 0.1.1
 Authors@R: c(
     person(
       "Benjamin L.", "Hlina",
@@ -23,7 +23,8 @@ Imports:
     brms,
     cli,
     dplyr,
-    lifecycle
+    lifecycle,
+    rlang
 Suggests: 
     bayesplot,
     ggdist,
@@ -37,7 +38,7 @@ Suggests:
     tidyr,
     viridis
 Config/testthat/edition: 3
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Depends: 
     R (>= 4.1.0)

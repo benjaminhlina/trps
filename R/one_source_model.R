@@ -34,12 +34,7 @@
 #' @export
 
 one_source_model <- function(bp = FALSE) {
-  if (!(is.logical(bp))) {
-    cli::cli_abort(c(
-      "`bp` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
+  check_logical(bp)
 
   if (isFALSE(bp)) {
     model <- brms::bf(

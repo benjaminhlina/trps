@@ -32,36 +32,12 @@
 
 add_alpha <- function(
     data,
-    abs = FALSE) {
-  if (!(inherits(data, c(
-    "data.frame", "tibble",
-    "data.table"
-  )))) {
-    cli::cli_abort(c(
-      "`data` must be a data.frame, tibble, or data.table",
-      "i" = "Please provide data.frame"
-    ))
-  }
+    abs = FALSE
+) {
 
-  rv <- c("d13c", "c1", "c2")
-
-  if (!all(rv %in% names(data))) {
-    mv <- setdiff(rv, names(data))
-
-    cli::cli_abort(c(
-      "The data.frame is missing: {mv}",
-      "i" = "Please provide {mv}"
-    ))
-  }
-
-
-
-  if (!(is.logical(abs))) {
-    cli::cli_abort(c(
-      "`abs` argument must be a logical value",
-      "i" = "Please provide TRUE or FALSE"
-    ))
-  }
+  check_data_frame(data)
+  check_column_names(data)
+  check_logical(abs)
 
   if (isFALSE(abs)) {
     dat <- data |>
